@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Soomla.Store;
 
+/// <summary>
+/// Game controller.
+/// </summary>
 [RequireComponent (typeof(ObjectPool))]
 public class GameController : MonoBehaviour 
 {
