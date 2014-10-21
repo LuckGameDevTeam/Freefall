@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: f0a9a3f3c27504a53bb7c9fca15be8f2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Pumpkin
+    21300002: PumpkinCat_Normal1
+    21300004: PumpkinCat_Normal2
+    21300006: PumpkinCat_Normal3
+    21300008: PumpkinCat_Normal4
+    21300010: PumpkinCat_Normal5
+    21300012: PumpkinCat_Moving1
+    21300014: PumpkinCat_Moving2
+    21300016: PumpkinCat_Moving3
+    21300018: PumpkinCat_Moving4
+    21300020: PumpkinCat_Moving5
+    21300022: PumpkinCat_Dead
+    21300024: PumpkinCat_Victory
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PumpkinCat_Normal1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 865
+        width: 176
+        height: 125
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Normal2
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 856
+        width: 180
+        height: 138
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Normal3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 859
+        width: 176
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Normal4
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 858
+        width: 176
+        height: 137
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Normal5
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 854
+        width: 178
+        height: 141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Moving1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 660
+        width: 167
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Moving2
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 652
+        width: 165
+        height: 156
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Moving3
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 648
+        width: 172
+        height: 167
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Moving4
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 649
+        width: 163
+        height: 162
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Moving5
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 649
+        width: 168
+        height: 158
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Dead
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 464
+        width: 163
+        height: 148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PumpkinCat_Victory
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 426
+        width: 201
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

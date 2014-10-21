@@ -1,0 +1,598 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: ShopPortrait
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 854facea1480f4f34bbd4e814643b9bb, type: 2}
+  sprites:
+  - name: icon_gold
+    outer:
+      serializedVersion: 2
+      x: 572
+      y: 633
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 572
+      y: 633
+      width: 40
+      height: 40
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: BellCat
+    outer:
+      serializedVersion: 2
+      x: 1458
+      y: 1530
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1458
+      y: 1530
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ui_heading
+    outer:
+      serializedVersion: 2
+      x: 1630
+      y: 1678
+      width: 385
+      height: 110
+    inner:
+      serializedVersion: 2
+      x: 1630
+      y: 1678
+      width: 385
+      height: 110
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_select
+    outer:
+      serializedVersion: 2
+      x: 1286
+      y: 1530
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1286
+      y: 1530
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatCookieBig
+    outer:
+      serializedVersion: 2
+      x: 1114
+      y: 1530
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1114
+      y: 1530
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: PumpkinCat
+    outer:
+      serializedVersion: 2
+      x: 942
+      y: 1530
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 942
+      y: 1530
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ui_select_flash
+    outer:
+      serializedVersion: 2
+      x: 572
+      y: 675
+      width: 178
+      height: 87
+    inner:
+      serializedVersion: 2
+      x: 572
+      y: 675
+      width: 178
+      height: 87
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button_c_off
+    outer:
+      serializedVersion: 2
+      x: 172
+      y: 30
+      width: 160
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 172
+      y: 30
+      width: 160
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatCrown
+    outer:
+      serializedVersion: 2
+      x: 770
+      y: 1530
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 770
+      y: 1530
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button_c_on
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 30
+      width: 160
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 30
+      width: 160
+      height: 70
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: GhostCat
+    outer:
+      serializedVersion: 2
+      x: 1802
+      y: 1790
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1802
+      y: 1790
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatStick
+    outer:
+      serializedVersion: 2
+      x: 1630
+      y: 1790
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1630
+      y: 1790
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ui_gold
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 38
+      width: 220
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 38
+      width: 220
+      height: 62
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatDoll
+    outer:
+      serializedVersion: 2
+      x: 1458
+      y: 1790
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1458
+      y: 1790
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatShield
+    outer:
+      serializedVersion: 2
+      x: 1286
+      y: 1790
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1286
+      y: 1790
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_player_lock
+    outer:
+      serializedVersion: 2
+      x: 688
+      y: 564
+      width: 40
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 688
+      y: 564
+      width: 40
+      height: 56
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatSword
+    outer:
+      serializedVersion: 2
+      x: 1114
+      y: 1790
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 1114
+      y: 1790
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatMagnet
+    outer:
+      serializedVersion: 2
+      x: 942
+      y: 1790
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 942
+      y: 1790
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: TarzanCat
+    outer:
+      serializedVersion: 2
+      x: 770
+      y: 1790
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 770
+      y: 1790
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CandyCat
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 102
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 102
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: NinjaCat
+    outer:
+      serializedVersion: 2
+      x: 344
+      y: 102
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 344
+      y: 102
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: shop_ui_02
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 622
+      width: 570
+      height: 400
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 622
+      width: 570
+      height: 400
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: HulkCat
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 362
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 362
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CoinPack2
+    outer:
+      serializedVersion: 2
+      x: 344
+      y: 362
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 344
+      y: 362
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CoinBox
+    outer:
+      serializedVersion: 2
+      x: 172
+      y: 102
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 172
+      y: 102
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CoinPack3
+    outer:
+      serializedVersion: 2
+      x: 172
+      y: 362
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 172
+      y: 362
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CatEnergy
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 102
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 102
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: CoinPack1
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 362
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 362
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: IronCat
+    outer:
+      serializedVersion: 2
+      x: 572
+      y: 764
+      width: 170
+      height: 258
+    inner:
+      serializedVersion: 2
+      x: 572
+      y: 764
+      width: 170
+      height: 258
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Info_wallpaper
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1024
+      width: 768
+      height: 1024
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1024
+      width: 768
+      height: 1024
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

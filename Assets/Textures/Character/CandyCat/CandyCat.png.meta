@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: 0523b6c3950c94f1d84eb9ff4394898f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CandyCat
+    21300002: CandyCat_Normal1
+    21300004: CandyCat_Normal2
+    21300006: CandyCat_Normal3
+    21300008: CandyCat_Normal4
+    21300010: CandyCat_Normal5
+    21300012: CandyCat_Moving1
+    21300014: CandyCat_Moving2
+    21300016: CandyCat_Moving3
+    21300018: CandyCat_Moving4
+    21300020: CandyCat_Moving5
+    21300022: CandyCat_Dead
+    21300024: CandyCat_Victory
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CandyCat_Normal1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 860
+        width: 160
+        height: 150
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Normal2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 860
+        width: 160
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Normal3
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 858
+        width: 164
+        height: 153
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Normal4
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 858
+        width: 170
+        height: 147
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Normal5
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 859
+        width: 162
+        height: 147
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Moving1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 661
+        width: 157
+        height: 161
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Moving2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 658
+        width: 162
+        height: 166
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Moving3
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 651
+        width: 159
+        height: 171
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Moving4
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 654
+        width: 159
+        height: 166
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Moving5
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 653
+        width: 161
+        height: 166
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Dead
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 472
+        width: 165
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CandyCat_Victory
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 440
+        width: 217
+        height: 169
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

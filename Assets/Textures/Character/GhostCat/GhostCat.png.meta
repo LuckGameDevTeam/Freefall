@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: e4cfa3cc8c8584722a8d46492c6ffa95
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GhostCat
+    21300002: GhostCat_Normal1
+    21300004: GhostCat_Normal3
+    21300006: GhostCat_Normal4
+    21300008: GhostCat_Normal5
+    21300010: GhostCat_Normal2
+    21300012: GhostCat_Moving1
+    21300014: GhostCat_Moving2
+    21300016: GhostCat_Moving3
+    21300018: GhostCat_Moving4
+    21300020: GhostCat_Moving5
+    21300022: GhostCat_Dead
+    21300024: GhostCat_Victory
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: GhostCat_Normal1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 837
+        width: 182
+        height: 187
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Normal3
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 832
+        width: 186
+        height: 190
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Normal4
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 836
+        width: 182
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Normal5
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 835
+        width: 187
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Normal2
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 837
+        width: 184
+        height: 187
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Moving1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 646
+        width: 191
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Moving2
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 647
+        width: 184
+        height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Moving3
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 642
+        width: 183
+        height: 187
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Moving4
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 646
+        width: 180
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Moving5
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 645
+        width: 186
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Dead
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 451
+        width: 191
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GhostCat_Victory
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 435
+        width: 186
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

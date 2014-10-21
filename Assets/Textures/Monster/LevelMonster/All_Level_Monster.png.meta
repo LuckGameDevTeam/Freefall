@@ -1,0 +1,323 @@
+fileFormatVersion: 2
+guid: af0e0ce10200a4a998491867dd5ebbf4
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: All_Level_Monster
+    21300002: bb
+    21300004: gb
+    21300006: cd
+    21300008: rb
+    21300010: shot
+    21300012: to
+    21300014: ban
+    21300016: pp
+    21300018: banan
+    21300020: du
+    21300022: jba
+    21300024: lla
+    21300026: llb
+    21300028: do
+    21300030: llc
+    21300032: ph
+    21300034: tor
+    21300036: br
+    21300038: gs
+    21300040: gf
+    21300042: fs
+    21300044: uf
+    21300046: ma
+    21300048: sm
+    21300050: as
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bb
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1829
+        width: 50
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gb
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1797
+        width: 80
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cd
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1821
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rb
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1767
+        width: 130
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shot
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 1793
+        width: 124
+        height: 126
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: to
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1599
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ban
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1589
+        width: 70
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pp
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1579
+        width: 72
+        height: 114
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: banan
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 1571
+        width: 146
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: du
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 1575
+        width: 170
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jba
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1319
+        width: 68
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lla
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 1289
+        width: 84
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: llb
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1285
+        width: 58
+        height: 118
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: do
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 1265
+        width: 158
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: llc
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 1243
+        width: 154
+        height: 204
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ph
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1021
+        width: 108
+        height: 94
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tor
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 1001
+        width: 116
+        height: 134
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: br
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1007
+        width: 114
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gs
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 969
+        width: 208
+        height: 198
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gf
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 985
+        width: 128
+        height: 166
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fs
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 731
+        width: 108
+        height: 102
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: uf
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 729
+        width: 164
+        height: 104
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ma
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 709
+        width: 116
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sm
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 671
+        width: 192
+        height: 220
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: as
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 669
+        width: 212
+        height: 244
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

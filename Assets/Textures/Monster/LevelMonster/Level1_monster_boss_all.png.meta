@@ -1,0 +1,103 @@
+fileFormatVersion: 2
+guid: 323f462a663934a8988043e0159897d2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Level1_monster_boss_all
+    21300002: NaughtyCat1
+    21300004: NaughtyCat2
+    21300006: NaughtyCat3
+    21300008: NaughtyCat4
+    21300010: NaughtyCat5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: NaughtyCat1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1656
+        width: 338
+        height: 324
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NaughtyCat2
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1656
+        width: 338
+        height: 326
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NaughtyCat3
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1652
+        width: 347
+        height: 345
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NaughtyCat4
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1658
+        width: 338
+        height: 331
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NaughtyCat5
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 1665
+        width: 327
+        height: 329
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

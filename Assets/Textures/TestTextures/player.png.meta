@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: fdaa172c784df408db029da263501404
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: player
+    21300002: move_left2
+    21300004: player_1
+    21300006: move_left1
+    21300008: jump
+    21300010: move_left3
+    21300012: move_left4
+    21300014: dead
+    21300016: move_right3
+    21300018: move_right1
+    21300020: move_right2
+    21300022: move_right4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: move_left2
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 1611
+        width: 462
+        height: 437
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_1
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 1948
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: move_left1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1518
+        width: 456
+        height: 454
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: jump
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1532
+        width: 454
+        height: 475
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: move_left3
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 1012
+        width: 448
+        height: 422
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: move_left4
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 1136
+        width: 453
+        height: 447
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dead
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 1095
+        width: 478
+        height: 438
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: move_right3
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 197
+        width: 452
+        height: 444
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: move_right1
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 676
+        width: 454
+        height: 440
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: move_right2
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 584
+        width: 450
+        height: 451
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: move_right4
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 74
+        width: 448
+        height: 404
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

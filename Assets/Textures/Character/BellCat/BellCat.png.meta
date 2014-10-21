@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: 5819283ad025745958d592073ae3eb40
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BellCat
+    21300002: BellCat_Normal1
+    21300004: BellCat_Normal2
+    21300006: BellCat_Normal3
+    21300008: BellCat_Normal4
+    21300010: BellCat_Normal5
+    21300012: BellCat_Moving1
+    21300014: BellCat_Moving2
+    21300016: BellCat_Moving3
+    21300018: BellCat_Moving4
+    21300020: BellCat_Moving5
+    21300022: NonUse1
+    21300024: NonUse2
+    21300026: NonUse3
+    21300028: NonUse4
+    21300030: NonUse5
+    21300032: BellCat_Jump1
+    21300034: BellCat_Jump2
+    21300036: BellCat_Jump3
+    21300038: BellCat_Jump4
+    21300040: BellCat_Jump5
+    21300042: BellCat_Dead
+    21300044: BellCat_Victory
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BellCat_Normal1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 884
+        width: 151
+        height: 130
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Normal2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 878
+        width: 150
+        height: 121
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Normal3
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 872
+        width: 152
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Normal4
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 878
+        width: 153
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Normal5
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 882
+        width: 152
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Moving1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 693
+        width: 149
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Moving2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 691
+        width: 150
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Moving3
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 689
+        width: 142
+        height: 138
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Moving4
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 691
+        width: 155
+        height: 137
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Moving5
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 694
+        width: 144
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NonUse1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 496
+        width: 154
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NonUse2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 496
+        width: 155
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NonUse3
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 494
+        width: 145
+        height: 146
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NonUse4
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 497
+        width: 157
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NonUse5
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 498
+        width: 150
+        height: 141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Jump1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 308
+        width: 149
+        height: 130
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Jump2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 314
+        width: 154
+        height: 121
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Jump3
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 315
+        width: 149
+        height: 127
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Jump4
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 320
+        width: 156
+        height: 122
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Jump5
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 316
+        width: 152
+        height: 123
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Dead
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 111
+        width: 147
+        height: 138
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BellCat_Victory
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 35
+        width: 200
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

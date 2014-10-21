@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 52aeec84ca3044f54852a2a030188878
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BossMonster1
+    21300002: nc1
+    21300004: nc2
+    21300006: nc3
+    21300008: nc4
+    21300010: nc5
+    21300012: ora1
+    21300014: ora2
+    21300016: ora3
+    21300018: ora4
+    21300020: ora5
+    21300022: wb1
+    21300024: wb2
+    21300026: wb3
+    21300028: wb4
+    21300030: wb5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: nc1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1656
+        width: 338
+        height: 324
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nc2
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1656
+        width: 338
+        height: 326
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nc3
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1652
+        width: 347
+        height: 345
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nc4
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1658
+        width: 338
+        height: 331
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: nc5
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 1665
+        width: 327
+        height: 329
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ora1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1291
+        width: 346
+        height: 305
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ora2
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1278
+        width: 325
+        height: 325
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ora3
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 1272
+        width: 274
+        height: 342
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ora4
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 1273
+        width: 303
+        height: 335
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ora5
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 1279
+        width: 336
+        height: 319
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wb1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 830
+        width: 338
+        height: 380
+      alignment: 9
+      pivot: {x: .649999976, y: .529999971}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wb2
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 830
+        width: 350
+        height: 353
+      alignment: 9
+      pivot: {x: .5, y: .560000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wb3
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 830
+        width: 295
+        height: 380
+      alignment: 9
+      pivot: {x: .5, y: .519999981}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wb4
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 830
+        width: 310
+        height: 385
+      alignment: 9
+      pivot: {x: .349999994, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wb5
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 830
+        width: 350
+        height: 354
+      alignment: 9
+      pivot: {x: .5, y: .560000002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

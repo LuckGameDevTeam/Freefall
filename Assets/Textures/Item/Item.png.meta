@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: 01fff70e9e7cb4fd0a1f2da69fa79d8a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Item
+    21300002: fb_b
+    21300004: fb_s
+    21300006: cb_b
+    21300008: cb_s
+    21300010: cg_b
+    21300012: cg_s
+    21300014: cb
+    21300016: cc
+    21300018: cbaozhang
+    21300020: csword
+    21300022: cshield
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: fb_b
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 886
+        width: 120
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fb_s
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 898
+        width: 76
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cb_b
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 884
+        width: 69
+        height: 70
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cb_s
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 895
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cg_b
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 882
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cg_s
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 893
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cb
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 727
+        width: 75
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cc
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 726
+        width: 92
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cbaozhang
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 726
+        width: 95
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: csword
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 727
+        width: 104
+        height: 98
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cshield
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 722
+        width: 79
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

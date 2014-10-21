@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{294A7972-A3DE-0E3D-73D1-68C6760ACA47}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_5_4;UNITY_4_5;UNITY_IPHONE;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;UNITY_IPHONE_API;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_GAMECENTER;UNITY_IOS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;Test</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Plugins\Soomla\Core\AndroidImpl\RewardStorageAndroid.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\CoreSettings.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\ISoomlaSettings.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\ObjectDictionary.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\SoomlaEditorScript.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\UnityDictionary.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\android\ISoomlaManifestTools.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\android\SoomlaAndroidUtil.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\Config\android\SoomlaManifestTools.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\CoreEvents.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\IOSImpl\RewardStorageIOS.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\JSONObject.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\NullCheckable.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\SoomlaEntity.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\SoomlaUtils.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\data\JSONConsts.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\data\RewardStorage.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\rewards\BadgeReward.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\rewards\RandomReward.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\rewards\Reward.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Core\rewards\SequenceReward.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\AndroidImpl\AndroidJNIHandler.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\AndroidImpl\SoomlaStoreAndroid.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\AndroidImpl\StoreInfoAndroid.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\AndroidImpl\StoreInventoryAndroid.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\Config\StoreManifestTools.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\Config\StoreSettings.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\IOSImpl\IOS_ErrorCodes.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\IOSImpl\SoomlaStoreIOS.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\IOSImpl\StoreInfoIOS.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\IOSImpl\StoreInventoryIOS.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\IStoreAssets.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\SoomlaStore.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\StoreEvents.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\StoreInventory.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\data\JSONConsts.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\data\StoreInfo.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\MarketItem.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\NonConsumableItem.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\PurchasableVirtualItem.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\VirtualCategory.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\VirtualItem.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualCurrencies\VirtualCurrency.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualCurrencies\VirtualCurrencyPack.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualGoods\EquippableVG.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualGoods\LifetimeVG.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualGoods\SingleUsePackVG.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualGoods\SingleUseVG.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualGoods\UpgradeVG.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\domain\virtualGoods\VirtualGood.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\exceptions\InsufficientFundsException.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\exceptions\NotEnoughGoodsException.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\exceptions\VirtualItemNotFoundException.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\purchaseTypes\PurchaseType.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\purchaseTypes\PurchaseWithMarket.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\purchaseTypes\PurchaseWithVirtualItem.cs" />
+     <Compile Include="Assets\Plugins\Soomla\Store\rewards\VirtualItemReward.cs" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Models\Orc\Orc Skin.shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\UILocalizationFiles\English.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\GUI - Text Shader (SoftClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Dynamic Font (AlphaClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (AlphaClip) .shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (AlphaClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Transparent Colored (AlphaClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\GUI - Text Shader (AlphaClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Dynamic Font (SoftClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (SoftClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (SoftClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Dynamic Font.shader" />
+     <None Include="Assets\UILocalizationFiles\Chinese-Traditional.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\ReadMe - 2.7.0.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Other\English.txt" />
+     <None Include="Assets\UI\Fonts\font.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Other\French.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed).shader" />
+     <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Shaders\Refractive.shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Depth.shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
+     <None Include="Assets\ThirdParty\NGUI\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
