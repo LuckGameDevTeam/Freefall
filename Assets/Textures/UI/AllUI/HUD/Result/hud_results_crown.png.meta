@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 7e5a3f7c6c33e4dcc8f28afdbf17c8cb
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: hud_results_crown
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -17,7 +18,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: .25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
@@ -25,7 +26,7 @@ TextureImporter:
   maxTextureSize: 4096
   textureSettings:
     filterMode: 0
-    aniso: -1
+    aniso: 1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
