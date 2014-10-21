@@ -5,6 +5,8 @@ using Soomla.Store;
 
 /// <summary>
 /// Game controller.
+/// 
+/// Class
 /// </summary>
 [RequireComponent (typeof(ObjectPool))]
 public class GameController : MonoBehaviour 
