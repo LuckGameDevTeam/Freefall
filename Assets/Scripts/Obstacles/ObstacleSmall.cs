@@ -10,6 +10,7 @@ using System.Collections;
 /// </summary>
 public class ObstacleSmall : Obstacle 
 {
+	public AudioClip appearClip;
 
 	//on collision
 	void OnTriggerEnter2D(Collider2D other)
@@ -28,5 +29,14 @@ public class ObstacleSmall : Obstacle
 	protected override void BounceObstacle (Vector2 bounceDir)
 	{
 		base.BounceObstacle (bounceDir);
+	}
+
+	public override void InitObstacle()
+	{
+		if((appearClip != null) && (soundPlayer != null))
+		{
+			soundPlayer.sfxClip = appearClip;
+			soundPlayer.PlaySound();
+		}
 	}
 }

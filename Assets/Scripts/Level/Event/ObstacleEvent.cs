@@ -130,6 +130,14 @@ public class ObstacleEvent : SpawnEvent
 			selectedIndex = Random.Range(0, obstacleSpawnKeys.Count);
 			GameObject obstaclePrefab = obstacleSpawnKeys[selectedIndex];
 
+			//prefabe is null
+			if(obstaclePrefab == null)
+			{
+				Debug.LogError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
+
+				return;
+			}
+
 			//tell spawn point to spawn obstacle
 			LevelSpawner spawner = selectSpawnPoint.GetComponent<LevelSpawner>();
 			spawner.SpawnObject(obstaclePrefab);

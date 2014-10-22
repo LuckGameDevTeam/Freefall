@@ -32,15 +32,28 @@ public class SFXPlayer : MonoBehaviour
 	public bool playOnStart = false;
 
 	/// <summary>
+	/// The ignore time scale.
+	/// 
+	/// true audio playback will not depend on time scale, otherwise false
+	/// </summary>
+	public bool ignoreTimeScale = false;
+
+	/// <summary>
 	/// Reference to SFXManager
 	/// </summary>
 	private SFXManager sfxMgr;
+
+	/// <summary>
+	/// The audio source.
+	/// </summary>
+	private AudioSource audioSource;
 
 	void Awake()
 	{
 		if(GetComponent<AudioSource>() == null)
 		{
-			gameObject.AddComponent<AudioSource>();
+			audioSource = gameObject.AddComponent<AudioSource>();
+			audioSource.playOnAwake = false;
 		}
 
 		sfxMgr = GameObject.FindObjectOfType (typeof(SFXManager)) as SFXManager;
@@ -59,7 +72,15 @@ public class SFXPlayer : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		audio.pitch = Time.timeScale;
+		if(ignoreTimeScale)
+		{
+			audio.pitch = 1.0f;
+		}
+		else
+		{
+			audio.pitch = Time.timeScale;
+		}
+
 	}
 
 	/// <summary>
@@ -69,7 +90,8 @@ public class SFXPlayer : MonoBehaviour
 	{
 		if(GetComponent<AudioSource>() == null)
 		{
-			gameObject.AddComponent<AudioSource>();
+			audioSource = gameObject.AddComponent<AudioSource>();
+			audioSource.playOnAwake = false;
 		}
 
 		if(sfxClip != null)
@@ -101,6 +123,14 @@ public class SFXPlayer : MonoBehaviour
 		if(audio.isPlaying)
 		{
 			audio.Stop();
+		}
+	}
+
+	public bool IsPlaying
+	{
+		get
+		{
+			return audioSource.isPlaying;
 		}
 	}
 }

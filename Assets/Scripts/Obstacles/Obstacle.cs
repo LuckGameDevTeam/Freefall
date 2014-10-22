@@ -27,6 +27,11 @@ public class Obstacle : MonoBehaviour
 	public MonsterTypes monsterType = MonsterTypes.MonsterSmall;
 
 	/// <summary>
+	/// The bounce clip.
+	/// </summary>
+	public AudioClip bounceClip;
+
+	/// <summary>
 	/// Prefab effect for obstacle dead
 	/// </summary>
 	public GameObject deadEffectPrefab;
@@ -85,7 +90,7 @@ public class Obstacle : MonoBehaviour
 	/// <summary>
 	/// The force for bunce
 	/// </summary>
-	public float bounceForce = 5f;
+	private float bounceForce = 5f;
 
 	/// <summary>
 	/// give non zero value to make obstacle start bounce
@@ -133,6 +138,11 @@ public class Obstacle : MonoBehaviour
 	/// </summary>
 	private Collider2D collision = null;
 
+	/// <summary>
+	/// Reference to SFXPlayer
+	/// </summary>
+	protected SFXPlayer soundPlayer = null;
+
 	protected virtual void Awake()
 	{
 		//find game controller
@@ -143,6 +153,15 @@ public class Obstacle : MonoBehaviour
 
 		//find collider
 		collision = GetComponent<Collider2D> ();
+
+		//find SFXPlayer
+		soundPlayer = GetComponent<SFXPlayer> ();
+
+		//add one if there is no SFXPlayer
+		if(soundPlayer == null)
+		{
+			soundPlayer = (SFXPlayer)gameObject.AddComponent<SFXPlayer>();
+		}
 
 	}
 
@@ -321,7 +340,9 @@ public class Obstacle : MonoBehaviour
 		Vector2 amount = (bounceForce * Time.deltaTime) * bounceDir;
 		
 		transform.position = new Vector3 (transform.position.x + amount.x, transform.position.y + amount.y, transform.position.z);
+
 	}
+
 
 	////////////////////////////////Internal////////////////////////////////
 
@@ -331,13 +352,61 @@ public class Obstacle : MonoBehaviour
 	/// Set/Get the destination.
 	/// </summary>
 	/// <value>The destination.</value>
-	public Vector2 Destination{ set{ dest = value; } get{return dest;}}
+	public Vector2 Destination
+	{
+		get
+		{
+			return dest;
+		}
+
+		set
+		{ 
+			dest = value; 
+		} 
+	}
 
 	/// <summary>
 	/// Obstacle's current moving velocity
 	/// </summary>
 	/// <value>The moving velocity.</value>
 	public Vector2 MovingVelocity{get{return movingVelocity;}}
+
+	/// <summary>
+	/// Gets or sets the bounce force.
+	/// </summary>
+	/// <value>The bounce force.</value>
+	public float BounceForce
+	{
+		get
+		{
+			return bounceForce;
+		}
+
+		set
+		{
+			bounceForce = value;
+
+			//play bounce clip
+			if(bounceClip != null)
+			{
+				if(soundPlayer == null)
+				{
+					soundPlayer = (SFXPlayer)gameObject.AddComponent<SFXPlayer>();
+				}
+				
+				if(!soundPlayer.IsPlaying)
+				{
+					soundPlayer.sfxClip = bounceClip;
+					soundPlayer.PlaySound();
+				}
+				
+			}
+			else
+			{
+				Debug.LogError("Unable to play sound effect "+gameObject.name+" audio bounce clip not assigned");
+			}
+		}
+	}
 
 	////////////////////////////////Properties////////////////////////////////
 }

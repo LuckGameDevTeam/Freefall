@@ -72,6 +72,7 @@ MonoBehaviour:
   magnetSpeed: 4
   initialSpeed: .200000003
   bonus: 5
+  eatFishBoneClip: {fileID: 8300000, guid: 1a7c1fa57bfc34ac890fe88ccad316e0, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -185,6 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7a360aa0a1846b0a348abde331a283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  underAttackClip: {fileID: 8300000, guid: 8c653b141c40949198958106cbbbf3eb, type: 3}
+  deadClip: {fileID: 8300000, guid: fba9fccb702a54d87b4da258b55e6b0c, type: 3}
+  victoryClip: {fileID: 8300000, guid: 23a933437095d4012a202ec55868eca5, type: 3}
   moveSpeed: 5
   returnSpeed: 1
   startFallingSpeed: 5

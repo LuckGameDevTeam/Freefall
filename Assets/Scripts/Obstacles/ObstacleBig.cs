@@ -29,6 +29,11 @@ public class ObstacleBig : Obstacle
 	public float destMigrate = 0.5f;
 
 	/// <summary>
+	/// The boss clip.
+	/// </summary>
+	public AudioClip bossClip;
+
+	/// <summary>
 	/// The current path point.
 	/// </summary>
 	private PathPoint currentPathPoint;
@@ -61,6 +66,13 @@ public class ObstacleBig : Obstacle
 	{
 		base.OnEnable ();
 
+		if((bossClip != null) && (soundPlayer != null))
+		{
+			soundPlayer.sfxClip = bossClip;
+			soundPlayer.loop = true;
+			soundPlayer.PlaySound();
+		}
+
 	}
 	
 	protected override void OnDisable()
@@ -68,6 +80,14 @@ public class ObstacleBig : Obstacle
 		base.OnDisable ();
 
 		currentPathPoint = null;
+
+		if(soundPlayer != null)
+		{
+			if(soundPlayer.IsPlaying)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 	}
 
 	/// <summary>

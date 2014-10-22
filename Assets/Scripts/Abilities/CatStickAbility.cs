@@ -41,7 +41,7 @@ public class CatStickAbility : Ability
 				if(cc.MovingVelocity != Vector2.zero)
 				{
 					//set bounce force
-					o.bounceForce = bounceForce;
+					o.BounceForce = bounceForce;
 
 					//use character's moving velocity as bounce direction
 					o.bounceDirection = cc.MovingVelocity.normalized;
@@ -49,7 +49,7 @@ public class CatStickAbility : Ability
 				else
 				{
 					//set bounce force
-					o.bounceForce = bounceForce;
+					o.BounceForce = bounceForce;
 
 					//use monster object it self moving velocity as direction but opposite of that direction
 					o.bounceDirection = o.MovingVelocity.normalized * -1f;

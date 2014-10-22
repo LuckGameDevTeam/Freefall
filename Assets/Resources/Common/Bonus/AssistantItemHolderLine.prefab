@@ -217,6 +217,7 @@ MonoBehaviour:
   magnetSpeed: 5
   initialSpeed: 0
   bonus: 5
+  eatCoinClip: {fileID: 8300000, guid: 0ebf525b71bf940d78f60d1b3d57de5b, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +233,7 @@ MonoBehaviour:
   magnetSpeed: 5
   initialSpeed: 0
   bonus: 1
+  eatFishBoneClip: {fileID: 8300000, guid: 1a7c1fa57bfc34ac890fe88ccad316e0, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,6 +249,7 @@ MonoBehaviour:
   magnetSpeed: 5
   initialSpeed: 0
   bonus: 1
+  eatCoinClip: {fileID: 8300000, guid: 0ebf525b71bf940d78f60d1b3d57de5b, type: 3}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

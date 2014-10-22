@@ -63,6 +63,11 @@ public class AssistantItem : MonoBehaviour
 	/// </summary>
 	protected float magnetCurrentSpeed = 0f;
 
+	/// <summary>
+	/// The sound player.
+	/// </summary>
+	protected SFXPlayer soundPlayer;
+
 	protected virtual void Awake()
 	{
 		//find GameController
@@ -70,6 +75,14 @@ public class AssistantItem : MonoBehaviour
 
 		//item is always a trigger
 		GetComponent<Collider2D> ().isTrigger = true;
+
+		//find SFXPlayer
+		soundPlayer = GetComponent<SFXPlayer> ();
+
+		if(soundPlayer == null)
+		{
+			soundPlayer = gameObject.AddComponent<SFXPlayer>();
+		}
 	}
 
 	protected virtual void Update()

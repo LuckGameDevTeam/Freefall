@@ -47,6 +47,11 @@ public class CharacterControl : MonoBehaviour
 	public EventCharacterStart Evt_CharacterStart;
 
 	/// <summary>
+	/// The under attack clip.
+	/// </summary>
+	public AudioClip underAttackClip;
+
+	/// <summary>
 	/// If false character will do start falling and
 	/// keep animation without anything and control
 	/// </summary>
@@ -242,6 +247,11 @@ public class CharacterControl : MonoBehaviour
 	private InputManager inputManager;
 
 	/// <summary>
+	/// The sound player.
+	/// </summary>
+	private SFXPlayer soundPlayer;
+
+	/// <summary>
 	/// Reference to GameController
 	/// </summary>
 	//private GameController gameController;
@@ -294,6 +304,14 @@ public class CharacterControl : MonoBehaviour
 
 		//find character effect
 		characterEffect = GetComponent<CharacterEffect> ();
+
+		soundPlayer = GetComponent<SFXPlayer> ();
+
+		if(soundPlayer == null)
+		{
+			soundPlayer = gameObject.AddComponent<SFXPlayer>();
+			soundPlayer.ignoreTimeScale = false;
+		}
 
 	}
 
@@ -587,6 +605,27 @@ public class CharacterControl : MonoBehaviour
 
 		//play damage effect
 		characterEffect.PlayDamageEffect ();
+
+		//play under attack sound
+		if(underAttackClip != null)
+		{
+			if(soundPlayer == null)
+			{
+				soundPlayer = gameObject.AddComponent<SFXPlayer>();
+			}
+
+			if(soundPlayer.IsPlaying)
+			{
+				soundPlayer.StopSound();
+			}
+
+			soundPlayer.sfxClip = underAttackClip;
+			soundPlayer.PlaySound();
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" can not play under attack sound, under attack clip not assigned");
+		}
 	}
 
 	/// <summary>

@@ -13960,7 +13960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff2a3eeabeae4a7aa05a8a59cc5e91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: 91b2f65ee04eb4e69b4ef110af839ff9, type: 3}
+  musicClip: {fileID: 8300000, guid: 7241ec79f4097451480cfcdf997e19f9, type: 3}
   volume: .200000003
   priority: 0
   loop: 1
@@ -17737,7 +17737,11 @@ Prefab:
     - target: {fileID: 11400002, guid: 68b7203b6bcb44dc8b621c650d367b5b, type: 2}
       propertyPath: musicClip
       value: 
-      objectReference: {fileID: 8300000, guid: 91b2f65ee04eb4e69b4ef110af839ff9, type: 3}
+      objectReference: {fileID: 8300000, guid: 7241ec79f4097451480cfcdf997e19f9, type: 3}
+    - target: {fileID: 11400002, guid: 68b7203b6bcb44dc8b621c650d367b5b, type: 2}
+      propertyPath: playOnStart
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68b7203b6bcb44dc8b621c650d367b5b, type: 2}
   m_RootGameObject: {fileID: 976835241}

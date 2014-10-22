@@ -8,7 +8,7 @@ using System.Collections;
 /// </summary>
 public class CoinBonusSmall : Bonus 
 {
-
+	public AudioClip eatCoinClip;
 
 	protected override void Awake()
 	{
@@ -24,6 +24,16 @@ public class CoinBonusSmall : Bonus
 
 			//tell character play coin eaten effect
 			GameController.sharedGameController.character.GetComponent<CharacterEffect>().PlayCoinEatenEffect();
+
+			//play eat coin sound 
+			if(eatCoinClip != null)
+			{
+				AudioSource.PlayClipAtPoint(eatCoinClip, transform.position);
+			}
+			else
+			{
+				Debug.LogError(gameObject.name+" unable to play eat coin clip, eat coin clip not assign");
+			}
 			
 			base.OnTriggerEnter2D(other);
 			
