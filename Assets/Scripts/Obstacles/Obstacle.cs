@@ -32,6 +32,11 @@ public class Obstacle : MonoBehaviour
 	public AudioClip bounceClip;
 
 	/// <summary>
+	/// The dead clip.
+	/// </summary>
+	public AudioClip deadClip;
+
+	/// <summary>
 	/// Prefab effect for obstacle dead
 	/// </summary>
 	public GameObject deadEffectPrefab;
@@ -217,6 +222,16 @@ public class Obstacle : MonoBehaviour
 			{
 				GameObject effect = GameController.sharedGameController.objectPool.GetObjectFromPool(deadEffectPrefab, transform.position, Quaternion.identity);
 				effect.GetComponent<EffectAnimation>().PlayAnimation();
+			}
+
+			//play dead clip
+			if(deadClip != null)
+			{
+				AudioSource.PlayClipAtPoint(deadClip, transform.position);
+			}
+			else
+			{
+				Debug.LogError(gameObject.name+" unable to play dead clip, dead clip not assigned");
 			}
 
 

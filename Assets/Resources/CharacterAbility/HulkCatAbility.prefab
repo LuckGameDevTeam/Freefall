@@ -43,6 +43,8 @@ MonoBehaviour:
   hasAbilityTime: 1
   abilityTime: 3
   characterSize: 2
+  catCrownClip: {fileID: 0}
+  abilityClip: {fileID: 8300000, guid: 105f811be7ae84266a961d345bef5bdf, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

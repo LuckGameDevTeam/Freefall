@@ -42,6 +42,8 @@ MonoBehaviour:
   abilityEffectPrefab: {fileID: 100000, guid: e40565e50ddfb4588a19b746ea901e8e, type: 2}
   hasAbilityTime: 0
   abilityTime: 3
+  catSwordClip: {fileID: 0}
+  abilityClip: {fileID: 8300000, guid: 55a7f9b9ec41b4210b03711ec904cd04, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

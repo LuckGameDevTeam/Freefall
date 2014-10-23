@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterType: 4
   bounceClip: {fileID: 8300000, guid: b03d7bce986aa46d7aeb6ecc8d929fbc, type: 3}
+  deadClip: {fileID: 8300000, guid: 1e6e8d991d0e64407a0cce5b6df1af0f, type: 3}
   deadEffectPrefab: {fileID: 100000, guid: a766d2b845a5d47a8ad7d2c2726626e3, type: 2}
   speed: 3
   canRotate: 1

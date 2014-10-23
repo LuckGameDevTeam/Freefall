@@ -52,6 +52,11 @@ public class CharacterControl : MonoBehaviour
 	public AudioClip underAttackClip;
 
 	/// <summary>
+	/// The victory clip.
+	/// </summary>
+	public AudioClip victoryClip;
+
+	/// <summary>
 	/// If false character will do start falling and
 	/// keep animation without anything and control
 	/// </summary>
@@ -659,6 +664,20 @@ public class CharacterControl : MonoBehaviour
 
 		//remove all aiblities
 		RemoveAllAbility ();
+
+		//play victory sound
+		if(victoryClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.sfxClip = victoryClip;
+				soundPlayer.PlaySound();
+			}
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play victory clip, victory clip not assigned");
+		}
 		
 		//start victory action
 		StartCoroutine ("FloatingDownward");

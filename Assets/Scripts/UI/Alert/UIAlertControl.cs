@@ -24,6 +24,11 @@ public class UIAlertControl : MonoBehaviour
 	/// </summary>
 	public UILocalize alertDescLocalize;
 
+	/// <summary>
+	/// The error clip.
+	/// </summary>
+	public AudioClip errorClip;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -60,6 +65,16 @@ public class UIAlertControl : MonoBehaviour
 		}
 
 		gameObject.SetActive (true);
+
+		//play error sound
+		if(errorClip != null)
+		{
+			NGUITools.PlaySound(errorClip);
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play error clip, error clip not assigned");
+		}
 	}
 
 	/// <summary>

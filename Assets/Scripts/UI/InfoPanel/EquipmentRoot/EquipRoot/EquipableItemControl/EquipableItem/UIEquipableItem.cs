@@ -84,6 +84,11 @@ public class UIEquipableItem : MonoBehaviour
 		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
+	void OnDisable()
+	{
+		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+	}
+
 	// Use this for initialization
 	protected virtual void Start () 
 	{

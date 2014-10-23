@@ -39,6 +39,11 @@ public class UIAbilityButton : MonoBehaviour
 		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
+	void OnDisable()
+	{
+		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -101,7 +106,7 @@ public class UIAbilityButton : MonoBehaviour
 	void ConfigureButton(int balance)
 	{	
 
-		if(gameObject.activeInHierarchy && button.isEnabled)
+		if(gameObject.activeInHierarchy)
 		{
 			if(balance != 0)
 			{

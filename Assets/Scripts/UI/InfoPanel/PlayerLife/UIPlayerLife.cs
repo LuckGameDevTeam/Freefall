@@ -18,6 +18,11 @@ public class UIPlayerLife : MonoBehaviour
 		StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
 	}
 
+	void OnDisable()
+	{
+		StoreEvents.OnGoodBalanceChanged -= onGoodBalanceChanged;
+	}
+
 	// Use this for initialization
 	void Start () 
 	{

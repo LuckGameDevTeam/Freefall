@@ -9,5 +9,18 @@ using System.Collections;
 /// </summary>
 public class IronCatAbility : CatSwordAbility 
 {
-	
+	/// <summary>
+	/// The ability clip.
+	/// </summary>
+	public AudioClip abilityClip;
+
+	public override void ActiveAbility(GameObject owner)
+	{
+		if(abilityClip != null)
+		{
+			AudioSource.PlayClipAtPoint(abilityClip, transform.position);
+		}
+
+		base.ActiveAbility (owner);
+	}
 }

@@ -91,6 +91,11 @@ public class LifeCounter : MonoBehaviour
 	/// </summary>
 	private int currentLifeCount = 0;
 
+	void OnDisable()
+	{
+		StoreEvents.OnGoodBalanceChanged -= onGoodBalanceChanged;
+	}
+
 	// Use this for initialization
 	void Start () 
 	{

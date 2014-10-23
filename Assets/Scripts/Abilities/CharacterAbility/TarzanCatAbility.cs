@@ -8,6 +8,10 @@ using System.Collections;
 /// </summary>
 public class TarzanCatAbility : Ability 
 {
+	/// <summary>
+	/// The ability clip.
+	/// </summary>
+	public AudioClip abilityClip;
 
 	public override void ActiveAbility(GameObject owner)
 	{
@@ -30,6 +34,12 @@ public class TarzanCatAbility : Ability
 				}
 			}
 			
+		}
+
+		//play ability clip
+		if(abilityClip != null)
+		{
+			AudioSource.PlayClipAtPoint(abilityClip, transform.position);
 		}
 		
 		//remove ability

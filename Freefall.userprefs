@@ -1,24 +1,43 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/CoinBonusSmall.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/NinjaCatAbility.cs">
     <Files>
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Obstacles/Obstacle.cs" Line="345" Column="2" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/AudioManager/SFXPlayer.cs" Line="77" Column="23" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CatStickAbility.cs" Line="52" Column="19" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Obstacles/ObstacleSmall.cs" Line="32" Column="3" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/Ability.cs" Line="279" Column="2" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Obstacles/Obstacle.cs" Line="227" Column="20" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/AudioManager/SFXPlayer.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CatStickAbility.cs" Line="114" Column="2" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Obstacles/ObstacleSmall.cs" Line="1" Column="1" />
       <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Obstacles/ObstacleBig.cs" Line="87" Column="5" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Obstacles/ObstacleMid.cs" Line="60" Column="2" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/Event/ObstacleEvent.cs" Line="133" Column="4" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/Event/BonusEvent.cs" Line="132" Column="17" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Player/Control/CharacterControl.cs" Line="666" Column="2" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Obstacles/ObstacleMid.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/Event/ObstacleEvent.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/Event/BonusEvent.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Player/Control/CharacterControl.cs" Line="666" Column="23" />
       <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/Spawner/ObstacleSpawner.cs" Line="1" Column="1" />
       <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Level/GameController.cs" Line="959" Column="21" />
       <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/CoinBonusBig.cs" Line="1" Column="1" />
       <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/CoinBonusSmall.cs" Line="30" Column="5" />
       <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/FishBonusBig.cs" Line="1" Column="1" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/FishBonusSmall.cs" Line="30" Column="5" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/Bonus.cs" Line="17" Column="33" />
-      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/AssistantItem.cs" Line="79" Column="19" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/FishBonusSmall.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/Bonus/Bonus.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Items/Assistance/AssistantItem.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CatCookieBigAbility.cs" Line="28" Column="3" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CatCrownAbility.cs" Line="47" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CatMagnetAbility.cs" Line="41" Column="3" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CatShieldAbility.cs" Line="148" Column="50" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CatSwordAbility.cs" Line="28" Column="5" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Store/StoreInit.cs" Line="1" Column="1" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Store/StoreControl.cs" Line="70" Column="9" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/UI/HUD/Ability/UIAbilityButton.cs" Line="115" Column="42" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/ThirdParty/NGUI/NGUI/Scripts/Interaction/UIImageButton.cs" Line="21" Column="2" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/CandyCatAbility.cs" Line="64" Column="19" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/GhostCatAbility.cs" Line="145" Column="3" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/HulkCatAbility.cs" Line="47" Column="4" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/IronCatAbility.cs" Line="24" Column="30" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/PumpkinCatAbility.cs" Line="28" Column="30" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/TarzanCatAbility.cs" Line="43" Column="4" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/UI/Alert/UIAlertControl.cs" Line="70" Column="24" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/InvulnerableAbility.cs" Line="52" Column="3" />
+      <File FileName="../unity/Projects/Freefall/Freefall/Assets/Scripts/Abilities/CharacterAbility/NinjaCatAbility.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
