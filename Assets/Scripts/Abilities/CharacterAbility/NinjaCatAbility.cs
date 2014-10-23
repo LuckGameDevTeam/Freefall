@@ -19,6 +19,7 @@ public class NinjaCatAbility : Ability
 		character.renderer.enabled = false;
 
 		//play ninja cat clip
+		/*
 		if(ninjaCatClip != null)
 		{
 			if(soundPlayer != null)
@@ -26,6 +27,15 @@ public class NinjaCatAbility : Ability
 				soundPlayer.sfxClip = ninjaCatClip;
 				soundPlayer.PlaySound();
 			}
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play ninaj cat clip, ninja cat clip not assigned");
+		}
+		*/
+		if(ninjaCatClip != null)
+		{
+			AudioSource.PlayClipAtPoint(ninjaCatClip, transform.position);
 		}
 		else
 		{
@@ -41,6 +51,7 @@ public class NinjaCatAbility : Ability
 		//render character
 		character.renderer.enabled = true;
 
+		/*
 		//stop sound
 		if(ninjaCatClip != null)
 		{
@@ -49,6 +60,7 @@ public class NinjaCatAbility : Ability
 				soundPlayer.StopSound();
 			}
 		}
+		*/
 
 		base.RemoveAbility ();
 		
@@ -62,6 +74,7 @@ public class NinjaCatAbility : Ability
 		//render character
 		character.renderer.enabled = true;
 
+		/*
 		//stop sound
 		if(ninjaCatClip != null)
 		{
@@ -70,6 +83,7 @@ public class NinjaCatAbility : Ability
 				soundPlayer.StopSound();
 			}
 		}
+		*/
 
 		base.RemoveAbilityImmediately ();
 	}
