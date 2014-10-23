@@ -8,6 +8,10 @@ using System.Collections;
 /// </summary>
 public class CatSwordAbility : Ability 
 {
+	/// <summary>
+	/// The cat sword clip.
+	/// </summary>
+	public AudioClip catSwordClip;
 
 	public override void ActiveAbility(GameObject owner)
 	{
@@ -29,6 +33,16 @@ public class CatSwordAbility : Ability
 				}
 			}
 
+		}
+
+		//play cat sword clip
+		if(catSwordClip != null)
+		{
+			AudioSource.PlayClipAtPoint(catSwordClip, transform.position);
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+"unable to play cat sword clip, cat sword clip not assigned");
 		}
 	}
 	

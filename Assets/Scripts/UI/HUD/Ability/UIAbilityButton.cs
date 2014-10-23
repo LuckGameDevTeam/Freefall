@@ -101,7 +101,7 @@ public class UIAbilityButton : MonoBehaviour
 	void ConfigureButton(int balance)
 	{	
 
-		if(gameObject.activeInHierarchy)
+		if(gameObject.activeInHierarchy && button.isEnabled)
 		{
 			if(balance != 0)
 			{

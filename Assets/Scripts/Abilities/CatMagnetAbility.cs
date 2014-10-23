@@ -9,20 +9,58 @@ using System.Collections;
 /// </summary>
 public class CatMagnetAbility : Ability 
 {
+	/// <summary>
+	/// The cat magnet clip.
+	/// </summary>
+	public AudioClip catMagnetClip;
+
 	public override void ActiveAbility(GameObject owner)
 	{
 		base.ActiveAbility (owner);
+
+		//play cat magnet clip
+		if(catMagnetClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.sfxClip = catMagnetClip;
+				soundPlayer.loop = true;
+				soundPlayer.PlaySound();
+			}
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play cat magnet clip, cat magnet clip not assigned");
+		}
 	}
 	
 	protected override void RemoveAbility()
 	{
 		base.RemoveAbility ();
 
+		//stop sound
+		if(catMagnetClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
+
 	}
 
 	public override void RemoveAbilityImmediately ()
 	{
 		base.RemoveAbilityImmediately ();
+
+		//stop sound
+		if(catMagnetClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 	}
 	
 	protected override void ProcessAbility()

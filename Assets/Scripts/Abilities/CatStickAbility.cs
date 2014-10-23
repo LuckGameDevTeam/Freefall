@@ -10,6 +10,11 @@ using System.Collections;
 public class CatStickAbility : Ability 
 {
 	/// <summary>
+	/// The cat stick clip.
+	/// </summary>
+	public AudioClip catStickClip;
+
+	/// <summary>
 	/// How much bounce force should apply to contact obstacle
 	/// </summary>
 	public float bounceForce = 5f;
@@ -89,6 +94,21 @@ public class CatStickAbility : Ability
 		{
 			Debug.LogError(gameObject.name+" can not find character's renderer");
 		}
+
+		//play cat stick clip
+		if(catStickClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.sfxClip = catStickClip;
+				soundPlayer.loop = true;
+				soundPlayer.PlaySound();
+			}
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play cat stick clip, cat stick clip not assigned");
+		}
 	}
 	
 	protected override void RemoveAbility()
@@ -103,6 +123,15 @@ public class CatStickAbility : Ability
 		{
 			//set all monster object can be destroyed
 			obstacles[i].GetComponent<Obstacle>().canDestroy = true;
+		}
+
+		//stop sound
+		if(catStickClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
 		}
 
 		base.RemoveAbility ();
@@ -121,6 +150,15 @@ public class CatStickAbility : Ability
 		{
 			//set all monster object can be destroyed
 			obstacles[i].GetComponent<Obstacle>().canDestroy = true;
+		}
+
+		//stop sound
+		if(catStickClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
 		}
 		
 		base.RemoveAbilityImmediately ();

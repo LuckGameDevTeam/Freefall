@@ -76,11 +76,24 @@ public class Ability : MonoBehaviour
 	/// </summary>
 	//private GameController gameController;
 
+	/// <summary>
+	/// The sound player.
+	/// </summary>
+	protected SFXPlayer soundPlayer;
+
 
 	protected virtual void Awake()
 	{
 		//find GameController
 		//gameController = GameObject.FindGameObjectWithTag (Tags.gameController).GetComponent<GameController> ();
+
+		//find SFXPlayer
+		soundPlayer = GetComponent<SFXPlayer> ();
+
+		if(soundPlayer == null)
+		{
+			soundPlayer = gameObject.AddComponent<SFXPlayer>();
+		}
 	}
 
 
