@@ -92,7 +92,14 @@ public class UISubLevelSelectionControl : MonoBehaviour
 			StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
 
 #if TestMode
-			GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("TestField");
+			if(GameObject.FindObjectOfType(typeof(LevelLoadManager)))
+			{
+				(GameObject.FindObjectOfType(typeof(LevelLoadManager)) as LevelLoadManager).LoadLevel("TestField");
+			}
+			else
+			{
+				Application.LoadLevel("TestField");
+			}
 
 #else
 			//Application.LoadLevel(levelToLoad);

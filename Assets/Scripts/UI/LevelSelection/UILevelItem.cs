@@ -118,6 +118,17 @@ public class UILevelItem : MonoBehaviour
 	/// </summary>
 	public void OnLevelSelect()
 	{
+#if TestMode
+		if(GameObject.FindObjectOfType(typeof(LevelLoadManager)))
+		{
+			(GameObject.FindObjectOfType(typeof(LevelLoadManager)) as LevelLoadManager).LoadLevel ("TestField");
+		}
+		else
+		{
+			Application.LoadLevel("TestField");
+		}
+		
+#else
 		if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
 		{
 			//enter sub level selection
@@ -128,7 +139,7 @@ public class UILevelItem : MonoBehaviour
 			//buy this level
 			levelSelectionControl.purchaseControl.ShowPurchaseWindow(levelItemId, levelTitleKey, levelDescKey) ;
 		}
-
+#endif
 	}
 
 	protected virtual void LevelPurchaseWindowClose()

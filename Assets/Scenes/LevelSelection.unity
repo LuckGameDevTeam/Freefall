@@ -7094,11 +7094,11 @@ Prefab:
       objectReference: {fileID: 8300000, guid: b4f1f26cc480f4251a4f9da605925ad9, type: 3}
     - target: {fileID: 100154, guid: e94da42323d254a9abfc354975cd4ebc, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: e94da42323d254a9abfc354975cd4ebc, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: e94da42323d254a9abfc354975cd4ebc, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7517,11 +7517,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: 0
+    e03: -.781691194
     e10: 0
     e11: 512
     e12: 0
-    e13: 19619.3691
+    e13: 19617.7734
     e20: 0
     e21: 0
     e22: 512
@@ -11075,11 +11075,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: 0
+    e03: -.781691194
     e10: 0
     e11: 512
     e12: 0
-    e13: 19631.7969
+    e13: 19630.2012
     e20: 0
     e21: 0
     e22: 512
@@ -13602,7 +13602,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 824273036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.814453125, z: 0}
+  m_LocalPosition: {x: .781691194, y: .78125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 755555993}
@@ -13993,7 +13993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &839207221
 Transform:
   m_ObjectHideFlags: 0
@@ -14029,11 +14029,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: 0
+    e03: -.781691194
     e10: 0
     e11: 512
     e12: 0
-    e13: 19619.3691
+    e13: 19617.7734
     e20: 0
     e21: 0
     e22: 512
@@ -14946,11 +14946,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: 0
+    e03: .736691773
     e10: 0
     e11: 512
     e12: 0
-    e13: 19619.3691
+    e13: 19617.8184
     e20: 0
     e21: 0
     e22: 512
@@ -15226,11 +15226,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: 0
+    e03: -.781691194
     e10: 0
     e11: 512
     e12: 0
-    e13: 19705.7969
+    e13: 19704.2012
     e20: 0
     e21: 0
     e22: 512
@@ -16021,6 +16021,7 @@ MonoBehaviour:
   errorDescKey: ErrorDescription
   alertTitleLocalize: {fileID: 1683354913}
   alertDescLocalize: {fileID: 1976676171}
+  errorClip: {fileID: 8300000, guid: d30eeb2eb020740f49f4253dc4c9dd23, type: 3}
 --- !u!4 &994284531
 Transform:
   m_ObjectHideFlags: 0
@@ -16490,7 +16491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1003106385
 Transform:
   m_ObjectHideFlags: 0
@@ -16526,11 +16527,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: 0
+    e03: .736691773
     e10: 0
     e11: 512
     e12: 0
-    e13: 19619.3691
+    e13: 19617.8184
     e20: 0
     e21: 0
     e22: 512
@@ -16616,7 +16617,7 @@ Transform:
   m_GameObject: {fileID: 1013548824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 768.406982, y: 1024, z: 1}
+  m_LocalScale: {x: 767.609192, y: 1024, z: 1}
   m_Children: []
   m_Father: {fileID: 769628007}
   m_RootOrder: 0
@@ -25751,7 +25752,7 @@ Transform:
   m_PrefabInternal: {fileID: 1963235922}
   m_GameObject: {fileID: 1627055587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 512.814453, z: 0}
+  m_LocalPosition: {x: 0, y: 511.21875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 43853688}
@@ -30973,11 +30974,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400128, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
       propertyPath: m_LocalScale.x
-      value: 768.406982
+      value: 767.609192
       objectReference: {fileID: 0}
     - target: {fileID: 400568, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 512.814453
+      value: 511.21875
       objectReference: {fileID: 0}
     - target: {fileID: 400590, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
       propertyPath: m_LocalScale.x
