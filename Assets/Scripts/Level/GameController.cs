@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Soomla.Store;
+using UnityEditor;
 
 /// <summary>
 /// Game controller.
@@ -141,9 +142,23 @@ public class GameController : MonoBehaviour
 	/// The sound player.
 	/// </summary>
 	private SFXPlayer soundPlayer;
+
+#if UNITY_EDITOR
+	//for test mode
+	public string testCharacterName;
+#endif
+
 	
 	void Awake()
 	{
+#if TestMode
+		if(!GameObject.FindObjectOfType(typeof(SFXManager)))
+		{
+			GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/AudioManager/SFXManager.prefab", typeof(GameObject)) as GameObject;
+
+			Instantiate(prefab, Vector3.zero, Quaternion.identity).name = prefab.name;
+		}
+#endif
 		if(currentMainLevel == 0)
 		{
 			Debug.LogError("You can not assigned 0 to main level in GameController");
@@ -310,6 +325,31 @@ public class GameController : MonoBehaviour
 			{
 				for(int i = 0; i<characterAssets.Length; i++)
 				{
+#if TestMode
+					if(testCharacterName == null || testCharacterName == "")
+					{
+						Debug.LogError("Can't load character during test mode please enter character name in GameController");
+					}
+
+					if(testCharacterName == characterAssets[i].name)
+					{
+						GameObject cPrefab = (GameObject)characterAssets[i];
+						GameObject retCharacter = Instantiate(cPrefab) as GameObject;
+						
+						retCharacter.name = cPrefab.name;
+						
+						//register character dead event
+						CharacterControl chaControl = retCharacter.GetComponent<CharacterControl> ();
+						chaControl.Evt_CharacterDeadFinished += EventCharacterDeadFinished;
+						chaControl.Evt_CharacterVictoryFinished += EventCharacterVictoryFinished;
+						chaControl.Evt_CharacterDead += EventCharacterDead;
+						chaControl.Evt_CharacterVictory += EventCharacterVictory;
+						
+						chaControl.transform.GetComponent<CharacterHealth> ().Evt_HealthChanged += OnCharacterHealthChanged;
+						
+						return retCharacter;
+					}
+#else
 					if(pc.characterName == characterAssets[i].name)
 					{
 						GameObject cPrefab = (GameObject)characterAssets[i];
@@ -328,6 +368,7 @@ public class GameController : MonoBehaviour
 
 						return retCharacter;
 					}
+#endif
 				}
 			}
 			else
