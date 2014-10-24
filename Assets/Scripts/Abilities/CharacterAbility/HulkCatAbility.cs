@@ -16,6 +16,7 @@ public class HulkCatAbility : CatCrownAbility
 
 	public override void ActiveAbility(GameObject owner)
 	{
+		/*
 		if(abilityClip != null)
 		{
 			if(soundPlayer != null)
@@ -24,12 +25,19 @@ public class HulkCatAbility : CatCrownAbility
 				soundPlayer.PlaySound();
 			}
 		}
+		*/
+
+		if(abilityClip != null)
+		{
+			AudioSource.PlayClipAtPoint(abilityClip, transform.position);
+		}
 
 		base.ActiveAbility (owner);
 	}
 
 	protected override void RemoveAbility()
 	{
+		/*
 		if(abilityClip != null)
 		{
 			if(soundPlayer != null)
@@ -37,12 +45,14 @@ public class HulkCatAbility : CatCrownAbility
 				soundPlayer.StopSound();
 			}
 		}
+		*/
 
 		base.RemoveAbility ();
 	}
 	
 	public override void RemoveAbilityImmediately ()
 	{
+		/*
 		if(abilityClip != null)
 		{
 			if(soundPlayer != null)
@@ -50,6 +60,7 @@ public class HulkCatAbility : CatCrownAbility
 				soundPlayer.StopSound();
 			}
 		}
+		*/
 
 		base.RemoveAbilityImmediately ();
 

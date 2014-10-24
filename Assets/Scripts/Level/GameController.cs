@@ -144,21 +144,33 @@ public class GameController : MonoBehaviour
 	private SFXPlayer soundPlayer;
 
 #if UNITY_EDITOR
+	//for test mode only
+	public enum CharacterName
+	{
+		BellCat,
+		CandyCat,
+		GhostCat,
+		HulkCat,
+		IronCat,
+		NinjaCat,
+		PunpkinCat,
+		TarzanCat
+	}
 	//for test mode
-	public string testCharacterName;
+	public CharacterName testCharacterName = CharacterName.BellCat;
 #endif
 
-	
 	void Awake()
 	{
 #if TestMode
 		if(!GameObject.FindObjectOfType(typeof(SFXManager)))
 		{
 			GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/AudioManager/SFXManager.prefab", typeof(GameObject)) as GameObject;
-
+			
 			Instantiate(prefab, Vector3.zero, Quaternion.identity).name = prefab.name;
 		}
 #endif
+
 		if(currentMainLevel == 0)
 		{
 			Debug.LogError("You can not assigned 0 to main level in GameController");
@@ -326,12 +338,8 @@ public class GameController : MonoBehaviour
 				for(int i = 0; i<characterAssets.Length; i++)
 				{
 #if TestMode
-					if(testCharacterName == null || testCharacterName == "")
-					{
-						Debug.LogError("Can't load character during test mode please enter character name in GameController");
-					}
 
-					if(testCharacterName == characterAssets[i].name)
+					if(testCharacterName.ToString() == characterAssets[i].name)
 					{
 						GameObject cPrefab = (GameObject)characterAssets[i];
 						GameObject retCharacter = Instantiate(cPrefab) as GameObject;
