@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Soomla.Store;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 /// <summary>
 /// Game controller.
@@ -143,7 +146,7 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	private SFXPlayer soundPlayer;
 
-#if UNITY_EDITOR
+#if TestMode
 	//for test mode only
 	public enum CharacterName
 	{
@@ -162,7 +165,7 @@ public class GameController : MonoBehaviour
 
 	void Awake()
 	{
-#if TestMode
+#if UNITY_EDITOR
 		if(!GameObject.FindObjectOfType(typeof(SFXManager)))
 		{
 			GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/AudioManager/SFXManager.prefab", typeof(GameObject)) as GameObject;

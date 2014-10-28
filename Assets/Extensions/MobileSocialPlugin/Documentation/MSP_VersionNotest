@@ -1,0 +1,128 @@
+3.8.1:
+Playmaker Actions compilation fix
+
+3.8:
+Refactor:
+Flash Like event system now use own namespace: UnionAssets.FLE
+
+Read More about update:
+http://goo.gl/PH2CmM
+
+3.7;
+
+Remove Facebook SDK Action fixed
+FB Login Play Maker Action fixed
+Post process script improved
+
+3.6.1
+Manifesr post process fix
+
+3.6:
+New Features:
+SPFacebook C# Actions Added
+SPTwitter  C# Actions Added
+
+
+3.5:
+Duplicate on deploy fixed
+Native Sharing on android now will use Local Storage
+if External Storage is not available 
+
+
+3.4:
+
+Twitter:
+Setting Editor updated
+Consumer Key -> Api Key
+Consumer Secret -> Api Secret
+
+User time Line Request updated
+
+
+Facebook:
+Unity Facebook SDK updated to 6.0.0
+
+SPFacebook.instance.Pay method added
+Metrics API Added. SPFacebookAnalytics methods:
+ActivateApp
+AchievedLevel
+Rated
+UnlockedAchievement
+CompletedRegistration
+CompletedTutorial
+AddedPaymentInfo
+Purchased
+AddedToCart
+AddedToWishlist
+InitiatedCheckout
+Searched
+SpentCredits
+ViewedContent
+
+
+
+3.2:
+Send Mail added
+
+3.1
+New features:
+Twitter Application Only API Added
+Facebook Leaderboards API Added
+
+
+
+Fixes:
+Twitter Auth Bug Fixed
+
+3.0:
+Compatibility update
+
+
+2.9:
+Fixes:
+SPShareUtility.ShareMedia - crash on Android fixed
+
+
+Moved:
+Assets/Plugins/Android - > Assets/StansAssets/Plugins/Android
+
+2.8:
+Code Refactor:
+Removed: 
+Assets/Extensions/MobileSocialPlugin/Scripts/Android/Twitter
+Assets/Plugins/IOS/Unity3d.m
+Assets/Plugins/IOS/Unity3d.h
+Assets/Plugins/IOS/SPDataUtility.m
+Assets/Plugins/IOS/SPDataUtility.h
+
+
+
+Added:
+Assets/Extensions/GooglePlayCommon/Social/Twitter/Manage
+Assets/Plugins/IOS/ISNDataConvertor.m
+Assets/Plugins/IOS/ISNDataConvertor.h
+
+Fixes:
+Conflict with IOS Native Plugin Fixed
+
+
+
+2.7:
+Code Refactor:
+Singletone -> Singleton
+SPTwitter now TwitterManagerInterface
+Spelling fixes
+Updates:
+Documentation Updated
+Example Scne Updated
+MSP_Preview scene added
+
+2.6:
+Stability Improvments
+Android Native Compatibility update
+
+2.5:
+Native posting added
+GUI updated
+FB app request added
+Unity 4.5 cpmpatibility 

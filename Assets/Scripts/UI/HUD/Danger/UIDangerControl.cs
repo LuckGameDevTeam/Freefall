@@ -42,6 +42,11 @@ public class UIDangerControl : MonoBehaviour
 
 		//find sound player
 		soundPlayer = GetComponent<SFXPlayer> ();
+
+		if(soundPlayer == null)
+		{
+			soundPlayer = gameObject.AddComponent<SFXPlayer>();
+		}
 	}
 
 	// Use this for initialization

@@ -8,6 +8,8 @@ using System.Collections;
 /// </summary>
 public class UIMenuControl : MonoBehaviour 
 {
+	public string canNotLoginKey = "CanNotLoginFB";
+
 	/// <summary>
 	/// Reference to setting menu.
 	/// </summary>
@@ -17,6 +19,15 @@ public class UIMenuControl : MonoBehaviour
 	/// Reference to main menu
 	/// </summary>
 	public GameObject mainMenu;
+
+	public UIAlertControl alertControl;
+
+	private FBController fbController;
+
+	void Awake()
+	{
+		fbController = GameObject.FindObjectOfType (typeof(FBController)) as FBController;
+	}
 
 	// Use this for initialization
 	void Start () 
@@ -58,4 +69,39 @@ public class UIMenuControl : MonoBehaviour
 
 		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("LevelSelection");
 	}
+
+	public void LoginFB()
+	{
+		//register event
+		fbController.Evt_OnUserDataLoaded += OnUserDataLoaded;
+		fbController.Evt_OnUserDataFailToLoad += OnUserDataFailToLoad;
+
+		//login
+		fbController.Login ();
+	}
+
+	#region FB controller event
+
+	void OnUserDataLoaded(FBController controller, FacebookUserInfo userInfo)
+	{
+		//unregister event
+		fbController.Evt_OnUserDataLoaded -= OnUserDataLoaded;
+		fbController.Evt_OnUserDataFailToLoad -= OnUserDataFailToLoad;
+
+		//go to level selection
+		GoToLevelSelection ();
+	}
+
+	void OnUserDataFailToLoad(FBController controller)
+	{
+		//unregister event
+		fbController.Evt_OnUserDataLoaded -= OnUserDataLoaded;
+		fbController.Evt_OnUserDataFailToLoad -= OnUserDataFailToLoad;
+
+		Debug.Log("FB login fail can not go to level selection");
+
+		alertControl.ShowAlertWindow (null, canNotLoginKey);
+	}
+
+	#endregion FB controller event
 }

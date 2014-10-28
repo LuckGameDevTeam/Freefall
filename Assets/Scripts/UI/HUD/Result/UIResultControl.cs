@@ -45,6 +45,13 @@ public class UIResultControl : MonoBehaviour
 	/// </summary>
 	public GameObject spinLight;
 
+	private FBController fbController;
+
+	void Awake()
+	{
+		fbController = GameObject.FindObjectOfType (typeof(FBController)) as FBController;
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -139,5 +146,18 @@ public class UIResultControl : MonoBehaviour
 
 		//set fish bone label
 		fishBoneEarnLabel.text = fishBoneEarn.ToString ();
+	}
+
+	public void PostToFBWall()
+	{
+		if(fbController.IsLogin)
+		{
+			fbController.PostToFacebook ();
+		}
+		else
+		{
+			fbController.Login();
+		}
+
 	}
 }
