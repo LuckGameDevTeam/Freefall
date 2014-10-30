@@ -42,6 +42,11 @@ public class GhostCatAbility : Ability
 	public float fadeOutMargin = 0.2f;
 
 	/// <summary>
+	/// The ability clip.
+	/// </summary>
+	public AudioClip abilityClip;
+
+	/// <summary>
 	/// Reference to character material
 	/// </summary>
 	private Material mat;
@@ -94,6 +99,16 @@ public class GhostCatAbility : Ability
 
 		//start fade in
 		StartCoroutine("FadeIn");
+
+		//play ability clip
+		if(abilityClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.sfxClip = abilityClip;
+				soundPlayer.PlaySound();
+			}
+		}
 	}
 	
 	protected override void RemoveAbility()
@@ -106,6 +121,15 @@ public class GhostCatAbility : Ability
 
 		//start fade out
 		StartCoroutine("FadeOut");
+
+		//stop sound
+		if(abilityClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 
 	}
 
@@ -123,6 +147,15 @@ public class GhostCatAbility : Ability
 		character.GetComponent<CharacterControl> ().CollisionSetting (true);
 
 		//character.GetComponent<CharacterControl> ().BounceSetting (true);
+
+		//stop sound
+		if(abilityClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 
 	}
 	

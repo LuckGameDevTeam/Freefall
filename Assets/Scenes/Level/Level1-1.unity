@@ -7264,6 +7264,7 @@ GameObject:
   - 65: {fileID: 464235374}
   - 114: {fileID: 464235373}
   - 114: {fileID: 464235372}
+  - 114: {fileID: 464235375}
   m_Layer: 5
   m_Name: FBPost(Button)
   m_TagString: Untagged
@@ -7328,6 +7329,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 300, y: 100, z: 0}
   m_Center: {x: 0, y: 0, z: -1}
+--- !u!114 &464235375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 464235370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 866150545}
+  functionName: PostToFBWall
+  trigger: 0
+  includeChildren: 0
 --- !u!1 &467462580
 GameObject:
   m_ObjectHideFlags: 0
@@ -7351,7 +7367,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467462580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 512, z: 0}
+  m_LocalPosition: {x: 0, y: 511.21875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1846580800}
@@ -13090,7 +13106,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 824273036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .8152771, y: 0, z: 0}
+  m_LocalPosition: {x: .781691194, y: .78125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1748577422}
@@ -14081,7 +14097,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 896333700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -384.815277, y: 512, z: 0}
+  m_LocalPosition: {x: -384.586243, y: 511.21875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420771916}
@@ -15003,11 +15019,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: -.8152771
+    e03: -.781691194
     e10: 0
     e11: 512
     e12: 0
-    e13: 19618.5547
+    e13: 19617.7734
     e20: 0
     e21: 0
     e22: 512
@@ -15288,7 +15304,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1003701166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -512, z: 0}
+  m_LocalPosition: {x: 0, y: -512.78125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1854517460}
@@ -21957,6 +21973,7 @@ MonoBehaviour:
   errorDescKey: ErrorDescription
   alertTitleLocalize: {fileID: 677503196}
   alertDescLocalize: {fileID: 1298294167}
+  errorClip: {fileID: 8300000, guid: d30eeb2eb020740f49f4253dc4c9dd23, type: 3}
 --- !u!114 &1396160356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22539,7 +22556,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1439954102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 383.184723, y: 512, z: 0}
+  m_LocalPosition: {x: 383.022888, y: 511.21875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480525111}
@@ -24170,11 +24187,11 @@ MonoBehaviour:
     e00: 512
     e01: 0
     e02: 0
-    e03: -.8152771
+    e03: -.781691194
     e10: 0
     e11: 512
     e12: 0
-    e13: 19618.5547
+    e13: 19617.7734
     e20: 0
     e21: 0
     e22: 512
@@ -24444,7 +24461,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1567187055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -384.815277, y: 0, z: 0}
+  m_LocalPosition: {x: -384.586243, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1378913866}
@@ -27075,7 +27092,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1750180103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -512, z: 0}
+  m_LocalPosition: {x: 0, y: -512.78125, z: 0}
   m_LocalScale: {x: .999935985, y: .999935985, z: .999935985}
   m_Children:
   - {fileID: 1096216534}
@@ -32037,6 +32054,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notEnoughLifeKey: NotEnoughLife
   notEnoughLifeDesc: NotEnoughLifeDesc
+  victoryClip: {fileID: 0}
+  failClip: {fileID: 0}
   currentMainLevel: 1
   currentSubLevel: 1
   nextMainLevelToUnlock: 1

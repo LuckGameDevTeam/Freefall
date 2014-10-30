@@ -32,6 +32,11 @@ public class UIEquippedItemDisplay : MonoBehaviour
 		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
+	void OnDisable()
+	{
+		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+	}
+
 	// Use this for initialization
 	void Start () 
 	{

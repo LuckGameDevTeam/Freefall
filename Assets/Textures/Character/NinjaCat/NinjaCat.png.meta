@@ -15,6 +15,11 @@ TextureImporter:
     21300020: NinjaCat_Moving5
     21300022: NinjaCat_Dead
     21300024: NinjaCat_Victory
+    21300026: NinjaCat_Ability_1
+    21300028: NinjaCat_Ability_2
+    21300030: NinjaCat_Ability_3
+    21300032: NinjaCat_Ability_4
+    21300034: NinjaCat_Ability_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -173,6 +178,56 @@ TextureImporter:
         y: 417
         width: 186
         height: 202
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NinjaCat_Ability_1
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 386
+        width: 222
+        height: 216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NinjaCat_Ability_2
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 398
+        width: 207
+        height: 202
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NinjaCat_Ability_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 134
+        width: 197
+        height: 200
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NinjaCat_Ability_4
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 133
+        width: 194
+        height: 201
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: NinjaCat_Ability_5
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 133
+        width: 171
+        height: 194
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

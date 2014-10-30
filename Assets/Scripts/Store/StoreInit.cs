@@ -21,7 +21,10 @@ public class StoreInit : MonoBehaviour
 
 	void Awake()
 	{
-
+#if TestMode
+		//in test mode there is no store
+		noStore = true;
+#endif
 	}
 	// Use this for initialization
 	void Start () 

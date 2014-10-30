@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Soomla.Store;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 /// <summary>
 /// Game controller.
 /// 
@@ -19,6 +23,16 @@ public class GameController : MonoBehaviour
 
 	public string notEnoughLifeKey = "NotEnoughLife";
 	public string notEnoughLifeDesc = "NotEnoughLifeDesc";
+
+	/// <summary>
+	/// The victory clip.
+	/// </summary>
+	public AudioClip victoryClip;
+
+	/// <summary>
+	/// The fail clip.
+	/// </summary>
+	public AudioClip failClip;
 
 	/// <summary>
 	/// The main level index
@@ -126,9 +140,40 @@ public class GameController : MonoBehaviour
 	/// Reference to UIHUDControl
 	/// </summary>
 	public UIHUDControl hudControl;
-	
+
+	/// <summary>
+	/// The sound player.
+	/// </summary>
+	private SFXPlayer soundPlayer;
+
+#if TestMode
+	//for test mode only
+	public enum CharacterName
+	{
+		BellCat,
+		CandyCat,
+		GhostCat,
+		HulkCat,
+		IronCat,
+		NinjaCat,
+		PunpkinCat,
+		TarzanCat
+	}
+	//for test mode
+	public CharacterName testCharacterName = CharacterName.BellCat;
+#endif
+
 	void Awake()
 	{
+#if UNITY_EDITOR
+		if(!GameObject.FindObjectOfType(typeof(SFXManager)))
+		{
+			GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/AudioManager/SFXManager.prefab", typeof(GameObject)) as GameObject;
+			
+			Instantiate(prefab, Vector3.zero, Quaternion.identity).name = prefab.name;
+		}
+#endif
+
 		if(currentMainLevel == 0)
 		{
 			Debug.LogError("You can not assigned 0 to main level in GameController");
@@ -173,6 +218,14 @@ public class GameController : MonoBehaviour
 
 		//find all obstacle spawners
 		spawners = GameObject.FindGameObjectsWithTag (Tags.obstacleSpawner);
+
+		//find sound player
+		soundPlayer = GetComponent<SFXPlayer> ();
+
+		if(soundPlayer == null)
+		{
+			soundPlayer = gameObject.AddComponent<SFXPlayer>();
+		}
 
 	}
 
@@ -287,6 +340,27 @@ public class GameController : MonoBehaviour
 			{
 				for(int i = 0; i<characterAssets.Length; i++)
 				{
+#if TestMode
+
+					if(testCharacterName.ToString() == characterAssets[i].name)
+					{
+						GameObject cPrefab = (GameObject)characterAssets[i];
+						GameObject retCharacter = Instantiate(cPrefab) as GameObject;
+						
+						retCharacter.name = cPrefab.name;
+						
+						//register character dead event
+						CharacterControl chaControl = retCharacter.GetComponent<CharacterControl> ();
+						chaControl.Evt_CharacterDeadFinished += EventCharacterDeadFinished;
+						chaControl.Evt_CharacterVictoryFinished += EventCharacterVictoryFinished;
+						chaControl.Evt_CharacterDead += EventCharacterDead;
+						chaControl.Evt_CharacterVictory += EventCharacterVictory;
+						
+						chaControl.transform.GetComponent<CharacterHealth> ().Evt_HealthChanged += OnCharacterHealthChanged;
+						
+						return retCharacter;
+					}
+#else
 					if(pc.characterName == characterAssets[i].name)
 					{
 						GameObject cPrefab = (GameObject)characterAssets[i];
@@ -305,6 +379,7 @@ public class GameController : MonoBehaviour
 
 						return retCharacter;
 					}
+#endif
 				}
 			}
 			else
@@ -474,8 +549,15 @@ public class GameController : MonoBehaviour
 		
 		//pause MileageController
 		mileController.isRunning = false;
-		
 
+		//stop sound
+		if(soundPlayer)
+		{
+			if(soundPlayer.IsPlaying)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 	}
 	
 	/// <summary>
@@ -504,6 +586,15 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	public void RestartGame()
 	{
+		//stop sound
+		if(soundPlayer)
+		{
+			if(soundPlayer.IsPlaying)
+			{
+				soundPlayer.StopSound();
+			}
+		}
+
 		//stop input manager
 		InputManager inputMgr = character.GetComponent<InputManager> ();
 		inputMgr.inputManagerEnabled = false;
@@ -630,6 +721,28 @@ public class GameController : MonoBehaviour
 		//show result
 		ShowFinalResult (false);
 
+		//play fail sound
+		if(failClip != null)
+		{
+			if(soundPlayer == null)
+			{
+				soundPlayer = gameObject.AddComponent<SFXPlayer>();
+			}
+
+			if(soundPlayer.IsPlaying)
+			{
+				soundPlayer.StopSound();
+			}
+
+			soundPlayer.sfxClip = failClip;
+			soundPlayer.ignoreTimeScale = true;
+			soundPlayer.PlaySound();
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play fail clip, fail clip not assigned");
+		}
+
 		//give player coin they eat from this level
 		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
 
@@ -645,6 +758,28 @@ public class GameController : MonoBehaviour
 	{
 		//show result
 		ShowFinalResult (true);
+
+		//play victory sound
+		if(victoryClip != null)
+		{
+			if(soundPlayer == null)
+			{
+				soundPlayer = gameObject.AddComponent<SFXPlayer>();
+			}
+			
+			if(soundPlayer.IsPlaying)
+			{
+				soundPlayer.StopSound();
+			}
+			
+			soundPlayer.sfxClip = victoryClip;
+			soundPlayer.ignoreTimeScale = true;
+			soundPlayer.PlaySound();
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play victory clip, victory clip not assigned");
+		}
 
 		//give player coin they eat from this level
 		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);

@@ -42,6 +42,7 @@ MonoBehaviour:
   abilityEffectPrefab: {fileID: 100000, guid: 6f6617cf071814e59ae3e43bc2018cb4, type: 2}
   hasAbilityTime: 1
   abilityTime: 3
+  invulnerableClip: {fileID: 8300000, guid: 03b77e74e7637407e839fb42e0adb862, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

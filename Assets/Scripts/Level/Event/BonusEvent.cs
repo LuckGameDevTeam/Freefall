@@ -127,6 +127,14 @@ public class BonusEvent : LevelEvent
 		//pick bonus to spawn
 		selectedIndex = Random.Range(0, avaliablePrefabs.Length);
 		GameObject bonusPrefab = avaliablePrefabs[selectedIndex];
+
+		//prefabe is null
+		if(bonusPrefab == null)
+		{
+			Debug.LogError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
+			
+			return;
+		}
 		
 		//tell spawn point to spawn obstacle
 		LevelSpawner spawner = selectSpawnPoint.GetComponent<LevelSpawner>();

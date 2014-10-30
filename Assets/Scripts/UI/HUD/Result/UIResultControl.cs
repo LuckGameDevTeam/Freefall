@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Soomla.Store;
 
 /// <summary>
 /// UI result control.
@@ -44,6 +45,13 @@ public class UIResultControl : MonoBehaviour
 	/// The spin light.
 	/// </summary>
 	public GameObject spinLight;
+
+	private FBController fbController;
+
+	void Awake()
+	{
+		fbController = GameObject.FindObjectOfType (typeof(FBController)) as FBController;
+	}
 
 	// Use this for initialization
 	void Start () 
@@ -140,4 +148,58 @@ public class UIResultControl : MonoBehaviour
 		//set fish bone label
 		fishBoneEarnLabel.text = fishBoneEarn.ToString ();
 	}
+
+	public void PostToFBWall()
+	{
+		if(fbController.IsLogin)
+		{
+			fbController.Evt_OnFacebookPostSuccess += OnFacebookPostSuccess;
+			fbController.Evt_OnFacebookPostFail += OnFacebookPostFail;
+
+			fbController.PostToFacebook ();
+		}
+		else
+		{
+			fbController.Evt_OnFacebookLoginSuccess += OnFacebookLoginSuccess;
+			fbController.Evt_OnFacebookLoginFail += OnFacebookLoginFail;
+
+			fbController.Login();
+		}
+
+	}
+
+	#region FB controller event
+
+	void OnFacebookPostSuccess(FBController controller)
+	{
+		fbController.Evt_OnFacebookPostSuccess -= OnFacebookPostSuccess;
+		fbController.Evt_OnFacebookPostFail -= OnFacebookPostFail;
+
+		StoreInventory.GiveItem (StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+	}
+
+	void OnFacebookPostFail(FBController controller)
+	{
+		fbController.Evt_OnFacebookPostSuccess -= OnFacebookPostSuccess;
+		fbController.Evt_OnFacebookPostFail -= OnFacebookPostFail;
+
+		Debug.Log("Unable to post to facebook");
+	}
+
+	void OnFacebookLoginSuccess(FBController controller)
+	{
+		fbController.Evt_OnFacebookLoginSuccess -= OnFacebookLoginSuccess;
+		fbController.Evt_OnFacebookLoginFail -= OnFacebookLoginFail;
+
+		PostToFBWall ();
+	}
+
+	void OnFacebookLoginFail(FBController controller)
+	{
+		fbController.Evt_OnFacebookLoginSuccess -= OnFacebookLoginSuccess;
+		fbController.Evt_OnFacebookLoginFail -= OnFacebookLoginFail;
+
+		Debug.Log("Unable to login to facebook");
+	}
+	#endregion FB controller event
 }

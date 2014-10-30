@@ -13,6 +13,11 @@ public class CatCrownAbility : Ability
 	/// </summary>
 	public float characterSize = 2f;
 
+	/// <summary>
+	/// The cat crown clip.
+	/// </summary>
+	public AudioClip catCrownClip;
+
 	public override void ActiveAbility(GameObject owner)
 	{
 		base.ActiveAbility (owner);
@@ -22,6 +27,21 @@ public class CatCrownAbility : Ability
 
 		//make character invulnerable
 		character.GetComponent<CharacterHealth> ().invulnerable = true;
+
+		//play cat crown clip
+		if(catCrownClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.sfxClip = catCrownClip;
+				soundPlayer.loop = true;
+				soundPlayer.PlaySound();
+			}
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play cat crown clip, cat crown clip not assigned");
+		}
 	}
 
 	protected override void RemoveAbility()
@@ -33,6 +53,15 @@ public class CatCrownAbility : Ability
 
 		//make character vulnerable again
 		character.GetComponent<CharacterHealth> ().invulnerable = false;
+
+		//stop sound
+		if(catCrownClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 	}
 
 	public override void RemoveAbilityImmediately ()
@@ -44,6 +73,15 @@ public class CatCrownAbility : Ability
 
 		//make character vulnerable again
 		character.GetComponent<CharacterHealth> ().invulnerable = false;
+
+		//stop sound
+		if(catCrownClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 	}
 
 	protected override void ProcessAbility()

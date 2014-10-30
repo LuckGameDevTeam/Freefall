@@ -68,7 +68,7 @@ public class StoreControl
 
 
 		//test
-		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, 10000);
+		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, 9999999);
 
 		int firstTimeLaunch = 0;
 

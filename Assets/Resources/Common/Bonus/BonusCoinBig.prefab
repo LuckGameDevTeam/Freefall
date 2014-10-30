@@ -72,6 +72,7 @@ MonoBehaviour:
   magnetSpeed: 4
   initialSpeed: .200000003
   bonus: 5
+  eatCoinClip: {fileID: 8300000, guid: 0ebf525b71bf940d78f60d1b3d57de5b, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

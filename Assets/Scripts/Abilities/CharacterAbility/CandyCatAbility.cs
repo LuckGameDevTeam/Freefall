@@ -13,6 +13,11 @@ public class CandyCatAbility : Ability
 	/// </summary>
 	public GameObject cookiePrefab;
 
+	/// <summary>
+	/// The ability clip.
+	/// </summary>
+	public AudioClip abilityClip;
+
 	public override void ActiveAbility(GameObject owner)
 	{
 		base.ActiveAbility (owner);
@@ -48,6 +53,12 @@ public class CandyCatAbility : Ability
 				}
 			}
 			
+		}
+
+		//play ability clip
+		if(abilityClip != null)
+		{
+			AudioSource.PlayClipAtPoint(abilityClip, transform.position);
 		}
 
 		//Remove ability

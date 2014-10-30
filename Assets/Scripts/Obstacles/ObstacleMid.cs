@@ -16,6 +16,8 @@ public class ObstacleMid : Obstacle
 	/// </summary>
 	public GameObject smallObstacle;
 
+	public AudioClip appearClip;
+
 	//on collision
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -39,6 +41,13 @@ public class ObstacleMid : Obstacle
 	{
 		base.BecomeSmallObstacle ();
 
+		if(smallObstacle == null)
+		{
+			Debug.LogError(gameObject.name+" unable to become small object, small object prefabe not assigned");
+
+			return;
+		}
+
 		GameObject newObstacle = GameController.sharedGameController.objectPool.GetObjectFromPool (smallObstacle, transform.position, Quaternion.identity);
 
 		Obstacle o = newObstacle.GetComponent<Obstacle> ();
@@ -46,5 +55,14 @@ public class ObstacleMid : Obstacle
 		o.Destination = Destination;
 
 		GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+	}
+
+	public override void InitObstacle()
+	{
+		if((appearClip != null) && (soundPlayer != null))
+		{
+			soundPlayer.sfxClip = appearClip;
+			soundPlayer.PlaySound();
+		}
 	}
 }

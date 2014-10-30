@@ -8,6 +8,10 @@ using System.Collections;
 /// </summary>
 public class CatShieldAbility :  Ability
 {
+	/// <summary>
+	/// The cat shield clip.
+	/// </summary>
+	public AudioClip catShieldClip;
 
 	/// <summary>
 	/// How many time this shield can block
@@ -107,13 +111,35 @@ public class CatShieldAbility :  Ability
 			Debug.LogError(gameObject.name+" can not find character's renderer");
 		}
 
-
+		//play cat shield clip
+		if(catShieldClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.sfxClip = catShieldClip;
+				soundPlayer.loop = true;
+				soundPlayer.PlaySound();
+			}
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play cat shield clip, cat shield clip not assigned");
+		}
 	}
 	
 	protected override void RemoveAbility()
 	{
 		//make character vulnerable
 		character.GetComponent<CharacterHealth>().invulnerable = false;
+
+		//stop sound
+		if(catShieldClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 
 		base.RemoveAbility ();
 		
@@ -123,6 +149,15 @@ public class CatShieldAbility :  Ability
 	{
 		//make character vulnerable
 		character.GetComponent<CharacterHealth>().invulnerable = false;
+
+		//stop sound
+		if(catShieldClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 
 		base.RemoveAbilityImmediately ();
 	}

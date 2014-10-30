@@ -9,6 +9,10 @@ using System.Collections;
 /// </summary>
 public class InvulnerableAbility : Ability 
 {
+	/// <summary>
+	/// The invulnerable clip.
+	/// </summary>
+	public AudioClip invulnerableClip;
 
 	public override void ActiveAbility(GameObject owner)
 	{
@@ -16,12 +20,35 @@ public class InvulnerableAbility : Ability
 
 		//set character invulnerable
 		character.GetComponent<CharacterHealth> ().invulnerable = true;
+
+		//play invulnerable clip
+		if(invulnerableClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.sfxClip = invulnerableClip;
+				soundPlayer.PlaySound();
+			}
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play invulnerable clip, invulnerable clip not assigned");
+		}
 	}
 	
 	protected override void RemoveAbility()
 	{
 		//set character vulnerable
 		character.GetComponent<CharacterHealth> ().invulnerable = false;
+
+		//stop sound
+		if(invulnerableClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
 
 		base.RemoveAbility ();
 	}
@@ -30,7 +57,16 @@ public class InvulnerableAbility : Ability
 	{
 		//set character vulnerable
 		character.GetComponent<CharacterHealth> ().invulnerable = false;
-		
+
+		//stop sound
+		if(invulnerableClip != null)
+		{
+			if(soundPlayer != null)
+			{
+				soundPlayer.StopSound();
+			}
+		}
+
 		base.RemoveAbilityImmediately ();
 	}
 	

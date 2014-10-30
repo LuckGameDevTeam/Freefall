@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7a360aa0a1846b0a348abde331a283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  underAttackClip: {fileID: 8300000, guid: 8c653b141c40949198958106cbbbf3eb, type: 3}
+  victoryClip: {fileID: 8300000, guid: ff9009d0db87547e29baaf5ba380c8f6, type: 3}
   moveSpeed: 5
   returnSpeed: 1
   startFallingSpeed: 5
@@ -213,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e99eab3d0f94479ba564f6a788e4b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityPrefab: {fileID: 0}
+  abilityPrefab: {fileID: 100000, guid: 0014d043cfb604329a3208a729881755, type: 2}
   abilityGivenRate: 50
   randGenDuration: 1
 --- !u!212 &21200000

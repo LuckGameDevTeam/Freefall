@@ -60,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.196004659, y: .18843931, z: -1.79993701}
+  m_LocalPosition: {x: .0647367388, y: .424384803, z: -1.79993701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7a360aa0a1846b0a348abde331a283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  underAttackClip: {fileID: 8300000, guid: 8c653b141c40949198958106cbbbf3eb, type: 3}
+  victoryClip: {fileID: 8300000, guid: ff9009d0db87547e29baaf5ba380c8f6, type: 3}
   moveSpeed: 5
   returnSpeed: 1
   startFallingSpeed: 5
@@ -214,8 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityPrefab: {fileID: 100000, guid: 9fdb06ff1aad74b749247b4c1a4401fe, type: 2}
-  abilityGivenRate: 30
-  randGenDuration: 4
+  abilityGivenRate: 50
+  randGenDuration: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
