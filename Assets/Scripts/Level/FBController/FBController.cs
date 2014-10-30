@@ -315,6 +315,9 @@ public class FBController : MonoBehaviour
 	/// call this method.
 	/// 
 	/// Friends who used this app.
+	/// 
+	/// trigger Evt_OnFriendDataLoaded on success
+	/// trigger Evt_OnFriendDataFailToLoad on fail
 	/// </summary>
 	public void LoadFriendData(int limit)
 	{
@@ -348,7 +351,27 @@ public class FBController : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Gets the score by identifier.
+	/// </summary>
+	/// <returns>The score by identifier.</returns>
+	/// <param name="playerId">Player identifier.</param>
+	public int GetScoreById(string playerId)
+	{
+		if(IsFBModuleInitialized())
+		{
+			if(IsLoggin())
+			{
+				return SPFacebook.instance.GetScoreByUserId(playerId);
+			}
+			
+		}
+
+		return 0;
+	}
+
+	/// <summary>
 	/// Posts to facebook wall.
+	/// Unauthn
 	/// </summary>
 	public void PostToFacebook()
 	{
@@ -442,8 +465,10 @@ public class FBController : MonoBehaviour
 		//set isInitialized to true
 		isInitialized = true;
 
+		isLogin = SPFacebook.instance.IsLoggedIn;
+
 		//check if auto login
-		if(loginOnInit)
+		if(loginOnInit && (!isLogin))
 		{
 			Login();
 		}
@@ -514,6 +539,8 @@ public class FBController : MonoBehaviour
 
 	/// <summary>
 	/// Handle facebook friend data loaded
+	/// 
+	/// If there is no friend data it will be null
 	/// </summary>
 	void OnFriendDataLoaded()
 	{
@@ -637,6 +664,14 @@ public class FBController : MonoBehaviour
 				return false;
 			}
 
+		}
+	}
+
+	public FacebookUserInfo PlayerInfo
+	{
+		get
+		{
+			return SPFacebook.instance.userInfo;
 		}
 	}
 

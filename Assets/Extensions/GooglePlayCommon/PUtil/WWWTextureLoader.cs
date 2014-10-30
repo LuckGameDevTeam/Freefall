@@ -45,6 +45,21 @@ public class WWWTextureLoader : EventDispatcher {
 			OnLoad(null);
 		}
 
+		CleanUp ();
+	}
+
+	private void CleanUp()
+	{
+		WWWTextureLoader[] loaders = (WWWTextureLoader[])GameObject.FindObjectsOfType (typeof(WWWTextureLoader));
+
+		for(int i=0; i<loaders.Length; i++)
+		{
+			if(loaders[i].gameObject.GetInstanceID() == gameObject.GetInstanceID())
+			{
+				GameObject.Destroy(gameObject);
+				break;
+			}
+		}
 	}
 
 }
