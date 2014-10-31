@@ -10998,6 +10998,10 @@ Prefab:
       propertyPath: avaliablePrefabs.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400044, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: availablePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: m_LocalPosition.x
       value: .93459934
@@ -11578,6 +11582,18 @@ Prefab:
       propertyPath: spawnObjects.Array.data[0].prefabToSpawn
       value: 
       objectReference: {fileID: 100000, guid: 7e5729448bada45d0b7a48b7afdc85c6, type: 2}
+    - target: {fileID: 11400036, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: spawnObjects.Array.data[0].spawnTimes
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400044, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: availablePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 100018, guid: 8fa923b17ba6d46cdbecb748af38c77e, type: 2}
+    - target: {fileID: 11400044, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: availablePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 100002, guid: 6e6563e14f7cf4a27a4806a67e3b4910, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 438789a93792b471cb464ae9294979c9, type: 2}
   m_RootGameObject: {fileID: 1987676873}
@@ -22845,9 +22861,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMileage: 270
-  avaliablePrefabs:
+  availablePrefabs:
   - {fileID: 100018, guid: 8fa923b17ba6d46cdbecb748af38c77e, type: 2}
-  - {fileID: 100002, guid: 250dbd29f3e9749cb9ea9d11d81025fd, type: 2}
+  - {fileID: 100002, guid: 6e6563e14f7cf4a27a4806a67e3b4910, type: 2}
   spawnPoints:
   - {fileID: 1313191365}
   totalSpawn: 4
@@ -32336,6 +32352,7 @@ MonoBehaviour:
   invulnerableAbilityPrefab: {fileID: 100000, guid: ceb4fb52a769448fab7d6ecd1217c595,
     type: 2}
   hudControl: {fileID: 1748577423}
+  testCharacterName: 0
 --- !u!114 &2128888892
 MonoBehaviour:
   m_ObjectHideFlags: 0

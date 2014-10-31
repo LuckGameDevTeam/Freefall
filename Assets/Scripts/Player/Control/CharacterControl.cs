@@ -286,7 +286,7 @@ public class CharacterControl : MonoBehaviour
 	[System.NonSerialized]
 	public CharacterState state = CharacterState.Unknow;
 
-	//character bounce
+	//character bounce when contact with boss
 	private float pushForce = 0f;
 	private Vector2 pushDirection = Vector2.zero;
 	public float bounceForce = 10f;
