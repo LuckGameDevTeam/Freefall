@@ -19,7 +19,7 @@ public class BonusEvent : LevelEvent
 	/// Bunch of prefab that might be spawn
 	/// Only one will be select
 	/// </summary>
-	public GameObject[] avaliablePrefabs;
+	public GameObject[] availablePrefabs;
 
 	/// <summary>
 	/// Contain spawn points in scene
@@ -114,7 +114,7 @@ public class BonusEvent : LevelEvent
 
 	void Spawn(bool delayEnabled)
 	{
-		if ((spawnPoints.Length <= 0) || (avaliablePrefabs.Length <= 0))
+		if ((spawnPoints.Length <= 0) || (availablePrefabs.Length <= 0))
 		{
 			return;
 		}
@@ -125,8 +125,8 @@ public class BonusEvent : LevelEvent
 		
 		
 		//pick bonus to spawn
-		selectedIndex = Random.Range(0, avaliablePrefabs.Length);
-		GameObject bonusPrefab = avaliablePrefabs[selectedIndex];
+		selectedIndex = Random.Range(0, availablePrefabs.Length);
+		GameObject bonusPrefab = availablePrefabs[selectedIndex];
 
 		//prefabe is null
 		if(bonusPrefab == null)
