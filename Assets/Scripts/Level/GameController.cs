@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
 	/// This will be used to calculate final score
 	/// The max start count.
 	/// </summary>
-	public int maxStartCount = 100;
+	public int maxStarCount = 100;
 
 	/// <summary>
 	/// how many fish bone character eat
@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour
 			Debug.LogError("You can not assigend 0 to sub level in GameController");
 		}
 
-		if(maxStartCount == 0)
+		if(maxStarCount == 0)
 		{
 			Debug.LogError("You can not assigend 0 to max start count, at least 1");
 		}
@@ -450,7 +450,7 @@ public class GameController : MonoBehaviour
 
 		//calculate score base on fish bone(star count)... add 1 score if fish bone greater or equal than
 		//max star count defined by level
-		if(starCount >= maxStartCount)
+		if(starCount >= maxStarCount)
 		{
 			score += 1;
 		}
