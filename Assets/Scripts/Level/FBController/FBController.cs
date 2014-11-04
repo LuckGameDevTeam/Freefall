@@ -65,6 +65,12 @@ public class FBController : MonoBehaviour
 	/// </summary>
 	public EventOnScoreSubmitted Evt_OnScoreSubmitted;
 
+	public delegate void EventOnLoadPlayerAndFriendScoreSuccess(FBController controller);
+	/// <summary>
+	/// The event load player and friend score success.
+	/// </summary>
+	public EventOnLoadPlayerAndFriendScoreSuccess Evt_OnLoadPlayerAndFriendScoreSuccess;
+
 	public delegate void EventOnFacebookPostSuccess(FBController controller);
 	/// <summary>
 	/// The event facebook post success.
@@ -160,6 +166,8 @@ public class FBController : MonoBehaviour
 		SPFacebook.instance.addEventListener (FacebookEvents.FRIENDS_FAILED_TO_LOAD, OnFriendDataFailToLoad);
 		SPFacebook.instance.addEventListener (FacebookEvents.SUBMIT_SCORE_REQUEST_COMPLETE, OnSubmitScoreSuccess);
 		SPFacebook.instance.addEventListener (FacebookEvents.POST_SUCCEEDED, OnPostSuccess);
+		SPFacebook.instance.addEventListener (FacebookEvents.APP_SCORES_REQUEST_COMPLETE, OnLoadAppScoresSuccess);
+		SPFacebook.instance.addEventListener (FacebookEvents.PLAYER_SCORES_REQUEST_COMPLETE, OnPlayerScoreLoaded);
 		SPFacebook.instance.addEventListener (FacebookEvents.POST_FAILED, OnPostFail);
 	}
 
@@ -175,6 +183,8 @@ public class FBController : MonoBehaviour
 			SPFacebook.instance.removeEventListener (FacebookEvents.FRIENDS_DATA_LOADED, OnFriendDataLoaded);
 			SPFacebook.instance.removeEventListener (FacebookEvents.FRIENDS_FAILED_TO_LOAD, OnFriendDataFailToLoad);
 			SPFacebook.instance.removeEventListener (FacebookEvents.SUBMIT_SCORE_REQUEST_COMPLETE, OnSubmitScoreSuccess);
+			SPFacebook.instance.removeEventListener (FacebookEvents.APP_SCORES_REQUEST_COMPLETE, OnLoadAppScoresSuccess);
+			SPFacebook.instance.removeEventListener (FacebookEvents.PLAYER_SCORES_REQUEST_COMPLETE, OnPlayerScoreLoaded);
 			SPFacebook.instance.removeEventListener (FacebookEvents.POST_SUCCEEDED, OnPostSuccess);
 			SPFacebook.instance.removeEventListener (FacebookEvents.POST_FAILED, OnPostFail);
 		}
@@ -370,6 +380,21 @@ public class FBController : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Loads the player and friend score.
+	/// </summary>
+	public void LoadPlayerAndFriendScore()
+	{
+		if(IsFBModuleInitialized())
+		{
+			if(IsLoggin())
+			{
+				SPFacebook.instance.LoadAppScores();
+			}
+			
+		}
+	}
+
+	/// <summary>
 	/// Posts to facebook wall.
 	/// Unauthn
 	/// </summary>
@@ -399,6 +424,18 @@ public class FBController : MonoBehaviour
 	#endregion Public interface
 
 	#region Internal
+
+	private void LoadPlayerScore()
+	{
+		if(IsFBModuleInitialized())
+		{
+			if(IsLoggin())
+			{
+				SPFacebook.instance.LoadPlayerScores();
+			}
+			
+		}
+	}
 
 	/// <summary>
 	/// Determines whether FB module initialized.
@@ -468,9 +505,15 @@ public class FBController : MonoBehaviour
 		isLogin = SPFacebook.instance.IsLoggedIn;
 
 		//check if auto login
-		if(loginOnInit && (!isLogin))
+		if(loginOnInit)
 		{
 			Login();
+		}
+		else if(isLogin)//already login
+		{
+			Debug.LogWarning("You have already loggin to facebook");
+
+			OnAuthnicationSuccess();
 		}
 
 		if(Evt_OnFacebookModuleInitialized != null)
@@ -576,6 +619,25 @@ public class FBController : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Handle the load app scores success event.
+	/// </summary>
+	void OnLoadAppScoresSuccess()
+	{
+		LoadPlayerScore ();
+	}
+
+	/// <summary>
+	/// handle the player score loaded event.
+	/// </summary>
+	void OnPlayerScoreLoaded()
+	{
+		if(Evt_OnLoadPlayerAndFriendScoreSuccess != null)
+		{
+			Evt_OnLoadPlayerAndFriendScoreSuccess(this);
+		}
+	}
+
+	/// <summary>
 	/// Handle facebook post success
 	/// </summary>
 	void OnPostSuccess()
@@ -648,6 +710,14 @@ public class FBController : MonoBehaviour
 		get
 		{
 			return isUserDataLoaded;
+		}
+	}
+
+	public List<FacebookUserInfo> Friends
+	{
+		get
+		{
+			return SPFacebook.instance.friendsList;
 		}
 	}
 

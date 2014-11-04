@@ -76,6 +76,8 @@ public class UIFBRankControl : MonoBehaviour
 			RankInfo rInfo = new RankInfo(info.id, info.name, fbController.GetScoreById(info.id), info);
 
 			rankInfoList.Add(rInfo);
+
+
 		}
 
 		//add player
@@ -191,17 +193,14 @@ public class UIFBRankControl : MonoBehaviour
 
 	void OnFriendDataLoaded(FBController controller, List<FacebookUserInfo> friendList)
 	{
-		if(friendList != null)
-		{
-			fbController.Evt_OnFriendDataLoaded -= OnFriendDataLoaded;
-			fbController.Evt_OnFriendDataFailToLoad -= OnFriendDataFailToLoad;
-			
-			DoShowRank (friendList);
-		}
-		else
-		{
-			DoShowSelfRank();
-		}
+		fbController.Evt_OnFriendDataLoaded -= OnFriendDataLoaded;
+		fbController.Evt_OnFriendDataFailToLoad -= OnFriendDataFailToLoad;
+
+		//load user data
+		fbController.Evt_OnUserDataLoaded += OnUserDataLoaded;
+		fbController.Evt_OnUserDataFailToLoad += OnLoadUserDataFail;
+
+		fbController.LoadUserData ();
 
 	}
 
@@ -212,7 +211,44 @@ public class UIFBRankControl : MonoBehaviour
 
 		Debug.Log ("can't show rank unable to load friend data");
 
-		DoShowSelfRank ();
+		//load user data
+		fbController.Evt_OnUserDataLoaded += OnUserDataLoaded;
+		fbController.Evt_OnUserDataFailToLoad += OnLoadUserDataFail;
+		
+		fbController.LoadUserData ();
+
+	}
+
+	void OnUserDataLoaded(FBController controlller, FacebookUserInfo userInfo)
+	{
+		fbController.Evt_OnUserDataLoaded -= OnUserDataLoaded;
+		fbController.Evt_OnUserDataFailToLoad -= OnLoadUserDataFail;
+
+		fbController.Evt_OnLoadPlayerAndFriendScoreSuccess += OnLoadPlayerAndFriendScoreSuccess;
+		
+		fbController.LoadPlayerAndFriendScore ();
+	}
+
+	void OnLoadUserDataFail(FBController controller)
+	{
+		fbController.Evt_OnUserDataLoaded -= OnUserDataLoaded;
+		fbController.Evt_OnUserDataFailToLoad -= OnLoadUserDataFail;
+
+		Debug.LogError(gameObject.name+" load user info fail unable to show rank");
+	}
+
+	void OnLoadPlayerAndFriendScoreSuccess(FBController controller)
+	{
+		fbController.Evt_OnLoadPlayerAndFriendScoreSuccess -= OnLoadPlayerAndFriendScoreSuccess;
+
+		if(fbController.Friends != null)
+		{
+			DoShowRank (fbController.Friends);
+		}
+		else
+		{
+			DoShowSelfRank();
+		}
 	}
 
 	#endregion FBController callback

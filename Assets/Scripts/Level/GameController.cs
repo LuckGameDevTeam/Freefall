@@ -146,6 +146,8 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	private SFXPlayer soundPlayer;
 
+	private FBController fbController;
+
 #if TestMode
 	//for test mode only
 	public enum CharacterName
@@ -203,6 +205,9 @@ public class GameController : MonoBehaviour
 		sharedGameController = this;
 
 		Time.timeScale = 1f;
+
+		//find FBController
+		fbController = GameObject.FindObjectOfType (typeof(FBController)) as FBController;
 
 		//find scrollable background
 		backgrounds = GameObject.FindGameObjectsWithTag (Tags.scrollingBackground);
@@ -476,11 +481,15 @@ public class GameController : MonoBehaviour
 
 		if(success)
 		{
+			PostMileToFacebook(mileController.totalMileage);
+
 			//show result
 			hudControl.resultControl.ShowResult (success, CalculateScoreAndSave (success), mileController.totalMileage, coinCount, starCount);
 		}
 		else
 		{
+			PostMileToFacebook(mileController.totalMileage - mileController.CurrentMile);
+
 			//show result
 			hudControl.resultControl.ShowResult (success, CalculateScoreAndSave (success),mileController.totalMileage - mileController.CurrentMile, coinCount, starCount);
 		}
@@ -503,6 +512,11 @@ public class GameController : MonoBehaviour
 		//stop input manager
 		InputManager inputMgr = character.GetComponent<InputManager> ();
 		inputMgr.inputManagerEnabled = false;
+	}
+
+	private void PostMileToFacebook(int mile)
+	{
+		fbController.SubmitScore (mile);
 	}
 
 	////////////////////////////////Internal////////////////////////////////
