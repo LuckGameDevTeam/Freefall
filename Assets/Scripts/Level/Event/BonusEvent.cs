@@ -102,6 +102,15 @@ public class BonusEvent : LevelEvent
 	{
 		base.TriggerEvent ();
 
+		if(totalSpawn > 1)
+		{
+			if(delay == 0)
+			{
+				Debug.LogError(gameObject.name+" have total bonus spawn: "+totalSpawn+" delay: "+delay);
+				Debug.LogError(gameObject.name+" it cause logical error object will overlap each other, you need to fix this problem");
+			}
+		}
+
 		totalObjectToSpawn = totalSpawn;
 	}
 
