@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnionAssets.FLE;
 using Facebook;
 
 public class FBController : MonoBehaviour 
@@ -64,6 +65,12 @@ public class FBController : MonoBehaviour
 	/// The event user score submitted.
 	/// </summary>
 	public EventOnScoreSubmitted Evt_OnScoreSubmitted;
+
+	public delegate void EventOnScoreSubmitFail(FBController controller);
+	/// <summary>
+	/// The event score submit fail.
+	/// </summary>
+	public EventOnScoreSubmitFail Evt_OnScoreSubmitFail;
 
 	public delegate void EventOnLoadPlayerAndFriendScoreSuccess(FBController controller);
 	/// <summary>
@@ -572,6 +579,7 @@ public class FBController : MonoBehaviour
 	/// </summary>
 	void OnUserDataFailToLoad()
 	{
+
 		isUserDataLoaded = false;
 
 		if(Evt_OnUserDataFailToLoad != null)
@@ -598,42 +606,78 @@ public class FBController : MonoBehaviour
 	/// </summary>
 	void OnFriendDataFailToLoad()
 	{
+
 		if(Evt_OnFriendDataFailToLoad != null)
 		{
 			Evt_OnFriendDataFailToLoad(this);
 		}
+
 	}
 
 	/// <summary>
 	/// Handle facebook submit score success
 	/// </summary>
-	void OnSubmitScoreSuccess()
+	void OnSubmitScoreSuccess(CEvent e)
 	{
-		if(Evt_OnScoreSubmitted != null)
+		FB_APIResult result = e.data as FB_APIResult;
+
+		if(result.IsSucceeded)
 		{
-			Evt_OnScoreSubmitted(this, SPFacebook.instance.userInfo, submittedScore);
+			if(Evt_OnScoreSubmitted != null)
+			{
+				Evt_OnScoreSubmitted(this, SPFacebook.instance.userInfo, submittedScore);
+			}
+			
+			//clear
+			submittedScore = 0;
+		}
+		else
+		{
+			Debug.LogError("Unable to submit score error: "+result.responce);
+
+			if(Evt_OnScoreSubmitFail != null)
+			{
+				Evt_OnScoreSubmitFail(this);
+			}
 		}
 
-		//clear
-		submittedScore = 0;
 	}
 
 	/// <summary>
 	/// Handle the load app scores success event.
 	/// </summary>
-	void OnLoadAppScoresSuccess()
+	void OnLoadAppScoresSuccess(CEvent e)
 	{
-		LoadPlayerScore ();
+		FB_APIResult result = e.data as FB_APIResult;
+
+		if(result.IsSucceeded)
+		{
+			LoadPlayerScore ();
+		}
+		else
+		{
+			Debug.LogError("Unable to load app score error: "+result.responce);
+		}
+
 	}
 
 	/// <summary>
 	/// handle the player score loaded event.
 	/// </summary>
-	void OnPlayerScoreLoaded()
+	void OnPlayerScoreLoaded(CEvent e)
 	{
-		if(Evt_OnLoadPlayerAndFriendScoreSuccess != null)
+		FB_APIResult result = e.data as FB_APIResult;
+
+		if(result.IsSucceeded)
 		{
-			Evt_OnLoadPlayerAndFriendScoreSuccess(this);
+			if(Evt_OnLoadPlayerAndFriendScoreSuccess != null)
+			{
+				Evt_OnLoadPlayerAndFriendScoreSuccess(this);
+			}
+		}
+		else
+		{
+			Debug.LogError("Unable to load player score error: "+result.responce);
 		}
 	}
 
@@ -653,6 +697,7 @@ public class FBController : MonoBehaviour
 	/// </summary>
 	void OnPostFail()
 	{
+
 		if(Evt_OnFacebookPostFail != null)
 		{
 			Evt_OnFacebookPostFail(this);

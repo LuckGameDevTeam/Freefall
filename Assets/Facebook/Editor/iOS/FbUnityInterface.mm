@@ -203,7 +203,7 @@ frictionlessRequests:(bool)_frictionlessRequests
                                         tokenCacheStrategy:nil];
   
   
-  [self.session openWithBehavior:FBSessionLoginBehaviorWithFallbackToWebView
+  [self.session openWithBehavior:FBSessionLoginBehaviorForcingWebView
           completionHandler:^(FBSession *session,
                               FBSessionState state,
                               NSError *error) {

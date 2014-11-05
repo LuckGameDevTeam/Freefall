@@ -526,11 +526,19 @@ public class GameController : MonoBehaviour
 			//submit mile only if mile is greater than previous one
 			if(fbController.GetScoreById(fbController.PlayerInfo.id) < mile)
 			{
+				Debug.Log("Submit score: "+mile);
+				fbController.Evt_OnScoreSubmitted += OnScoreSubmitted;
+
 				fbController.SubmitScore (mile);
 			}
 		}
+	}
 
+	void OnScoreSubmitted(FBController controller, FacebookUserInfo userInfo, int score)
+	{
+		fbController.Evt_OnScoreSubmitted -= OnScoreSubmitted;
 
+		Debug.Log("Submit score complete: "+score);
 	}
 
 	////////////////////////////////Internal////////////////////////////////

@@ -76,7 +76,7 @@ public class StoreControl
 
 		if(firstTimeLaunch == 0)
 		{
-			StoreInventory.GiveItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 3);
+			StoreInventory.GiveItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 100);
 
 			//give bell cat
 			StoreInventory.GiveItem (StoreAssets.CHARACTER_BELL_CAT_ITEM_ID, 1);

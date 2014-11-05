@@ -7264,6 +7264,7 @@ GameObject:
   - 65: {fileID: 464235374}
   - 114: {fileID: 464235373}
   - 114: {fileID: 464235372}
+  - 114: {fileID: 464235375}
   m_Layer: 5
   m_Name: FBPost(Button)
   m_TagString: Untagged
@@ -7328,6 +7329,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 300, y: 100, z: 0}
   m_Center: {x: 0, y: 0, z: -1}
+--- !u!114 &464235375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 464235370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 866150545}
+  functionName: PostToFBWall
+  trigger: 0
+  includeChildren: 0
 --- !u!1 &467462580
 GameObject:
   m_ObjectHideFlags: 0
