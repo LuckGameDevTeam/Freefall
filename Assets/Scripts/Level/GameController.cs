@@ -514,9 +514,23 @@ public class GameController : MonoBehaviour
 		inputMgr.inputManagerEnabled = false;
 	}
 
+	/// <summary>
+	/// Posts the mile to facebook.
+	/// </summary>
+	/// <param name="mile">Mile.</param>
 	private void PostMileToFacebook(int mile)
 	{
-		fbController.SubmitScore (mile);
+		//submit score only if we play fb game
+		if((GameObject.FindObjectOfType(typeof(GameType)) as GameType).currentGameType == TypeOfGame.FB)
+		{
+			//submit mile only if mile is greater than previous one
+			if(fbController.GetScoreById(fbController.PlayerInfo.id) < mile)
+			{
+				fbController.SubmitScore (mile);
+			}
+		}
+
+
 	}
 
 	////////////////////////////////Internal////////////////////////////////

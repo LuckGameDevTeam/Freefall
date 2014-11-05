@@ -85,6 +85,9 @@ public class UIMainMenuControl : MonoBehaviour
 	
 	void OnSinglePlayerClick(UIMenuControl control)
 	{
+		//set game type to single player
+		(GameObject.FindObjectOfType (typeof(GameType)) as GameType).currentGameType = TypeOfGame.SinglePlayer;
+
 		GoToLevelSelection ();
 	}
 	
@@ -142,7 +145,20 @@ public class UIMainMenuControl : MonoBehaviour
 		//unregister event
 		fbController.Evt_OnUserDataLoaded -= OnUserDataLoaded;
 		fbController.Evt_OnUserDataFailToLoad -= OnUserDataFailToLoad;
-		
+
+		fbController.Evt_OnLoadPlayerAndFriendScoreSuccess += OnLoadPlayerAndFriendScoreSuccess;
+
+		fbController.LoadPlayerAndFriendScore ();
+
+	}
+
+	void OnLoadPlayerAndFriendScoreSuccess(FBController controller)
+	{
+		fbController.Evt_OnLoadPlayerAndFriendScoreSuccess -= OnLoadPlayerAndFriendScoreSuccess;
+
+		//set game type to fb
+		(GameObject.FindObjectOfType (typeof(GameType)) as GameType).currentGameType = TypeOfGame.FB;
+
 		//go to level selection
 		GoToLevelSelection ();
 	}
