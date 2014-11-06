@@ -40,1738 +40,1259 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 1666e560348b647d8bedcff2daac0afd, type: 2}
-  sprites:
+  mSprites:
   - name: icon_system_on
-    outer:
-      serializedVersion: 2
-      x: 1378
-      y: 171
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1378
-      y: 171
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1378
+    y: 171
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_teaching_off
-    outer:
-      serializedVersion: 2
-      x: 1378
-      y: 59
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1378
-      y: 59
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1378
+    y: 59
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_ranking_on
-    outer:
-      serializedVersion: 2
-      x: 1490
-      y: 507
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1490
-      y: 507
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1490
+    y: 507
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_teaching_on
-    outer:
-      serializedVersion: 2
-      x: 1602
-      y: 507
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1602
-      y: 507
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1602
+    y: 507
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_a_off
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 319
-      width: 300
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 319
-      width: 300
-      height: 100
-    rotated: 0
+    x: 856
+    y: 319
+    width: 300
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_staff_off
-    outer:
-      serializedVersion: 2
-      x: 1714
-      y: 507
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1714
-      y: 507
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1714
+    y: 507
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_system_off
-    outer:
-      serializedVersion: 2
-      x: 1826
-      y: 507
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1826
-      y: 507
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1826
+    y: 507
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_a_on
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 421
-      width: 300
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 421
-      width: 300
-      height: 100
-    rotated: 0
+    x: 856
+    y: 421
+    width: 300
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_ranking_off
-    outer:
-      serializedVersion: 2
-      x: 1490
-      y: 395
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1490
-      y: 395
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1490
+    y: 395
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_staff_on
-    outer:
-      serializedVersion: 2
-      x: 1490
-      y: 283
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1490
-      y: 283
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1490
+    y: 283
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_language
-    outer:
-      serializedVersion: 2
-      x: 1490
-      y: 171
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1490
-      y: 171
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1490
+    y: 171
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: fields_00
-    outer:
-      serializedVersion: 2
-      x: 563
-      y: 1558
-      width: 640
-      height: 490
-    inner:
-      serializedVersion: 2
-      x: 563
-      y: 1558
-      width: 640
-      height: 490
-    rotated: 0
+    x: 563
+    y: 1558
+    width: 640
+    height: 490
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_music
-    outer:
-      serializedVersion: 2
-      x: 1490
-      y: 59
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1490
-      y: 59
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1490
+    y: 59
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_confirm
-    outer:
-      serializedVersion: 2
-      x: 1602
-      y: 395
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1602
-      y: 395
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1602
+    y: 395
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_on
-    outer:
-      serializedVersion: 2
-      x: 436
-      y: 650
-      width: 118
-      height: 118
-    inner:
-      serializedVersion: 2
-      x: 436
-      y: 650
-      width: 118
-      height: 118
-    rotated: 0
+    x: 436
+    y: 650
+    width: 118
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: fields_02
-    outer:
-      serializedVersion: 2
-      x: 1779
-      y: 929
-      width: 204
-      height: 224
-    inner:
-      serializedVersion: 2
-      x: 1779
-      y: 929
-      width: 204
-      height: 224
-    rotated: 0
+    x: 1779
+    y: 929
+    width: 204
+    height: 224
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_close_off
-    outer:
-      serializedVersion: 2
-      x: 1684
-      y: 1290
-      width: 80
-      height: 80
-    inner:
-      serializedVersion: 2
-      x: 1684
-      y: 1290
-      width: 80
-      height: 80
-    rotated: 0
+    x: 1684
+    y: 1290
+    width: 80
+    height: 80
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: fields_01
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 747
-      width: 408
-      height: 152
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 747
-      width: 408
-      height: 152
-    rotated: 0
+    x: 856
+    y: 747
+    width: 408
+    height: 152
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_close_on
-    outer:
-      serializedVersion: 2
-      x: 1684
-      y: 1208
-      width: 80
-      height: 80
-    inner:
-      serializedVersion: 2
-      x: 1684
-      y: 1208
-      width: 80
-      height: 80
-    rotated: 0
+    x: 1684
+    y: 1208
+    width: 80
+    height: 80
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: language_fields
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 32
-      width: 248
-      height: 38
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 32
-      width: 248
-      height: 38
-    rotated: 0
+    x: 0
+    y: 32
+    width: 248
+    height: 38
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_sound
-    outer:
-      serializedVersion: 2
-      x: 1826
-      y: 395
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1826
-      y: 395
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1826
+    y: 395
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_off
-    outer:
-      serializedVersion: 2
-      x: 436
-      y: 770
-      width: 118
-      height: 118
-    inner:
-      serializedVersion: 2
-      x: 436
-      y: 770
-      width: 118
-      height: 118
-    rotated: 0
+    x: 436
+    y: 770
+    width: 118
+    height: 118
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_d_on
-    outer:
-      serializedVersion: 2
-      x: 1610
-      y: 629
-      width: 110
-      height: 70
-    inner:
-      serializedVersion: 2
-      x: 1610
-      y: 629
-      width: 110
-      height: 70
-    rotated: 0
+    x: 1610
+    y: 629
+    width: 110
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: more_game
-    outer:
-      serializedVersion: 2
-      x: 1602
-      y: 283
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1602
-      y: 283
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1602
+    y: 283
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_d_off
-    outer:
-      serializedVersion: 2
-      x: 1722
-      y: 629
-      width: 110
-      height: 70
-    inner:
-      serializedVersion: 2
-      x: 1722
-      y: 629
-      width: 110
-      height: 70
-    rotated: 0
+    x: 1722
+    y: 629
+    width: 110
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: rating
-    outer:
-      serializedVersion: 2
-      x: 1602
-      y: 171
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1602
-      y: 171
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1602
+    y: 171
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: language_fields_1
-    outer:
-      serializedVersion: 2
-      x: 1836
-      y: 791
-      width: 108
-      height: 108
-    inner:
-      serializedVersion: 2
-      x: 1836
-      y: 791
-      width: 108
-      height: 108
-    rotated: 0
+    x: 1836
+    y: 791
+    width: 108
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: language_fields_2
-    outer:
-      serializedVersion: 2
-      x: 1135
-      y: 1182
-      width: 240
-      height: 32
-    inner:
-      serializedVersion: 2
-      x: 1135
-      y: 1182
-      width: 240
-      height: 32
-    rotated: 0
-    paddingLeft: .0166666675
-    paddingRight: .0166666675
-    paddingTop: .09375
-    paddingBottom: .09375
+    x: 1135
+    y: 1182
+    width: 240
+    height: 32
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 4
+    paddingTop: 3
+    paddingBottom: 3
   - name: icon_stars_0
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1132
-      width: 46
-      height: 44
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1132
-      width: 46
-      height: 44
-    rotated: 0
+    x: 501
+    y: 1132
+    width: 46
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_stars_1
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1086
-      width: 46
-      height: 44
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1086
-      width: 46
-      height: 44
-    rotated: 0
+    x: 501
+    y: 1086
+    width: 46
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_select
-    outer:
-      serializedVersion: 2
-      x: 1205
-      y: 1590
-      width: 640
-      height: 458
-    inner:
-      serializedVersion: 2
-      x: 1205
-      y: 1590
-      width: 640
-      height: 458
-    rotated: 0
+    x: 1205
+    y: 1590
+    width: 640
+    height: 458
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_name field
-    outer:
-      serializedVersion: 2
-      x: 1135
-      y: 1372
-      width: 640
-      height: 184
-    inner:
-      serializedVersion: 2
-      x: 1135
-      y: 1372
-      width: 640
-      height: 184
-    rotated: 0
+    x: 1135
+    y: 1372
+    width: 640
+    height: 184
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_lock
-    outer:
-      serializedVersion: 2
-      x: 563
-      y: 748
-      width: 291
-      height: 405
-    inner:
-      serializedVersion: 2
-      x: 563
-      y: 748
-      width: 291
-      height: 405
-    rotated: 0
+    x: 563
+    y: 748
+    width: 291
+    height: 405
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_pb2
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 1057
-      width: 499
-      height: 398
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 1057
-      width: 499
-      height: 398
-    rotated: 0
+    x: 0
+    y: 1057
+    width: 499
+    height: 398
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_pb1
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 260
-      width: 484
-      height: 358
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 260
-      width: 484
-      height: 358
-    rotated: 0
+    x: 0
+    y: 260
+    width: 484
+    height: 358
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_pb3
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 620
-      width: 434
-      height: 435
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 620
-      width: 434
-      height: 435
-    rotated: 0
+    x: 0
+    y: 620
+    width: 434
+    height: 435
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Level1-sub-select
-    outer:
-      serializedVersion: 2
-      x: 1847
-      y: 1706
-      width: 170
-      height: 170
-    inner:
-      serializedVersion: 2
-      x: 1847
-      y: 1706
-      width: 170
-      height: 170
-    rotated: 0
+    x: 1847
+    y: 1706
+    width: 170
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Level3-sub-select
-    outer:
-      serializedVersion: 2
-      x: 1028
-      y: 147
-      width: 170
-      height: 170
-    inner:
-      serializedVersion: 2
-      x: 1028
-      y: 147
-      width: 170
-      height: 170
-    rotated: 0
+    x: 1028
+    y: 147
+    width: 170
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Level1-sub-unselect
-    outer:
-      serializedVersion: 2
-      x: 1266
-      y: 619
-      width: 170
-      height: 170
-    inner:
-      serializedVersion: 2
-      x: 1266
-      y: 619
-      width: 170
-      height: 170
-    rotated: 0
+    x: 1266
+    y: 619
+    width: 170
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Level2-sub-select
-    outer:
-      serializedVersion: 2
-      x: 1438
-      y: 619
-      width: 170
-      height: 170
-    inner:
-      serializedVersion: 2
-      x: 1438
-      y: 619
-      width: 170
-      height: 170
-    rotated: 0
+    x: 1438
+    y: 619
+    width: 170
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_e_on
-    outer:
-      serializedVersion: 2
-      x: 1847
-      y: 1604
-      width: 190
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1847
-      y: 1604
-      width: 190
-      height: 100
-    rotated: 0
+    x: 1847
+    y: 1604
+    width: 190
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Level2-sub-unselect
-    outer:
-      serializedVersion: 2
-      x: 1847
-      y: 1878
-      width: 170
-      height: 170
-    inner:
-      serializedVersion: 2
-      x: 1847
-      y: 1878
-      width: 170
-      height: 170
-    rotated: 0
+    x: 1847
+    y: 1878
+    width: 170
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Level3-sub-unselect
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 147
-      width: 170
-      height: 170
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 147
-      width: 170
-      height: 170
-    rotated: 0
+    x: 856
+    y: 147
+    width: 170
+    height: 170
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_00
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 1457
-      width: 561
-      height: 591
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 1457
-      width: 561
-      height: 591
-    rotated: 0
+    x: 0
+    y: 1457
+    width: 561
+    height: 591
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_e_off
-    outer:
-      serializedVersion: 2
-      x: 1777
-      y: 1171
-      width: 190
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1777
-      y: 1171
-      width: 190
-      height: 100
-    rotated: 0
+    x: 1777
+    y: 1171
+    width: 190
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_lock_sub
-    outer:
-      serializedVersion: 2
-      x: 436
-      y: 890
-      width: 120
-      height: 165
-    inner:
-      serializedVersion: 2
-      x: 436
-      y: 890
-      width: 120
-      height: 165
-    rotated: 0
+    x: 436
+    y: 890
+    width: 120
+    height: 165
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: pw_ui_00
-    outer:
-      serializedVersion: 2
-      x: 563
-      y: 1155
-      width: 570
-      height: 401
-    inner:
-      serializedVersion: 2
-      x: 563
-      y: 1155
-      width: 570
-      height: 401
-    rotated: 0
+    x: 563
+    y: 1155
+    width: 570
+    height: 401
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: pw_ui_02
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 72
-      width: 546
-      height: 186
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 72
-      width: 546
-      height: 186
-    rotated: 0
+    x: 0
+    y: 72
+    width: 546
+    height: 186
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: pw_ui_01
-    outer:
-      serializedVersion: 2
-      x: 1219
-      y: 933
-      width: 540
-      height: 80
-    inner:
-      serializedVersion: 2
-      x: 1219
-      y: 933
-      width: 540
-      height: 80
-    rotated: 0
+    x: 1219
+    y: 933
+    width: 540
+    height: 80
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_f_on
-    outer:
-      serializedVersion: 2
-      x: 563
-      y: 261
-      width: 280
-      height: 200
-    inner:
-      serializedVersion: 2
-      x: 563
-      y: 261
-      width: 280
-      height: 200
-    rotated: 0
+    x: 563
+    y: 261
+    width: 280
+    height: 200
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: button_f_off
-    outer:
-      serializedVersion: 2
-      x: 563
-      y: 59
-      width: 280
-      height: 200
-    inner:
-      serializedVersion: 2
-      x: 563
-      y: 59
-      width: 280
-      height: 200
-    rotated: 0
+    x: 563
+    y: 59
+    width: 280
+    height: 200
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_props_off
-    outer:
-      serializedVersion: 2
-      x: 1144
-      y: 35
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1144
-      y: 35
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1144
+    y: 35
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_gold
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1339
-      width: 57
-      height: 57
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1339
-      width: 57
-      height: 57
-    rotated: 0
+    x: 501
+    y: 1339
+    width: 57
+    height: 57
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_player_state
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 523
-      width: 350
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 523
-      width: 350
-      height: 110
-    rotated: 0
+    x: 856
+    y: 523
+    width: 350
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: icon_props_on
-    outer:
-      serializedVersion: 2
-      x: 1266
-      y: 507
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1266
-      y: 507
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1266
+    y: 507
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: NinjaCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1266
-      y: 395
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1266
-      y: 395
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1266
+    y: 395
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: IronCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1266
-      y: 283
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1266
-      y: 283
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1266
+    y: 283
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: HulkCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1266
-      y: 171
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1266
-      y: 171
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1266
+    y: 171
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: GhostCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1266
-      y: 59
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1266
-      y: 59
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1266
+    y: 59
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CandyCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1378
-      y: 507
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1378
-      y: 507
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1378
+    y: 507
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: BellCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1378
-      y: 395
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1378
-      y: 395
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1378
+    y: 395
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: TarzanCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1378
-      y: 283
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1378
-      y: 283
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1378
+    y: 283
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: PumpkinCat_Head
-    outer:
-      serializedVersion: 2
-      x: 1714
-      y: 395
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1714
-      y: 395
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1714
+    y: 395
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_heading
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 635
-      width: 385
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 635
-      width: 385
-      height: 110
-    rotated: 0
+    x: 856
+    y: 635
+    width: 385
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: ui_item
-    outer:
-      serializedVersion: 2
-      x: 1219
-      y: 1015
-      width: 558
-      height: 138
-    inner:
-      serializedVersion: 2
-      x: 1219
-      y: 1015
-      width: 558
-      height: 138
-    rotated: 0
+    x: 1219
+    y: 1015
+    width: 558
+    height: 138
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatDoll_Icon
-    outer:
-      serializedVersion: 2
-      x: 1816
-      y: 79
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1816
-      y: 79
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1816
+    y: 79
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatMagnet_Icon
-    outer:
-      serializedVersion: 2
-      x: 1918
-      y: 181
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1918
-      y: 181
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1918
+    y: 181
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatCookieBig_Icon
-    outer:
-      serializedVersion: 2
-      x: 1816
-      y: 181
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1816
-      y: 181
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1816
+    y: 181
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatStick_Icon
-    outer:
-      serializedVersion: 2
-      x: 1714
-      y: 79
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1714
-      y: 79
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1714
+    y: 79
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatShield_Icon
-    outer:
-      serializedVersion: 2
-      x: 1946
-      y: 799
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1946
-      y: 799
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1946
+    y: 799
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatSword_Icon
-    outer:
-      serializedVersion: 2
-      x: 1158
-      y: 319
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1158
-      y: 319
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1158
+    y: 319
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatCrown_Icon
-    outer:
-      serializedVersion: 2
-      x: 1158
-      y: 421
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1158
-      y: 421
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1158
+    y: 421
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_hp_empty
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1178
-      width: 55
-      height: 49
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1178
-      width: 55
-      height: 49
-    rotated: 0
+    x: 501
+    y: 1178
+    width: 55
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_hp_back
-    outer:
-      serializedVersion: 2
-      x: 1610
-      y: 701
-      width: 328
-      height: 88
-    inner:
-      serializedVersion: 2
-      x: 1610
-      y: 701
-      width: 328
-      height: 88
-    rotated: 0
+    x: 1610
+    y: 701
+    width: 328
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_hp_fill
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1229
-      width: 55
-      height: 49
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1229
-      width: 55
-      height: 49
-    rotated: 0
+    x: 501
+    y: 1229
+    width: 55
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_pause_off
-    outer:
-      serializedVersion: 2
-      x: 1714
-      y: 283
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1714
-      y: 283
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1714
+    y: 283
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_pause_on
-    outer:
-      serializedVersion: 2
-      x: 1602
-      y: 59
-      width: 110
-      height: 110
-    inner:
-      serializedVersion: 2
-      x: 1602
-      y: 59
-      width: 110
-      height: 110
-    rotated: 0
+    x: 1602
+    y: 59
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_bone
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1280
-      width: 56
-      height: 57
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1280
-      width: 56
-      height: 57
-    rotated: 0
+    x: 501
+    y: 1280
+    width: 56
+    height: 57
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_gold
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1398
-      width: 57
-      height: 57
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1398
-      width: 57
-      height: 57
-    rotated: 0
+    x: 501
+    y: 1398
+    width: 57
+    height: 57
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_pause
-    outer:
-      serializedVersion: 2
-      x: 1135
-      y: 1216
-      width: 547
-      height: 154
-    inner:
-      serializedVersion: 2
-      x: 1135
-      y: 1216
-      width: 547
-      height: 154
-    rotated: 0
+    x: 1135
+    y: 1216
+    width: 547
+    height: 154
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: mileage_effect
-    outer:
-      serializedVersion: 2
-      x: 501
-      y: 1070
-      width: 32
-      height: 14
-    inner:
-      serializedVersion: 2
-      x: 501
-      y: 1070
-      width: 32
-      height: 14
-    rotated: 0
+    x: 501
+    y: 1070
+    width: 32
+    height: 14
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: danger1
-    outer:
-      serializedVersion: 2
-      x: 1777
-      y: 1273
-      width: 259
-      height: 283
-    inner:
-      serializedVersion: 2
-      x: 1777
-      y: 1273
-      width: 259
-      height: 283
-    rotated: 0
+    x: 1777
+    y: 1273
+    width: 259
+    height: 283
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: danger2
-    outer:
-      serializedVersion: 2
-      x: 563
-      y: 463
-      width: 259
-      height: 283
-    inner:
-      serializedVersion: 2
-      x: 563
-      y: 463
-      width: 259
-      height: 283
-    rotated: 0
+    x: 563
+    y: 463
+    width: 259
+    height: 283
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatCrown_Icon_Pressed
-    outer:
-      serializedVersion: 2
-      x: 1940
-      y: 689
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1940
-      y: 689
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1940
+    y: 689
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatShield_Icon_Pressed
-    outer:
-      serializedVersion: 2
-      x: 1938
-      y: 517
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1938
-      y: 517
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1938
+    y: 517
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatSword_Icon_Pressed
-    outer:
-      serializedVersion: 2
-      x: 1938
-      y: 405
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1938
-      y: 405
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1938
+    y: 405
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatCookieBig_Icon_Pressed
-    outer:
-      serializedVersion: 2
-      x: 1826
-      y: 293
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1826
-      y: 293
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1826
+    y: 293
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatMagnet_Icon_Pressed
-    outer:
-      serializedVersion: 2
-      x: 1928
-      y: 293
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1928
-      y: 293
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1928
+    y: 293
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: CatStick_Icon_Pressed
-    outer:
-      serializedVersion: 2
-      x: 1714
-      y: 181
-      width: 100
-      height: 100
-    inner:
-      serializedVersion: 2
-      x: 1714
-      y: 181
-      width: 100
-      height: 100
-    rotated: 0
+    x: 1714
+    y: 181
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_quotes
-    outer:
-      serializedVersion: 2
-      x: 486
-      y: 511
-      width: 15
-      height: 30
-    inner:
-      serializedVersion: 2
-      x: 486
-      y: 511
-      width: 15
-      height: 30
-    rotated: 0
+    x: 486
+    y: 511
+    width: 15
+    height: 30
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_star
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 14
-      width: 135
-      height: 131
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 14
-      width: 135
-      height: 131
-    rotated: 0
+    x: 856
+    y: 14
+    width: 135
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_gold
-    outer:
-      serializedVersion: 2
-      x: 486
-      y: 543
-      width: 75
-      height: 75
-    inner:
-      serializedVersion: 2
-      x: 486
-      y: 543
-      width: 75
-      height: 75
-    rotated: 0
+    x: 486
+    y: 543
+    width: 75
+    height: 75
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_bone
-    outer:
-      serializedVersion: 2
-      x: 250
-      y: 4
-      width: 120
-      height: 66
-    inner:
-      serializedVersion: 2
-      x: 250
-      y: 4
-      width: 120
-      height: 66
-    rotated: 0
+    x: 250
+    y: 4
+    width: 120
+    height: 66
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_star_hollow
-    outer:
-      serializedVersion: 2
-      x: 1028
-      y: 34
-      width: 114
-      height: 111
-    inner:
-      serializedVersion: 2
-      x: 1028
-      y: 34
-      width: 114
-      height: 111
-    rotated: 0
+    x: 1028
+    y: 34
+    width: 114
+    height: 111
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_crown
-    outer:
-      serializedVersion: 2
-      x: 856
-      y: 901
-      width: 361
-      height: 252
-    inner:
-      serializedVersion: 2
-      x: 856
-      y: 901
-      width: 361
-      height: 252
-    rotated: 0
+    x: 856
+    y: 901
+    width: 361
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_bar
-    outer:
-      serializedVersion: 2
-      x: 1266
-      y: 791
-      width: 568
-      height: 108
-    inner:
-      serializedVersion: 2
-      x: 1266
-      y: 791
-      width: 568
-      height: 108
-    rotated: 0
+    x: 1266
+    y: 791
+    width: 568
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -71,7 +71,7 @@ public class UIDangerControl : MonoBehaviour
 		tweener.enabled = false;
 
 		//reset tweener
-		tweener.Reset ();
+		tweener.ResetToBeginning ();
 
 		//set gameobject not active
 		gameObject.SetActive (false);
@@ -100,7 +100,7 @@ public class UIDangerControl : MonoBehaviour
 		tweenPos.to = animEndPosition;
 
 		//reset tweener
-		tweener.Reset ();
+		tweener.ResetToBeginning ();
 
 		//play tweener
 		tweener.Play (true);

@@ -181,7 +181,7 @@ public class UIPurchaseControl : MonoBehaviour
 	/// <summary>
 	/// Purchases the item.
 	/// </summary>
-	void PurchaseItem()
+	public void PurchaseItem()
 	{
 		LockButton ();
 

@@ -7,7 +7,7 @@ using System.Collections;
 public class TextScrollView : MonoBehaviour 
 {
 
-	public UIDraggablePanel dragableContentPanel;
+	public UIScrollView dragableContentPanel;
 
 	public UILocalize descLocalization;
 

@@ -7,7 +7,7 @@ using System.Collections;
 /// This class used to spin UI object
 /// This implementation is copy and modify from NGUI Spin.cs
 /// </summary>
-public class UISpin : IgnoreTimeScale 
+public class UISpin : MonoBehaviour 
 {
 
 	public Vector3 rotationsPerSecond = new Vector3(0f, 0.1f, 0f);
@@ -26,8 +26,7 @@ public class UISpin : IgnoreTimeScale
 	{
 		if (mRb == null)
 		{
-			UpdateRealTimeDelta();
-			ApplyDelta(ignoreTimeScale ? realTimeDelta : Time.deltaTime);
+			ApplyDelta(ignoreTimeScale ? RealTime.deltaTime : Time.deltaTime);
 		}
 	}
 	

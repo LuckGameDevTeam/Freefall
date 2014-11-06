@@ -88,9 +88,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 65: {fileID: 6500000}
-  - 114: {fileID: 11400010}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400010}
   m_Layer: 5
   m_Name: Button(UnEquip)
   m_TagString: Untagged
@@ -135,8 +135,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.8730927, y: 3.96984863, z: -2}
-  m_LocalScale: {x: 40, y: 40, z: 1}
+  m_LocalPosition: {x: -12, y: -.001953125, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
   m_RootOrder: 0
@@ -147,8 +147,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 40, y: 40, z: 1}
+  m_LocalPosition: {x: 0, y: -2, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0
@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.98762512, y: .001953125, z: -.000191688538}
+  m_LocalPosition: {x: -9.98791504, y: -1.99969482, z: -.000191688538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -173,7 +173,7 @@ Transform:
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
   m_RootOrder: 0
@@ -197,7 +197,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: 4.44699097, y: -.000305175781, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400010}
@@ -242,22 +242,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 400004}
+    relative: 0
+    absolute: -21
+  rightAnchor:
+    target: {fileID: 400004}
+    relative: 0
+    absolute: -3
+  bottomAnchor:
+    target: {fileID: 400004}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 400004}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
+  mWidth: 18
+  mHeight: 40
   mDepth: 21
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .295081973
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
   mText: x
-  mMaxLineWidth: 0
-  mMaxLineHeight: 0
+  mFontSize: 40
+  mFontStyle: 0
+  mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mPassword: 0
-  mShowLastChar: 0
   mEffectStyle: 0
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mUseFloatSpacing: 0
+  mFloatSpacingX: 0
+  mFloatSpacingY: 0
   mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
 --- !u!114 &11400004
@@ -271,22 +307,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
+  mWidth: 20
+  mHeight: 40
   mDepth: 21
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: .5
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
   mText: "0\x03"
-  mMaxLineWidth: 0
-  mMaxLineHeight: 0
+  mFontSize: 40
+  mFontStyle: 0
+  mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mPassword: 0
-  mShowLastChar: 0
   mEffectStyle: 0
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
+  mOverflow: 2
+  mMaterial: {fileID: 0}
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mUseFloatSpacing: 0
+  mFloatSpacingX: 0
+  mFloatSpacingY: 0
   mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
 --- !u!114 &11400006
@@ -301,13 +373,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCamera: {fileID: 0}
-  widgetContainer: {fileID: 11400004}
-  panelContainer: {fileID: 0}
+  container: {fileID: 100004}
   side: 1
-  halfPixelOffset: 1
   runOnlyOnce: 0
   relativeOffset: {x: 0, y: 0}
   pixelOffset: {x: 0, y: 0}
+  widgetContainer: {fileID: 0}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,14 +402,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4271d0dec29cc9845a75627e88f762af, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 11400012}
-  normalSprite: CatCookieBig_Icon
+  tweenTarget: {fileID: 100008}
+  hover: {r: .882352948, g: .784313738, b: .588235319, a: 1}
+  pressed: {r: .717647076, g: .639215708, b: .482352942, a: 1}
+  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  duration: .200000003
+  dragHighlight: 0
   hoverSprite: CatCookieBig_Icon
   pressedSprite: CatCookieBig_Icon
   disabledSprite: CatCookieBig_Icon
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 1
+  onClick: []
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,16 +430,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
+  mWidth: 100
+  mHeight: 100
   mDepth: 20
-  mAtlas: {fileID: 11400000, guid: 7a4265fa0a7fa4f9ea19b83186ca4618, type: 2}
-  mSpriteName: CatCookieBig_Icon
-  mFillCenter: 1
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+  mFlip: 0
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11400000, guid: 7a4265fa0a7fa4f9ea19b83186ca4618, type: 2}
+  mSpriteName: CatCookieBig_Icon
+  mFillCenter: 1
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1

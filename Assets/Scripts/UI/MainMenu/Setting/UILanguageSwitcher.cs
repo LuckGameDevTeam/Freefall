@@ -19,7 +19,11 @@ public class UILanguageSwitcher : MonoBehaviour
 		popupList = GetComponent<UIPopupList> ();
 
 		//set this gameobject as eventReceiver to UIPopupList
-		popupList.eventReceiver = gameObject;
+		//NGUI 2.7
+		//popupList.eventReceiver = gameObject;
+
+		//NGUI 3.x.x
+		EventDelegate.Set (popupList.onChange, OnSelectionChange);
 	}
 
 	void Start()
@@ -28,15 +32,19 @@ public class UILanguageSwitcher : MonoBehaviour
 		LanguageSetting ls = LanguageSetting.Load ();
 
 		//set current language to saved language setting
-		Localization.instance.currentLanguage = ls.currentLanguage;
+		//NGUI 2.7
+		//Localization.instance.currentLanguage = ls.currentLanguage;
 
-		popupList.selection = ls.currentLanguage;
+		//NGUI 3.x.x
+		Localization.language = ls.currentLanguage;
 	}
 
+	/*
 	/// <summary>
 	/// PopupList selection change.
 	/// </summary>
 	/// <param name="val">Value.</param>
+	/// NGUI 2.7
 	public void OnSelectionChange(string val)
 	{
 		//save to current language
@@ -45,5 +53,16 @@ public class UILanguageSwitcher : MonoBehaviour
 		LanguageSetting.Save (ls);
 
 		Localization.instance.currentLanguage = val;
+	}
+	*/
+
+	public void OnSelectionChange()
+	{
+		//save to current language
+		LanguageSetting ls = new LanguageSetting ();
+		ls.currentLanguage = UIPopupList.current.value;
+		LanguageSetting.Save (ls);
+		
+		Localization.language = UIPopupList.current.value;
 	}
 }
