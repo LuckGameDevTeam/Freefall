@@ -42,6 +42,11 @@ public class UIResultControl : MonoBehaviour
 	public UILabel fishBoneEarnLabel;
 
 	/// <summary>
+	/// The rank control.
+	/// </summary>
+	public UIRankControl rankControl;
+
+	/// <summary>
 	/// The spin light.
 	/// </summary>
 	public GameObject spinLight;
@@ -56,13 +61,18 @@ public class UIResultControl : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+		rankControl.CloseRank ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 	
+	}
+
+	public void ShowRank()
+	{
+		rankControl.ShowRankWithRankType (RankType.FBRank);
 	}
 
 	/// <summary>
