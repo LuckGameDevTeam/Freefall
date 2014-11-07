@@ -99,7 +99,7 @@ public class UIEquippedItemDisplay : MonoBehaviour
 				button.GetComponentInChildren<UISprite>().spriteName = iconName;
 
 				//change image of button for each state
-				UIImageButton btn = button.GetComponent<UIImageButton>();
+				UIButton btn = button.GetComponent<UIButton>();
 				btn.normalSprite = iconName;
 				btn.hoverSprite = iconName;
 				btn.pressedSprite = iconName;

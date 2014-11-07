@@ -14,4 +14,5 @@ public class GameType : MonoBehaviour
 	/// which type of game player is playing
 	/// </summary>
 	public TypeOfGame currentGameType = TypeOfGame.Unknow;
+	
 }

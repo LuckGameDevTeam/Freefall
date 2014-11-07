@@ -132,7 +132,12 @@ public class UIEquipableItem : MonoBehaviour
 				if(equipControl.IsItemEquiped(equipableItemId))
 				{
 					//set buy button fucntion name to none
-					buyButton.GetComponent<UIButtonMessage>().functionName = "";
+					//NGUI 2.7
+					//buyButton.GetComponent<UIButtonMessage>().functionName = "";
+
+					//NGUI 3.x.x
+					EventDelegate.Remove(buyButton.GetComponent<UIButton>().onClick, EquipItem);
+					EventDelegate.Remove(buyButton.GetComponent<UIButton>().onClick, Purchase);
 
 					//change buy button localized key
 					buyButton.GetComponentInChildren<UILocalize>().key = itemEquippedKey;
@@ -141,12 +146,16 @@ public class UIEquipableItem : MonoBehaviour
 					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquippedKey);
 
 					//set buy button to not enable 
-					buyButton.GetComponent<UIImageButton>().isEnabled = false;
+					buyButton.GetComponent<UIButton>().isEnabled = false;
 				}
 				else
 				{
 					//set buy button function name to EquipItem
-					buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+					//NGUI 2.7
+					//buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+
+					//NGUI 3.x.x
+					EventDelegate.Set(buyButton.GetComponent<UIButton>().onClick, EquipItem);
 
 					//change buy button localized key
 					buyButton.GetComponentInChildren<UILocalize>().key = itemEquipableKey;
@@ -155,7 +164,7 @@ public class UIEquipableItem : MonoBehaviour
 					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquipableKey);
 
 					//set buy button to enable
-					buyButton.GetComponent<UIImageButton>().isEnabled = true;
+					buyButton.GetComponent<UIButton>().isEnabled = true;
 				}
 				
 			}
@@ -171,7 +180,11 @@ public class UIEquipableItem : MonoBehaviour
 				quantityLabel.text = itemBalance.ToString();
 
 				//set buy button function name to Purchase
-				buyButton.GetComponent<UIButtonMessage>().functionName = "Purchase";
+				//NGUI 2.7
+				//buyButton.GetComponent<UIButtonMessage>().functionName = "Purchase";
+
+				//NGUI 3.x.x
+				EventDelegate.Set(buyButton.GetComponent<UIButton>().onClick, Purchase);
 
 				//change buy button localize key
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
@@ -180,7 +193,7 @@ public class UIEquipableItem : MonoBehaviour
 				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
 
 				//set buy button to enable
-				buyButton.GetComponent<UIImageButton>().isEnabled = true;
+				buyButton.GetComponent<UIButton>().isEnabled = true;
 			}
 		}
 	}
@@ -224,7 +237,11 @@ public class UIEquipableItem : MonoBehaviour
 		if(gameObject.activeInHierarchy)
 		{
 			//change buy button function name to EquipItem
-			buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+			//NGUI 2.7
+			//buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+
+			//NGUI 3.x.x
+			EventDelegate.Set(buyButton.GetComponent<UIButton>().onClick, EquipItem);
 
 			//change buy button localize key
 			buyButton.GetComponentInChildren<UILocalize>().key = itemEquipableKey;
@@ -233,7 +250,7 @@ public class UIEquipableItem : MonoBehaviour
 			buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquipableKey);
 
 			//change buy button to enable
-			buyButton.GetComponent<UIImageButton>().isEnabled = true;
+			buyButton.GetComponent<UIButton>().isEnabled = true;
 		}
 
 	}

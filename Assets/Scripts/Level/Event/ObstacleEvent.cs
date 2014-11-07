@@ -112,6 +112,13 @@ public class ObstacleEvent : SpawnEvent
 				//make sure spawn point not used more than once
 				if(spawnedPoints.Contains(selectSpawnPoint))
 				{
+					Debug.LogError(gameObject.name+" has no delay and have duplicate spawn point: "+selectSpawnPoint.name);
+					Debug.LogError(gameObject.name+" make sure your have no duplicate spawn point or change delay to non 0");
+					Debug.LogError(gameObject.name+" event now interrupt and stop");
+
+					//end loop
+					spawnSuccessful = true;
+
 					continue;
 				}
 

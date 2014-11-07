@@ -20,7 +20,7 @@ public class UIHUDControl : MonoBehaviour
 	/// <summary>
 	/// The pause button.
 	/// </summary>
-	public UIImageButton pauseButton;
+	public UIButton pauseButton;
 
 	/// <summary>
 	/// The mileage label.

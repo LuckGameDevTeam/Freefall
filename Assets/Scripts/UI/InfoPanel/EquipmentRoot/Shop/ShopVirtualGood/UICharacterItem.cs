@@ -120,11 +120,17 @@ public class UICharacterItem : UIVirtualGood
 				if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
 				{
 					//disable button
-					buyButton.GetComponent<UIImageButton>().isEnabled = false;
+					buyButton.GetComponent<UIButton>().isEnabled = false;
 					
 					//change button function name to non
-					UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
-					btnMsg.functionName = "";
+					//NGUI 2.7
+					//UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
+					//btnMsg.functionName = "";
+
+					//NGUI 3.x.x
+					UIButton btn = buyButton.GetComponent<UIButton>();
+					EventDelegate.Remove(btn.onClick, Select);
+					EventDelegate.Remove(btn.onClick, StartPurchase);
 					
 					//change localize key to selected
 					buyButton.GetComponentInChildren<UILocalize>().key = selectedKey;
@@ -135,11 +141,16 @@ public class UICharacterItem : UIVirtualGood
 				else
 				{
 					//enable button
-					buyButton.GetComponent<UIImageButton>().isEnabled = true;
+					buyButton.GetComponent<UIButton>().isEnabled = true;
 					
 					//change button function name to Select
-					UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
-					btnMsg.functionName = "Select";
+					//NGUI 2.7
+					//UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
+					//btnMsg.functionName = "Select";
+
+					//NGUI 3.x.x
+					UIButton btn = buyButton.GetComponent<UIButton>();
+					EventDelegate.Set(btn.onClick, Select);
 					
 					//change localize key to select
 					buyButton.GetComponentInChildren<UILocalize>().key = selectKey;
@@ -153,8 +164,13 @@ public class UICharacterItem : UIVirtualGood
 			else
 			{
 				//change button function name to StartPurchase
-				UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
-				btnMsg.functionName = "StartPurchase";
+				//NGUI 2.7
+				//UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
+				//btnMsg.functionName = "StartPurchase";
+
+				//NGUI 3.x.x
+				UIButton btn = buyButton.GetComponent<UIButton>();
+				EventDelegate.Set (btn.onClick, StartPurchase);
 				
 				//change localize key to select
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;

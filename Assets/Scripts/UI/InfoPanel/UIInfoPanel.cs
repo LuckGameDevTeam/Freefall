@@ -18,7 +18,7 @@ public class UIInfoPanel : MonoBehaviour
 	/// <summary>
 	/// The equipment button.
 	/// </summary>
-	public UIImageButton equipmentButton;
+	public UIButton equipmentButton;
 
 	/// <summary>
 	/// The equipment control.

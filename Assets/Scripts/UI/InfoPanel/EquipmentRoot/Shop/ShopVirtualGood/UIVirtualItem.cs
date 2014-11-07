@@ -64,14 +64,14 @@ public class UIVirtualItem : UIVirtualGood
 				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(maxReachKey);
 				buyButton.GetComponentInChildren<UILocalize>().key = maxReachKey;
 				
-				buyButton.GetComponent<UIImageButton>().isEnabled = false;
+				buyButton.GetComponent<UIButton>().isEnabled = false;
 			}
 			else
 			{
 				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
 				
-				buyButton.GetComponent<UIImageButton>().isEnabled = true;
+				buyButton.GetComponent<UIButton>().isEnabled = true;
 			}
 		}
 

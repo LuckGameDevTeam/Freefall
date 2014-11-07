@@ -25,7 +25,7 @@ public class UIAbilityButton : MonoBehaviour
 	/// <summary>
 	/// The button.
 	/// </summary>
-	public UIImageButton button;
+	public UIButton button;
 
 	/// <summary>
 	/// The quantity label.

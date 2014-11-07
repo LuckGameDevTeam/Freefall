@@ -73,12 +73,12 @@ public class UIPurchaseControl : MonoBehaviour
 	/// <summary>
 	/// The buy button.
 	/// </summary>
-	public UIImageButton buyButton;
+	public UIButton buyButton;
 
 	/// <summary>
 	/// The close button.
 	/// </summary>
-	public UIImageButton closeButton;
+	public UIButton closeButton;
 
 	/// <summary>
 	/// The alert control.

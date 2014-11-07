@@ -25,7 +25,7 @@ public class UnlockAllLevelNoAd : MonoBehaviour
 	/// <summary>
 	/// The button.
 	/// </summary>
-	public UIImageButton button;
+	public UIButton button;
 
 	/// <summary>
 	/// Reference to UIStoreControl

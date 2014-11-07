@@ -81,6 +81,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400002, guid: a0dd6d0c5fa8d4db89208b5b111c240c, type: 2}
+      propertyPath: comps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0dd6d0c5fa8d4db89208b5b111c240c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -548,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: MainMenu
-  noStore: 1
+  noStore: 0
 --- !u!4 &1200330992
 Transform:
   m_ObjectHideFlags: 0
