@@ -161,6 +161,9 @@ public class UIResultControl : MonoBehaviour
 
 	public void PostToFBWall()
 	{
+#if TestMode
+		return;
+#endif
 		if(fbController.IsLogin)
 		{
 			fbController.Evt_OnFacebookPostSuccess += OnFacebookPostSuccess;

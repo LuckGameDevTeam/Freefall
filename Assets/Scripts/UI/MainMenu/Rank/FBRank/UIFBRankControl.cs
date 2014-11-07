@@ -32,6 +32,9 @@ public class UIFBRankControl : MonoBehaviour
 
 	public void ShowRank()
 	{
+#if TestMode
+		return;
+#endif
 		if(rows.Length <= 0)
 		{
 			Debug.LogError(gameObject.name+"Unable to show rank in row, there is no row assigned");

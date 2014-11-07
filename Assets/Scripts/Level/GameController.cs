@@ -520,6 +520,9 @@ public class GameController : MonoBehaviour
 	/// <param name="mile">Mile.</param>
 	private void PostMileToFacebook(int mile)
 	{
+#if TestMode
+		return;
+#endif
 		//submit score only if we play fb game
 		if((GameObject.FindObjectOfType(typeof(GameType)) as GameType).currentGameType == TypeOfGame.FB)
 		{
