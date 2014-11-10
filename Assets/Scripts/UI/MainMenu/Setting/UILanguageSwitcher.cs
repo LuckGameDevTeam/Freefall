@@ -41,7 +41,7 @@ public class UILanguageSwitcher : MonoBehaviour
 		//popupList.eventReceiver = gameObject;
 		
 		//NGUI 3.x.x
-		EventDelegate.Add (popupList.onChange, OnSelectionChange);
+		//EventDelegate.Add (popupList.onChange, OnSelectionChange);
 	}
 
 	/*

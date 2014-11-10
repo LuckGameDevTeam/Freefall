@@ -415,9 +415,9 @@ public class FBController : MonoBehaviour
 				SPFacebook.instance.Post(
 					SPFacebook.instance.UserId, 
 					postAppLink, 
-					Localization.Localize(postAppNameKey),
-					Localization.Localize(postCaptionkey),
-					Localization.Localize(postDescKey),
+					Localization.Get(postAppNameKey),
+					Localization.Get(postCaptionkey),
+					Localization.Get(postDescKey),
 					"",
 					"",
 					"",

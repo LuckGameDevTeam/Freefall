@@ -94,7 +94,7 @@ public class UILevelItem : MonoBehaviour
 				
 				//change button to confirm
 				confirmButton.GetComponentInChildren<UILocalize>().key = confirmKey;
-				confirmButton.GetComponentInChildren<UILabel>().text = Localization.Localize(confirmKey);
+				confirmButton.GetComponentInChildren<UILabel>().text = Localization.Get(confirmKey);
 
 				coinMark.SetActive(false);
 			}

@@ -120,7 +120,7 @@ public class UIEquipableItem : MonoBehaviour
 			if(itemBalance > 0)
 			{
 				//chnage price label to purchased
-				priceLabel.text = Localization.Localize(purchasedKey);
+				priceLabel.text = Localization.Get(purchasedKey);
 
 				//don't show coin mark
 				CoinMark.SetActive(false);
@@ -143,7 +143,7 @@ public class UIEquipableItem : MonoBehaviour
 					buyButton.GetComponentInChildren<UILocalize>().key = itemEquippedKey;
 
 					//change buy button label
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquippedKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(itemEquippedKey);
 
 					//set buy button to not enable 
 					buyButton.GetComponent<UIButton>().isEnabled = false;
@@ -161,7 +161,7 @@ public class UIEquipableItem : MonoBehaviour
 					buyButton.GetComponentInChildren<UILocalize>().key = itemEquipableKey;
 
 					//change buy button label
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquipableKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(itemEquipableKey);
 
 					//set buy button to enable
 					buyButton.GetComponent<UIButton>().isEnabled = true;
@@ -190,7 +190,7 @@ public class UIEquipableItem : MonoBehaviour
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
 
 				//change buy button label
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(buyKey);
 
 				//set buy button to enable
 				buyButton.GetComponent<UIButton>().isEnabled = true;
@@ -247,7 +247,7 @@ public class UIEquipableItem : MonoBehaviour
 			buyButton.GetComponentInChildren<UILocalize>().key = itemEquipableKey;
 
 			//change buy button label
-			buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquipableKey);
+			buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(itemEquipableKey);
 
 			//change buy button to enable
 			buyButton.GetComponent<UIButton>().isEnabled = true;

@@ -61,14 +61,14 @@ public class UIVirtualItem : UIVirtualGood
 		{
 			if(StoreInventory.GetItemBalance(virtualGoodId) >= maxItems)
 			{
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(maxReachKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(maxReachKey);
 				buyButton.GetComponentInChildren<UILocalize>().key = maxReachKey;
 				
 				buyButton.GetComponent<UIButton>().isEnabled = false;
 			}
 			else
 			{
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(buyKey);
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
 				
 				buyButton.GetComponent<UIButton>().isEnabled = true;

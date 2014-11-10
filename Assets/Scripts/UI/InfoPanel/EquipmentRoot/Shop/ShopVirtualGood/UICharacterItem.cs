@@ -136,7 +136,7 @@ public class UICharacterItem : UIVirtualGood
 					buyButton.GetComponentInChildren<UILocalize>().key = selectedKey;
 					
 					//change label to selected
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(selectedKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(selectedKey);
 				}
 				else
 				{
@@ -156,7 +156,7 @@ public class UICharacterItem : UIVirtualGood
 					buyButton.GetComponentInChildren<UILocalize>().key = selectKey;
 					
 					//change label to select
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(selectKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(selectKey);
 				}
 				
 				
@@ -176,7 +176,7 @@ public class UICharacterItem : UIVirtualGood
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
 				
 				//change label to select
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(buyKey);
 			}
 		}
 
@@ -189,7 +189,7 @@ public class UICharacterItem : UIVirtualGood
 			//if character has been bought...change price label to purchased
 			if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
 			{
-				priceLabel.text = Localization.Localize(purchasedKey);
+				priceLabel.text = Localization.Get(purchasedKey);
 			}
 			else
 			{

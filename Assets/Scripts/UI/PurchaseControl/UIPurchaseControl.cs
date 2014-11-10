@@ -138,7 +138,7 @@ public class UIPurchaseControl : MonoBehaviour
 		//title
 		itemTitleLocalize.key = good.virtualGoodName;
 
-		itemDescLocalize.key = Localization.Localize(good.descriptionTag);
+		itemDescLocalize.key = Localization.Get(good.descriptionTag);
 
 		gameObject.SetActive (true);
 	}
@@ -157,7 +157,7 @@ public class UIPurchaseControl : MonoBehaviour
 		//title
 		itemTitleLocalize.key = itemTitleKey;
 		
-		itemDescLocalize.key = Localization.Localize(itemDescKey);
+		itemDescLocalize.key = Localization.Get(itemDescKey);
 		
 		gameObject.SetActive (true);
 	}

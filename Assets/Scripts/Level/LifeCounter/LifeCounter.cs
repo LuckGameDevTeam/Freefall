@@ -577,7 +577,7 @@ public class LifeCounter : MonoBehaviour
 		newLN.repeatCalendar = CalendarIdentifier.GregorianCalendar;
 		newLN.repeatInterval = CalendarUnit.Day;
 		newLN.soundName = LocalNotification.defaultSoundName;
-		newLN.alertBody = Localization.Localize(message);
+		newLN.alertBody = Localization.Get(message);
 		newLN.fireDate = fireDateTime;
 
 		NotificationServices.ScheduleLocalNotification (newLN);

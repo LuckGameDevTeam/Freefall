@@ -6055,6 +6055,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400738}
   - 114: {fileID: 11400918}
+  - 54: {fileID: 5400014}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -14229,6 +14230,21 @@ Rigidbody:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100934}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &5400014
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100738}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -23348,7 +23364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8077b76001d36d489868d20d28bddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCamera: {fileID: 0}
+  uiCamera: {fileID: 2000000}
   container: {fileID: 0}
   side: 8
   runOnlyOnce: 0
@@ -30370,7 +30386,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3016
+  startingRenderQueue: 3009
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -30510,7 +30526,7 @@ MonoBehaviour:
   eventReceiverMask:
     serializedVersion: 2
     m_Bits: 32
-  debug: 0
+  debug: 1
   useMouse: 1
   useTouch: 1
   allowMultiTouch: 1
@@ -31821,13 +31837,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3027
+  startingRenderQueue: 3016
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 0, w: 0}
   mClipSoftness: {x: 40, y: 40}
-  mDepth: 3
+  mDepth: 4
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
 --- !u!114 &11400920
