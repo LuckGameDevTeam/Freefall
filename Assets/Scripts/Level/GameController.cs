@@ -436,12 +436,17 @@ public class GameController : MonoBehaviour
 
 		int score = 0;
 
+#if TestMode
+		score += 1;
+#else
+
 		//calculate socre base on player life remain... add 1 score if player life greater or equal than
 		//3
 		if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) >= 3)
 		{
 			score += 1;
 		}
+#endif
 
 		float currentHealth = character.GetComponent<CharacterHealth>().GetCurrentHealth();
 		float maxHealth = character.GetComponent<CharacterHealth>().maxHealth;
@@ -1059,4 +1064,5 @@ public class GameController : MonoBehaviour
 		}
 	}
 	////////////////////////////////Properties////////////////////////////////
+	
 }

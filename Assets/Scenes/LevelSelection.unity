@@ -26029,6 +26029,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400568, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400568, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 511.21875
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
   m_RootGameObject: {fileID: 446781316}
@@ -30214,7 +30222,7 @@ MonoBehaviour:
   mouseDragThreshold: 4
   mouseClickThreshold: 10
   touchDragThreshold: 40
-  touchClickThreshold: 40
+  touchClickThreshold: 4000
   rangeDistance: -1
   scrollAxisName: Mouse ScrollWheel
   verticalAxisName: Vertical
