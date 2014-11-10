@@ -22482,6 +22482,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 400432, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -384.586243
+      objectReference: {fileID: 0}
+    - target: {fileID: 400392, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .781691194
+      objectReference: {fileID: 0}
+    - target: {fileID: 400732, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -384.586243
+      objectReference: {fileID: 0}
+    - target: {fileID: 400678, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 383.022888
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
   m_RootGameObject: {fileID: 2066763041}
