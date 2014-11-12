@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// Unlock all level no ad.
@@ -58,7 +59,14 @@ public class UnlockAllLevelNoAd : MonoBehaviour
 	/// </summary>
 	public void Purchase()
 	{
+		/*
 		if(!StoreInventory.NonConsumableItemExists(buyItemId))
+		{
+			storeRoot.purchaseControl.ShowPurchaseWindow (buyItemId, itemTitleKey, itemDescKey);
+		}
+		*/
+
+		if(!DBManager.GetAllPurchased().Contains(buyItemId))
 		{
 			storeRoot.purchaseControl.ShowPurchaseWindow (buyItemId, itemTitleKey, itemDescKey);
 		}
@@ -69,7 +77,20 @@ public class UnlockAllLevelNoAd : MonoBehaviour
 	/// </summary>
 	void ConfigureButton()
 	{
+		/*
 		if(StoreInventory.NonConsumableItemExists(buyItemId))
+		{
+			//not enable button if it is bought
+			button.isEnabled = false;
+		}
+		else
+		{
+			//enable button if it is not bought
+			button.isEnabled = true;
+		}
+		*/
+
+		if(DBManager.GetAllPurchased().Contains(buyItemId))
 		{
 			//not enable button if it is bought
 			button.isEnabled = false;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// Player equipped items.
@@ -137,7 +138,8 @@ public class PlayerEquippedItems : PersistantMetaData
 		//remove any item that balance is 0 but still equpped
 		for(int i=0; i<equippedItemIds.Count; i++)
 		{
-			if(StoreInventory.GetItemBalance(equippedItemIds[i]) <= 0)
+			//if(StoreInventory.GetItemBalance(equippedItemIds[i]) <= 0)
+			if(DBManager.GetPlayerData(equippedItemIds[i]).AsInt <= 0)
 			{
 				removedIds.Add(equippedItemIds[i]);
 			}

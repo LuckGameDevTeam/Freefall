@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI virtual item.
@@ -47,7 +48,8 @@ public class UIVirtualItem : UIVirtualGood
 		base.InitVirtualGood ();
 
 		//set price label
-		priceLabel.text =  ((int)price).ToString();
+		//priceLabel.text =  ((int)price).ToString();
+		priceLabel.text = IAPManager.GetIAPObject (virtualGoodId).virtualPrice [0].amount.ToString ();
 
 		//set image
 		portrait.spriteName = portraitImageName;
@@ -59,7 +61,8 @@ public class UIVirtualItem : UIVirtualGood
 	{
 		if(gameObject.activeInHierarchy)
 		{
-			if(StoreInventory.GetItemBalance(virtualGoodId) >= maxItems)
+			//if(StoreInventory.GetItemBalance(virtualGoodId) >= maxItems)
+			if(DBManager.GetPlayerData(virtualGoodId).AsInt >= maxItems)
 			{
 				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(maxReachKey);
 				buyButton.GetComponentInChildren<UILocalize>().key = maxReachKey;
@@ -94,7 +97,6 @@ public class UIVirtualItem : UIVirtualGood
 		}
 
 
-
 		base.PurchaseWindowItemPurchased (control, itemId);
 
 		//perform extra action
@@ -102,9 +104,8 @@ public class UIVirtualItem : UIVirtualGood
 			
 		ConfigureButton ();
 			
-		Debug.Log (itemId + " " + StoreInventory.GetItemBalance (itemId));
-
-
+		//Debug.Log (itemId + " " + StoreInventory.GetItemBalance (itemId));
+		Debug.Log (itemId + " " + DBManager.GetPlayerData(itemId).AsInt);
 	}
 
 	/// <summary>

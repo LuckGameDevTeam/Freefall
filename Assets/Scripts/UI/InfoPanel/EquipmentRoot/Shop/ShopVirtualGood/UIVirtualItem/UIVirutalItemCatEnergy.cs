@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI virutal item cat energy.
@@ -20,9 +21,11 @@ public class UIVirutalItemCatEnergy : UIVirtualItem
 		base.PurchasedAction (control, itemId);
 
 		//give player amount of life
-		StoreInventory.GiveItem (StoreAssets.PLAYER_LIFE_ITEM_ID, giveLife);
+		//StoreInventory.GiveItem (StoreAssets.PLAYER_LIFE_ITEM_ID, giveLife);
+		DBManager.IncrementPlayerData (LifeCounter.PlayerLife, giveLife);
 
 		//take cat energy away from player
-		StoreInventory.TakeItem (itemId, 1);
+		//StoreInventory.TakeItem (itemId, 1);
+		DBManager.SetPlayerData (itemId, new SimpleJSON.JSONData (DBManager.GetPlayerData (itemId).AsInt - 1));
 	}
 }

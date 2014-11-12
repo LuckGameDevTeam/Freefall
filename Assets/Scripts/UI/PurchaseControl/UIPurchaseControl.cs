@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI purchase control.
@@ -107,23 +108,32 @@ public class UIPurchaseControl : MonoBehaviour
 
 	void OnEnable()
 	{
+		/*
 		StoreEvents.OnMarketPurchase += onMarketPurchase;
 		StoreEvents.OnItemPurchased += onItemPurchased;
 		StoreEvents.OnMarketPurchaseStarted += onMarketPurchaseStarted;
 		StoreEvents.OnItemPurchaseStarted += onItemPurchaseStarted;
 		StoreEvents.OnUnexpectedErrorInStore += onUnexpectedErrorInStore;
 		StoreEvents.OnMarketPurchaseCancelled += onMarketPurchaseCancelled;
+		*/
 
+		IAPManager.purchaseSucceededEvent += OnPurchaseSucceed;
+		IAPManager.purchaseFailedEvent += OnPurchaseFail;
 	}
 
 	void OnDisable()
 	{
+		/*
 		StoreEvents.OnMarketPurchase -= onMarketPurchase;
 		StoreEvents.OnItemPurchased -= onItemPurchased;
 		StoreEvents.OnMarketPurchaseStarted -= onMarketPurchaseStarted;
 		StoreEvents.OnItemPurchaseStarted -= onItemPurchaseStarted;
 		StoreEvents.OnUnexpectedErrorInStore -= onUnexpectedErrorInStore;
 		StoreEvents.OnMarketPurchaseCancelled -= onMarketPurchaseCancelled;
+		*/
+
+		IAPManager.purchaseSucceededEvent -= OnPurchaseSucceed;
+		IAPManager.purchaseFailedEvent -= OnPurchaseFail;
 	}
 
 	/// <summary>
@@ -187,13 +197,46 @@ public class UIPurchaseControl : MonoBehaviour
 
 		try 
 		{
+			string pId;
+
 			if(currentGood != null)
 			{
-				StoreInventory.BuyItem (currentGood.virtualGoodId);
+				//StoreInventory.BuyItem (currentGood.virtualGoodId);
+
+				pId = currentGood.virtualGoodId;
 			}
 			else
 			{
-				StoreInventory.BuyItem (currentNonGoodItemId);
+				//StoreInventory.BuyItem (currentNonGoodItemId);
+
+				pId = currentNonGoodItemId;
+			}
+
+			//get iap object 
+			IAPObject iapObj = IAPManager.GetIAPObject(pId);
+
+			//determine which type of product and do the correspond purchase method
+			switch(iapObj.type)
+			{
+			case IAPType.consumable:
+
+				IAPManager.PurchaseConsumableProduct(pId);
+				break;
+
+			case IAPType.nonConsumable:
+
+				IAPManager.PurchaseNonconsumableProduct(pId);
+				break;
+
+			case IAPType.consumableVirtual:
+
+				IAPManager.PurchaseConsumableVirtualProduct(pId);
+				break;
+
+			case IAPType.nonConsumableVirtual:
+
+				IAPManager.PurchaseNonconsumableVirtualProduct(pId);
+				break;
 			}
 
 		}
@@ -219,6 +262,7 @@ public class UIPurchaseControl : MonoBehaviour
 		}
 		catch(UnityException e)
 		{
+			Debug.LogError("Purchase product throw an exception");
 		}
 
 	}
@@ -241,6 +285,69 @@ public class UIPurchaseControl : MonoBehaviour
 		closeButton.isEnabled = true;
 	}
 
+	#region SIS callback
+	void OnPurchaseSucceed(string pId)
+	{
+		//increase item amount by 1
+		DBManager.IncrementPlayerData(pId, 1);
+
+		//fire purchase event
+		if(Evt_ItemPurchased != null)
+		{
+			Evt_ItemPurchased(this, pId);
+		}
+		
+		UnlockButton ();
+		
+		ClosePurchaseWindow ();
+	}
+
+	void OnPurchaseFail(string errorMsg)
+	{
+		Debug.LogWarning ("Error in store: " + errorMsg);
+
+		//-1 transaction cancel
+		if(errorMsg.Split(","[0])[0] != "-1")
+		{
+			//show alert window
+			alertControl.ShowAlertWindow (null, errorKey);
+
+			if(Evt_ErrorOccur != null)
+			{
+				if(currentGood != null)
+				{
+					Evt_ErrorOccur(this, currentGood.virtualGoodId, errorMsg);
+				}
+				else
+				{
+					Evt_ErrorOccur(this, currentNonGoodItemId, errorMsg);
+				}
+			}
+		}
+		else
+		{
+			if(Evt_ItemPurchaseCancelled != null)
+			{
+				if(currentGood != null)
+				{
+					Evt_ErrorOccur(this, currentGood.virtualGoodId, errorMsg);
+				}
+				else
+				{
+					Evt_ErrorOccur(this, currentNonGoodItemId, errorMsg);
+				}
+			}
+			
+			UnlockButton ();
+		}
+
+
+
+	}
+	#endregion SIS callback
+
+	#region Soomla callback
+	/*
 	/// <summary>
 	/// Handles a market purchase event.
 	/// </summary>
@@ -333,4 +440,6 @@ public class UIPurchaseControl : MonoBehaviour
 
 
 	}
+	*/
+	#endregion Soomla callback
 }

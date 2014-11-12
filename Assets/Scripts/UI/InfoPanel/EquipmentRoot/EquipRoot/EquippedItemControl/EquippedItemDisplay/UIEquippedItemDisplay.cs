@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI equipped item display.
@@ -109,7 +110,8 @@ public class UIEquippedItemDisplay : MonoBehaviour
 				btn.isEnabled = true;
 
 				//set quantity label to item balance
-				quantityLabel.text = StoreInventory.GetItemBalance(itemId).ToString();
+				//quantityLabel.text = StoreInventory.GetItemBalance(itemId).ToString();
+				quantityLabel.text = DBManager.GetPlayerData(itemId).AsInt.ToString();
 			}
 
 		}

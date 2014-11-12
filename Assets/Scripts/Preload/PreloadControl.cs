@@ -27,6 +27,8 @@ public class PreloadControl : MonoBehaviour
 	void PreloadData()
 	{
 		//test
+		//DBManager.ClearAll ();
+		//DBManager.GetInstance ().Init ();
 
 		int firstTimeLaunch = 0;
 		

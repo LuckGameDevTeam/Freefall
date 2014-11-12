@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI equipable item.
@@ -114,7 +115,8 @@ public class UIEquipableItem : MonoBehaviour
 		if(gameObject.activeInHierarchy)
 		{
 			//get item balance
-			int itemBalance = StoreInventory.GetItemBalance (equipableItemId);
+			//int itemBalance = StoreInventory.GetItemBalance (equipableItemId);
+			int itemBalance = DBManager.GetPlayerData(equipableItemId).AsInt;
 
 			//item balance > 0
 			if(itemBalance > 0)
@@ -171,7 +173,8 @@ public class UIEquipableItem : MonoBehaviour
 			else//item balance <= 0
 			{
 				//set price label to item price
-				priceLabel.text = itemPrice.ToString();
+				//priceLabel.text = itemPrice.ToString();
+				priceLabel.text = IAPManager.GetIAPObject(equipableItemId).virtualPrice[0].amount.ToString();
 
 				//set coin mark active
 				CoinMark.SetActive(true);
@@ -216,7 +219,8 @@ public class UIEquipableItem : MonoBehaviour
 	public virtual void Purchase()
 	{
 		//check if this item's balance if it is 0
-		if(StoreInventory.GetItemBalance(equipableItemId) == 0)
+		//if(StoreInventory.GetItemBalance(equipableItemId) == 0)
+		if(DBManager.GetPlayerData(equipableItemId).AsInt == 0)
 		{
 			//show purchase window
 			equipRoot.purchaseControl.ShowPurchaseWindow(equipableItemId, equipableItemNameKey, equipableItemDescKey);
