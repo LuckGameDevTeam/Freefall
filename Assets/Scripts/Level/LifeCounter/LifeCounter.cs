@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// Life counter.
@@ -13,6 +14,8 @@ using Soomla.Store;
 /// </summary>
 public class LifeCounter : MonoBehaviour 
 {
+	//Defination of PlayerLife keyword
+	public static string PlayerLife = "PlayerLife";
 
 	public enum RecoverUnit
 	{
@@ -93,7 +96,8 @@ public class LifeCounter : MonoBehaviour
 
 	void OnDisable()
 	{
-		StoreEvents.OnGoodBalanceChanged -= onGoodBalanceChanged;
+		//StoreEvents.OnGoodBalanceChanged -= onGoodBalanceChanged;
+		DBManager.updatedDataEvent -= OnDBManagerDataUpdate;
 	}
 
 	// Use this for initialization
@@ -124,7 +128,8 @@ public class LifeCounter : MonoBehaviour
 					Evt_LifeRegenStop(this);
 				}
 				
-				if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) >= maxLifeRecover)
+				//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) >= maxLifeRecover)
+				if(DBManager.GetPlayerData(PlayerLife).AsInt >= maxLifeRecover)
 				{
 					isRegeneratingLife = false;
 
@@ -162,9 +167,11 @@ public class LifeCounter : MonoBehaviour
 	{
 		CancelAllNotifications ();
 
-		StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
+		//StoreEvents.OnGoodBalanceChanged += onGoodBalanceChanged;
+		DBManager.updatedDataEvent += OnDBManagerDataUpdate;
 
-		currentLifeCount = StoreInventory.GetItemBalance (StoreAssets.PLAYER_LIFE_ITEM_ID);
+		//currentLifeCount = StoreInventory.GetItemBalance (StoreAssets.PLAYER_LIFE_ITEM_ID);
+		currentLifeCount = DBManager.GetPlayerData (PlayerLife).AsInt;
 
 		if(Evt_LifeCountChanged != null)
 		{
@@ -182,9 +189,11 @@ public class LifeCounter : MonoBehaviour
 	/// <param name="amount">Amount.</param>
 	void GiveLife(int amount)
 	{
-		currentLifeCount += amount;
+		//currentLifeCount += amount;
 
-		StoreInventory.GiveItem(StoreAssets.PLAYER_LIFE_ITEM_ID, amount);
+		//StoreInventory.GiveItem(StoreAssets.PLAYER_LIFE_ITEM_ID, amount);
+
+		DBManager.IncrementPlayerData (PlayerLife, amount);
 
 		if(Evt_LifeCountChanged != null)
 		{
@@ -204,7 +213,8 @@ public class LifeCounter : MonoBehaviour
 		{
 			Debug.Log("app enter background");
 
-			int currentLifeCount = StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID);
+			//int currentLifeCount = StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID);
+			int currentLifeCount = DBManager.GetPlayerData(PlayerLife).AsInt;
 
 			if(currentLifeCount < maxLifeRecover)
 			{
@@ -292,12 +302,14 @@ public class LifeCounter : MonoBehaviour
 		}
 	}
 
+	/*
 	/// <summary>
 	/// Ons the good balance changed.
 	/// </summary>
 	/// <param name="good">Good.</param>
 	/// <param name="balance">Balance.</param>
 	/// <param name="amountAdded">Amount added.</param>
+
 	void onGoodBalanceChanged(VirtualGood good, int balance, int amountAdded)
 	{
 		if(good.ItemId == StoreAssets.PLAYER_LIFE_ITEM_ID)
@@ -312,6 +324,28 @@ public class LifeCounter : MonoBehaviour
 			AnalyzeLifeCountOnGame();
 		}
 	}
+	*/
+
+	/// <summary>
+	/// Handle when DBManager has data update
+	/// </summary>
+	void OnDBManagerDataUpdate()
+	{
+		int lifeCount = DBManager.GetPlayerData (PlayerLife).AsInt;
+
+		if(currentLifeCount != lifeCount)
+		{
+			currentLifeCount = lifeCount;
+
+			if(Evt_LifeCountChanged != null)
+			{
+				Evt_LifeCountChanged(this, currentLifeCount);
+			}
+
+			AnalyzeLifeCountOnGame();
+		}
+
+	}
 
 	/// <summary>
 	/// Analyzes the life count.
@@ -323,7 +357,8 @@ public class LifeCounter : MonoBehaviour
 	/// </summary>
 	void AnalyzeLifeCountOnGame()
 	{
-		if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) < maxLifeRecover)
+		//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) < maxLifeRecover)
+		if(DBManager.GetPlayerData(PlayerLife).AsInt < maxLifeRecover)
 		{
 			//start regenerating life
 			isRegeneratingLife = true;
@@ -393,7 +428,8 @@ public class LifeCounter : MonoBehaviour
 	void AnalyzeLifeCountOffGame()
 	{
 		//get back current player life count
-		int currentAmount = StoreInventory.GetItemBalance (StoreAssets.PLAYER_LIFE_ITEM_ID); 
+		//int currentAmount = StoreInventory.GetItemBalance (StoreAssets.PLAYER_LIFE_ITEM_ID); 
+		int currentAmount = DBManager.GetPlayerData (PlayerLife).AsInt;
 
 		//if life count greater equal then max return
 		if (currentAmount >= maxLifeRecover) 

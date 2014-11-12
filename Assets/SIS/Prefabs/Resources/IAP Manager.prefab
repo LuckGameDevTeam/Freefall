@@ -1,0 +1,578 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
+  m_Layer: 0
+  m_Name: IAP Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  - 114: {fileID: 11400006}
+  m_Layer: 0
+  m_Name: IAP Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400004}
+  - 114: {fileID: 11400002}
+  m_Layer: 0
+  m_Name: OpenIABEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400002}
+  - {fileID: 400004}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 0
+--- !u!4 &400004
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cafc064c316f49744b1ae08c43a9a12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  googleStoreKey: 
+  serverUrl: 
+  verificationType: 0
+  verificationFileName: 
+  remoteType: 0
+  remoteFileName: 
+  androidPlatform: 0
+  IAPs:
+  - id: 1405262948.9577788
+    name: IAP
+    items:
+    - id: OneCoinPack
+      localId:
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      fetch: 0
+      type: 0
+      title: 1 coin pack
+      description: Own 10000  cat coins
+      realPrice: $0.99
+      virtualPrice: []
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: TwoCoinPack
+      localId:
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      fetch: 0
+      type: 0
+      title: 2 coin pack
+      description: Own 20000 cat coins
+      realPrice: $1.99
+      virtualPrice: []
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: ThreeCoinPack
+      localId:
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      fetch: 0
+      type: 0
+      title: 3 coin pack
+      description: Own 30500 cat coins
+      realPrice: $2.99
+      virtualPrice: []
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CoinBox
+      localId:
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      fetch: 0
+      type: 0
+      title: Coin box
+      description: Own 60000 cat coins
+      realPrice: $4.99
+      virtualPrice: []
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: BuyFullGame
+      localId:
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      - overridden: 0
+        id: 
+      fetch: 0
+      type: 1
+      title: Full game
+      description: Unlock all level and remove ad
+      realPrice: $0.99
+      virtualPrice: []
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+  currency:
+  - name: Cat coins
+    amount: 20000
+  IGCs:
+  - id: 1415758249.68606947
+    name: Character
+    items:
+    - id: BellCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Yellow cat
+      description: Character yellow cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 0
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: NinjaCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Ninja cat
+      description: Character ninja cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 1000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: TarzanCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Tarzan cat
+      description: Character tarzan cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CandyCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Candy cat
+      description: Character candy cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 1500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: PumpkinCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Pumpkin cat
+      description: Character pumpkin cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 2000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: IronCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Iron cat
+      description: Character iron cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 5000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: HulkCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Hulk cat
+      description: Character hulk cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 5000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: GhostCat
+      localId: []
+      fetch: 0
+      type: 4
+      title: Ghost cat
+      description: Character ghost cat
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 5000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+  - id: 1415759442.16342426
+    name: Item
+    items:
+    - id: CatEnergy
+      localId: []
+      fetch: 0
+      type: 3
+      title: Cat energy
+      description: Give 3 life to player
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 5000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CatCookieBig
+      localId: []
+      fetch: 0
+      type: 3
+      title: Cat cookie
+      description: Add 3 hp to player
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 300
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CatCrown
+      localId: []
+      fetch: 0
+      type: 3
+      title: Cat crown
+      description: Enlarge and Invulnerable for 3 seconds
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 1000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CatMagnet
+      localId: []
+      fetch: 0
+      type: 3
+      title: Cat magnet
+      description: Fish bone and cat coin automatic fly toward player for 5 seconds
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CatShield
+      localId: []
+      fetch: 0
+      type: 3
+      title: Cat shield
+      description: Block 5 attacks from enemy
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CatSword
+      localId: []
+      fetch: 0
+      type: 3
+      title: Cat sword
+      description: Kill all enemies on screen
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: CatStick
+      localId: []
+      fetch: 0
+      type: 3
+      title: Cat stick
+      description: Bounce away enemy for 5 seconds
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+  - id: 1415762222.5230880
+    name: Level
+    items:
+    - id: UnlockLevel1
+      localId: []
+      fetch: 0
+      type: 4
+      title: Level1
+      description: Level1
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 0
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: UnlockLevel2
+      localId: []
+      fetch: 0
+      type: 4
+      title: Level2
+      description: Level2
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: UnlockLevel3
+      localId: []
+      fetch: 0
+      type: 4
+      title: Level3
+      description: Level3
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 1000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: UnlockLevel4
+      localId: []
+      fetch: 0
+      type: 4
+      title: Level4
+      description: Level4
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 1500
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+    - id: UnlockLevel5
+      localId: []
+      fetch: 0
+      type: 4
+      title: Level5
+      description: Level5
+      realPrice: 
+      virtualPrice:
+      - name: Cat coins
+        amount: 2000
+      req:
+        entry: 
+        target: 0
+        labelText: 
+      platformFoldout: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d9ab6456c839448bd269e6b3c831ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede593cb3d7afa745b31541dc1b842f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encrypt: 0
+  obfuscKey: 
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a3624475fe7d74292ab7640dc0ba31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

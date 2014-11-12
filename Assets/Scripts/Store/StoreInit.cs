@@ -37,7 +37,6 @@ public class StoreInit : MonoBehaviour
 		{
 			GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel (levelToLoad);
 		}
-
 	}
 	
 	// Update is called once per frame
