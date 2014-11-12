@@ -34,6 +34,7 @@ public class UIEquipableItem : MonoBehaviour
 
 	/// <summary>
 	/// The item price.
+	/// No longer use in new IAP system
 	/// </summary>
 	public int itemPrice = 0;
 

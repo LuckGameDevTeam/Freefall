@@ -261,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .781691194, y: -.015625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400032}
@@ -299,7 +299,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -25}
+  m_LocalPosition: {x: 0, y: .796875, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -840,6 +840,8 @@ MonoBehaviour:
   errorKey: BuyError
   itemTitleLocalize: {fileID: 11400046}
   itemDescLocalize: {fileID: 11400034}
+  itemTitle: {fileID: 11400044}
+  itemDesc: {fileID: 11400036}
   buyButton: {fileID: 11400010}
   closeButton: {fileID: 11400008}
   alertControl: {fileID: 0}
@@ -1294,7 +1296,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: .745098054}
+  mColor: {r: 0, g: 0, b: 0, a: .670588255}
   mPivot: 4
   mWidth: 768
   mHeight: 1024

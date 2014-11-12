@@ -71,6 +71,10 @@ public class UIPurchaseControl : MonoBehaviour
 	/// </summary>
 	public UILocalize itemDescLocalize;
 
+	public UILabel itemTitle;
+
+	public UILabel itemDesc;
+
 	/// <summary>
 	/// The buy button.
 	/// </summary>
@@ -146,10 +150,27 @@ public class UIPurchaseControl : MonoBehaviour
 		currentNonGoodItemId = "";
 
 		//title
-		itemTitleLocalize.key = good.virtualGoodName;
+		//itemTitleLocalize.key = good.virtualGoodName;
 
-		itemDescLocalize.key = Localization.Get(good.descriptionTag);
+		//itemDescLocalize.key = Localization.Get(good.descriptionTag);
 
+		itemTitle.text = Localization.Get (good.virtualGoodName);
+
+		itemDesc.text = Localization.Get (good.descriptionTag);
+
+		gameObject.SetActive (true);
+	}
+
+	public void ShowPurchaseWindowLocalized(string itemId, string itemTitleKey, string itemDescKey)
+	{
+		currentNonGoodItemId = itemId;
+		currentGood = null;
+		
+		//title
+		itemTitleLocalize.key = itemTitleKey;
+		
+		itemDescLocalize.key = Localization.Get(itemDescKey);
+		
 		gameObject.SetActive (true);
 	}
 
@@ -220,12 +241,31 @@ public class UIPurchaseControl : MonoBehaviour
 			{
 			case IAPType.consumable:
 
+#if UNITY_EDITOR
+				//Dot allow to make market purchase in editor
+				//show alert window
+				alertControl.ShowAlertWindow (null, "Can't purchase market product in editor");
+
+				UnlockButton();
+				ClosePurchaseWindow();
+
+#else
 				IAPManager.PurchaseConsumableProduct(pId);
+#endif
 				break;
 
 			case IAPType.nonConsumable:
 
+#if UNITY_EDITOR 
+				//Dot allow to make market purchase in editor
+				//show alert window
+				alertControl.ShowAlertWindow (null, "Can't purchase market product in editor");
+
+				UnlockButton();
+				ClosePurchaseWindow();
+#else
 				IAPManager.PurchaseNonconsumableProduct(pId);
+#endif
 				break;
 
 			case IAPType.consumableVirtual:
@@ -306,23 +346,46 @@ public class UIPurchaseControl : MonoBehaviour
 	{
 		Debug.LogWarning ("Error in store: " + errorMsg);
 
+		//we splite errorMsg
 		//-1 transaction cancel
-		if(errorMsg.Split(","[0])[0] != "-1")
+		string errorStr = errorMsg.Split ("," [0]) [0];
+		if(errorStr != " Transaction cancelled")
 		{
-			//show alert window
-			alertControl.ShowAlertWindow (null, errorKey);
-
-			if(Evt_ErrorOccur != null)
+			switch(errorStr)
 			{
+			case " Insufficient funds.":
+
+				//show alert window
+				alertControl.ShowAlertWindow (null, noFundsKey);
+
 				if(currentGood != null)
 				{
-					Evt_ErrorOccur(this, currentGood.virtualGoodId, errorMsg);
+					Evt_InsufficientFunds(this, currentGood.virtualGoodId);
 				}
 				else
 				{
-					Evt_ErrorOccur(this, currentNonGoodItemId, errorMsg);
+					Evt_InsufficientFunds(this, currentNonGoodItemId);
+				}
+
+				break;
+
+			default:
+				//show alert window
+				alertControl.ShowAlertWindow (null, errorKey);
+				
+				if(Evt_ErrorOccur != null)
+				{
+					if(currentGood != null)
+					{
+						Evt_ErrorOccur(this, currentGood.virtualGoodId, errorMsg);
+					}
+					else
+					{
+						Evt_ErrorOccur(this, currentNonGoodItemId, errorMsg);
+					}
 				}
 			}
+
 		}
 		else
 		{

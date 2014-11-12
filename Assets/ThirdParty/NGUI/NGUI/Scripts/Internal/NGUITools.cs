@@ -80,6 +80,8 @@ static public class NGUITools
 
 		volume *= soundVolume;
 
+		//customization
+		//coop with SFXmanager so when sound effect is off UI sound will not play
 		if ((GameObject.FindObjectOfType (typeof(SFXManager)) as SFXManager).Mute) 
 		{
 			volume = 0f;
