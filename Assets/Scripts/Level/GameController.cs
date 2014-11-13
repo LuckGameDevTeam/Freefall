@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Soomla.Store;
+using SIS;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -442,7 +443,8 @@ public class GameController : MonoBehaviour
 
 		//calculate socre base on player life remain... add 1 score if player life greater or equal than
 		//3
-		if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) >= 3)
+		//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) >= 3)
+		if(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt >= 3)
 		{
 			score += 1;
 		}
@@ -788,7 +790,8 @@ public class GameController : MonoBehaviour
 		}
 
 		//give player coin they eat from this level
-		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
 
 		//test
 		//RestartGame ();
@@ -826,7 +829,8 @@ public class GameController : MonoBehaviour
 		}
 
 		//give player coin they eat from this level
-		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
 
 		//unlock next level
 		UnlockNextLevel ();
@@ -978,11 +982,13 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnResultRestartButtonClick(UIResultControl control)
 	{
-		if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) > 0)
+		//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) > 0)
+		if(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt > 0)
 		{
 			control.CloseResult ();
 
-			StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+			//StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt-1));
 			
 			RestartGame ();
 		}

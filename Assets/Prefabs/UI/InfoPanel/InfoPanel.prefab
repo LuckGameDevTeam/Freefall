@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100010
 GameObject:
   m_ObjectHideFlags: 1
@@ -689,6 +689,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400082}
+  - 114: {fileID: 11400240}
   m_Layer: 5
   m_Name: Balance
   m_TagString: Untagged
@@ -1267,7 +1268,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400152}
   - 114: {fileID: 11400242}
-  - 114: {fileID: 11400240}
   m_Layer: 5
   m_Name: BalanceLabel
   m_TagString: Untagged
@@ -2130,7 +2130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100258
 GameObject:
   m_ObjectHideFlags: 1
@@ -5301,7 +5301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100652
 GameObject:
   m_ObjectHideFlags: 1
@@ -5457,7 +5457,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400672}
-  - 114: {fileID: 11400978}
+  - 114: {fileID: 11400422}
   m_Layer: 5
   m_Name: PlayerLife
   m_TagString: Untagged
@@ -14426,7 +14426,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .658914745
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -15805,12 +15805,14 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100152}
+  m_GameObject: {fileID: 100082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6b44698196c430ea35f190c493292a, type: 3}
+  m_Script: {fileID: 11500000, guid: 466e87a3f391e4de3a26d123c253c5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldLabel: {fileID: 11400242}
+  duration: 2
 --- !u!114 &11400242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16424,7 +16426,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .440414518
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -16887,10 +16889,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9a2983a6725c4f0d8138fb7326dedfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 466e87a3f391e4de3a26d123c253c5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   goldLabel: {fileID: 11401072}
+  duration: 2
 --- !u!114 &11400304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17057,7 +17060,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 1.35000002
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
@@ -17834,7 +17837,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.5
+  aspectRatio: 3.4666667
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
@@ -18559,7 +18562,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3017
+  startingRenderQueue: 3010
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -18789,7 +18792,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 1.35000002
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
@@ -18907,6 +18910,18 @@ MonoBehaviour:
     - obj: {fileID: 0}
       field: 
     oneShot: 0
+--- !u!114 &11400422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b09358890f6743008e89937b71f6b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeLabel: {fileID: 11400724}
 --- !u!114 &11400424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20550,7 +20565,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .658914745
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -22307,7 +22322,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.5
+  aspectRatio: 3.4666667
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
@@ -22408,7 +22423,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .658914745
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -22621,7 +22636,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 2.28571439
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -22789,7 +22804,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 2.28571439
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -23589,18 +23604,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 114
-  mHeight: 40
+  mWidth: 86
+  mHeight: 30
   mDepth: 20
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3
+  aspectRatio: 2.86666656
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
   mText: CoinBox
-  mFontSize: 40
+  mFontSize: 30
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -23705,7 +23720,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .658914745
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -23755,7 +23770,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.5
+  aspectRatio: 3.4666667
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
@@ -23897,7 +23912,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 1.35000002
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
@@ -24331,7 +24346,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .440414518
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -24987,7 +25002,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .440414518
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -26528,18 +26543,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 170
-  mHeight: 40
+  mWidth: 128
+  mHeight: 30
   mDepth: 20
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.5
+  aspectRatio: 4.26666689
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
   mText: 2 Coin Pack
-  mFontSize: 40
+  mFontSize: 30
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -27004,7 +27019,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.5
+  aspectRatio: 1.35000002
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
@@ -27626,7 +27641,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 2.28571439
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -27868,7 +27883,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 2.28571439
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -28060,7 +28075,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: .440414518
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -28074,18 +28089,6 @@ MonoBehaviour:
   mAtlas: {fileID: 11400000, guid: 7d659b7f464884638a3c77f5c029c0e8, type: 2}
   mSpriteName: icon_select
   mFillCenter: 1
---- !u!114 &11400978
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7ce5a1be9c74707a0b4cbfc54c58b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeLabel: {fileID: 11400724}
 --- !u!114 &11400980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28128,18 +28131,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 170
-  mHeight: 40
+  mWidth: 128
+  mHeight: 30
   mDepth: 20
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.5
+  aspectRatio: 4.26666689
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
   mText: 1 Coin Pack
-  mFontSize: 40
+  mFontSize: 30
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -28282,18 +28285,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 170
-  mHeight: 40
+  mWidth: 128
+  mHeight: 30
   mDepth: 20
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.5
+  aspectRatio: 4.26666689
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}
   mText: 3 Coin Pack
-  mFontSize: 40
+  mFontSize: 30
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -28353,7 +28356,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.5
+  aspectRatio: 3.4666667
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 11400000, guid: 86d9a4c1b60e04a65843364a96ef5484, type: 2}

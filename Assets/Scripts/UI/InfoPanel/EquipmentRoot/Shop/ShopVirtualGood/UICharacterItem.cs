@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI character item.
@@ -62,7 +63,8 @@ public class UICharacterItem : UIVirtualGood
 		portrait.spriteName = portraitImageName;
 
 		//check if character is equipped
-		if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+		//if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+		if(DBManager.GetAllSelected().ContainsKey(virtualGoodId))
 		{
 			//turn on protrait border
 			protraitBorder.alpha = 1f;
@@ -82,11 +84,13 @@ public class UICharacterItem : UIVirtualGood
 	{
 		base.StartPurchase ();
 
+		//if character not purchased
 		//if(!StoreInventory.NonConsumableItemExists(virtualGoodId))
-		if(StoreInventory.GetItemBalance(virtualGoodId) <= 0)
+		//if(StoreInventory.GetItemBalance(virtualGoodId) <= 0)
+		if(!DBManager.isPurchased(virtualGoodId))
 		{
 			//show purchase control window
-			uiStoreRoot.purchaseControl.ShowPurchaseWindow (this);
+			uiStoreRoot.purchaseControl.ShowPurchaseWindow (virtualGoodId, virtualGoodName, descriptionTag);
 		}
 
 		
@@ -113,11 +117,13 @@ public class UICharacterItem : UIVirtualGood
 		if(gameObject.activeInHierarchy)
 		{
 			//if character has been bought
-			if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			//if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			if(DBManager.isPurchased(virtualGoodId))
 			{
 				
 				//if character is selected
-				if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+				//if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+				if(DBManager.GetAllSelected()[IAPManager.GetIAPObjectGroupName(virtualGoodId)].Contains(virtualGoodId))
 				{
 					//disable button
 					buyButton.GetComponent<UIButton>().isEnabled = false;
@@ -187,7 +193,8 @@ public class UICharacterItem : UIVirtualGood
 		if(gameObject.activeInHierarchy)
 		{
 			//if character has been bought...change price label to purchased
-			if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			//if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			if(DBManager.isPurchased(virtualGoodId))
 			{
 				priceLabel.text = Localization.Get(purchasedKey);
 			}
@@ -207,16 +214,6 @@ public class UICharacterItem : UIVirtualGood
 	{
 		List<UICharacterItem> items = GetItems<UICharacterItem> ();
 
-		//Deselect all characters
-		for(int i=0; i<items.Count; i++)
-		{
-			if(items[i].virtualGoodId != virtualGoodId)
-			{
-				items[i].Deselect();
-			}
-
-		}
-
 		//select character
 		uiStoreRoot.SelectCharacter (virtualGoodId);
 
@@ -225,6 +222,16 @@ public class UICharacterItem : UIVirtualGood
 		protraitBorder.alpha = 1f;
 
 		ConfigureButton ();
+
+		//Deselect all characters
+		for(int i=0; i<items.Count; i++)
+		{
+			if(items[i].virtualGoodId != virtualGoodId)
+			{
+				items[i].Deselect();
+			}
+			
+		}
 	}
 
 	/// <summary>

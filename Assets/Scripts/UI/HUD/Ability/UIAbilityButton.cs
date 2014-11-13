@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI ability button.
@@ -167,7 +168,8 @@ public class UIAbilityButton : MonoBehaviour
 				itemId = value;
 
 				//get item balance
-				int balance = StoreInventory.GetItemBalance(itemId);
+				//int balance = StoreInventory.GetItemBalance(itemId);
+				int balance = DBManager.GetPlayerData(itemId).AsInt;
 
 				//set button active
 				gameObject.SetActive(true);

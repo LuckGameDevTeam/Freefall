@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI result control.
@@ -188,7 +189,8 @@ public class UIResultControl : MonoBehaviour
 		fbController.Evt_OnFacebookPostSuccess -= OnFacebookPostSuccess;
 		fbController.Evt_OnFacebookPostFail -= OnFacebookPostFail;
 
-		StoreInventory.GiveItem (StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+		//StoreInventory.GiveItem (StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+		DBManager.IncrementPlayerData (LifeCounter.PlayerLife, 1);
 	}
 
 	void OnFacebookPostFail(FBController controller)

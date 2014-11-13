@@ -150,26 +150,41 @@ public class UIPurchaseControl : MonoBehaviour
 		currentNonGoodItemId = "";
 
 		//title
-		//itemTitleLocalize.key = good.virtualGoodName;
+		itemTitleLocalize.key = good.virtualGoodName;
 
-		//itemDescLocalize.key = Localization.Get(good.descriptionTag);
-
-		itemTitle.text = Localization.Get (good.virtualGoodName);
-
-		itemDesc.text = Localization.Get (good.descriptionTag);
+		itemDescLocalize.key = Localization.Get(good.descriptionTag);
 
 		gameObject.SetActive (true);
 	}
 
-	public void ShowPurchaseWindowLocalized(string itemId, string itemTitleKey, string itemDescKey)
+	/// <summary>
+	/// Shows the purchase window with localized on or off.
+	/// localize true then itemTitleKey, itemDescKey is the key in localize file
+	/// localize false then you should do localization for itemTitleKey, itemDescKey
+	/// </summary>
+	/// <param name="itemId">Item identifier.</param>
+	/// <param name="itemTitleKey">Item title key.</param>
+	/// <param name="itemDescKey">Item desc key.</param>
+	public void ShowPurchaseWindow(string itemId, string itemTitleKey, string itemDescKey, bool localize = true)
 	{
 		currentNonGoodItemId = itemId;
 		currentGood = null;
-		
-		//title
-		itemTitleLocalize.key = itemTitleKey;
-		
-		itemDescLocalize.key = Localization.Get(itemDescKey);
+
+
+		if(localize)
+		{
+			//title
+			itemTitle.text = Localization.Get (itemTitleKey);
+			
+			itemDesc.text = Localization.Get (itemDescKey);
+		}
+		else
+		{
+			itemTitle.text= itemTitleKey;
+
+			itemDesc.text = itemDescKey;
+		}
+
 		
 		gameObject.SetActive (true);
 	}
@@ -180,6 +195,7 @@ public class UIPurchaseControl : MonoBehaviour
 	/// <param name="itemId">Item identifier.</param>
 	/// <param name="itemTitleKey">Item title key.</param>
 	/// <param name="itemDescKey">Item desc key.</param>
+	/*
 	public void ShowPurchaseWindow(string itemId, string itemTitleKey, string itemDescKey)
 	{
 		currentNonGoodItemId = itemId;
@@ -192,6 +208,7 @@ public class UIPurchaseControl : MonoBehaviour
 		
 		gameObject.SetActive (true);
 	}
+	*/
 
 	/// <summary>
 	/// Closes the purchase window.
@@ -346,18 +363,24 @@ public class UIPurchaseControl : MonoBehaviour
 	{
 		Debug.LogWarning ("Error in store: " + errorMsg);
 
+		UnlockButton ();
+
 		//we splite errorMsg
 		//-1 transaction cancel
-		string errorStr = errorMsg.Split ("," [0]) [0];
-		if(errorStr != " Transaction cancelled")
-		{
-			switch(errorStr)
-			{
-			case " Insufficient funds.":
+		string errorStr = errorMsg.Split ("," [0]) [1];
 
+		errorStr = errorStr.Trim(". ".ToCharArray());
+
+		Debug.LogWarning ("Error in store: " + errorStr);
+
+		if(errorStr != "Transaction cancelled")
+		{
+
+			if(errorStr == "Insufficient funds")
+			{
 				//show alert window
 				alertControl.ShowAlertWindow (null, noFundsKey);
-
+				
 				if(currentGood != null)
 				{
 					Evt_InsufficientFunds(this, currentGood.virtualGoodId);
@@ -366,10 +389,9 @@ public class UIPurchaseControl : MonoBehaviour
 				{
 					Evt_InsufficientFunds(this, currentNonGoodItemId);
 				}
-
-				break;
-
-			default:
+			}
+			else
+			{
 				//show alert window
 				alertControl.ShowAlertWindow (null, errorKey);
 				
@@ -400,8 +422,7 @@ public class UIPurchaseControl : MonoBehaviour
 					Evt_ErrorOccur(this, currentNonGoodItemId, errorMsg);
 				}
 			}
-			
-			UnlockButton ();
+
 		}
 
 

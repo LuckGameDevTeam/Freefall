@@ -27,8 +27,17 @@ public class PreloadControl : MonoBehaviour
 	void PreloadData()
 	{
 		//test
-		//DBManager.ClearAll ();
-		//DBManager.GetInstance ().Init ();
+
+		/*
+		//////////clean all data///////////
+		PlayerCharacter pcs = PlayerCharacter.Load ();
+		pcs.characterName = "";
+		PlayerCharacter.Save (pcs);
+		PlayerPrefs.SetInt ("TimeOfLaunch", 0);
+		DBManager.ClearAll ();
+		DBManager.GetInstance ().Init ();
+		//////////clean all data///////////
+		*/
 
 		int firstTimeLaunch = 0;
 		
@@ -39,6 +48,8 @@ public class PreloadControl : MonoBehaviour
 			//give player 3 life
 			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(1));
 
+			//give BellCat
+			DBManager.SetToPurchased("BellCat");
 
 			//select it if need
 			if(PlayerCharacter.Load().characterName == "")

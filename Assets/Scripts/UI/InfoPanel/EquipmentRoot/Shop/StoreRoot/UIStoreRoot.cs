@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// Store root.
@@ -68,7 +69,8 @@ public class UIStoreRoot : UIEquipmentRoot
 	public void SelectCharacter(string itemId)
 	{
 		//equip character
-		StoreInventory.EquipVirtualGood (itemId);
+		//StoreInventory.EquipVirtualGood (itemId);
+		DBManager.SetToSelected (itemId, true);
 
 		//save character name as itemid
 		PlayerCharacter pc = new PlayerCharacter ();
@@ -91,7 +93,8 @@ public class UIStoreRoot : UIEquipmentRoot
 	public void DeselectCharacter(string itemId)
 	{
 		//unequip character
-		StoreInventory.UnEquipVirtualGood (itemId);
+		//StoreInventory.UnEquipVirtualGood (itemId);
+		DBManager.SetToDeselected (itemId);
 
 		//remove character name from save data
 		PlayerCharacter pc = new PlayerCharacter ();

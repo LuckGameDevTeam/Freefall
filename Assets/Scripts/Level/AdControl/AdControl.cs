@@ -4,6 +4,7 @@ using System;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using Soomla.Store;
+using SIS;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -86,7 +87,8 @@ public class AdControl : MonoBehaviour
 
 	public void CreateAd(AdStyle adStyle)
 	{
-		if(!StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		//if(!StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		if(!DBManager.isPurchased("BuyFullGame"))
 		{
 			if(adStyle == AdStyle.Banner)
 			{

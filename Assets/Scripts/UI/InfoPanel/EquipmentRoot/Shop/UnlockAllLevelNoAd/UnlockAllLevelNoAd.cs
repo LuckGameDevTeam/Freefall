@@ -66,7 +66,7 @@ public class UnlockAllLevelNoAd : MonoBehaviour
 		}
 		*/
 
-		if(!DBManager.GetAllPurchased().Contains(buyItemId))
+		if(!DBManager.isPurchased(buyItemId))
 		{
 			storeRoot.purchaseControl.ShowPurchaseWindow (buyItemId, itemTitleKey, itemDescKey);
 		}
@@ -90,7 +90,7 @@ public class UnlockAllLevelNoAd : MonoBehaviour
 		}
 		*/
 
-		if(DBManager.GetAllPurchased().Contains(buyItemId))
+		if(DBManager.isPurchased(buyItemId))
 		{
 			//not enable button if it is bought
 			button.isEnabled = false;

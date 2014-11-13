@@ -86,7 +86,7 @@ public class UIVirtualItem : UIVirtualGood
 
 		//show purchase control window
 		//uiStoreRoot.purchaseControl.ShowPurchaseWindow (this);
-		uiStoreRoot.purchaseControl.ShowPurchaseWindowLocalized(virtualGoodId, virtualGoodName, descriptionTag);
+		uiStoreRoot.purchaseControl.ShowPurchaseWindow(virtualGoodId, virtualGoodName, descriptionTag);
 	}
 
 	protected override void PurchaseWindowItemPurchased(UIPurchaseControl control, string itemId)

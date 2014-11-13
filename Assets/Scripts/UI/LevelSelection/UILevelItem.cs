@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI level item.
@@ -87,13 +88,14 @@ public class UILevelItem : MonoBehaviour
 	{
 		if(gameObject.activeInHierarchy)
 		{
-			if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+			//if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+			if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("BuyFullGame"))
 			{
 				//hide locker
 				lockIndicator.SetActive(false);
 				
 				//change button to confirm
-				confirmButton.GetComponentInChildren<UILocalize>().key = confirmKey;
+				//confirmButton.GetComponentInChildren<UILocalize>().key = confirmKey;
 				confirmButton.GetComponentInChildren<UILabel>().text = Localization.Get(confirmKey);
 
 				coinMark.SetActive(false);
@@ -104,8 +106,9 @@ public class UILevelItem : MonoBehaviour
 				lockIndicator.SetActive(true);
 
 				//show unlock price
-				confirmButton.GetComponentInChildren<UILocalize>().key = unlockPrice.ToString();
-				confirmButton.GetComponentInChildren<UILabel>().text = unlockPrice.ToString();
+				//confirmButton.GetComponentInChildren<UILocalize>().key = unlockPrice.ToString();
+				//confirmButton.GetComponentInChildren<UILabel>().text = unlockPrice.ToString();
+				confirmButton.GetComponentInChildren<UILabel>().text = IAPManager.GetIAPObject(levelItemId).virtualPrice[0].amount.ToString();
 
 				coinMark.SetActive(true);
 			}
@@ -129,7 +132,8 @@ public class UILevelItem : MonoBehaviour
 		}
 		
 #else
-		if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		//if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("BuyFullGame"))
 		{
 			//enter sub level selection
 			levelSelectionControl.ShowSubLevelSelection (level);

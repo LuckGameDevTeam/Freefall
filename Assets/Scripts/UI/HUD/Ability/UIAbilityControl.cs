@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Soomla.Store;
+using SIS;
 using System;
 
 /// <summary>
@@ -136,7 +137,8 @@ public class UIAbilityControl : MonoBehaviour
 		}
 
 		//take one of this item away from player
-		StoreInventory.TakeItem (itemId, 1);
+		//StoreInventory.TakeItem (itemId, 1);
+		DBManager.SetPlayerData (itemId, new SimpleJSON.JSONData (DBManager.GetPlayerData (itemId).AsInt - 1));
 	}
 
 	void OnAdLoaded(AdControl control, object sender, EventArgs args)
