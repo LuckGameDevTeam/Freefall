@@ -333,18 +333,22 @@ public class LifeCounter : MonoBehaviour
 	{
 		int lifeCount = DBManager.GetPlayerData (PlayerLife).AsInt;
 
+		/*
 		if(currentLifeCount != lifeCount)
 		{
-			currentLifeCount = lifeCount;
 
-			if(Evt_LifeCountChanged != null)
-			{
-				Evt_LifeCountChanged(this, currentLifeCount);
-			}
-
-			AnalyzeLifeCountOnGame();
 		}
+		*/
 
+		currentLifeCount = lifeCount;
+		
+		if(Evt_LifeCountChanged != null)
+		{
+			Evt_LifeCountChanged(this, currentLifeCount);
+		}
+		
+		AnalyzeLifeCountOnGame();
+		
 	}
 
 	/// <summary>

@@ -120,10 +120,17 @@ public class UICharacterItem : UIVirtualGood
 			//if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
 			if(DBManager.isPurchased(virtualGoodId))
 			{
+
+				if(DBManager.GetAllSelected().Count <= 0)
+				{
+					Debug.LogError(gameObject.name+" No character was selected");
+					return;
+				}
 				
 				//if character is selected
 				//if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
-				if(DBManager.GetAllSelected()[IAPManager.GetIAPObjectGroupName(virtualGoodId)].Contains(virtualGoodId))
+				if((DBManager.GetAllSelected().ContainsKey(IAPManager.GetIAPObjectGroupName(virtualGoodId))) && 
+				   (DBManager.GetAllSelected()[IAPManager.GetIAPObjectGroupName(virtualGoodId)].Contains(virtualGoodId)))
 				{
 					//disable button
 					buyButton.GetComponent<UIButton>().isEnabled = false;

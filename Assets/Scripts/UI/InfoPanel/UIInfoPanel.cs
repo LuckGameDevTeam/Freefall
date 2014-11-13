@@ -44,10 +44,6 @@ public class UIInfoPanel : MonoBehaviour
 		//Close equipment UI 
 		equipmentControl.CloseEquipment ();
 
-#if TestMode
-		//lock equipment button in test mode
-		equipmentButton.isEnabled = false;
-#endif
 	}
 	
 	// Update is called once per frame

@@ -43,6 +43,17 @@ public class UIResultControl : MonoBehaviour
 	public UILabel fishBoneEarnLabel;
 
 	/// <summary>
+	/// mile, coin, fishbone
+	/// time for animating the current start to end value
+	/// </summary>
+	public float duration = 2f;
+
+	/// <summary>
+	/// Show star animation. second per star
+	/// </summary>
+	public float starAnimDuration = 3f;
+
+	/// <summary>
 	/// The rank control.
 	/// </summary>
 	public UIRankControl rankControl;
@@ -54,6 +65,11 @@ public class UIResultControl : MonoBehaviour
 
 	private FBController fbController;
 
+	private int targetMile = 0;
+	private int targetCoin = 0;
+	private int targetFishBone = 0;
+	private int targetScore = 0;
+
 	void Awake()
 	{
 		fbController = GameObject.FindObjectOfType (typeof(FBController)) as FBController;
@@ -63,6 +79,14 @@ public class UIResultControl : MonoBehaviour
 	void Start () 
 	{
 		rankControl.CloseRank ();
+	}
+
+	void OnDestroy()
+	{
+		StopCoroutine ("MileCountTo");
+		StopCoroutine ("CoinCountTo");
+		StopCoroutine ("FishBoneCountTo");
+		StopCoroutine ("StarCountTo");
 	}
 	
 	// Update is called once per frame
@@ -134,31 +158,238 @@ public class UIResultControl : MonoBehaviour
 			spinLight.SetActive(false);
 		}
 
-		//if stars greater or equal to score
-		if(resultStartFills.Length >= score)
-		{
-			//set all stars not active
-			for(int i=0; i<resultStartFills.Length; i++)
-			{
-				resultStartFills[i].SetActive(false);
-			}
+		//show mile, coin, fish bone
+		//set value
+		targetMile = distance;
+		targetCoin = coinEarn;
+		targetFishBone = fishBoneEarn;
+		targetScore = score;
 
-			//set stars active depend on score
-			for(int i=0; i<score; i++)
-			{
-				resultStartFills[i].SetActive(true);
-			}
+		//set all stars not active
+		for(int i=0; i<resultStartFills.Length; i++)
+		{
+			resultStartFills[i].SetActive(false);
+		}
+		
+		//set disatance label with animation
+		if(mileResultLabel)
+		{
+			StartCoroutine ("MileCountTo", targetMile);
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" mileResultLabel not assigned");
 		}
 
-		//set disatance label
-		mileResultLabel.text = distance.ToString ();
 
-		//set coin earn label
-		coinEarnLabel.text = coinEarn.ToString ();
 
-		//set fish bone label
-		fishBoneEarnLabel.text = fishBoneEarn.ToString ();
 	}
+
+	#region CountTo animation
+	/// <summary>
+	/// Miles count to animation.
+	/// </summary>
+	/// <returns>The count to.</returns>
+	/// <param name="target">Target.</param>
+	IEnumerator MileCountTo(int target)
+	{
+		//remember current value as starting position
+		int start = 0;
+		int curVal = 0;
+
+		//play tween
+		UITweener tweener = mileResultLabel.gameObject.GetComponent<UITweener> ();
+
+		if(tweener)
+		{
+			tweener.ResetToBeginning();
+			tweener.PlayForward();
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play tween, UITween component not found");
+		}
+		
+		//over the duration defined, lerp value from start to target value
+		//and set the UILabel text to this value
+		for (float timer = 0; timer < duration; timer += RealTime.deltaTime)
+		{
+
+			float progress = timer / duration;
+			curVal = (int)Mathf.Lerp(start, target, progress);
+			mileResultLabel.text = curVal + "";
+
+			if((target-start) <= 1)
+			{
+				break;
+			}
+
+			yield return null;
+		}
+
+		mileResultLabel.text = target.ToString();
+
+		//set coin earn label with animation
+		if(coinEarnLabel)
+		{
+			StartCoroutine ("CoinCountTo", targetCoin);
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" coinEarnLabel not assigned");
+		}
+	}
+
+	/// <summary>
+	/// Coins count to animation.
+	/// </summary>
+	/// <returns>The count to.</returns>
+	/// <param name="target">Target.</param>
+	IEnumerator CoinCountTo(int target)
+	{
+		//remember current value as starting position
+		int start = 0;
+		int curVal = 0;
+
+		//play tween
+		UITweener tweener = coinEarnLabel.gameObject.GetComponent<UITweener> ();
+		
+		if(tweener)
+		{
+			tweener.ResetToBeginning();
+			tweener.PlayForward();
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play tween, UITween component not found");
+		}
+		
+		//over the duration defined, lerp value from start to target value
+		//and set the UILabel text to this value
+		for (float timer = 0; timer < duration; timer += RealTime.deltaTime)
+		{
+
+
+			float progress = timer / duration;
+			curVal = (int)Mathf.Lerp(start, target, progress);
+			coinEarnLabel.text = curVal + "";
+
+			if((target-start) <= 1)
+			{
+				break;
+			}
+
+			yield return null;
+		}
+		
+		coinEarnLabel.text = target.ToString();
+
+		//set fish bone label with animaiton
+		if(fishBoneEarnLabel)
+		{
+			StartCoroutine ("FishBoneCountTo", targetFishBone);
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" fishBoneEarnLabel not assigned");
+		}
+	}
+
+	/// <summary>
+	/// Fishs bone count to animation.
+	/// </summary>
+	/// <returns>The bone count to.</returns>
+	/// <param name="target">Target.</param>
+	IEnumerator FishBoneCountTo(int target)
+	{
+		//remember current value as starting position
+		int start = 0;
+		int curVal = 0;
+
+		//play tween
+		UITweener tweener = fishBoneEarnLabel.gameObject.GetComponent<UITweener> ();
+		
+		if(tweener)
+		{
+			tweener.ResetToBeginning();
+			tweener.PlayForward();
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" unable to play tween, UITween component not found");
+		}
+		
+		//over the duration defined, lerp value from start to target value
+		//and set the UILabel text to this value
+		for (float timer = 0; timer < duration; timer += RealTime.deltaTime)
+		{
+
+
+			float progress = timer / duration;
+			curVal = (int)Mathf.Lerp(start, target, progress);
+			fishBoneEarnLabel.text = curVal + "";
+
+			if((target-start) <= 1)
+			{
+				break;
+			}
+
+			yield return null;
+		}
+		
+		fishBoneEarnLabel.text = target.ToString();
+
+		//show stars
+		//if stars greater or equal to score
+		if(resultStartFills.Length >= targetScore)
+		{
+			
+			StartCoroutine("StarCountTo", targetScore);
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" number of star is greater than score");
+		}
+	}
+
+	/// <summary>
+	/// Stars count to animation.
+	/// </summary>
+	/// <returns>The count to.</returns>
+	/// <param name="score">Score.</param>
+	IEnumerator StarCountTo(int score)
+	{
+		Debug.Log ("Player score: " + score);
+
+		//set stars active depend on score
+		for(int i=0; i<score; i++)
+		{
+			for (float timer = 0; timer < starAnimDuration; timer += RealTime.deltaTime)
+			{
+				resultStartFills[i].SetActive(true);
+
+				UITweener[] tweeners = resultStartFills[i].GetComponents<UITweener>();
+
+				if((tweeners != null) && (tweeners.Length > 0))
+				{
+					for(int j=0; j<tweeners.Length; j++)
+					{
+						tweeners[j].ResetToBeginning();
+						tweeners[j].PlayForward();
+					}
+				}
+				else
+				{
+					Debug.LogError(gameObject.name+" unable to play tweener, can not get UITweener component");
+				}
+
+
+			}
+
+			yield return null;
+		}
+	}
+	#endregion CountTo animation
 
 	public void PostToFBWall()
 	{

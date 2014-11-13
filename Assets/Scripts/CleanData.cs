@@ -19,6 +19,7 @@ public class CleanData : MonoBehaviour
 	{
 		PlayerCharacter pcs = PlayerCharacter.Load ();
 		pcs.characterName = "";
+		PlayerEquippedItems.Load ().UnEquipAllItems ();
 		PlayerCharacter.Save (pcs);
 		PlayerPrefs.SetInt ("TimeOfLaunch", 0);
 		DBManager.ClearAll ();

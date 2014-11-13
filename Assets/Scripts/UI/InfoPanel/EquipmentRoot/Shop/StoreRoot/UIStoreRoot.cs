@@ -96,12 +96,6 @@ public class UIStoreRoot : UIEquipmentRoot
 		//StoreInventory.UnEquipVirtualGood (itemId);
 		DBManager.SetToDeselected (itemId);
 
-		//remove character name from save data
-		PlayerCharacter pc = new PlayerCharacter ();
-		pc.characterName = "";
-		
-		PlayerCharacter.Save (pc);
-
 		if(Evt_OnCharacterDeselected != null)
 		{
 			Evt_OnCharacterDeselected(itemId);

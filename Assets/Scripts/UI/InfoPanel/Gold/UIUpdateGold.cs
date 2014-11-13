@@ -13,6 +13,8 @@ public class UIUpdateGold : MonoBehaviour
 
 	private int curValue = 0;
 
+	private UITweener tweener;
+
 	void OnEnable()
 	{
 		SetGold ();
@@ -26,6 +28,11 @@ public class UIUpdateGold : MonoBehaviour
 
 		//unregister currency balance change event
 		DBManager.updatedDataEvent -= ConfigureGold;
+	}
+
+	void Awake()
+	{
+		tweener = goldLabel.gameObject.GetComponent<UITweener> ();
 	}
 
 	// Use this for initialization
@@ -51,9 +58,25 @@ public class UIUpdateGold : MonoBehaviour
 	{
 		StopCoroutine("CountTo");
 
+		if(curValue == DBManager.GetFunds(IAPManager.GetCurrency()[0].name))
+		{
+			return;
+		}
+
 		if(gameObject.activeInHierarchy)
 		{
 			StartCoroutine("CountTo", DBManager.GetFunds(IAPManager.GetCurrency()[0].name));
+
+			if(tweener)
+			{
+				//play animation
+				tweener.ResetToBeginning();
+				tweener.PlayForward();
+			}
+			else
+			{
+				Debug.LogError(gameObject.name+" can not play tween");
+			}
 		}
 
 	}
@@ -62,14 +85,29 @@ public class UIUpdateGold : MonoBehaviour
 	{
 		//remember current value as starting position
 		int start = curValue;
+
+		string indicator;
+
+		if(curValue < target)
+		{
+			indicator = "[42ff00]+";
+		}
+		else if(curValue > target)
+		{
+			indicator = "[ff0000]-";
+		}
+		else
+		{
+			indicator = "";
+		}
 		
 		//over the duration defined, lerp value from start to target value
 		//and set the UILabel text to this value
-		for (float timer = 0; timer < duration; timer += Time.deltaTime)
+		for (float timer = 0; timer < duration; timer += RealTime.deltaTime)
 		{
 			float progress = timer / duration;
 			curValue = (int)Mathf.Lerp(start, target, progress);
-			goldLabel.text = curValue + "";
+			goldLabel.text = indicator + curValue + "";
 			yield return null;
 		}
 		

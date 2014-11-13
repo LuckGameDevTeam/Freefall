@@ -1268,6 +1268,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400152}
   - 114: {fileID: 11400242}
+  - 114: {fileID: 11400468}
   m_Layer: 5
   m_Name: BalanceLabel
   m_TagString: Untagged
@@ -5923,6 +5924,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400734}
   - 114: {fileID: 11401072}
+  - 114: {fileID: 11400466}
   m_Layer: 5
   m_Name: GoldLabel
   m_TagString: Untagged
@@ -6452,7 +6454,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .796875, z: -2}
+  m_LocalPosition: {x: 0, y: .796875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400568}
@@ -10822,7 +10824,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -27, z: 0}
+  m_LocalPosition: {x: 0, y: -29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400216}
@@ -15845,7 +15847,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 174
   mHeight: 40
-  mDepth: 16
+  mDepth: 17
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -18562,7 +18564,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3010
+  startingRenderQueue: 3012
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -19543,6 +19545,114 @@ MonoBehaviour:
   maxItems: 5
   equippedItemPrefab: {fileID: 100012, guid: 783ebcd9a84614b93b04e6986f7a929b, type: 2}
   grid: {fileID: 11400258}
+--- !u!114 &11400466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100734}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .0508642867
+      value: .4958525
+      inSlope: 7.667099
+      outSlope: 7.667099
+      tangentMode: 10
+    - time: .127584875
+      value: .924387574
+      inSlope: 2.93948627
+      outSlope: 2.93948627
+      tangentMode: 10
+    - time: .401484162
+      value: 1.00472581
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1.5
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 6, y: 6, z: 1}
+  to: {x: 1, y: 1, z: 1}
+  updateTable: 0
+--- !u!114 &11400468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100152}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .0508642867
+      value: .4958525
+      inSlope: 7.667099
+      outSlope: 7.667099
+      tangentMode: 10
+    - time: .127584875
+      value: .924387574
+      inSlope: 2.93948627
+      outSlope: 2.93948627
+      tangentMode: 10
+    - time: .401484162
+      value: 1.00472581
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1.5
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 6, y: 6, z: 1}
+  to: {x: 1, y: 1, z: 1}
+  updateTable: 0
 --- !u!114 &11400470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24923,7 +25033,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3006
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -29127,7 +29237,7 @@ MonoBehaviour:
   mPivot: 4
   mWidth: 20
   mHeight: 40
-  mDepth: 11
+  mDepth: 12
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
@@ -29788,7 +29898,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0

@@ -72,7 +72,7 @@ public class UICoinPack : UIVirtualGood
 		//look into SIS setting, in description of coin pack has explicit amount of coin that will give to player if
 		//player bought this product.
 		//We here slipt description and retrieve the amount and turn it into integer
-		DBManager.IncreaseFunds (IAPManager.GetCurrency () [0].name, int.Parse (iapObj.description.Split ("," [0]) [1]));
+		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, int.Parse (iapObj.description.Split ("," [0]) [1]));
 
 		base.PurchaseWindowItemPurchased (control, itemId);
 
