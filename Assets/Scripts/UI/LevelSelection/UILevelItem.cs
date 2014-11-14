@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
 using SIS;
 
 /// <summary>
@@ -162,7 +161,7 @@ public class UILevelItem : MonoBehaviour
 	protected virtual void LevelPurchaseWindowItemPurchased(UIPurchaseControl control, string itemId)
 	{
 
-		if((itemId == levelItemId) || (itemId == StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		if((itemId == levelItemId) || DBManager.isPurchased("BuyFullGame"))
 		{
 			/*
 			if(level > 1)

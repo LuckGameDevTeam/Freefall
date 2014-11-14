@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
 using SIS;
 
 /// <summary>
@@ -297,28 +296,9 @@ public class UIPurchaseControl : MonoBehaviour
 			}
 
 		}
-		catch(InsufficientFundsException e)
-		{
-			//show alert window
-			alertControl.ShowAlertWindow(null, noFundsKey);
-
-			if(Evt_InsufficientFunds != null)
-			{
-				if(currentGood != null)
-				{
-					Evt_InsufficientFunds(this, currentGood.virtualGoodId);
-				}
-				else
-				{
-					Evt_InsufficientFunds(this, currentNonGoodItemId);
-				}
-
-			}
-
-			UnlockButton ();
-		}
 		catch(UnityException e)
 		{
+			UnlockButton();
 			Debug.LogError("Purchase product throw an exception");
 		}
 

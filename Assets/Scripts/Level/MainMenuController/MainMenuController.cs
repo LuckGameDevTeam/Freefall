@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using SIS;
 
 /// <summary>
 /// Main menu controller.
@@ -9,6 +11,19 @@ using System.Collections;
 /// </summary>
 public class MainMenuController : MonoBehaviour 
 {
+	/// <summary>
+	/// The characters that will be the center of screen
+	/// random pick one only
+	/// </summary>
+	public string[] characters = {
+		"BellCat",
+		"NinjaCat",
+		"TarzanCat",
+		"CandyCat",
+		"PumpkinCat",
+		"IronCat",
+		"HulkCat",
+		"GhostCat"};
 
 	// Use this for initialization
 	void Start () 
@@ -27,7 +42,6 @@ public class MainMenuController : MonoBehaviour
 
 	GameObject LoadCharacter()
 	{
-		string[] characters = StoreAssets.GetAllCharactersId ();
 
 		string pickedId = characters[Random.Range (0, characters.Length)];
 

@@ -3,7 +3,6 @@ using System.Collections;
 using System;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
-using Soomla.Store;
 using SIS;
 #if UNITY_EDITOR
 using UnityEditor;

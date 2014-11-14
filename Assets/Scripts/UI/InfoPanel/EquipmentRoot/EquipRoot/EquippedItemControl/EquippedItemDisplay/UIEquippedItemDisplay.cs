@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
 using SIS;
 
 /// <summary>
@@ -30,12 +29,12 @@ public class UIEquippedItemDisplay : MonoBehaviour
 	void Awake()
 	{
 		//register event for item balance changed
-		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
 	void OnDisable()
 	{
-		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
 	}
 
 	// Use this for initialization
@@ -62,6 +61,7 @@ public class UIEquippedItemDisplay : MonoBehaviour
 		control.UnequipItem (itemId, gameObject);
 	}
 
+	/*
 	/// <summary>
 	/// Handle the item balance change event.
 	/// </summary>
@@ -76,6 +76,7 @@ public class UIEquippedItemDisplay : MonoBehaviour
 			quantityLabel.text = balance.ToString();
 		}
 	}
+	*/
 
 	public string ItemId
 	{

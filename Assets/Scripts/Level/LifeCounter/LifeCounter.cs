@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using Soomla.Store;
 using SIS;
 
 /// <summary>

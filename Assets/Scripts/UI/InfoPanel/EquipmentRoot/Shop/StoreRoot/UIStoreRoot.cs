@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
 using SIS;
 
 /// <summary>
@@ -27,7 +26,7 @@ public class UIStoreRoot : UIEquipmentRoot
 	/// <summary>
 	/// Reference to StoreControl
 	/// </summary>
-	StoreControl sc;
+	//StoreControl sc;
 
 	/// <summary>
 	/// The purchase control.
@@ -38,7 +37,7 @@ public class UIStoreRoot : UIEquipmentRoot
 	{
 		//test
 		//init store
-		sc = StoreControl.SharedStoreControl;
+		//sc = StoreControl.SharedStoreControl;
 
 		if(purchaseControl == null)
 		{

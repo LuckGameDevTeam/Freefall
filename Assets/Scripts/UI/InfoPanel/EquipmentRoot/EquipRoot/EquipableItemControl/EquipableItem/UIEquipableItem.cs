@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
 using SIS;
 
 /// <summary>
@@ -83,12 +82,12 @@ public class UIEquipableItem : MonoBehaviour
 		equipRoot.purchaseControl.Evt_ItemPurchased += OnItemPurchased;
 
 		//register event for item balance change
-		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
 	void OnDisable()
 	{
-		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
 	}
 
 	// Use this for initialization
@@ -276,6 +275,7 @@ public class UIEquipableItem : MonoBehaviour
 
 	}
 
+	/*
 	/// <summary>
 	/// Handle the item balance change event.
 	/// </summary>
@@ -290,5 +290,5 @@ public class UIEquipableItem : MonoBehaviour
 			quantityLabel.text = balance.ToString();
 		}
 	}
-
+	*/
 }
