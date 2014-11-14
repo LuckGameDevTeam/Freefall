@@ -21,7 +21,6 @@
 
 @implementation GADUBanner
 
-/// Returns the Unity view controller.
 + (UIViewController *)unityGLViewController {
   return ((UnityAppController *)[UIApplication sharedApplication].delegate).rootViewController;
 }
@@ -47,9 +46,7 @@
   if (UIInterfaceOrientationIsPortrait(currentOrientation)) {
     adSize = kGADAdSizeSmartBannerPortrait;
   } else {
-    //adSize = kGADAdSizeSmartBannerLandscape;
-      //only portrait
-      adSize = kGADAdSizeSmartBannerPortrait;
+    adSize = kGADAdSizeSmartBannerLandscape;
   }
   return [self initWithBannerClientReference:bannerClient
                                     adUnitID:adUnitID
@@ -68,7 +65,9 @@
     _bannerView = [[GADBannerView alloc] initWithAdSize:size];
     _bannerView.adUnitID = adUnitID;
     _bannerView.delegate = self;
-    _bannerView.rootViewController = [GADUBanner unityGLViewController];
+    UIViewController *unityController = [GADUBanner unityGLViewController];
+    _bannerView.rootViewController = unityController;
+    [unityController.view addSubview:_bannerView];
   }
   return self;
 }
@@ -109,37 +108,27 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
   UIView *unityView = [[GADUBanner unityGLViewController] view];
-  CGPoint center = CGPointMake(CGRectGetMidX(unityView.bounds), CGRectGetMidY(_bannerView.bounds));
+  CGPoint center;
   // Position the GADBannerView.
   switch (self.adPosition) {
     case kGADAdPositionTopOfScreen:
-      center = CGPointMake(CGRectGetMidX(unityView.bounds), CGRectGetMidY(_bannerView.bounds));
+      center = CGPointMake(CGRectGetMidX(unityView.bounds), CGRectGetMidY(adView.bounds));
       break;
     case kGADAdPositionBottomOfScreen:
       center = CGPointMake(CGRectGetMidX(unityView.bounds),
-                           CGRectGetMaxY(unityView.bounds) - CGRectGetMidY(_bannerView.bounds));
+                           CGRectGetMaxY(unityView.bounds) - CGRectGetMidY(adView.bounds));
       break;
   }
-
-  // Remove existing banner view from superview.
-  [self.bannerView removeFromSuperview];
-
-  // Add the new banner view.
-  self.bannerView = adView;
-  self.bannerView.center = center;
-  [unityView addSubview:self.bannerView];
-
+  adView.center = center;
   if (self.adReceivedCallback) {
     self.adReceivedCallback(self.bannerClient);
   }
 }
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error {
-  if (self.adFailedCallback) {
-    NSString *errorMsg = [NSString
-        stringWithFormat:@"Failed to receive ad with error: %@", [error localizedFailureReason]];
-    self.adFailedCallback(self.bannerClient, [errorMsg cStringUsingEncoding:NSUTF8StringEncoding]);
-  }
+  NSString *errorMsg = [NSString
+      stringWithFormat:@"Failed to receive ad with error: %@", [error localizedFailureReason]];
+  self.adFailedCallback(self.bannerClient, [errorMsg cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
 - (void)adViewWillPresentScreen:(GADBannerView *)adView {
