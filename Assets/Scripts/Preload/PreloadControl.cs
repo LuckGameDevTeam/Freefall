@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SIS;
+using System;
 
 public class PreloadControl : MonoBehaviour 
 {
@@ -38,6 +39,9 @@ public class PreloadControl : MonoBehaviour
 		DBManager.GetInstance ().Init ();
 		//////////clean all data///////////
 		*/
+
+		//log player prefabs data that was stored by DBManager
+		Debug.Log(PlayerPrefs.GetString("data"));
 
 		int firstTimeLaunch = 0;
 		
