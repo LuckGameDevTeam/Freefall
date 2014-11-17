@@ -2376,8 +2376,6 @@ MonoBehaviour:
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: 8a8817c002de6445ea483dd849c98d6e, type: 2}
     spawnTimes: 2
-  - prefabToSpawn: {fileID: 100000, guid: dcde986de57b74ad8b9372fce0f04028, type: 2}
-    spawnTimes: 4
   spawnPoints:
   - {fileID: 352666766}
   - {fileID: 29826523}
@@ -2687,7 +2685,7 @@ MonoBehaviour:
   - prefabToSpawn: {fileID: 100000, guid: dcde986de57b74ad8b9372fce0f04028, type: 2}
     spawnTimes: 2
   - prefabToSpawn: {fileID: 100000, guid: a7413cfd1284446f59dde9d3817c6da2, type: 2}
-    spawnTimes: 2
+    spawnTimes: 1
   spawnPoints:
   - {fileID: 541066456}
   - {fileID: 836772153}
@@ -7885,7 +7883,7 @@ MonoBehaviour:
   delay: 1
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: 9404f4b67689643089dd5946309c9abe, type: 2}
-    spawnTimes: 4
+    spawnTimes: 3
   spawnPoints:
   - {fileID: 342115507}
   - {fileID: 1617268780}
@@ -11131,7 +11129,7 @@ MonoBehaviour:
   - prefabToSpawn: {fileID: 100000, guid: 46e5f2128f6b94d54879c63919a5e06b, type: 2}
     spawnTimes: 2
   - prefabToSpawn: {fileID: 100000, guid: 827c2314ed4b74dae9c62afcae19f52e, type: 2}
-    spawnTimes: 2
+    spawnTimes: 1
   spawnPoints:
   - {fileID: 393829721}
   - {fileID: 688516916}
@@ -11239,6 +11237,10 @@ Prefab:
     - target: {fileID: 11400030, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: spawnObjects.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400044, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: avaliablePrefabs.Array.size
@@ -11922,7 +11924,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].spawnTimes
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400020, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: delay
@@ -12138,7 +12140,7 @@ Prefab:
       objectReference: {fileID: 29826523}
     - target: {fileID: 11400052, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].spawnTimes
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400052, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[1].prefabToSpawn
@@ -12202,7 +12204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400034, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].spawnTimes
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400034, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: delay
@@ -12222,7 +12224,7 @@ Prefab:
       objectReference: {fileID: 100000, guid: a7413cfd1284446f59dde9d3817c6da2, type: 2}
     - target: {fileID: 11400004, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[1].spawnTimes
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnPoints.Array.data[3]
@@ -12283,6 +12285,10 @@ Prefab:
     - target: {fileID: 400044, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: m_RootOrder
       value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: spawnObjects.Array.data[0].spawnTimes
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 438789a93792b471cb464ae9294979c9, type: 2}
@@ -13101,7 +13107,7 @@ MonoBehaviour:
   delay: 1.79999995
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: dcde986de57b74ad8b9372fce0f04028, type: 2}
-    spawnTimes: 6
+    spawnTimes: 4
   spawnPoints:
   - {fileID: 495656653}
   - {fileID: 1832725402}
@@ -14670,7 +14676,7 @@ MonoBehaviour:
   delay: 0
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: a7413cfd1284446f59dde9d3817c6da2, type: 2}
-    spawnTimes: 2
+    spawnTimes: 1
   - prefabToSpawn: {fileID: 100000, guid: 8a8817c002de6445ea483dd849c98d6e, type: 2}
     spawnTimes: 2
   spawnPoints:
@@ -15852,7 +15858,7 @@ MonoBehaviour:
   delay: 0
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: 9404f4b67689643089dd5946309c9abe, type: 2}
-    spawnTimes: 3
+    spawnTimes: 2
   - prefabToSpawn: {fileID: 100000, guid: 8a8817c002de6445ea483dd849c98d6e, type: 2}
     spawnTimes: 2
   spawnPoints:
@@ -18957,7 +18963,7 @@ MonoBehaviour:
   delay: .349999994
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: a7413cfd1284446f59dde9d3817c6da2, type: 2}
-    spawnTimes: 4
+    spawnTimes: 1
   spawnPoints:
   - {fileID: 1850706163}
   - {fileID: 2014075661}
@@ -19345,7 +19351,7 @@ MonoBehaviour:
   - prefabToSpawn: {fileID: 100000, guid: 9404f4b67689643089dd5946309c9abe, type: 2}
     spawnTimes: 2
   - prefabToSpawn: {fileID: 100000, guid: 863e5f9dba9d64e119a137a3a5d61772, type: 2}
-    spawnTimes: 2
+    spawnTimes: 1
   spawnPoints:
   - {fileID: 342115507}
   - {fileID: 352666766}
@@ -25846,7 +25852,7 @@ MonoBehaviour:
   delay: 0
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: a7413cfd1284446f59dde9d3817c6da2, type: 2}
-    spawnTimes: 3
+    spawnTimes: 1
   - prefabToSpawn: {fileID: 100000, guid: 46e5f2128f6b94d54879c63919a5e06b, type: 2}
     spawnTimes: 2
   spawnPoints:
@@ -30784,7 +30790,7 @@ MonoBehaviour:
   - prefabToSpawn: {fileID: 100000, guid: 8a8817c002de6445ea483dd849c98d6e, type: 2}
     spawnTimes: 2
   - prefabToSpawn: {fileID: 100000, guid: a7413cfd1284446f59dde9d3817c6da2, type: 2}
-    spawnTimes: 2
+    spawnTimes: 1
   spawnPoints:
   - {fileID: 1617268780}
   - {fileID: 352666766}
@@ -33452,7 +33458,7 @@ MonoBehaviour:
   delay: .300000012
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: a7413cfd1284446f59dde9d3817c6da2, type: 2}
-    spawnTimes: 2
+    spawnTimes: 1
   - prefabToSpawn: {fileID: 100000, guid: 863e5f9dba9d64e119a137a3a5d61772, type: 2}
     spawnTimes: 1
   spawnPoints:
