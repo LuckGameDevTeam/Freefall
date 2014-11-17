@@ -11992,7 +11992,7 @@ Prefab:
     - target: {fileID: 11400028, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].prefabToSpawn
       value: 
-      objectReference: {fileID: 100002, guid: 2586ee17122724deb9eeff4004fe2ea6, type: 2}
+      objectReference: {fileID: 100000, guid: 18d2ad8327dd84d5b95e4009645d8fce, type: 2}
     - target: {fileID: 11400006, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].prefabToSpawn
       value: 
@@ -12239,7 +12239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400028, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].spawnTimes
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400028, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnPoints.Array.data[3]
@@ -17109,8 +17109,8 @@ MonoBehaviour:
   startMileage: 690
   delay: 0
   spawnObjects:
-  - prefabToSpawn: {fileID: 100002, guid: 2586ee17122724deb9eeff4004fe2ea6, type: 2}
-    spawnTimes: 5
+  - prefabToSpawn: {fileID: 100000, guid: 18d2ad8327dd84d5b95e4009645d8fce, type: 2}
+    spawnTimes: 4
   spawnPoints:
   - {fileID: 1617268780}
   - {fileID: 541066456}
