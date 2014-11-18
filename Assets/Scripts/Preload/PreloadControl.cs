@@ -10,19 +10,30 @@ public class PreloadControl : MonoBehaviour
 	/// </summary>
 	public string levelToLoad = "MainMenu";
 
+	/// <summary>
+	/// The logo display time.
+	/// How long should logo display
+	/// </summary>
+	public float logoDisplayTime = 2.5f;
+
 	// Use this for initialization
 	void Start () 
 	{
 		PreloadData ();
 
-		//load next scene
-		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel (levelToLoad);
+		Invoke ("LoadNextScene", logoDisplayTime);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 	
+	}
+
+	void LoadNextScene()
+	{
+		//load next scene
+		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel (levelToLoad);
 	}
 
 	void PreloadData()
