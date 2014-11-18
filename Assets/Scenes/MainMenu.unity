@@ -12422,7 +12422,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551988248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -383.814758, y: -512.796875, z: 0}
+  m_LocalPosition: {x: -384.215851, y: -512.796875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 693705788}
@@ -15961,7 +15961,7 @@ Transform:
   m_PrefabInternal: {fileID: 2046193607}
   m_GameObject: {fileID: 749600501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 511.203125, z: 0}
+  m_LocalPosition: {x: -.86341536, y: 511.203125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1005015268}
@@ -31536,7 +31536,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1501875803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -253, y: 313, z: 0}
+  m_LocalPosition: {x: -233.48999, y: 313, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 742547385}
@@ -37394,7 +37394,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1750429550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: -105, z: 0}
+  m_LocalPosition: {x: 0, y: -105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1395908488}
@@ -39269,7 +39269,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1870146347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -512.796875, z: 0}
+  m_LocalPosition: {x: -.86341536, y: -512.796875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 24668788}
@@ -43230,7 +43230,7 @@ Prefab:
       objectReference: {fileID: 1437960883}
     - target: {fileID: 400568, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -.86341536
       objectReference: {fileID: 0}
     - target: {fileID: 400294, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
       propertyPath: m_LocalPosition.x

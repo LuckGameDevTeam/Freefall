@@ -32,6 +32,10 @@ public class UIUpdatePlayerLife : MonoBehaviour
 
 	void ConfigurePlayerLife()
 	{
+#if TestMode
+		Debug.LogError("TestMode do not configure player life");
+		return;
+#endif
 		if(gameObject.activeInHierarchy)
 		{
 			int lifeCount = DBManager.GetPlayerData (LifeCounter.PlayerLife).AsInt;

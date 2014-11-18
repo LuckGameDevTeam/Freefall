@@ -109,11 +109,31 @@ public class ObstacleEvent : SpawnEvent
 			//if spawn delay not enabled
 			if(!delayEnabled)
 			{
+				//spawn obstacle but there is no more spawn point can be used
+				if(spawnedPoints.Count == spawnPoints.Length)
+				{
+					Debug.LogError(gameObject.name+" has no delay and have duplicate spawn point: "+selectSpawnPoint.name);
+					Debug.LogError(gameObject.name+" make sure you have no duplicate spawn point or change delay to non 0");
+					Debug.LogError(gameObject.name+" event now interrupt and stop");
+
+					//end this spawn 
+					spawnSuccessful = true;
+					
+					continue;
+				}
+				else if(spawnedPoints.Contains(selectSpawnPoint))//select spawn point already in block list keep loop to find vaild spawn point
+				{
+					spawnSuccessful = false;
+
+					continue;
+				}
+
+				/*
 				//make sure spawn point not used more than once
 				if(spawnedPoints.Contains(selectSpawnPoint))
 				{
 					Debug.LogError(gameObject.name+" has no delay and have duplicate spawn point: "+selectSpawnPoint.name);
-					Debug.LogError(gameObject.name+" make sure your have no duplicate spawn point or change delay to non 0");
+					Debug.LogError(gameObject.name+" make sure you have no duplicate spawn point or change delay to non 0");
 					Debug.LogError(gameObject.name+" event now interrupt and stop");
 
 					//end loop
@@ -121,8 +141,9 @@ public class ObstacleEvent : SpawnEvent
 
 					continue;
 				}
+				*/
 
-				//add spawn point to list to pevent spawn more than once
+				//vaild spawn point and add spawn point to block list to pevent spawn more than once
 				spawnedPoints.Add(selectSpawnPoint);
 			}
 

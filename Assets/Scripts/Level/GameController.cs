@@ -827,9 +827,13 @@ public class GameController : MonoBehaviour
 			Debug.LogError(gameObject.name+" unable to play victory clip, victory clip not assigned");
 		}
 
+#if TestMode
+		Debug.LogError("TestMode can not increase funds for player");
+#else
 		//give player coin they eat from this level
 		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
 		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
+#endif
 
 		//unlock next level
 		UnlockNextLevel ();
