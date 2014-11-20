@@ -29,6 +29,11 @@ public class UIMainMenuControl : MonoBehaviour
 	/// Reference to credit
 	/// </summary>
 	public UICreditControl creditControl;
+
+	/// <summary>
+	/// Reference to tutorial control.
+	/// </summary>
+	public UITutorialControl tutorialControl;
 	
 	public UIAlertControl alertControl;
 	
@@ -44,6 +49,8 @@ public class UIMainMenuControl : MonoBehaviour
 		rankControl.Evt_OnRankClose += OnRankClose;
 
 		creditControl.Evt_OnCreditClose += OnCreditClose;
+
+		tutorialControl.Evt_OnTutorialClose += OnTutorialClose;
 		
 		menuControl.Evt_OnFBLoginClick += OnFBLoginClick;
 		menuControl.Evt_OnSinglePlayerClick += OnSinglePlayerClick;
@@ -90,6 +97,13 @@ public class UIMainMenuControl : MonoBehaviour
 		menuControl.ShowMenu ();
 	}
 	#endregion UICreditControl callback
+
+	#region UITutorialControl callback
+	void OnTutorialClose(UITutorialControl control)
+	{
+		menuControl.ShowMenu ();
+	}
+	#endregion UITutorialControl callback
 	
 	#region UIMenuControl callback
 	void OnFBLoginClick(UIMenuControl control)
@@ -114,7 +128,9 @@ public class UIMainMenuControl : MonoBehaviour
 	
 	void OnTutorialClick (UIMenuControl control)
 	{
-		Debug.Log("show tutorial");
+		tutorialControl.ShowTutorial ();
+
+		menuControl.CloseMenu ();
 	}
 	
 	void OnSettingClick(UIMenuControl control)
