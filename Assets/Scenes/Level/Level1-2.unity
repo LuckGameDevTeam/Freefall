@@ -15165,7 +15165,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 674238936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.781677246, y: -.78125, z: 0}
+  m_LocalPosition: {x: .86340332, y: .86328125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 879368024}
@@ -20213,7 +20213,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3007
+  startingRenderQueue: 3009
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -44809,7 +44809,7 @@ MonoBehaviour:
   mileResultLabel: {fileID: 1549915557}
   coinEarnLabel: {fileID: 527690922}
   fishBoneEarnLabel: {fileID: 1566671367}
-  duration: 2
+  duration: 1
   starAnimDuration: 1
   rankControl: {fileID: 225458987}
   spinLight: {fileID: 362421899}
