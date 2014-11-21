@@ -38,6 +38,7 @@ public class PreloadControl : MonoBehaviour
 
 	void PreloadData()
 	{
+
 		//test
 
 		/*
