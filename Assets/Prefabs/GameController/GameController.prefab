@@ -50,7 +50,7 @@ MonoBehaviour:
   currentSubLevel: 1
   nextMainLevelToUnlock: 0
   nextSubLevelToUnlock: 0
-  maxStartCount: 100
+  maxStarCount: 1
   invulnerablePerStarCount: 2
   invulnerableAbilityPrefab: {fileID: 100000, guid: ceb4fb52a769448fab7d6ecd1217c595,
     type: 2}
@@ -90,16 +90,131 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86b529849f48e400b84e4acdc576ef39, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ddf7a5150a474960a78be74651f1a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoLoadPrefab: 1
-  resourceFolders:
-  - Common
-  - TestField
-  - CharacterAbility
-  objectPrefabs: []
-  initialQuantity: 2
+  recycleBinCollection:
+  - prefab: {fileID: 100000, guid: fd6badf1d508548f1a98efd14707ab22, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 8164231d4c4ed4ce4ac73c5dde37796b, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: da21e354f088242938b7b53e1cc7ae33, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: a38dbacb0ad3948bfb028116e845bd1e, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: b8165c4cdb1c74208a159a4ef2cad737, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 83ec8769925864e7ca1ba62ac201e373, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: ceb4fb52a769448fab7d6ecd1217c595, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: a766d2b845a5d47a8ad7d2c2726626e3, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 9fdb06ff1aad74b749247b4c1a4401fe, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: f5e29cccbbd8f402eb2f65584e69a53e, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 0ccabc139743a4c219b32822ea80a841, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 62b7d20e9a19f415fba67adcb935e8f9, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 0014d043cfb604329a3208a729881755, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: a3e35039343b740e783f289586da7389, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: f52930c7664fd4c0aba58fae99ac7d05, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  transform: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

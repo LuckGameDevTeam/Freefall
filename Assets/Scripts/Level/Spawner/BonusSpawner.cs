@@ -22,7 +22,8 @@ public class BonusSpawner : LevelSpawner
 		GameObject prefab = objectPrefab;
 		
 		//spawn bonus
-		GameObject bonus = GameController.sharedGameController.objectPool.GetObjectFromPool (prefab, transform.position, Quaternion.identity);
+		//GameObject bonus = GameController.sharedGameController.objectPool.GetObjectFromPool (prefab, transform.position, Quaternion.identity);
+		GameObject bonus = TrashMan.spawn (prefab, transform.position, Quaternion.identity);
 
 		//fix poisition on y
 		float newY = bonus.transform.position.y;

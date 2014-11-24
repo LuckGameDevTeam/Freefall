@@ -220,7 +220,9 @@ public class Obstacle : MonoBehaviour
 			//play dead effect
 			if(deadEffectPrefab != null)
 			{
-				GameObject effect = GameController.sharedGameController.objectPool.GetObjectFromPool(deadEffectPrefab, transform.position, Quaternion.identity);
+				//GameObject effect = GameController.sharedGameController.objectPool.GetObjectFromPool(deadEffectPrefab, transform.position, Quaternion.identity);
+				GameObject effect = TrashMan.spawn(deadEffectPrefab, transform.position, Quaternion.identity);
+
 				effect.GetComponent<EffectAnimation>().PlayAnimation();
 			}
 
@@ -236,7 +238,8 @@ public class Obstacle : MonoBehaviour
 
 
 			//recycle obstacle
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 
 			return;
 		}
@@ -248,7 +251,8 @@ public class Obstacle : MonoBehaviour
 			if(renderer.IsVisibleFromCamera(Camera.main) == false)
 			{
 				//recycle obstacle immediately
-				GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+				//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+				TrashMan.despawn(gameObject);
 				
 				return;
 			}

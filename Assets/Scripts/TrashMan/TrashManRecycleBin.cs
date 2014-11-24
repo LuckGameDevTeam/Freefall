@@ -63,6 +63,7 @@ public sealed class TrashManRecycleBin
 	/// stores all of our GameObjects
 	/// </summary>
 	private Stack<GameObject> _gameObjectPool;
+	public Stack<GameObject> GetAllGameObjects{get{return _gameObjectPool;}}
 
 	/// <summary>
 	/// last time culling happened

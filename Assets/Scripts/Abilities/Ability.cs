@@ -162,7 +162,8 @@ public class Ability : MonoBehaviour
 		//create effect object from prefab
 		if((abilityEffectPrefab != null) && (abilityEffect == null))
 		{
-			tempEffect = Instantiate(abilityEffectPrefab) as GameObject;
+			//tempEffect = Instantiate(abilityEffectPrefab) as GameObject;
+			tempEffect = TrashMan.spawn(abilityEffectPrefab);
 			
 			tempEffect.name = abilityEffectPrefab.name;
 
@@ -262,7 +263,8 @@ public class Ability : MonoBehaviour
 		//GameObject.Destroy (gameObject);
 
 		//recycle ability, so ability will not be instantiate again
-		GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		//GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		TrashMan.despawn (gameObject);
 	}
 
 	/// <summary>
@@ -299,7 +301,8 @@ public class Ability : MonoBehaviour
 		}
 		
 		//GameObject.Destroy (gameObject);
-		GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		//GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		TrashMan.despawn (gameObject);
 	}
 
 	/// <summary>

@@ -171,7 +171,8 @@ public class AssistantItemHolder : MonoBehaviour
 		if((childItemCount <= 0) || 
 		   ((lastItem.transform.position.y - lastItem.renderer.bounds.extents.y) > Camera.main.GetTopBorderWorldSpace(transform.position.z)))
 		{
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 
 		else

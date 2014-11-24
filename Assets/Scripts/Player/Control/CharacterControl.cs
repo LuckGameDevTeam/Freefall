@@ -852,7 +852,11 @@ public class CharacterControl : MonoBehaviour
 		pushDirection = Vector2.zero;
 
 		//create effect
-		characterEffect.CreateEffects ();
+		if(isInGame)
+		{
+			characterEffect.CreateEffects ();
+		}
+
 
 		lastPosition = transform.ConvertPositionToVector2 ();
 

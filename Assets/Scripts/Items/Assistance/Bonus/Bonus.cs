@@ -39,7 +39,8 @@ public class Bonus : AssistantItem
 		base.Magnet (target);
 
 		//get same gameobject from pool
-		GameObject magnetObject = GameController.sharedGameController.objectPool.GetObjectFromPool (gameObject.name, transform.position, Quaternion.identity);
+		//GameObject magnetObject = GameController.sharedGameController.objectPool.GetObjectFromPool (gameObject.name, transform.position, Quaternion.identity);
+		GameObject magnetObject = TrashMan.spawn (gameObject, transform.position, Quaternion.identity);
 
 		//make it become magnetable to target
 		magnetObject.GetComponent<AssistantItem> ().BecomeMagnet (target);

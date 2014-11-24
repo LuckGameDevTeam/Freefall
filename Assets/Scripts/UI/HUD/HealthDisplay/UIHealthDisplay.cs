@@ -67,6 +67,11 @@ public class UIHealthDisplay : MonoBehaviour
 		//get number after float point
 		float floatPoint = health - (float)digital;
 
+		if(digital>healthBlocks.Length)
+		{
+			return;
+		}
+
 		//update health block with digital number
 		for(int j =0; j<digital; j++)
 		{

@@ -109,7 +109,8 @@ public class AssistantItem : MonoBehaviour
 		}
 		else if(isMagnet)
 		{
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 		else
 		{
@@ -133,7 +134,8 @@ public class AssistantItem : MonoBehaviour
 	{
 		if((magnetTarget != null) && isMagnet && (transform.parent.GetComponent<AssistantItemHolder>() == null))
 		{
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 		else
 		{

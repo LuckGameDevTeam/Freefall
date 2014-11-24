@@ -35,7 +35,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterType: 1
   bounceClip: {fileID: 0}
+  deadClip: {fileID: 0}
   deadEffectPrefab: {fileID: 0}
   speed: 3
   canRotate: 0

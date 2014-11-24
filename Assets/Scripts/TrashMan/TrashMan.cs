@@ -97,6 +97,7 @@ public partial class TrashMan : MonoBehaviour
 
 			recycleBin.initialize();
 			_instanceIdToRecycleBin.Add( recycleBin.prefab.GetInstanceID(), recycleBin );
+
 			_poolNameToInstanceId.Add( recycleBin.prefab.name, recycleBin.prefab.GetInstanceID() );
 		}
 	}
@@ -261,7 +262,6 @@ public partial class TrashMan : MonoBehaviour
 			return instance._instanceIdToRecycleBin[go.GetInstanceID()];
 		return null;
 	}
-
 
 	#endregion
 
