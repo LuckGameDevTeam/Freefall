@@ -39,7 +39,27 @@ public class ObstacleSpawner : LevelSpawner
 
 		//spawn obstacle
 		//GameObject obstacle = GameController.sharedGameController.objectPool.GetObjectFromPool (prefab, transform.position, Quaternion.identity);
-		GameObject obstacle = TrashMan.spawn (prefab, transform.position, Quaternion.identity);
+
+		//GameObject obstacle = TrashMan.spawn (prefab, transform.position, Quaternion.identity);
+
+		//check if prefab is in the TrashMan's bin
+		GameObject obstacle = TrashMan.spawn (prefab.name, transform.position, Quaternion.identity);
+
+		//add bin to TrashMan and spawn object
+		if(obstacle == null)
+		{
+			TrashManRecycleBin newBin = new TrashManRecycleBin();
+			
+			newBin.prefab = objectPrefab;
+			newBin.instancesToPreallocate = 2;
+			newBin.instancesToAllocateIfEmpty = 2;
+			newBin.cullExcessPrefabs = false;
+			newBin.imposeHardLimit = false;
+			
+			TrashMan.manageRecycleBin(newBin);
+			
+			obstacle = TrashMan.spawn(prefab, transform.position, Quaternion.identity);
+		}
 
 		//get obstacle script
 		Obstacle o = obstacle.GetComponent<Obstacle> ();
