@@ -31,7 +31,7 @@ public class SaveLoadManager
 	/// <summary>
 	/// File save directory
 	/// </summary>
-	private string fileDirectory = Application.persistentDataPath+"/SaveData";
+	private string fileDirectory = Application.persistentDataPath+"/SLM_SaveData";
 
 	/// <summary>
 	/// file extension
@@ -95,8 +95,15 @@ public class SaveLoadManager
 		//check if save data class is derive from PersistantMetaData... no return
 		if(!(dataToSave is PersistantMetaData))
 		{
-			Debug.LogError("Save data fail");
-			Debug.LogError("Data you pass in is not one of PersistantMetaData class");
+			Debug.LogError("Save data fail, class:"+dataToSave.GetType().ToString()+". The class of data you pass in is not derived from PersistantMetaData class");
+
+			return false;
+		}
+
+		//check if class is serializable or not
+		if((dataToSave.GetType().Attributes & TypeAttributes.Serializable) == 0)
+		{
+			Debug.LogError("Save data fail, class:"+dataToSave.GetType().ToString()+". You must put [Serializable] before class declaration");
 
 			return false;
 		}
@@ -210,7 +217,7 @@ public class SaveLoadManager
 
 					File.Delete(fileDirectory+"/"+fileInfo.Name);
 
-					Debug.Log("Save file: "+fileInfo.Name+" has been deleted");
+					Debug.Log("Saved file: "+fileInfo.Name+" has been deleted");
 				}
 			}
 			else
@@ -218,6 +225,35 @@ public class SaveLoadManager
 				Debug.LogWarning("Directory is empty");
 			}
 		}
+	}
+
+	/// <summary>
+	/// Delete single persistant data.
+	/// </summary>
+	/// <param name="fileName">File name.</param>
+	/// <param name="fileExtension">File extension.</param>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
+	public void DeleteSaveData<T>(string fileName, string fileExtension = fileEx)
+	{
+		//if file does not exists return null
+		if(!File.Exists(fileDirectory + "/" + fileName + "." + fileExtension))
+		{
+			Debug.LogWarning(fileName+"."+fileExtension+" can not be deleted, file does not exists");
+			return;
+		}
+
+		File.Delete (fileDirectory + "/" + fileName + "." + fileExtension);
+
+		Debug.Log("Saved file: "+fileName+"."+fileExtension+" has been deleted");
+	}
+
+	/// <summary>
+	/// Delete single persistant data by give class.
+	/// </summary>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
+	public void DeleteSaveData<T>()
+	{
+		DeleteSaveData<T> (typeof(T).ToString (), fileEx);
 	}
 
 	/////////////////////////////////////////////////////Delete persistant data/////////////////////////////////////////////////////

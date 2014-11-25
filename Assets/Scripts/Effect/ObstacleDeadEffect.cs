@@ -24,7 +24,8 @@ public class ObstacleDeadEffect : EffectOnceAnimation
 	protected override void AnimationEnd()
 	{
 		//recycle effect
-		GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		//GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		TrashMan.despawn (gameObject);
 	}
 
 	/// <summary>

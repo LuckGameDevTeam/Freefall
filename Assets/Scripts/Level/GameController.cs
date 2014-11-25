@@ -12,7 +12,7 @@ using UnityEditor;
 /// 
 /// Class is used to control game
 /// </summary>
-[RequireComponent (typeof(ObjectPool))]
+//[RequireComponent (typeof(ObjectPool))]//replace by TrashMan
 public class GameController : MonoBehaviour 
 {
 	/// <summary>
@@ -130,11 +130,19 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	private GameObject[] spawners;
 
+	/*
+	/// <summary>
+	/// The object pool manager.
+	/// replace by TrashMan
+	/// </summary>
+	//[System.NonSerialized]
+	//public ObjectPool objectPool;
+	*/
+
 	/// <summary>
 	/// The object pool manager.
 	/// </summary>
-	[System.NonSerialized]
-	public ObjectPool objectPool;
+	private TrashMan trashMan;
 
 	/// <summary>
 	/// Reference to UIHUDControl
@@ -218,8 +226,11 @@ public class GameController : MonoBehaviour
 		//find event manager
 		eventManager = GetComponent<EventManager> ();
 
-		//find object pool
-		objectPool = GetComponent<ObjectPool> ();
+		//find object pool, replace by TrashMan
+		//objectPool = GetComponent<ObjectPool> ();
+
+		//find TrashMan
+		trashMan = GetComponent<TrashMan> ();
 
 		//find all obstacle spawners
 		spawners = GameObject.FindGameObjectsWithTag (Tags.obstacleSpawner);
@@ -509,8 +520,8 @@ public class GameController : MonoBehaviour
 		//pause MileageController
 		mileController.isRunning = false;
 		
-		//recycle all objects
-		objectPool.RecycleAllObjects ();
+		//recycle obstacles
+		RecycleObstacles ();
 		
 		//stop all events
 		eventManager.StopAllEvents ();
@@ -548,6 +559,19 @@ public class GameController : MonoBehaviour
 		fbController.Evt_OnScoreSubmitted -= OnScoreSubmitted;
 
 		Debug.Log("Submit score complete: "+score);
+	}
+
+	/// <summary>
+	/// Recycles obstacles.
+	/// </summary>
+	void RecycleObstacles()
+	{
+		Obstacle[] obstacles = GameObject.FindObjectsOfType<Obstacle> ();
+
+		for(int i=0; i<obstacles.Length; i++)
+		{
+			TrashMan.despawn(obstacles[i].gameObject);
+		}
 	}
 
 	////////////////////////////////Internal////////////////////////////////
@@ -653,8 +677,8 @@ public class GameController : MonoBehaviour
 		//pause MileageController
 		mileController.isRunning = false;
 
-		//recycle all objects
-		objectPool.RecycleAllObjects ();
+		//recycle all obstacles
+		RecycleObstacles ();
 
 		//stop all events
 		eventManager.StopAllEvents ();
@@ -742,6 +766,7 @@ public class GameController : MonoBehaviour
 
 		//local ability panel so player can not interact with
 		hudControl.abilityControl.LockAbitliyPanel ();
+
 	}
 
 	/// <summary>
@@ -788,9 +813,15 @@ public class GameController : MonoBehaviour
 			Debug.LogError(gameObject.name+" unable to play fail clip, fail clip not assigned");
 		}
 
+#if TestMode
+
+		Debug.LogError("TestMode can not increase funds for player");
+#else
 		//give player coin they eat from this level
 		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
 		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
+#endif
+
 
 		//test
 		//RestartGame ();
@@ -910,7 +941,8 @@ public class GameController : MonoBehaviour
 	void OnAbilityButtonPress(string itemId)
 	{
 		//get ability from pool
-		GameObject ability = objectPool.GetObjectFromPool (itemId + "Ability", Vector3.zero, Quaternion.identity);
+		//GameObject ability = objectPool.GetObjectFromPool (itemId + "Ability", Vector3.zero, Quaternion.identity);
+		GameObject ability = TrashMan.spawn (itemId + "Ability", Vector3.zero, Quaternion.identity);
 
 		//give ability to player
 		character.GetComponent<CharacterControl> ().AddAbility (ability);
@@ -985,11 +1017,14 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnResultRestartButtonClick(UIResultControl control)
 	{
+#if TestMode
+		RestartGame();
+#else
 		//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) > 0)
 		if(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt > 0)
 		{
 			control.CloseResult ();
-
+			
 			//StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
 			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt-1));
 			
@@ -999,6 +1034,8 @@ public class GameController : MonoBehaviour
 		{
 			hudControl.alertControl.ShowAlertWindow(notEnoughLifeKey, notEnoughLifeDesc);
 		}
+#endif
+
 
 	}
 
@@ -1041,7 +1078,8 @@ public class GameController : MonoBehaviour
 					//create ability gameobject
 					//GameObject ability = Instantiate(invulnerableAbilityPrefab) as GameObject;
 					//ability.name = invulnerableAbilityPrefab.name;
-					GameObject ability = objectPool.GetObjectFromPool(invulnerableAbilityPrefab, Vector3.zero, Quaternion.identity);
+					//GameObject ability = objectPool.GetObjectFromPool(invulnerableAbilityPrefab, Vector3.zero, Quaternion.identity);
+					GameObject ability = TrashMan.spawn(invulnerableAbilityPrefab, Vector3.zero, Quaternion.identity);
 					
 					//give to player
 					character.GetComponent<CharacterControl>().AddAbility(ability);

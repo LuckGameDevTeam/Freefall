@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SIS;
+using System;
 
 /// <summary>
 /// UI result control.
@@ -419,8 +420,34 @@ public class UIResultControl : MonoBehaviour
 		fbController.Evt_OnFacebookPostSuccess -= OnFacebookPostSuccess;
 		fbController.Evt_OnFacebookPostFail -= OnFacebookPostFail;
 
-		//StoreInventory.GiveItem (StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
-		DBManager.IncrementPlayerData (LifeCounter.PlayerLife, 1);
+		FBPostTime fbPT = FBPostTime.Load ();
+
+		if(fbPT.postTime == "")
+		{
+			//StoreInventory.GiveItem (StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+			DBManager.IncrementPlayerData (LifeCounter.PlayerLife, 1);
+
+			fbPT.postTime = DateTime.Now.ToString();
+			
+			FBPostTime.Save(fbPT);
+		}
+		else
+		{
+			DateTime postTime = Convert.ToDateTime(fbPT.postTime);
+			DateTime now = DateTime.Now;
+
+			//get life if post duration is at least 1 day
+			if(now.Subtract(postTime).TotalDays >= 1)
+			{
+				DBManager.IncrementPlayerData (LifeCounter.PlayerLife, 1);
+
+				fbPT.postTime = now.ToString();
+
+				FBPostTime.Save(fbPT);
+			}
+		}
+
+
 	}
 
 	void OnFacebookPostFail(FBController controller)

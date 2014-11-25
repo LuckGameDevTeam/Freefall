@@ -105,7 +105,8 @@ public class ObstacleBig : Obstacle
 				if(currentPathPoint == pathMgr.GetLastPathPoint(pathPrefix))
 				{
 					//recycle obstacle
-					GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+					//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+					TrashMan.despawn(gameObject);
 				}
 				else
 				{
@@ -129,7 +130,8 @@ public class ObstacleBig : Obstacle
 			Debug.LogError(gameObject.name + " no path point");
 
 			//recycle obstacle
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 	}
 

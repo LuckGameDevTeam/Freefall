@@ -22,7 +22,8 @@ public class CatCookieMovable : CatCookie
 		}
 		else
 		{
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 	}
 
@@ -37,7 +38,8 @@ public class CatCookieMovable : CatCookie
 			GameController.sharedGameController.character.GetComponent<CharacterEffect>().PlayCatCookieEatenEffect();
 
 			//recycle gameobject
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 	}
 

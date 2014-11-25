@@ -25,6 +25,7 @@ using System.Collections.Generic;
 /// Adjust this value to conserve memory usage. 
 /// </summary>
 
+//Replace by TrashMan
 public class ObjectPool : MonoBehaviour 
 {
 

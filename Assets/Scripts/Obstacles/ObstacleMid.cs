@@ -48,13 +48,15 @@ public class ObstacleMid : Obstacle
 			return;
 		}
 
-		GameObject newObstacle = GameController.sharedGameController.objectPool.GetObjectFromPool (smallObstacle, transform.position, Quaternion.identity);
+		//GameObject newObstacle = GameController.sharedGameController.objectPool.GetObjectFromPool (smallObstacle, transform.position, Quaternion.identity);
+		GameObject newObstacle = TrashMan.spawn (smallObstacle, transform.position, Quaternion.identity);
 
 		Obstacle o = newObstacle.GetComponent<Obstacle> ();
 
 		o.Destination = Destination;
 
-		GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		//GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		TrashMan.despawn (gameObject);
 	}
 
 	public override void InitObstacle()

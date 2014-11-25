@@ -38,7 +38,8 @@ public class ObstacleSpawner : LevelSpawner
 		GameObject prefab = objectPrefab;
 
 		//spawn obstacle
-		GameObject obstacle = GameController.sharedGameController.objectPool.GetObjectFromPool (prefab, transform.position, Quaternion.identity);
+		//GameObject obstacle = GameController.sharedGameController.objectPool.GetObjectFromPool (prefab, transform.position, Quaternion.identity);
+		GameObject obstacle = TrashMan.spawn (prefab, transform.position, Quaternion.identity);
 
 		//get obstacle script
 		Obstacle o = obstacle.GetComponent<Obstacle> ();
