@@ -15879,6 +15879,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 11400044, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: totalSpawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400044, guid: 438789a93792b471cb464ae9294979c9, type: 2}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 438789a93792b471cb464ae9294979c9, type: 2}
   m_RootGameObject: {fileID: 1987676873}
@@ -32871,8 +32879,8 @@ MonoBehaviour:
   - {fileID: 100018, guid: 8fa923b17ba6d46cdbecb748af38c77e, type: 2}
   spawnPoints:
   - {fileID: 1313191365}
-  totalSpawn: 4
-  delay: 3
+  totalSpawn: 2
+  delay: 1
 --- !u!1001 &1449441614
 Prefab:
   m_ObjectHideFlags: 0
