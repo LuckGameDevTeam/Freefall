@@ -579,7 +579,6 @@ public class GameController : MonoBehaviour
 
 		for(int i=0; i<objs.Length; i++)
 		{
-			Debug.Log(objs[i].name);
 			objs[i].SendMessage("GameRestart", SendMessageOptions.DontRequireReceiver);
 		}
 	}
