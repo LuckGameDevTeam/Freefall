@@ -15973,7 +15973,7 @@ Prefab:
       objectReference: {fileID: 688516916}
     - target: {fileID: 11400034, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].spawnTimes
-      value: 43
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 438789a93792b471cb464ae9294979c9, type: 2}
       propertyPath: spawnObjects.Array.data[0].spawnTimes
@@ -26507,7 +26507,7 @@ MonoBehaviour:
   delay: 0
   spawnObjects:
   - prefabToSpawn: {fileID: 100000, guid: 10f9da6197b0e42989de5830d1cbaa17, type: 2}
-    spawnTimes: 43
+    spawnTimes: 4
   spawnPoints:
   - {fileID: 495656653}
   - {fileID: 1850706163}
