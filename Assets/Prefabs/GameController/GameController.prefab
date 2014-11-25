@@ -214,6 +214,46 @@ MonoBehaviour:
     cullExcessPrefabs: 0
     instancesToMaintainInPool: 5
     cullInterval: 10
+  - prefab: {fileID: 100000, guid: fac1e96dd948044739d4963072cdb9fb, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 67c96e37f0d3a49a7a72bacd8249591a, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 912ffef8af94f4f77bc9f01caefed78a, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 08b6b35a787aa4b638da5f4cf62e8dbc, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 90019aea579054436b2fcc690ae92ddb, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
   transform: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

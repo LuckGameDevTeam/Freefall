@@ -41,6 +41,19 @@ public class CandyCatAbility : Ability
 					//GameObject cookie = GameController.sharedGameController.objectPool.GetObjectFromPool(cookiePrefab, oPos, Quaternion.identity);
 					GameObject cookie = TrashMan.spawn(cookiePrefab, oPos, Quaternion.identity);
 
+					if(cookie == null)
+					{
+						TrashManRecycleBin newBin = new TrashManRecycleBin();
+						newBin.prefab = cookiePrefab;
+						newBin.instancesToAllocateIfEmpty = 2;
+						newBin.cullExcessPrefabs = false;
+						newBin.imposeHardLimit = false;
+
+						TrashMan.manageRecycleBin(newBin);
+
+						cookie = TrashMan.spawn(cookiePrefab, oPos, Quaternion.identity);
+					}
+
 					CatCookieMovable cc = cookie.GetComponent<CatCookieMovable>();
 
 					//set cookie's dest as same as obstacle's dest
