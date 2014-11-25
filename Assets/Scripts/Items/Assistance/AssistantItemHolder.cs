@@ -109,6 +109,8 @@ public class AssistantItemHolder : MonoBehaviour
 		{
 			GameObject child = transform.GetChild(i).gameObject;
 
+			child.SetActive(true);
+
 			childItems[i] = child;
 
 			AssistantItem bChild = child.GetComponent<AssistantItem>();
