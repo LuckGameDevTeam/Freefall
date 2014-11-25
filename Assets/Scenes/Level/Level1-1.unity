@@ -13553,7 +13553,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
       propertyPath: recycleBinCollection.Array.size
-      value: 21
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d497af801228042308e38dbc964a4c6a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -13737,6 +13737,126 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
       propertyPath: recycleBinCollection.Array.data[20].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: fac1e96dd948044739d4963072cdb9fb, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 67c96e37f0d3a49a7a72bacd8249591a, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 912ffef8af94f4f77bc9f01caefed78a, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 08b6b35a787aa4b638da5f4cf62e8dbc, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 90019aea579054436b2fcc690ae92ddb, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].cullInterval
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -45793,6 +45913,46 @@ MonoBehaviour:
     instancesToMaintainInPool: 5
     cullInterval: 10
   - prefab: {fileID: 100000, guid: 712c5db47e7c34def9ad8f6a101ee98b, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: fac1e96dd948044739d4963072cdb9fb, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 67c96e37f0d3a49a7a72bacd8249591a, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 912ffef8af94f4f77bc9f01caefed78a, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 08b6b35a787aa4b638da5f4cf62e8dbc, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 90019aea579054436b2fcc690ae92ddb, type: 2}
     instancesToPreallocate: 2
     instancesToAllocateIfEmpty: 2
     imposeHardLimit: 0
