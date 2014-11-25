@@ -101,7 +101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 42
+  m_RootOrder: 51
 --- !u!114 &797544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2255,7 +2255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 50
+  m_RootOrder: 47
 --- !u!114 &118129537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2669,7 +2669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 51
+  m_RootOrder: 48
 --- !u!114 &137637357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4642,7 +4642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 52
+  m_RootOrder: 49
 --- !u!114 &212334116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8317,7 +8317,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 364036788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -380.502716, y: 0, z: 0}
+  m_LocalPosition: {x: -384.371002, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1060262711}
@@ -9286,43 +9286,43 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400820, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -514.796875
+      value: -512
       objectReference: {fileID: 0}
     - target: {fileID: 400732, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -380.502716
+      value: -384.371002
       objectReference: {fileID: 0}
     - target: {fileID: 400490, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -514.796875
+      value: -512
       objectReference: {fileID: 0}
     - target: {fileID: 400216, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 509.203125
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 400678, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 386.098358
+      value: 384.371002
       objectReference: {fileID: 0}
     - target: {fileID: 400678, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 509.203125
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 400392, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.79781413
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400392, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.796875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400432, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -380.502716
+      value: -384.371002
       objectReference: {fileID: 0}
     - target: {fileID: 400432, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 509.203125
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 400732, guid: 7de2d6b63ce4a4cb08350de52696cf38, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10135,7 +10135,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 438731313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -514.796875, z: 0}
+  m_LocalPosition: {x: 0, y: -512, z: 0}
   m_LocalScale: {x: .999935985, y: .999935985, z: .999935985}
   m_Children:
   - {fileID: 1228797417}
@@ -14631,7 +14631,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
       propertyPath: recycleBinCollection.Array.size
-      value: 21
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d497af801228042308e38dbc964a4c6a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -14740,6 +14740,130 @@ Prefab:
     - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
       propertyPath: recycleBinCollection.Array.data[20].instancesToAllocateIfEmpty
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: fac1e96dd948044739d4963072cdb9fb, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[21].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 67c96e37f0d3a49a7a72bacd8249591a, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[22].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 912ffef8af94f4f77bc9f01caefed78a, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[23].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 08b6b35a787aa4b638da5f4cf62e8dbc, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[24].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].prefab
+      value: 
+      objectReference: {fileID: 100000, guid: 90019aea579054436b2fcc690ae92ddb, type: 2}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].instancesToPreallocate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].instancesToAllocateIfEmpty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].hardLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].instancesToMaintainInPool
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: recycleBinCollection.Array.data[25].cullInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: d497af801228042308e38dbc964a4c6a, type: 2}
+      propertyPath: invulnerablePerStarCount
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d497af801228042308e38dbc964a4c6a, type: 2}
@@ -21099,7 +21223,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 45
+  m_RootOrder: 42
 --- !u!114 &913978036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21673,7 +21797,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 49
+  m_RootOrder: 46
 --- !u!114 &948067287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24371,7 +24495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 46
+  m_RootOrder: 43
 --- !u!114 &1069739748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24416,7 +24540,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 1075574825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -514.796875, z: 0}
+  m_LocalPosition: {x: 0, y: -512, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 208707173}
@@ -25939,7 +26063,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 48
+  m_RootOrder: 45
 --- !u!114 &1139973627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27275,7 +27399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 44
+  m_RootOrder: 40
 --- !u!114 &1205107827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28179,7 +28303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 43
+  m_RootOrder: 52
 --- !u!114 &1231220515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28742,7 +28866,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 1254509969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 386.098358, y: 509.203125, z: 0}
+  m_LocalPosition: {x: 384.371002, y: 512, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1301670877}
@@ -32366,7 +32490,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 40
+  m_RootOrder: 41
 --- !u!114 &1442891389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34640,7 +34764,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 1546376671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -380.502716, y: 509.203125, z: 0}
+  m_LocalPosition: {x: -384.371002, y: 512, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2045436416}
@@ -39037,7 +39161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 41
+  m_RootOrder: 50
 --- !u!114 &1786156183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43768,11 +43892,8 @@ Transform:
   - {fileID: 547687290}
   - {fileID: 2025613749}
   - {fileID: 900097183}
-  - {fileID: 1442891388}
-  - {fileID: 1786156182}
-  - {fileID: 797543}
-  - {fileID: 1231220514}
   - {fileID: 1205107826}
+  - {fileID: 1442891388}
   - {fileID: 913978035}
   - {fileID: 1069739747}
   - {fileID: 2130356837}
@@ -43781,6 +43902,9 @@ Transform:
   - {fileID: 118129536}
   - {fileID: 137637356}
   - {fileID: 212334115}
+  - {fileID: 1786156182}
+  - {fileID: 797543}
+  - {fileID: 1231220514}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1001 &1993025211
@@ -45980,7 +46104,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 2104292873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 509.203125, z: 0}
+  m_LocalPosition: {x: 0, y: 512, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 856089482}
@@ -46076,7 +46200,7 @@ Transform:
   m_PrefabInternal: {fileID: 405075106}
   m_GameObject: {fileID: 2109387195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.79781413, y: 2.796875, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 53784363}
@@ -46598,7 +46722,7 @@ MonoBehaviour:
   nextMainLevelToUnlock: 0
   nextSubLevelToUnlock: 0
   maxStarCount: 1
-  invulnerablePerStarCount: 2
+  invulnerablePerStarCount: 150
   invulnerableAbilityPrefab: {fileID: 100000, guid: ceb4fb52a769448fab7d6ecd1217c595,
     type: 2}
   hudControl: {fileID: 53784364}
@@ -46812,6 +46936,46 @@ MonoBehaviour:
     cullExcessPrefabs: 0
     instancesToMaintainInPool: 0
     cullInterval: 0
+  - prefab: {fileID: 100000, guid: fac1e96dd948044739d4963072cdb9fb, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 67c96e37f0d3a49a7a72bacd8249591a, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 912ffef8af94f4f77bc9f01caefed78a, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 08b6b35a787aa4b638da5f4cf62e8dbc, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
+  - prefab: {fileID: 100000, guid: 90019aea579054436b2fcc690ae92ddb, type: 2}
+    instancesToPreallocate: 2
+    instancesToAllocateIfEmpty: 2
+    imposeHardLimit: 0
+    hardLimit: 5
+    cullExcessPrefabs: 0
+    instancesToMaintainInPool: 5
+    cullInterval: 10
   transform: {fileID: 0}
 --- !u!1 &2130356836
 GameObject:
@@ -46840,7 +47004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1987676874}
-  m_RootOrder: 47
+  m_RootOrder: 44
 --- !u!114 &2130356838
 MonoBehaviour:
   m_ObjectHideFlags: 0
