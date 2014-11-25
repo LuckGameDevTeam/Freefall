@@ -566,11 +566,20 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	void RecycleObstacles()
 	{
+		/*
 		Obstacle[] obstacles = GameObject.FindObjectsOfType<Obstacle> ();
 
 		for(int i=0; i<obstacles.Length; i++)
 		{
 			TrashMan.despawn(obstacles[i].gameObject);
+		}
+		*/
+
+		GameObject[] objs = GameObject.FindObjectsOfType<GameObject> ();
+
+		for(int i=0; i<objs.Length; i++)
+		{
+			objs[i].SendMessage("GameRestart", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 

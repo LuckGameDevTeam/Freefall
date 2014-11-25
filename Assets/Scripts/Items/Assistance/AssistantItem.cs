@@ -190,4 +190,13 @@ public class AssistantItem : MonoBehaviour
 		magnetTarget = target;
 		isMagnet = true;
 	}
+
+	public virtual void GameRestart()
+	{
+		if(isMagnet)
+		{
+			TrashMan.despawn (gameObject);
+		}
+
+	}
 }

@@ -209,6 +209,11 @@ public class AssistantItemHolder : MonoBehaviour
 		}
 	}
 
+	public void GameRestart()
+	{
+		TrashMan.despawn (gameObject);
+	}
+
 	void EventBonusEaten()
 	{
 		childItemCount--;
