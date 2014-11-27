@@ -42,6 +42,23 @@ public class Bonus : AssistantItem
 		//GameObject magnetObject = GameController.sharedGameController.objectPool.GetObjectFromPool (gameObject.name, transform.position, Quaternion.identity);
 		GameObject magnetObject = TrashMan.spawn (gameObject.name, transform.position, Quaternion.identity);
 
+		if(magnetObject == null)
+		{
+			Debug.LogError(gameObject.name+" was not in TrashMan's bin, it is recommend to assign it it TrashMan's bin");
+
+			TrashManRecycleBin newBin = new TrashManRecycleBin();
+			
+			newBin.prefab = gameObject;
+			newBin.instancesToPreallocate = 2;
+			newBin.instancesToAllocateIfEmpty = 2;
+			newBin.cullExcessPrefabs = false;
+			newBin.imposeHardLimit = false;
+			
+			TrashMan.manageRecycleBin(newBin);
+			
+			magnetObject = TrashMan.spawn(gameObject.name, transform.position, Quaternion.identity);
+		}
+
 		//make it become magnetable to target
 		magnetObject.GetComponent<AssistantItem> ().BecomeMagnet (target);
 
