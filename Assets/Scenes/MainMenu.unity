@@ -13864,7 +13864,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551988248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -384.430969, y: -512.796875, z: 0}
+  m_LocalPosition: {x: -384.217346, y: -512.796875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 693705788}
@@ -18621,7 +18621,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3011
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -20375,7 +20375,7 @@ Transform:
   m_PrefabInternal: {fileID: 2046193607}
   m_GameObject: {fileID: 842087567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.0546875, z: 0}
+  m_LocalPosition: {x: 0, y: -1.66796875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 772967026}
@@ -48099,9 +48099,21 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400294, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.0546875
+      value: -1.66796875
       objectReference: {fileID: 0}
     - target: {fileID: 100164, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400258, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
+      propertyPath: hideInactive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100648, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100548, guid: 93e288d0021754ec2a88ebcd4e342239, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

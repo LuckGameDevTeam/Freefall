@@ -55,7 +55,7 @@ public class UIEquippedItemControl : MonoBehaviour
 		equippedItemIds.Clear ();
 
 		//remove from display
-		RemoveAllEquippedItemDisplay ();
+		//RemoveAllEquippedItemDisplay ();
 	}
 
 	void Awake()
@@ -79,14 +79,29 @@ public class UIEquippedItemControl : MonoBehaviour
 	/// </summary>
 	void RemoveAllEquippedItemDisplay()
 	{
+		GameObject[] childs = new GameObject[grid.transform.childCount];
+
+		for(int j=0; j<grid.transform.childCount; j++)
+		{
+			childs[j] = grid.transform.GetChild(j).gameObject;
+		}
+
+		for(int i=0; i<childs.Length; i++)
+		{
+			childs[i].transform.parent = null;
+			NGUITools.Destroy(childs[i]);
+		}
+
+		/*
 		for(int i=0; i<grid.transform.childCount; i++)
 		{
 			GameObject child = grid.transform.GetChild(i).gameObject;
 
 			child.transform.parent = null;
 
-			NGUITools.DestroyImmediate(child);
+			NGUITools.Destroy(child);
 		}
+		*/
 
 		grid.Reposition ();
 	}
@@ -132,6 +147,8 @@ public class UIEquippedItemControl : MonoBehaviour
 				Debug.LogError("Can not load item because prefab assigned can not create equipped item display");
 			}
 		}
+
+
 	}
 
 	/// <summary>

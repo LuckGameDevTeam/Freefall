@@ -154,6 +154,7 @@ public class PlayerEquippedItems : PersistantMetaData
 		//remove any item that balance is 0 but still equpped
 		for(int i=0; i<equippedItemIds.Count; i++)
 		{
+
 			//if(StoreInventory.GetItemBalance(equippedItemIds[i]) <= 0)
 			if(DBManager.GetPlayerData(equippedItemIds[i]).AsInt <= 0)
 			{

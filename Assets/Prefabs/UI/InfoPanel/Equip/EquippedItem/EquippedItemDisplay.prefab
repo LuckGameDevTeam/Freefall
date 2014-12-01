@@ -89,7 +89,6 @@ GameObject:
   - 4: {fileID: 400010}
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400008}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400010}
   m_Layer: 5
   m_Name: Button(UnEquip)
@@ -216,21 +215,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 99.9935913, y: 99.9921875, z: 0}
   m_Center: {x: .0137023926, y: 0, z: -5.25}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 100012}
-  functionName: UnEquip
-  trigger: 0
-  includeChildren: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -418,7 +402,11 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 1
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 11400014}
+    mMethodName: UnEquip
+    mParameters: []
+    oneShot: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1

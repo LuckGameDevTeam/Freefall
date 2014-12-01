@@ -46,7 +46,8 @@
   if (UIInterfaceOrientationIsPortrait(currentOrientation)) {
     adSize = kGADAdSizeSmartBannerPortrait;
   } else {
-    adSize = kGADAdSizeSmartBannerLandscape;
+    //adSize = kGADAdSizeSmartBannerLandscape;
+      adSize = kGADAdSizeSmartBannerPortrait;
   }
   return [self initWithBannerClientReference:bannerClient
                                     adUnitID:adUnitID

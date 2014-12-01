@@ -158,6 +158,6 @@ public class CharacterHealth : MonoBehaviour
 
 		}
 
-		Debug.Log ("Health:" + health);
+		//Debug.Log ("Health:" + health);
 	}
 }

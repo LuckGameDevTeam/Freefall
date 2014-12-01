@@ -95,7 +95,11 @@ public partial class TrashMan : MonoBehaviour
 			if( recycleBin == null || recycleBin.prefab == null )
 				continue;
 
+			System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+			sw.Start();
 			recycleBin.initialize();
+			sw.Stop();
+			Debug.Log(recycleBin.prefab.name+" spend "+sw.Elapsed+" to initialize");
 			_instanceIdToRecycleBin.Add( recycleBin.prefab.GetInstanceID(), recycleBin );
 
 			_poolNameToInstanceId.Add( recycleBin.prefab.name, recycleBin.prefab.GetInstanceID() );

@@ -61,8 +61,8 @@ public class PreloadControl : MonoBehaviour
 		
 		if(firstTimeLaunch == 0)
 		{
-			//give player 3 life
-			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(1));
+			//give player 3 life, test
+			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(100));
 
 			//give BellCat
 			DBManager.SetToPurchased("BellCat");
@@ -84,16 +84,22 @@ public class PreloadControl : MonoBehaviour
 		//increase time launch
 		PlayerPrefs.SetInt ("TimeOfLaunch", firstTimeLaunch + 1);
 
-		
-		/*
-		//unlock level 1's all sub levels
-		for(int i=1; i<=5; i++)
-		{
-			SubLevelData slData = SubLevelData.Load();
 
-			slData.UnlockSubLevel(1, i);
+		//Test
+		DBManager.SetToPurchased ("UnlockLevel2");
+		DBManager.SetToPurchased ("UnlockLevel3");
+		//unlock level all sub levels
+		for(int j=1; j<=3; j++)
+		{
+			for(int i=1; i<=5; i++)
+			{
+				SubLevelData sllData = SubLevelData.Load();
+				
+				sllData.UnlockSubLevel(j, i);
+			}
 		}
-		*/
+
+
 
 		//Level 1 virtual product alreay bought
 		//We only need to unlock level 1-1

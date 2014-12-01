@@ -140,7 +140,7 @@ public class ObstacleBig : Obstacle
 	{
 		if(other.tag == Tags.player)
 		{
-			Debug.Log("hit player");
+			//Debug.Log("hit player");
 
 			other.gameObject.SendMessageUpwards("TakeDamage", damage);
 		}
