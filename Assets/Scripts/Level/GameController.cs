@@ -427,7 +427,7 @@ public class GameController : MonoBehaviour
 
 		SubLevelData data = SubLevelData.Load ();
 
-		if(data.UnlockSubLevel (nextMainLevelToUnlock, nextSubLevelToUnlock))
+		if(!data.UnlockSubLevel (nextMainLevelToUnlock, nextSubLevelToUnlock))
 		{
 			Debug.LogError("Error when trying to unlock Level"+ nextMainLevelToUnlock + "-" + nextSubLevelToUnlock);
 		}
