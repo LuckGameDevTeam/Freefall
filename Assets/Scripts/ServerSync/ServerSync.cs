@@ -17,6 +17,8 @@ public class ServerSync :MonoBehaviour
 	/// </summary>
 	const int internalError = -1;
 
+	const int serverFatalError = -2;
+
 	public delegate void OnInternetNotAvailable(ServerSync syncControl);
 	/// <summary>
 	/// Event when internet not available.
@@ -243,30 +245,43 @@ public class ServerSync :MonoBehaviour
 			//parse json data
 			JSONNode data = JSON.Parse(wGo.text);
 
-			int error = int.Parse(data["error"].Value);
-
-			//if data has an error
-			if(error != 0)
+			if(string.IsNullOrEmpty(data))
 			{
-				Debug.LogError(gameObject.name+" return data has error:"+error);
 				if(Evt_OnCreateAccountFail != null)
 				{
-					Evt_OnCreateAccountFail(this, error);
+					Evt_OnCreateAccountFail(this, serverFatalError);
 				}
+
 			}
 			else
 			{
-				//store username and password
-				username = data["name"].Value;
-				password = data["password"].Value;
-
-				Debug.Log("Server return username:"+username+" password:"+password);
-
-				if(Evt_OnCreateAccountSuccess != null)
+				int error = int.Parse(data["error"].Value);
+				
+				//if data has an error
+				if(error != 0)
 				{
-					Evt_OnCreateAccountSuccess(this, username, password);
+					Debug.LogError(gameObject.name+" return data has error:"+error);
+					if(Evt_OnCreateAccountFail != null)
+					{
+						Evt_OnCreateAccountFail(this, error);
+					}
+				}
+				else
+				{
+					//store username and password
+					username = data["name"].Value;
+					password = data["password"].Value;
+					
+					Debug.Log("Server return username:"+username+" password:"+password);
+					
+					if(Evt_OnCreateAccountSuccess != null)
+					{
+						Evt_OnCreateAccountSuccess(this, username, password);
+					}
 				}
 			}
+
+
 		}
 	}
 	#endregion CreateAccount
@@ -332,31 +347,43 @@ public class ServerSync :MonoBehaviour
 		{
 			//parse json data
 			JSONNode data = JSON.Parse(wGo.text);
-			
-			int error = int.Parse(data["error"].Value);
 
-			//if data has an error
-			if(error != 0)
+			if(string.IsNullOrEmpty(data))
 			{
-				Debug.LogError(gameObject.name+" return data has error:"+error);
 				if(Evt_OnLoginFail != null)
 				{
-					Evt_OnLoginFail(this, error);
+					Evt_OnLoginFail(this, serverFatalError);
 				}
 			}
 			else
 			{
-				//store uid
-				uid = data["uid"].Value;
-
-				username = tmpLoginUserName;
-				password = tmpLoginPassword;
+				int error = int.Parse(data["error"].Value);
 				
-				if(Evt_OnLoginSuccess != null)
+				//if data has an error
+				if(error != 0)
 				{
-					Evt_OnLoginSuccess(this, uid);
+					Debug.LogError(gameObject.name+" return data has error:"+error);
+					if(Evt_OnLoginFail != null)
+					{
+						Evt_OnLoginFail(this, error);
+					}
+				}
+				else
+				{
+					//store uid
+					uid = data["uid"].Value;
+					
+					username = tmpLoginUserName;
+					password = tmpLoginPassword;
+					
+					if(Evt_OnLoginSuccess != null)
+					{
+						Evt_OnLoginSuccess(this, uid);
+					}
 				}
 			}
+			
+
 		}
 	}
 	#endregion Loggin server

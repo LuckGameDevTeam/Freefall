@@ -144,6 +144,8 @@ public class LoginControl : MonoBehaviour
 	private void SyncData()
 	{
 		statusLabel.text = Localization.Get (syncDataKey);
+
+		GoToMainMenu ();
 	}
 
 	private void LockUI()
@@ -164,7 +166,7 @@ public class LoginControl : MonoBehaviour
 
 	private void GoToMainMenu()
 	{
-
+		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("MainMenu");
 	}
 
 	#region UIAlertWindow callback
