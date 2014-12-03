@@ -245,7 +245,8 @@ public class ServerSync :MonoBehaviour
 			//parse json data
 			JSONNode data = JSON.Parse(wGo.text);
 
-			if(string.IsNullOrEmpty(data))
+
+			if((data == null) && (data == ""))
 			{
 				if(Evt_OnCreateAccountFail != null)
 				{
@@ -348,7 +349,7 @@ public class ServerSync :MonoBehaviour
 			//parse json data
 			JSONNode data = JSON.Parse(wGo.text);
 
-			if(string.IsNullOrEmpty(data))
+			if((data == null) && (data == ""))
 			{
 				if(Evt_OnLoginFail != null)
 				{
