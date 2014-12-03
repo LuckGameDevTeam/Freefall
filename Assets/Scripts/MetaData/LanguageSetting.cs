@@ -19,7 +19,7 @@ public class LanguageSetting : PersistantMetaData
 	/// <summary>
 	/// The current language.
 	/// </summary>
-	public string currentLanguage = "Chinese-Traditional";
+	public string currentLanguage;
 
 	public static LanguageSetting Load()
 	{
