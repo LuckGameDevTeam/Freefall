@@ -2,6 +2,7 @@
 using System.Collections;
 using SimpleJSON;
 using System.Collections.Generic;
+using System.Text;
 
 public class ServerSync :MonoBehaviour
 {
@@ -130,6 +131,26 @@ public class ServerSync :MonoBehaviour
 		DontDestroyOnLoad (gameObject);
 	}
 
+	void Update()
+	{
+#if UNITY_EDITOR
+		if(!Application.isPlaying)
+		{
+			ServerSync sync = GameObject.FindObjectOfType<ServerSync> ();
+			
+			if(sync)
+				GameObject.DestroyImmediate (sync.gameObject);
+			
+			instance = null;
+		}
+		
+#endif
+	}
+
+	/// <summary>
+	/// Determines whether is internet available or not.
+	/// </summary>
+	/// <returns><c>true</c> if this instance is internet available; otherwise, <c>false</c>.</returns>
 	private bool IsInternetAvailable()
 	{
 		if(Application.internetReachability == NetworkReachability.NotReachable)
@@ -145,6 +166,30 @@ public class ServerSync :MonoBehaviour
 		return true;
 	}
 
+	/// <summary>
+	/// Gets the SHA512 encryption from string.
+	/// </summary>
+	/// <returns>The SH a512.</returns>
+	/// <param name="str">String.</param>
+	private string GetSHA512(string str)
+	{
+		byte[] hashByte;
+		string retStr = "";
+
+		System.Security.Cryptography.SHA512 sha512 = System.Security.Cryptography.SHA512.Create();
+
+		hashByte = sha512.ComputeHash (Encoding.ASCII.GetBytes (str));
+
+		//retStr = Encoding.ASCII.GetString (hashByte);
+
+		foreach (byte x in hashByte) 
+		{
+			retStr += string.Format ("{0:x2}", x);
+		}
+		
+		return retStr;
+	}
+	
 	#region CreateAccount
 	/// <summary>
 	/// Creates a new account from server automatically.
@@ -164,6 +209,8 @@ public class ServerSync :MonoBehaviour
 		{
 			StartCoroutine("DoCreateAccount");
 		}
+
+
 	}
 
 	/// <summary>
@@ -213,6 +260,8 @@ public class ServerSync :MonoBehaviour
 				username = data["name"].Value;
 				password = data["password"].Value;
 
+				Debug.Log("Server return username:"+username+" password:"+password);
+
 				if(Evt_OnCreateAccountSuccess != null)
 				{
 					Evt_OnCreateAccountSuccess(this, username, password);
@@ -223,6 +272,11 @@ public class ServerSync :MonoBehaviour
 	#endregion CreateAccount
 
 	#region Loggin server
+	/// <summary>
+	/// Log into server.
+	/// </summary>
+	/// <param name="username">Username.</param>
+	/// <param name="password">Password.</param>
 	public void LoginServer(string username, string password)
 	{
 		if(!IsInternetAvailable())
@@ -251,9 +305,12 @@ public class ServerSync :MonoBehaviour
 	{
 		isLoggingServer = true;
 
+		string encryptPassword = GetSHA512 (tmpLoginPassword);
+
 		WWWForm postData = new WWWForm ();
 		postData.AddField ("name", tmpLoginUserName);
-		postData.AddField ("password", tmpLoginPassword);
+		postData.AddField ("password", encryptPassword);
+
 
 		WWW wGo = new WWW (addrLoginServer, postData);
 
@@ -291,6 +348,9 @@ public class ServerSync :MonoBehaviour
 			{
 				//store uid
 				uid = data["uid"].Value;
+
+				username = tmpLoginUserName;
+				password = tmpLoginPassword;
 				
 				if(Evt_OnLoginSuccess != null)
 				{

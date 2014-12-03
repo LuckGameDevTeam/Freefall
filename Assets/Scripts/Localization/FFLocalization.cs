@@ -9,6 +9,8 @@ public class FFLocalization : MonoBehaviour
 
 	void Awake()
 	{
+		Debug.Log ("Device language:" + Application.systemLanguage);
+
 		if(localizationFile != null)
 		{
 			if(Localization.LoadCSV (localizationFile))
