@@ -98,6 +98,8 @@ public class UIHUDControl : MonoBehaviour
 	/// </summary>
 	public UIPauseControl pauseControl;
 
+	private int maxFishBone = 0;
+
 	void Awake()
 	{
 		//register event for pause menu close
@@ -133,6 +135,10 @@ public class UIHUDControl : MonoBehaviour
 
 		//set character portriat sprite name
 		portriatSprite.spriteName = pc.characterName+"_Head";
+
+		maxFishBone = GameController.sharedGameController.maxStarCount;
+
+		UpdateFishBoneHUD (0);
 	}
 
 	///////////////////////////////////////////////////////////////Update HUD////////////////////////////////////////////////////////////////////////////////////
@@ -165,7 +171,7 @@ public class UIHUDControl : MonoBehaviour
 		fishBoneTweener.Play (true);
 
 		//set fish bone label
-		fishBoneLabel.text = value.ToString ();
+		fishBoneLabel.text = value.ToString ()+"/"+maxFishBone;
 	}
 
 	/// <summary>
