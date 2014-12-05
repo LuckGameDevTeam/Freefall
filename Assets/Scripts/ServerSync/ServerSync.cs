@@ -125,6 +125,8 @@ public class ServerSync :MonoBehaviour
 	/// </summary>
 	private bool authrized = false;
 
+	public bool IsAuthrized{get{return authrized;}}
+
 	/// <summary>
 	/// The username that used to login server.
 	/// </summary>
@@ -219,6 +221,22 @@ public class ServerSync :MonoBehaviour
 		return retStr;
 	}
 
+	private string TrimStringForData(string dataStr)
+	{
+		string pattern = "/*****/";
+		string retStr = dataStr;
+
+		int firstTrimStartIndex = 0;
+		int firstTrimLength = retStr.IndexOf (pattern)+pattern.Length;
+		retStr = retStr.Remove (firstTrimStartIndex, firstTrimLength);
+
+		int lastTrimStartIndex = retStr.LastIndexOf (pattern);
+		int lastTrimLength = retStr.Length - (lastTrimStartIndex+1)+1;
+		retStr = retStr.Remove (lastTrimStartIndex, lastTrimLength);
+
+		return retStr;
+	}
+
 	#region Authrization
 	public void Auth()
 	{
@@ -234,7 +252,13 @@ public class ServerSync :MonoBehaviour
 	{
 		isAuthrizing = true;
 
-		WWW wGo = new WWW (addrLoginServer);
+		WWWForm postData = new WWWForm ();
+		postData.AddField ("name", authName);
+		postData.AddField ("password", GetSHA512(authPass));
+		postData.AddField ("device_id", SystemInfo.deviceUniqueIdentifier);
+
+
+		WWW wGo = new WWW (addrLoginServer, postData);
 
 		yield return wGo;
 
@@ -261,8 +285,9 @@ public class ServerSync :MonoBehaviour
 			}
 			else
 			{
+
 				//parse json data
-				JSONNode data = JSON.Parse(wGo.text);
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
 				
 				
 				if((data == null) || (data == ""))
@@ -367,7 +392,7 @@ public class ServerSync :MonoBehaviour
 			else
 			{
 				//parse json data
-				JSONNode data = JSON.Parse(wGo.text);
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
 				
 				
 				if((data == null) || (data == ""))
@@ -446,11 +471,9 @@ public class ServerSync :MonoBehaviour
 	{
 		isLoggingServer = true;
 
-		string encryptPassword = GetSHA512 (tmpLoginPassword);
-
 		WWWForm postData = new WWWForm ();
 		postData.AddField ("name", tmpLoginUserName);
-		postData.AddField ("password", encryptPassword);
+		postData.AddField ("password", GetSHA512 (tmpLoginPassword));
 		postData.AddField ("device_id", SystemInfo.deviceUniqueIdentifier);
 
 
@@ -482,7 +505,7 @@ public class ServerSync :MonoBehaviour
 			else
 			{
 				//parse json data
-				JSONNode data = JSON.Parse(wGo.text);
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
 				
 				if((data == null) || (data == ""))
 				{

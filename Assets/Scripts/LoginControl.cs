@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Reflection;
 
 public class LoginControl : MonoBehaviour 
 {
@@ -15,7 +16,19 @@ public class LoginControl : MonoBehaviour
 	public string syncDataKey = "SyncData";
 	public string syncDataSuccessKey = "SyncDataSuccess";
 	public string syncDataFailKey = "SyncDataFail";
-	public string noInternet = "NoInternet";
+	public string noInternetKey = "NoInternet";
+	public string authorizingKey = "Authorizing";
+	public string authSuccessKey = "AuthorizationSuccess";
+	public string authFailKey = "AuthorizationFail";
+
+	private delegate void PendingCall ();
+	/// <summary>
+	/// The pending call.
+	/// This will be called when auth success from ServerSync
+	/// then it will be clear.
+	/// Set the method you want to perfrom after auth success from ServerSync
+	/// </summary>
+	private PendingCall pendingCall;
 
 	/// <summary>
 	/// The account input.
@@ -85,6 +98,8 @@ public class LoginControl : MonoBehaviour
 		ServerSync.SharedInstance.Evt_OnCreateAccountFail += OnCreateAccountFail;
 		ServerSync.SharedInstance.Evt_OnLoginSuccess += OnLoginSuccess;
 		ServerSync.SharedInstance.Evt_OnLoginFail += OnLoginFail;
+		ServerSync.SharedInstance.Evt_OnAuthrizeSuccess += OnAuthSuccess;
+		ServerSync.SharedInstance.Evt_OnAuthrizeFail += OnAuthFail;
 	}
 
 	void OnDisable()
@@ -99,6 +114,8 @@ public class LoginControl : MonoBehaviour
 			ServerSync.SharedInstance.Evt_OnCreateAccountFail -= OnCreateAccountFail;
 			ServerSync.SharedInstance.Evt_OnLoginSuccess -= OnLoginSuccess;
 			ServerSync.SharedInstance.Evt_OnLoginFail -= OnLoginFail;
+			ServerSync.SharedInstance.Evt_OnAuthrizeSuccess -= OnAuthSuccess;
+			ServerSync.SharedInstance.Evt_OnAuthrizeFail -= OnAuthFail;
 		}
 
 	}
@@ -109,6 +126,9 @@ public class LoginControl : MonoBehaviour
 	
 	}
 
+	/// <summary>
+	/// Login.
+	/// </summary>
 	public void Login()
 	{
 		if (string.IsNullOrEmpty (accountInput.value)) 
@@ -132,13 +152,29 @@ public class LoginControl : MonoBehaviour
 		ServerSync.SharedInstance.LoginServer (accountInput.value, passwordInput.value);
 	}
 
+	/// <summary>
+	/// Create account.
+	/// </summary>
 	public void CreateAccount()
 	{
-		statusLabel.text = Localization.Get (creatingAccountKey);
+		if(ServerSync.SharedInstance.IsAuthrized)
+		{
+			statusLabel.text = Localization.Get (creatingAccountKey);
+			
+			LockUI ();
+			
+			ServerSync.SharedInstance.CreateAccount ();
+		}
+		else
+		{
+			LockUI();
 
-		LockUI ();
+			pendingCall = this.CreateAccount;
 
-		ServerSync.SharedInstance.CreateAccount ();
+			statusLabel.text = Localization.Get(authorizingKey);
+
+			ServerSync.SharedInstance.Auth();
+		}
 	}
 
 	private void SyncData()
@@ -183,7 +219,7 @@ public class LoginControl : MonoBehaviour
 	{
 		statusLabel.text = "";
 
-		alertControl.ShowAlertWindow (errorKey, noInternet);
+		alertControl.ShowAlertWindow (errorKey, noInternetKey);
 	}
 
 	void OnCreateAccountSuccess(ServerSync syncControl, string username, string password)
@@ -231,6 +267,32 @@ public class LoginControl : MonoBehaviour
 	void OnLoginFail(ServerSync syncControl, int errorCode)
 	{
 		alertControl.ShowAlertWindow (errorKey, loginFailKey);
+	}
+
+	void OnAuthSuccess(ServerSync syncControl)
+	{
+		statusLabel.text = Localization.Get (authSuccessKey);
+		UnlockUI ();
+
+		if(pendingCall != null)
+		{
+			System.Delegate[] invokList = pendingCall.GetInvocationList();
+
+			for(int i=0; i<invokList.Length; i++)
+			{
+				System.Delegate del = invokList[i];
+
+				Invoke(del.Method.Name, 1f);
+
+			}
+
+			pendingCall = null;
+		}
+	}
+
+	void OnAuthFail(ServerSync syncControl, int errorCode)
+	{
+		alertControl.ShowAlertWindow (errorKey, authFailKey);
 	}
 	#endregion ServerSync callback
 }
