@@ -12,6 +12,9 @@ public class ServerSync :MonoBehaviour
 	//server api login server
 	const string addrLoginServer = "http://ccat.eznewlife.com/user/login";
 
+	//server api download/upload data
+	const string addrDownloadUpload = "http://ccat.eznewlife.com/user/data";
+
 	/// <summary>
 	/// The internal error.
 	/// </summary>
@@ -63,6 +66,30 @@ public class ServerSync :MonoBehaviour
 	/// Event when login fail.
 	/// </summary>
 	public OnLoginFail Evt_OnLoginFail;
+
+	public delegate void OnGetDataSuccess(ServerSync syncControl, string data);
+	/// <summary>
+	/// Event when get data success.
+	/// </summary>
+	public OnGetDataSuccess Evt_OnGetDataSuccess;
+
+	public delegate void OnGetDataFail(ServerSync syncControl, int errorCode);
+	/// <summary>
+	/// Event when get data fail.
+	/// </summary>
+	public OnGetDataFail Evt_OnGetDataFail;
+
+	public delegate void OnUploadDataSuccess(ServerSync synControl);
+	/// <summary>
+	/// Event when upload data success.
+	/// </summary>
+	public OnUploadDataSuccess Evt_OnUploadDataSuccess;
+
+	public delegate void OnUploadDataFail(ServerSync syncControl, int errorCode);
+	/// <summary>
+	/// Event when upload data fail.
+	/// </summary>
+	public OnUploadDataFail Evt_OnUploadDataFail;
 
 	/// <summary>
 	/// The instance.
@@ -119,6 +146,16 @@ public class ServerSync :MonoBehaviour
 	/// Is authrizing or not.
 	/// </summary>
 	private bool isAuthrizing = false;
+
+	/// <summary>
+	/// Is getting data.
+	/// </summary>
+	private bool isGettingData = false;
+
+	/// <summary>
+	/// Is uploading data.
+	/// </summary>
+	private bool isUploadingData = false;
 
 	/// <summary>
 	/// The authrized.
@@ -544,7 +581,6 @@ public class ServerSync :MonoBehaviour
 					}
 				}
 			}
-			
 
 		}
 	}
@@ -557,4 +593,187 @@ public class ServerSync :MonoBehaviour
 	}
 	#endregion Logout server
 
+	#region Get data from server
+	public void GetServerData()
+	{
+		if(!IsInternetAvailable())
+		{
+			return;
+		}
+
+		if(isGettingData)
+		{
+			return;
+		}
+		else
+		{
+			StartCoroutine("DoGetServerData");
+		}
+	}
+
+	IEnumerator DoGetServerData()
+	{
+		isGettingData = true;
+		
+		WWWForm postData = new WWWForm ();
+		postData.AddField ("uid", uid);
+		postData.AddField ("device_id", SystemInfo.deviceUniqueIdentifier);
+
+		WWW wGo = new WWW (addrDownloadUpload, postData);
+		
+		yield return wGo;
+
+		isGettingData = false;
+
+		//if there is an error while download data
+		if(!string.IsNullOrEmpty(wGo.error))
+		{
+			Debug.LogError(gameObject.name+" "+wGo.error);
+			
+			if(Evt_OnGetDataFail != null)
+			{
+				Evt_OnGetDataFail(this, internalError);
+			}
+		}
+		else
+		{
+			if(string.IsNullOrEmpty(wGo.text))
+			{
+				if(Evt_OnGetDataFail != null)
+				{
+					Evt_OnGetDataFail(this, serverFatalError);
+				}
+			}
+			else
+			{
+				//parse json data
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
+				
+				if((data == null) || (data == ""))
+				{
+					if(Evt_OnGetDataFail != null)
+					{
+						Evt_OnGetDataFail(this, serverFatalError);
+					}
+				}
+				else
+				{
+					int error = int.Parse(data["error"].Value);
+					
+					//if data has an error
+					if(error != 0)
+					{
+						Debug.LogError(gameObject.name+" return data has error:"+error);
+						if(Evt_OnGetDataFail != null)
+						{
+							Evt_OnGetDataFail(this, error);
+						}
+					}
+					else
+					{
+						string dataStr = data["response"].Value;
+						
+						if(Evt_OnGetDataSuccess != null)
+						{
+							Evt_OnGetDataSuccess(this, dataStr);
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	#endregion Get data from server
+
+	#region upload data to server
+	public void UploadData(string dataToUpload)
+	{
+		if(!IsInternetAvailable())
+		{
+			return;
+		}
+
+		if(isUploadingData)
+		{
+			return;
+		}
+		else
+		{
+			StartCoroutine("DoUploadData", dataToUpload);
+		}
+	}
+
+	IEnumerator DoUploadData(string uData)
+	{
+		isUploadingData = true;
+
+		WWWForm postData = new WWWForm ();
+		postData.AddField ("uid", uid);
+		postData.AddField ("device_id", SystemInfo.deviceUniqueIdentifier);
+		postData.AddField ("string", uData);
+		
+		WWW wGo = new WWW (addrDownloadUpload, postData);
+		
+		yield return wGo;
+
+		isUploadingData = false;
+
+		//if there is an error while download data
+		if(!string.IsNullOrEmpty(wGo.error))
+		{
+			Debug.LogError(gameObject.name+" "+wGo.error);
+			
+			if(Evt_OnUploadDataFail != null)
+			{
+				Evt_OnUploadDataFail(this, internalError);
+			}
+		}
+		else
+		{
+			if(string.IsNullOrEmpty(wGo.text))
+			{
+				if(Evt_OnUploadDataFail != null)
+				{
+					Evt_OnUploadDataFail(this, serverFatalError);
+				}
+			}
+			else
+			{
+				//parse json data
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
+				
+				if((data == null) || (data == ""))
+				{
+					if(Evt_OnUploadDataFail != null)
+					{
+						Evt_OnUploadDataFail(this, serverFatalError);
+					}
+				}
+				else
+				{
+					int error = int.Parse(data["error"].Value);
+					
+					//if data has an error
+					if(error != 0)
+					{
+						Debug.LogError(gameObject.name+" return data has error:"+error);
+						if(Evt_OnUploadDataFail != null)
+						{
+							Evt_OnUploadDataFail(this, error);
+						}
+					}
+					else
+					{
+						
+						if(Evt_OnUploadDataSuccess != null)
+						{
+							Evt_OnUploadDataSuccess(this);
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	#endregion upload data to server
 }

@@ -272,6 +272,7 @@ public class LoginControl : MonoBehaviour
 	void OnAuthSuccess(ServerSync syncControl)
 	{
 		statusLabel.text = Localization.Get (authSuccessKey);
+
 		UnlockUI ();
 
 		if(pendingCall != null)
