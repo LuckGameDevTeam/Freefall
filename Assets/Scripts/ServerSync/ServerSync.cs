@@ -91,6 +91,12 @@ public class ServerSync :MonoBehaviour
 	/// </summary>
 	public OnUploadDataFail Evt_OnUploadDataFail;
 
+	public delegate void OnOtherDeviceLogin(ServerSync syncControl, int errorCode);
+	/// <summary>
+	/// When other device login.
+	/// </summary>
+	public OnOtherDeviceLogin Evt_OnOtherDeviceLogin;
+
 	/// <summary>
 	/// The instance.
 	/// </summary>
@@ -333,14 +339,20 @@ public class ServerSync :MonoBehaviour
 					{
 						Evt_OnAuthrizeFail(this, serverFatalError);
 					}
-					
+
 				}
 				else
 				{
 					int error = int.Parse(data["error"].Value);
-					
-					//if data has an error
-					if(error != 0)
+
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
 					{
 						Debug.LogError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnAuthrizeFail != null)
@@ -443,9 +455,15 @@ public class ServerSync :MonoBehaviour
 				else
 				{
 					int error = int.Parse(data["error"].Value);
-					
-					//if data has an error
-					if(error != 0)
+
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
 					{
 						Debug.LogError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnCreateAccountFail != null)
@@ -554,9 +572,15 @@ public class ServerSync :MonoBehaviour
 				else
 				{
 					int error = int.Parse(data["error"].Value);
-					
-					//if data has an error
-					if(error != 0)
+
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
 					{
 						Debug.LogError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnLoginFail != null)
@@ -614,12 +638,11 @@ public class ServerSync :MonoBehaviour
 	IEnumerator DoGetServerData()
 	{
 		isGettingData = true;
-		
-		WWWForm postData = new WWWForm ();
-		postData.AddField ("uid", uid);
-		postData.AddField ("device_id", SystemInfo.deviceUniqueIdentifier);
 
-		WWW wGo = new WWW (addrDownloadUpload, postData);
+		//modify address for Get method
+		string newAddr = addrDownloadUpload+"?"+"uid="+uid+"&device_id="+SystemInfo.deviceUniqueIdentifier;
+
+		WWW wGo = new WWW (newAddr);
 		
 		yield return wGo;
 
@@ -659,9 +682,15 @@ public class ServerSync :MonoBehaviour
 				else
 				{
 					int error = int.Parse(data["error"].Value);
-					
-					//if data has an error
-					if(error != 0)
+
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
 					{
 						Debug.LogError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnGetDataFail != null)
@@ -752,9 +781,15 @@ public class ServerSync :MonoBehaviour
 				else
 				{
 					int error = int.Parse(data["error"].Value);
-					
-					//if data has an error
-					if(error != 0)
+
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
 					{
 						Debug.LogError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnUploadDataFail != null)

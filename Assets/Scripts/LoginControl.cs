@@ -20,6 +20,7 @@ public class LoginControl : MonoBehaviour
 	public string authorizingKey = "Authorizing";
 	public string authSuccessKey = "AuthorizationSuccess";
 	public string authFailKey = "AuthorizationFail";
+	public string loginOtherDeviceKey = "LoginOtehrDevice";
 
 	private delegate void PendingCall ();
 	/// <summary>
@@ -59,6 +60,17 @@ public class LoginControl : MonoBehaviour
 	/// The alert control.
 	/// </summary>
 	public UIAlertControl alertControl;
+
+	private SISDataSync sisDS;
+
+	void Awake()
+	{
+		sisDS = GetComponent<SISDataSync> ();
+		
+		sisDS.Evt_OnSyncDataComplete += OnSyncDataComplete;
+		sisDS.Evt_OnSyncDataFail += OnSyncDataFail;
+		sisDS.Evt_OnAccountLoginFromOtherDevice += OnLoginFromOtherDevice;
+	}
 
 	// Use this for initialization
 	void Start () 
@@ -118,6 +130,11 @@ public class LoginControl : MonoBehaviour
 			ServerSync.SharedInstance.Evt_OnAuthrizeFail -= OnAuthFail;
 		}
 
+		if(sisDS)
+		{
+			sisDS.Evt_OnSyncDataComplete -= OnSyncDataComplete;
+			sisDS.Evt_OnSyncDataFail -= OnSyncDataFail;
+		}
 	}
 	
 	// Update is called once per frame
@@ -181,7 +198,10 @@ public class LoginControl : MonoBehaviour
 	{
 		statusLabel.text = Localization.Get (syncDataKey);
 
-		GoToMainMenu ();
+		LockUI ();
+
+		//start data sync
+		sisDS.SyncData ();
 	}
 
 	private void LockUI()
@@ -253,10 +273,12 @@ public class LoginControl : MonoBehaviour
 		UserProfile up = UserProfile.Load ();
 
 		up.uid = uid;
+		up.userName = accountInput.value;
+		up.password = passwordInput.value;
 
 		UserProfile.Save (up);
 
-		UnlockUI ();
+		//UnlockUI ();
 
 		statusLabel.text = Localization.Get (loginSuccessKey);
 
@@ -273,7 +295,7 @@ public class LoginControl : MonoBehaviour
 	{
 		statusLabel.text = Localization.Get (authSuccessKey);
 
-		UnlockUI ();
+		//UnlockUI ();
 
 		if(pendingCall != null)
 		{
@@ -296,4 +318,25 @@ public class LoginControl : MonoBehaviour
 		alertControl.ShowAlertWindow (errorKey, authFailKey);
 	}
 	#endregion ServerSync callback
+
+	#region SISDataSync callback
+	void OnSyncDataComplete()
+	{
+		statusLabel.text = Localization.Get (syncDataSuccessKey);
+
+		UnlockUI ();
+
+		GoToMainMenu ();
+	}
+
+	void OnSyncDataFail()
+	{
+		alertControl.ShowAlertWindow (errorKey, syncDataFailKey);
+	}
+
+	void OnLoginFromOtherDevice()
+	{
+		alertControl.ShowAlertWindow (errorKey, loginOtherDeviceKey);
+	}
+	#endregion SISDataSync callback
 }
