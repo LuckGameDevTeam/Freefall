@@ -43,7 +43,7 @@ MonoBehaviour:
   mSprites:
   - name: button_g_flash
     x: 1220
-    y: 2511
+    y: 2485
     width: 274
     height: 94
     borderLeft: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_g_off
-    x: 1220
+    x: 1747
     y: 2606
     width: 280
     height: 100
@@ -197,6 +197,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: players_ui_profile_modify
+    x: 641
+    y: 2260
+    width: 570
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: ui_ranking_end
     x: 641
     y: 2381
@@ -211,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_ranking_fields
-    x: 641
-    y: 2254
+    x: 1220
+    y: 2580
     width: 526
     height: 126
     borderLeft: 0

@@ -246,7 +246,7 @@ MonoBehaviour:
   savedAs: 
   selectOnTab: {fileID: 0}
   activeTextColor: {r: 1, g: 1, b: 1, a: 1}
-  caretColor: {r: 1, g: 1, b: 1, a: .800000012}
+  caretColor: {r: 0, g: 0, b: 0, a: .800000012}
   selectionColor: {r: 1, g: .874509811, b: .552941203, a: .5}
   onSubmit: []
   onChange: []
@@ -2636,6 +2636,7 @@ MonoBehaviour:
   authorizingKey: Authorizing
   authSuccessKey: AuthorizationSuccess
   authFailKey: AuthorizationFail
+  loginOtherDeviceKey: LoginOtehrDevice
   accountInput: {fileID: 1643718864}
   passwordInput: {fileID: 58503492}
   loginButton: {fileID: 154266768}
@@ -2720,7 +2721,7 @@ MonoBehaviour:
   savedAs: 
   selectOnTab: {fileID: 0}
   activeTextColor: {r: 1, g: 1, b: 1, a: 1}
-  caretColor: {r: 1, g: 1, b: 1, a: .800000012}
+  caretColor: {r: 0, g: 0, b: 0, a: .800000012}
   selectionColor: {r: 1, g: .874509811, b: .552941203, a: .5}
   onSubmit: []
   onChange: []
