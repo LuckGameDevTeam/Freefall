@@ -15,6 +15,7 @@ public class UIPurchaseControl : MonoBehaviour
 	public string noFundsKey = "NotEnoughFunds";
 	public string errorKey = "BuyError";
 	public string syncDataFailKey = "SyncDataFail";
+	public string noInternetKey = "NoInternet";
 
 	public delegate void EventItemPurchaseStarted(UIPurchaseControl control, string itemId);
 	/// <summary>
@@ -120,6 +121,7 @@ public class UIPurchaseControl : MonoBehaviour
 
 		sisDs.Evt_OnUploadDataComplete += OnUploadDataSuccess;
 		sisDs.Evt_OnUploadDataFail += OnUploadDataFail;
+		sisDs.Evt_OnAccountLoginFromOtherDevice += OnUploadDataFail;
 	}
 
 	void OnEnable()
@@ -243,6 +245,12 @@ public class UIPurchaseControl : MonoBehaviour
 	/// </summary>
 	public void PurchaseItem()
 	{
+		if(Application.internetReachability == NetworkReachability.NotReachable)
+		{
+			alertControl.ShowAlertWindow(errorKey, noInternetKey);
+			return;
+		}
+
 		LockButton ();
 
 		try 
@@ -337,7 +345,15 @@ public class UIPurchaseControl : MonoBehaviour
 
 	void FinalizePurchase()
 	{
-
+		//fire purchase event
+		if(Evt_ItemPurchased != null)
+		{
+			Evt_ItemPurchased(this, tmpPid);
+		}
+		
+		UnlockButton ();
+		
+		ClosePurchaseWindow ();
 	}
 
 	#region SISDataSync callback
@@ -345,30 +361,14 @@ public class UIPurchaseControl : MonoBehaviour
 	{
 		Debug.Log("Upload client data to server");
 
-		//fire purchase event
-		if(Evt_ItemPurchased != null)
-		{
-			Evt_ItemPurchased(this, tmpPid);
-		}
-		
-		UnlockButton ();
-		
-		ClosePurchaseWindow ();
+		FinalizePurchase ();
 	}
 	
 	void OnUploadDataFail()
 	{
 		alertControl.ShowAlertWindow (null, syncDataFailKey);
 
-		//fire purchase event
-		if(Evt_ItemPurchased != null)
-		{
-			Evt_ItemPurchased(this, tmpPid);
-		}
-		
-		UnlockButton ();
-		
-		ClosePurchaseWindow ();
+		FinalizePurchase ();
 	}
 	#endregion SISDataSync callback
 

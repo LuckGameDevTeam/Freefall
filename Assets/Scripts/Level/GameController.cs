@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
 
 	public string notEnoughLifeKey = "NotEnoughLife";
 	public string notEnoughLifeDesc = "NotEnoughLifeDesc";
+	public string syncDataFailKey = "SyncDataFail";
 
 	/// <summary>
 	/// The victory clip.
@@ -156,6 +157,8 @@ public class GameController : MonoBehaviour
 
 	private FBController fbController;
 
+	private SISDataSync sisDs;
+
 #if TestMode
 	//for test mode only
 	public enum CharacterName
@@ -243,6 +246,10 @@ public class GameController : MonoBehaviour
 			soundPlayer = gameObject.AddComponent<SFXPlayer>();
 		}
 
+		sisDs = GetComponent<SISDataSync> ();
+		sisDs.Evt_OnUploadDataComplete += OnUploadDataSuccess;
+		sisDs.Evt_OnUploadDataFail += OnUploadDataFail;
+		sisDs.Evt_OnAccountLoginFromOtherDevice += OnLoginOtherDevice;
 	}
 
 	void Start()
@@ -758,6 +765,22 @@ public class GameController : MonoBehaviour
 	}
 
 	////////////////////////////////Public Interface////////////////////////////////
+	#region SISDataSync callback
+	void OnUploadDataSuccess()
+	{
+		Debug.Log("upload client data to server");
+	}
+
+	void OnUploadDataFail()
+	{
+		Debug.LogError("sync data fail");
+	}
+
+	void OnLoginOtherDevice()
+	{
+		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("LoginScene");
+	}
+	#endregion SISDataSync callback
 
 	////////////////////////////////Event////////////////////////////////
 
@@ -797,8 +820,7 @@ public class GameController : MonoBehaviour
 	/// <param name="chaControl">Cha control.</param>
 	void EventCharacterDeadFinished(CharacterControl chaControl)
 	{
-		//show result
-		ShowFinalResult (false);
+
 
 		//play fail sound
 		if(failClip != null)
@@ -831,6 +853,11 @@ public class GameController : MonoBehaviour
 		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
 #endif
 
+		//upload client data
+		sisDs.UploadData ();
+		
+		//show result
+		ShowFinalResult (false);
 
 		//test
 		//RestartGame ();
@@ -842,8 +869,7 @@ public class GameController : MonoBehaviour
 	/// <param name="chaControl">Cha control.</param>
 	void EventCharacterVictoryFinished(CharacterControl chaControl)
 	{
-		//show result
-		ShowFinalResult (true);
+
 
 		//play victory sound
 		if(victoryClip != null)
@@ -877,6 +903,12 @@ public class GameController : MonoBehaviour
 
 		//unlock next level
 		UnlockNextLevel ();
+
+		//upload client data
+		sisDs.UploadData ();
+		
+		//show result
+		ShowFinalResult (true);
 
 		//tset
 		//RestartGame ();

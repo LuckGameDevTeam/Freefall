@@ -46954,6 +46954,7 @@ GameObject:
   - 114: {fileID: 2128888892}
   - 114: {fileID: 2128888893}
   - 114: {fileID: 2128888894}
+  - 114: {fileID: 2128888895}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -47328,6 +47329,18 @@ MonoBehaviour:
     instancesToMaintainInPool: 5
     cullInterval: 10
   transform: {fileID: 0}
+--- !u!114 &2128888895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: d497af801228042308e38dbc964a4c6a,
+    type: 2}
+  m_PrefabInternal: {fileID: 632161286}
+  m_GameObject: {fileID: 2128888889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc96addbc60040c2a1f6c2abcff805d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2130356836
 GameObject:
   m_ObjectHideFlags: 0
