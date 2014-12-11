@@ -38,7 +38,7 @@ public class UIMainMenuControl : MonoBehaviour
 	public UIAlertControl alertControl;
 	
 	private FBController fbController;
-	
+
 	void Awake()
 	{
 		fbController = GameObject.FindObjectOfType (typeof(FBController)) as FBController;
@@ -58,7 +58,6 @@ public class UIMainMenuControl : MonoBehaviour
 		menuControl.Evt_OnTutorialClick += OnTutorialClick;
 		menuControl.Evt_OnSettingClick += OnSettingClick;
 		menuControl.Evt_OnCreditClick += OnCreditClick;
-		
 	}
 	
 	// Use this for initialization
@@ -206,5 +205,5 @@ public class UIMainMenuControl : MonoBehaviour
 		alertControl.ShowAlertWindow (null, canNotLoginKey);
 	}
 	
-	#endregion FB controller event
+	#endregion FB controller event	
 }

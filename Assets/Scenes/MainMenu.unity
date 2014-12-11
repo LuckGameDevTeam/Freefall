@@ -11854,7 +11854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &459728981
 Transform:
   m_ObjectHideFlags: 0
@@ -11893,6 +11893,7 @@ MonoBehaviour:
   accountInput: {fileID: 905839802}
   passwordInput: {fileID: 1281845100}
   newPasswordInput: {fileID: 1982480374}
+  changePassBtn: {fileID: 859059952}
   alertControl: {fileID: 1144044250}
 --- !u!1 &461794407
 GameObject:
@@ -14873,7 +14874,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3015
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -23712,6 +23713,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 953761786}
   - 114: {fileID: 953761787}
+  - 114: {fileID: 953761788}
   m_Layer: 5
   m_Name: PurchaseWindow
   m_TagString: Untagged
@@ -23746,6 +23748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noFundsKey: NotEnoughFunds
   errorKey: BuyError
+  syncDataFailKey: SyncDataFail
   itemTitleLocalize: {fileID: 0}
   itemDescLocalize: {fileID: 0}
   itemTitle: {fileID: 1011424350}
@@ -23753,6 +23756,17 @@ MonoBehaviour:
   buyButton: {fileID: 1791603883}
   closeButton: {fileID: 1295845280}
   alertControl: {fileID: 1144044250}
+--- !u!114 &953761788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 953761785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc96addbc60040c2a1f6c2abcff805d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956214062
 GameObject:
   m_ObjectHideFlags: 0
@@ -26561,7 +26575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1091953559
 Transform:
   m_ObjectHideFlags: 0

@@ -15,6 +15,9 @@ public class ServerSync :MonoBehaviour
 	//server api download/upload data
 	const string addrDownloadUpload = "http://ccat.eznewlife.com/user/data";
 
+	//server api change password
+	const string addrChangePassword = "http://ccat.eznewlife.com/user/password";
+
 	/// <summary>
 	/// The internal error.
 	/// </summary>
@@ -93,9 +96,21 @@ public class ServerSync :MonoBehaviour
 
 	public delegate void OnOtherDeviceLogin(ServerSync syncControl, int errorCode);
 	/// <summary>
-	/// When other device login.
+	/// Event when other device login.
 	/// </summary>
 	public OnOtherDeviceLogin Evt_OnOtherDeviceLogin;
+
+	public delegate void OnChangePasswordSuccess(ServerSync syncControl, string newPassword);
+	/// <summary>
+	/// Event when change password success.
+	/// </summary>
+	public OnChangePasswordSuccess Evt_OnChangePasswordSuccess;
+
+	public delegate void OnChangePasswordFail(ServerSync syncControl, int errorCode);
+	/// <summary>
+	/// Event when change password fail.
+	/// </summary>
+	public OnChangePasswordFail Evt_OnChangePasswordFail;
 
 	/// <summary>
 	/// The instance.
@@ -164,6 +179,11 @@ public class ServerSync :MonoBehaviour
 	private bool isUploadingData = false;
 
 	/// <summary>
+	/// Is changing password.
+	/// </summary>
+	private bool isChangingPassword = false;
+
+	/// <summary>
 	/// The authrized.
 	/// </summary>
 	private bool authrized = false;
@@ -208,14 +228,13 @@ public class ServerSync :MonoBehaviour
 	void Update()
 	{
 #if UNITY_EDITOR
-		if(!Application.isPlaying)
+		if((Application.isEditor)&&(!Application.isPlaying))
 		{
 			ServerSync sync = GameObject.FindObjectOfType<ServerSync> ();
 			
 			if(sync)
 				GameObject.DestroyImmediate (sync.gameObject);
-			
-			instance = null;
+
 		}
 		
 #endif
@@ -610,12 +629,117 @@ public class ServerSync :MonoBehaviour
 	}
 	#endregion Loggin server
 
+	/*
 	#region Logout server
 	public void Logout()
 	{
 		isLogin = false;
 	}
 	#endregion Logout server
+	*/
+
+	#region Change password
+	public void ChangePassword(string newPassword)
+	{
+		if(!IsInternetAvailable())
+		{
+			return;
+		}
+
+		if(!isLogin)
+		{
+			return;
+		}
+		else if(isChangingPassword)
+		{
+			return;
+		}
+		else
+		{
+			StartCoroutine("DoChangePassword", newPassword);
+		}
+	}
+
+	IEnumerator DoChangePassword(string newPassword)
+	{
+		isChangingPassword = true;
+
+		WWWForm postData = new WWWForm ();
+		postData.AddField ("uid", uid);
+		postData.AddField ("password", GetSHA512 (newPassword));
+		postData.AddField ("device_id", SystemInfo.deviceUniqueIdentifier);
+
+		WWW wGo = new WWW (addrChangePassword, postData);
+		
+		yield return wGo;
+		
+		isChangingPassword = false;
+
+		//if there is an error while download data
+		if(!string.IsNullOrEmpty(wGo.error))
+		{
+			Debug.LogError(gameObject.name+" "+wGo.error);
+			
+			if(Evt_OnChangePasswordFail != null)
+			{
+				Evt_OnChangePasswordFail(this, internalError);
+			}
+		}
+		else
+		{
+			if(string.IsNullOrEmpty(wGo.text))
+			{
+				if(Evt_OnChangePasswordFail != null)
+				{
+					Evt_OnChangePasswordFail(this, serverFatalError);
+				}
+			}
+			else
+			{
+				//parse json data
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
+				
+				if((data == null) || (data == ""))
+				{
+					if(Evt_OnChangePasswordFail != null)
+					{
+						Evt_OnChangePasswordFail(this, serverFatalError);
+					}
+				}
+				else
+				{
+					int error = int.Parse(data["error"].Value);
+					
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
+					{
+						Debug.LogError(gameObject.name+" return data has error:"+error);
+						if(Evt_OnChangePasswordFail != null)
+						{
+							Evt_OnChangePasswordFail(this, error);
+						}
+					}
+					else
+					{
+						password = newPassword;
+						
+						if(Evt_OnChangePasswordSuccess != null)
+						{
+							Evt_OnChangePasswordSuccess(this, newPassword);
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	#endregion Change password
 
 	#region Get data from server
 	public void GetServerData()

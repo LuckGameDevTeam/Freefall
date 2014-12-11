@@ -92,16 +92,17 @@ public class SISDataSync : MonoBehaviour
 		{
 			System.Delegate del = delList[i];
 
-			object go = del.Target;
+			del.DynamicInvoke();
 
-			SendMessage(del.Method.Name, go, SendMessageOptions.DontRequireReceiver);
+
 
 		}
 	}
 
 	#region Upload data to srever only
 	/// <summary>
-	/// Uploads the data to server.
+	/// Uploads client data to server.
+	/// Call this method after Sync success
 	/// </summary>
 	public void UploadData()
 	{
@@ -124,8 +125,9 @@ public class SISDataSync : MonoBehaviour
 
 	#region Sync data from server
 	/// <summary>
-	/// Syncs the data with server.
+	/// Syncs client data with server.
 	/// Could either be updated from server or update to server
+	/// Call this method only once after login to server to update data.
 	/// </summary>
 	public void SyncData()
 	{

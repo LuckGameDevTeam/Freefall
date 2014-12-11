@@ -14,6 +14,7 @@ public class UIPurchaseControl : MonoBehaviour
 
 	public string noFundsKey = "NotEnoughFunds";
 	public string errorKey = "BuyError";
+	public string syncDataFailKey = "SyncDataFail";
 
 	public delegate void EventItemPurchaseStarted(UIPurchaseControl control, string itemId);
 	/// <summary>
@@ -101,12 +102,24 @@ public class UIPurchaseControl : MonoBehaviour
 	/// </summary>
 	private string currentNonGoodItemId;
 
+	/// <summary>
+	/// The temp purchased product id.
+	/// </summary>
+	private string tmpPid;
+
+	private SISDataSync sisDs;
+
 	void Awake()
 	{
 		if(alertControl == null)
 		{
 			Debug.LogError("Purchase Window require alert control to be assigned");
 		}
+
+		sisDs = GetComponent<SISDataSync> ();
+
+		sisDs.Evt_OnUploadDataComplete += OnUploadDataSuccess;
+		sisDs.Evt_OnUploadDataFail += OnUploadDataFail;
 	}
 
 	void OnEnable()
@@ -322,21 +335,52 @@ public class UIPurchaseControl : MonoBehaviour
 		closeButton.isEnabled = true;
 	}
 
+	void FinalizePurchase()
+	{
+
+	}
+
+	#region SISDataSync callback
+	void OnUploadDataSuccess()
+	{
+		Debug.Log("Upload client data to server");
+
+		//fire purchase event
+		if(Evt_ItemPurchased != null)
+		{
+			Evt_ItemPurchased(this, tmpPid);
+		}
+		
+		UnlockButton ();
+		
+		ClosePurchaseWindow ();
+	}
+	
+	void OnUploadDataFail()
+	{
+		alertControl.ShowAlertWindow (null, syncDataFailKey);
+
+		//fire purchase event
+		if(Evt_ItemPurchased != null)
+		{
+			Evt_ItemPurchased(this, tmpPid);
+		}
+		
+		UnlockButton ();
+		
+		ClosePurchaseWindow ();
+	}
+	#endregion SISDataSync callback
+
 	#region SIS callback
 	void OnPurchaseSucceed(string pId)
 	{
 		//increase item amount by 1
 		DBManager.IncrementPlayerData(pId, 1);
 
-		//fire purchase event
-		if(Evt_ItemPurchased != null)
-		{
-			Evt_ItemPurchased(this, pId);
-		}
-		
-		UnlockButton ();
-		
-		ClosePurchaseWindow ();
+		tmpPid = pId;
+
+		sisDs.UploadData ();
 	}
 
 	void OnPurchaseFail(string errorMsg)
