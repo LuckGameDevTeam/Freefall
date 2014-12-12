@@ -61,6 +61,7 @@ public class PreloadControl : MonoBehaviour
 		
 		if(firstTimeLaunch == 0)
 		{
+			/*
 			//give player 3 life, test
 			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(100));
 
@@ -78,6 +79,14 @@ public class PreloadControl : MonoBehaviour
 				
 				PlayerCharacter.Save(pc);
 			}
+
+			//Level 1 virtual product alreay bought
+			//We only need to unlock level 1-1
+			SubLevelData slData = SubLevelData.Load ();
+			slData.UnlockSubLevel (1, 1);
+			*/
+
+			ReInitialData();
 			
 		}
 
@@ -99,12 +108,37 @@ public class PreloadControl : MonoBehaviour
 			}
 		}
 
+	}
 
+	/// <summary>
+	/// Re-initial data.
+	/// Clean player data on device and set to default
+	/// </summary>
+	public static void  ReInitialData()
+	{
+		DBManager.ClearAll ();
 
-		//Level 1 virtual product alreay bought
-		//We only need to unlock level 1-1
+		DBManager.GetInstance ().Init ();
+
+		//give player 3 life, test
+		DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(100));
+
+		//give BellCat
+		DBManager.SetToPurchased("BellCat");
+
+		//select it if need
+		if(PlayerCharacter.Load().characterName == "")
+		{
+			
+			DBManager.SetToSelected("BellCat", true);
+			
+			PlayerCharacter pc = new PlayerCharacter();
+			pc.characterName = "BellCat";
+			
+			PlayerCharacter.Save(pc);
+		}
+
 		SubLevelData slData = SubLevelData.Load ();
 		slData.UnlockSubLevel (1, 1);
-
 	}
 }

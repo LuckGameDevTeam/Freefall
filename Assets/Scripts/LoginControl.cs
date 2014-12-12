@@ -63,6 +63,13 @@ public class LoginControl : MonoBehaviour
 
 	private SISDataSync sisDS;
 
+	private bool forcePull = false;
+
+	/// <summary>
+	/// determine player was created account.
+	/// </summary>
+	private bool isCreateNewAccount = false;
+
 	void Awake()
 	{
 		sisDS = GetComponent<SISDataSync> ();
@@ -200,8 +207,14 @@ public class LoginControl : MonoBehaviour
 
 		LockUI ();
 
+		if(isCreateNewAccount)
+		{
+			//clean device data
+			PreloadControl.ReInitialData ();
+		}
+
 		//start data sync
-		sisDS.SyncData ();
+		sisDS.SyncData (forcePull);
 	}
 
 	private void LockUI()
@@ -244,6 +257,8 @@ public class LoginControl : MonoBehaviour
 
 	void OnCreateAccountSuccess(ServerSync syncControl, string username, string password)
 	{
+		isCreateNewAccount = true;
+
 		//save account password
 		UserProfile up = UserProfile.Load ();
 
@@ -271,6 +286,16 @@ public class LoginControl : MonoBehaviour
 	{
 		//save uid
 		UserProfile up = UserProfile.Load ();
+
+		//if player use other account login we need to pull server data from that account...otherwise don't
+		if(up.userName == accountInput.value)
+		{
+			forcePull = false;
+		}
+		else
+		{
+			forcePull = true;
+		}
 
 		up.uid = uid;
 		up.userName = accountInput.value;

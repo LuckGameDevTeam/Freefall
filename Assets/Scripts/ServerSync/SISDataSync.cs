@@ -52,6 +52,11 @@ public class SISDataSync : MonoBehaviour
 	/// </summary>
 	private bool isUploadingData = false;
 
+	/// <summary>
+	/// force pulling data from server.
+	/// </summary>
+	private bool pull = false;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -129,7 +134,7 @@ public class SISDataSync : MonoBehaviour
 	/// Could either be updated from server or update to server
 	/// Call this method only once after login to server to update data.
 	/// </summary>
-	public void SyncData()
+	public void SyncData(bool forcePull = false)
 	{
 		if(isSyncingData)
 		{
@@ -137,6 +142,8 @@ public class SISDataSync : MonoBehaviour
 		}
 
 		isSyncingData = true;
+
+		pull = forcePull;
 
 		//remember last sync DateTime
 		if(!string.IsNullOrEmpty(DBManager.GetPlayerData(syncDateTimeKeyToVal)))
@@ -187,6 +194,28 @@ public class SISDataSync : MonoBehaviour
 		}
 		else//client has data which has sync before
 		{ 
+			//forec pulling data from server
+			if(pull)
+			{
+				Debug.Log("Force pulling data from server");
+
+				PlayerPrefs.SetString("data", data);
+
+				DBManager.GetInstance().Init();
+
+				//set synce time
+				DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
+
+				if(Evt_OnSyncDataComplete != null)
+				{
+					TriggerDelegateDelay(Evt_OnSyncDataComplete, 1f);
+				}
+				
+				isSyncingData = false;
+
+				return;
+			}
+
 			//get datetime for server one
 			DateTime serverSyncDateTime = Convert.ToDateTime(jsonData["Player"][syncDateTimeKeyToVal].Value);
 

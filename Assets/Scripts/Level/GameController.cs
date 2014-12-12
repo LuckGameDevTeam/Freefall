@@ -1013,6 +1013,8 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnPauseMenuExitClick(UIPauseControl control)
 	{
+		sisDs.UploadData ();
+
 		Time.timeScale = 1.0f;
 
 		GameObject.FindGameObjectWithTag (Tags.levelSelection).GetComponent<LevelSelection> ().SetMainLevelSelected(currentMainLevel);

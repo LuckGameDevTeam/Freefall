@@ -103,11 +103,6 @@ public class UIPurchaseControl : MonoBehaviour
 	/// </summary>
 	private string currentNonGoodItemId;
 
-	/// <summary>
-	/// The temp purchased product id.
-	/// </summary>
-	private string tmpPid;
-
 	private SISDataSync sisDs;
 
 	void Awake()
@@ -345,12 +340,6 @@ public class UIPurchaseControl : MonoBehaviour
 
 	void FinalizePurchase()
 	{
-		//fire purchase event
-		if(Evt_ItemPurchased != null)
-		{
-			Evt_ItemPurchased(this, tmpPid);
-		}
-		
 		UnlockButton ();
 		
 		ClosePurchaseWindow ();
@@ -378,7 +367,11 @@ public class UIPurchaseControl : MonoBehaviour
 		//increase item amount by 1
 		DBManager.IncrementPlayerData(pId, 1);
 
-		tmpPid = pId;
+		//fire purchase event
+		if(Evt_ItemPurchased != null)
+		{
+			Evt_ItemPurchased(this, pId);
+		}
 
 		sisDs.UploadData ();
 	}
