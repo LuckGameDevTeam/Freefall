@@ -1041,6 +1041,9 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnResultConfirmButtonClick(UIResultControl control)
 	{
+		//upload client data
+		sisDs.UploadData ();
+
 		control.CloseResult ();
 
 		Time.timeScale = 1.0f;
