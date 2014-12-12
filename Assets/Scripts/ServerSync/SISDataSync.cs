@@ -40,7 +40,7 @@ public class SISDataSync : MonoBehaviour
 	public OnAccountLoginFromOtherDevice Evt_OnAccountLoginFromOtherDevice;
 
 	//last sync date time
-	private string lastSyncDateTime;
+	private static string lastSyncDateTime;
 
 	/// <summary>
 	/// Is syncing data.
@@ -121,7 +121,7 @@ public class SISDataSync : MonoBehaviour
 		//remember last sync DateTime
 		lastSyncDateTime = DBManager.GetPlayerData (syncDateTimeKeyToVal).Value;
 
-		//set synce time
+		//set sync time
 		DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
 		
 		ServerSync.SharedInstance.UploadData(PlayerPrefs.GetString("data"));
@@ -184,7 +184,7 @@ public class SISDataSync : MonoBehaviour
 
 			DBManager.GetInstance().Init();
 
-			//set synce time
+			//set sync time
 			DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
 
 			if(Evt_OnSyncDataComplete != null)
@@ -194,7 +194,7 @@ public class SISDataSync : MonoBehaviour
 		}
 		else//client has data which has sync before
 		{ 
-			//forec pulling data from server
+			//force pulling data from server
 			if(pull)
 			{
 				Debug.Log("Force pulling data from server");
@@ -203,7 +203,7 @@ public class SISDataSync : MonoBehaviour
 
 				DBManager.GetInstance().Init();
 
-				//set synce time
+				//set sync time
 				DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
 
 				if(Evt_OnSyncDataComplete != null)
@@ -233,7 +233,7 @@ public class SISDataSync : MonoBehaviour
 
 				DBManager.GetInstance().Init();
 
-				//set synce time
+				//set sync time
 				DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
 
 				if(Evt_OnSyncDataComplete != null)
@@ -247,7 +247,7 @@ public class SISDataSync : MonoBehaviour
 			{
 				Debug.Log("Client win, upload client to server");
 
-				//set synce time
+				//set sync time
 				DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
 
 				//upload client data
@@ -375,6 +375,12 @@ public class SISDataSync : MonoBehaviour
 
 	void OnOtherDeviceLogin(ServerSync syncControl, int errorCode)
 	{
+		if(!string.IsNullOrEmpty(DBManager.GetPlayerData(syncDateTimeKeyToVal)))
+		{
+			//reverse sync time
+			DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(lastSyncDateTime));
+		}
+
 		isSyncingData = false;
 		isUploadingData = false;
 
