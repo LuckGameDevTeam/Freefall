@@ -128,12 +128,12 @@ public class FBController : MonoBehaviour
 	/// <summary>
 	/// The action name localized for post to wall.
 	/// </summary>
-	public string postActionNameKey = "FBAction";
+	//public string postActionNameKey = "FBAction";
 
 	/// <summary>
 	/// The action link for post to wall
 	/// </summary>
-	public string postActionLink = "http://www.google.com";
+	//public string postActionLink = "http://www.google.com";
 
 	/// <summary>
 	/// is facebook module initialized or not.
