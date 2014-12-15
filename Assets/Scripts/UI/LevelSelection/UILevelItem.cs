@@ -88,7 +88,7 @@ public class UILevelItem : MonoBehaviour
 		if(gameObject.activeInHierarchy)
 		{
 			//if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
-			if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("BuyFullGame"))
+			if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("CC_BuyFullGame"))
 			{
 				//hide locker
 				lockIndicator.SetActive(false);
@@ -132,7 +132,7 @@ public class UILevelItem : MonoBehaviour
 		
 #else
 		//if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
-		if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("BuyFullGame"))
+		if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("CC_BuyFullGame"))
 		{
 			//enter sub level selection
 			levelSelectionControl.ShowSubLevelSelection (level);
@@ -161,7 +161,7 @@ public class UILevelItem : MonoBehaviour
 	protected virtual void LevelPurchaseWindowItemPurchased(UIPurchaseControl control, string itemId)
 	{
 
-		if((itemId == levelItemId) || DBManager.isPurchased("BuyFullGame"))
+		if((itemId == levelItemId) || DBManager.isPurchased("CC_BuyFullGame"))
 		{
 			/*
 			if(level > 1)

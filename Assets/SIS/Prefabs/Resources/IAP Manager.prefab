@@ -110,7 +110,7 @@ MonoBehaviour:
   - id: 1405262948.9577788
     name: IAP
     items:
-    - id: OneCoinPack
+    - id: CC_OneCoinPack
       localId:
       - overridden: 0
         id: 
@@ -131,7 +131,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: TwoCoinPack
+    - id: CC_TwoCoinPack
       localId:
       - overridden: 0
         id: 
@@ -152,7 +152,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: ThreeCoinPack
+    - id: CC_ThreeCoinPack
       localId:
       - overridden: 0
         id: 
@@ -173,7 +173,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: CoinBox
+    - id: CC_OneCoinBox
       localId:
       - overridden: 0
         id: 
@@ -186,7 +186,7 @@ MonoBehaviour:
       fetch: 0
       type: 0
       title: Coin box
-      description: Own 60000 cat coins,51000
+      description: Own 51000 cat coins,51000
       realPrice: $4.99
       virtualPrice: []
       req:
@@ -194,7 +194,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: BuyFullGame
+    - id: CC_BuyFullGame
       localId:
       - overridden: 0
         id: 

@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: f7d246201fd894461894c9143085492c, type: 2}
   mSprites:
   - name: button_g_flash
-    x: 1220
-    y: 2485
+    x: 579
+    y: 1907
     width: 274
     height: 94
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_g_off
-    x: 1747
-    y: 2606
+    x: 579
+    y: 2002
     width: 280
     height: 100
     borderLeft: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: enl_logo
     x: 1220
-    y: 2707
+    y: 2274
     width: 768
     height: 252
     borderLeft: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_medals_01
-    x: 1650
-    y: 2963
+    x: 1858
+    y: 3770
     width: 108
     height: 108
     borderLeft: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: icon_medals_02
     x: 1858
-    y: 3988
+    y: 3879
     width: 108
     height: 108
     borderLeft: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: icon_medals_03
     x: 1858
-    y: 3879
+    y: 3988
     width: 108
     height: 108
     borderLeft: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_medals_04
-    x: 1858
-    y: 3770
+    x: 1650
+    y: 2963
     width: 108
     height: 108
     borderLeft: 0
@@ -157,6 +157,19 @@ MonoBehaviour:
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
+    paddingBottom: 0
+  - name: logo_ch
+    x: 1220
+    y: 2527
+    width: 632
+    height: 432
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 0
+    paddingTop: 1
     paddingBottom: 0
   - name: players_account_backdrop
     x: 1089
@@ -224,8 +237,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_ranking_fields
-    x: 1220
-    y: 2580
+    x: 579
+    y: 2103
     width: 526
     height: 126
     borderLeft: 0

@@ -91,7 +91,7 @@ public class AdControl : MonoBehaviour
 		return;
 #endif
 		//if(!StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
-		if(!DBManager.isPurchased("BuyFullGame"))
+		if(!DBManager.isPurchased("CC_BuyFullGame"))
 		{
 			if(adStyle == AdStyle.Banner)
 			{

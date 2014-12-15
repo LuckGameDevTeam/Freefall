@@ -6880,6 +6880,7 @@ Transform:
   m_Children:
   - {fileID: 1870146348}
   - {fileID: 551988249}
+  - {fileID: 1269571966}
   m_Father: {fileID: 660880812}
   m_RootOrder: 0
 --- !u!114 &259802032
@@ -14422,7 +14423,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551988248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -288.206451, y: -512.796875, z: 0}
+  m_LocalPosition: {x: -384, y: -512.796875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 693705788}
@@ -14874,7 +14875,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -31140,6 +31141,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollView: {fileID: 0}
   draggablePanel: {fileID: 1012203075}
+--- !u!1 &1269571965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1269571966}
+  - 114: {fileID: 1269571967}
+  m_Layer: 5
+  m_Name: Sprite(Logo)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1269571966
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269571965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 236.203125, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 259802031}
+  m_RootOrder: 2
+--- !u!114 &1269571967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269571965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 988341748}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 988341748}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 988341748}
+    relative: .5
+    absolute: 98
+  topAnchor:
+    target: {fileID: 988341748}
+    relative: 1
+    absolute: -136
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 768
+  mHeight: 278
+  mDepth: 3
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 2.76258993
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11400000, guid: 2cbe1de2adb0341c3ac82be18dd0a438, type: 2}
+  mSpriteName: logo_ch
+  mFillCenter: 1
 --- !u!1 &1271168585
 GameObject:
   m_ObjectHideFlags: 0
@@ -51425,7 +51504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2127642390
 Transform:
   m_ObjectHideFlags: 0

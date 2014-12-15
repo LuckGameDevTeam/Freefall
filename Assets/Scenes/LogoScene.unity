@@ -216,7 +216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &624379283
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +518,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &983551195
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +949,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 49391968bbdfc4a42b76d1fec9c92400, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49391968bbdfc4a42b76d1fec9c92400, type: 2}
@@ -1106,13 +1106,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 576
+  mWidth: 768
   mHeight: 252
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.28571439
+  aspectRatio: 3.0476191
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   - id: 1405262948.9577788
     name: IAP
     items:
-    - id: OneCoinPack
+    - id: CC_OneCoinPack
       localId:
       - overridden: 0
         id: 
@@ -1202,7 +1202,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: TwoCoinPack
+    - id: CC_TwoCoinPack
       localId:
       - overridden: 0
         id: 
@@ -1223,7 +1223,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: ThreeCoinPack
+    - id: CC_ThreeCoinPack
       localId:
       - overridden: 0
         id: 
@@ -1244,7 +1244,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: CoinBox
+    - id: CC_OneCoinBox
       localId:
       - overridden: 0
         id: 
@@ -1257,7 +1257,7 @@ MonoBehaviour:
       fetch: 0
       type: 0
       title: Coin box
-      description: Own 60000 cat coins,51000
+      description: Own 51000 cat coins,51000
       realPrice: $4.99
       virtualPrice: []
       req:
@@ -1265,7 +1265,7 @@ MonoBehaviour:
         target: 0
         labelText: 
       platformFoldout: 0
-    - id: BuyFullGame
+    - id: CC_BuyFullGame
       localId:
       - overridden: 0
         id: 
@@ -1612,7 +1612,7 @@ Transform:
   - {fileID: 693938037}
   - {fileID: 1156797791}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1001 &1886519731
 Prefab:
   m_ObjectHideFlags: 0
