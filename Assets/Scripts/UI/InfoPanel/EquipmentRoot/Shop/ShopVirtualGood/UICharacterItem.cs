@@ -50,6 +50,11 @@ public class UICharacterItem : UIVirtualGood
 	{
 		base.Start ();
 	}
+
+	void OnEnable()
+	{
+		ConfigurePriceLabel ();
+	}
 	
 	protected override void InitVirtualGood()
 	{
