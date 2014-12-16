@@ -57,6 +57,7 @@ public class UIRankControl : MonoBehaviour
 			fbRankControl.gameObject.SetActive(false);
 
 			//show world rank
+			worldRankControl.ShowRank();
 
 			break;
 		}

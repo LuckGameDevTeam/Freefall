@@ -6,6 +6,12 @@ using System.Text;
 
 public class ServerSync :MonoBehaviour
 {
+	public class PlayerScore
+	{
+		public string name;
+		public int score;
+	}
+
 	//server api automatically create account
 	const string addrCreateAccount = "http://ccat.eznewlife.com/user/fast_register";
 
@@ -17,6 +23,12 @@ public class ServerSync :MonoBehaviour
 
 	//server api change password
 	const string addrChangePassword = "http://ccat.eznewlife.com/user/password";
+
+	//server api upload score
+	const string addrUploadScore = "http://ccat.eznewlife.com/score";
+
+	//server api get score
+	const string addrGetScore = "http://ccat.eznewlife.com/rank";
 
 	/// <summary>
 	/// The internal error.
@@ -112,6 +124,30 @@ public class ServerSync :MonoBehaviour
 	/// </summary>
 	public OnChangePasswordFail Evt_OnChangePasswordFail;
 
+	public delegate void OnUploadScoreSuccess(ServerSync syncControl);
+	/// <summary>
+	/// Event when upload score success.
+	/// </summary>
+	public OnUploadScoreSuccess Evt_OnUploadScoreSuccess;
+
+	public delegate void OnUploadScoreFail(ServerSync syncControl, int errorCode);
+	/// <summary>
+	/// Event when upload score fail.
+	/// </summary>
+	public OnUploadScoreFail Evt_OnUploadScoreFail;
+
+	public delegate void OnGetScoreSuccess(ServerSync syncControl, PlayerScore[] scoreInfo);
+	/// <summary>
+	/// Event when get score success.
+	/// </summary>
+	public OnGetScoreSuccess Evt_OnGetScoreSuccess;
+
+	public delegate void OnGetScoreFail(ServerSync syncControl, int errorCode);
+	/// <summary>
+	/// Event when get score fail.
+	/// </summary>
+	public OnGetScoreFail Evt_OnGetScoreFail;
+
 	/// <summary>
 	/// The instance.
 	/// </summary>
@@ -182,6 +218,16 @@ public class ServerSync :MonoBehaviour
 	/// Is changing password.
 	/// </summary>
 	private bool isChangingPassword = false;
+
+	/// <summary>
+	/// Is uploading score.
+	/// </summary>
+	private bool isUploadingScore = false;
+
+	/// <summary>
+	/// Is getting score.
+	/// </summary>
+	private bool isGettingScore = false;
 
 	/// <summary>
 	/// The authrized.
@@ -935,4 +981,210 @@ public class ServerSync :MonoBehaviour
 		}
 	}
 	#endregion upload data to server
+
+	#region upload score to server
+	public void UploadScore(int score)
+	{
+		if(!IsInternetAvailable())
+		{
+			return;
+		}
+
+		if(isUploadingScore)
+		{
+			return;
+		}
+		else
+		{
+			StartCoroutine("DoUploadScore", score);
+		}
+	}
+
+	IEnumerator DoUploadScore(int score)
+	{
+		isUploadingScore = true;
+
+		WWWForm postData = new WWWForm ();
+		postData.AddField ("uid", uid);
+		postData.AddField ("device_id", SystemInfo.deviceUniqueIdentifier);
+		postData.AddField ("score", score.ToString());
+		
+		WWW wGo = new WWW (addrUploadScore, postData);
+		
+		yield return wGo;
+		
+		isUploadingScore = false;
+
+		//if there is an error while download data
+		if(!string.IsNullOrEmpty(wGo.error))
+		{
+			Debug.LogError(gameObject.name+" "+wGo.error);
+			
+			if(Evt_OnUploadScoreFail != null)
+			{
+				Evt_OnUploadDataFail(this, internalError);
+			}
+		}
+		else
+		{
+			if(string.IsNullOrEmpty(wGo.text))
+			{
+				if(Evt_OnUploadDataFail != null)
+				{
+					Evt_OnUploadDataFail(this, serverFatalError);
+				}
+			}
+			else
+			{
+				//parse json data
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
+				
+				if((data == null) || (data == ""))
+				{
+					if(Evt_OnUploadDataFail != null)
+					{
+						Evt_OnUploadDataFail(this, serverFatalError);
+					}
+				}
+				else
+				{
+					int error = int.Parse(data["error"].Value);
+					
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
+					{
+						Debug.LogError(gameObject.name+" return data has error:"+error);
+						if(Evt_OnUploadDataFail != null)
+						{
+							Evt_OnUploadDataFail(this, error);
+						}
+					}
+					else
+					{
+						if(Evt_OnUploadScoreSuccess != null)
+						{
+							Evt_OnUploadScoreSuccess(this);
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	#endregion upload score to server
+
+	#region get score
+	public void GetScore(int limit = 4)
+	{
+		if(!IsInternetAvailable())
+		{
+			return;
+		}
+
+		if(isGettingScore)
+		{
+			return;
+		}
+		else
+		{
+			StartCoroutine("DoGetScore", limit);
+		}
+	}
+
+	IEnumerator DoGetScore(int limit)
+	{
+		isGettingScore = true;
+
+		string newAddr = addrGetScore + "?limit=" + limit + "&uid="+uid+"&device_id="+SystemInfo.deviceUniqueIdentifier;;
+		
+		WWW wGo = new WWW (newAddr);
+		
+		yield return wGo;
+		
+		isGettingScore = false;
+
+		//if there is an error while download data
+		if(!string.IsNullOrEmpty(wGo.error))
+		{
+			Debug.LogError(gameObject.name+" "+wGo.error);
+			
+			if(Evt_OnGetScoreFail != null)
+			{
+				Evt_OnGetScoreFail(this, internalError);
+			}
+		}
+		else
+		{
+			if(string.IsNullOrEmpty(wGo.text))
+			{
+				if(Evt_OnGetScoreFail != null)
+				{
+					Evt_OnGetScoreFail(this, serverFatalError);
+				}
+			}
+			else
+			{
+				//parse json data
+				JSONNode data = JSON.Parse(TrimStringForData(wGo.text));
+				
+				if((data == null) || (data == ""))
+				{
+					if(Evt_OnGetScoreFail != null)
+					{
+						Evt_OnGetScoreFail(this, serverFatalError);
+					}
+				}
+				else
+				{
+					int error = int.Parse(data["error"].Value);
+					
+					if(error == 15)
+					{
+						if(Evt_OnOtherDeviceLogin != null)
+						{
+							Evt_OnOtherDeviceLogin(this, error);
+						}
+					}
+					else if(error != 0)//if data has an error
+					{
+						Debug.LogError(gameObject.name+" return data has error:"+error);
+						if(Evt_OnGetScoreFail != null)
+						{
+							Evt_OnGetScoreFail(this, error);
+						}
+					}
+					else
+					{
+						//pack information
+						JSONArray ja = data["rank"].AsArray;
+						PlayerScore[] scoreInfo = new PlayerScore[ja.Count];
+
+						for(int i=0; i<ja.Count; i++)
+						{
+							JSONNode element = ja[i];
+							PlayerScore ps = new PlayerScore();
+
+							ps.name = element["name"];
+							ps.score = element["score"].AsInt;
+
+							scoreInfo[i] = ps;
+						}
+
+						if(Evt_OnGetScoreSuccess != null)
+						{
+							Evt_OnGetScoreSuccess(this, scoreInfo);
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	#endregion get score
 }

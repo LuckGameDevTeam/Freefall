@@ -41,7 +41,7 @@ public class UIRankRow : MonoBehaviour
 
 	/// <summary>
 	/// Sets the info.
-	/// 
+	/// For FB
 	/// give null to set it as default, otherwise give data
 	/// </summary>
 	public void SetInfo(RankInfo info = null)
@@ -74,6 +74,40 @@ public class UIRankRow : MonoBehaviour
 			{
 				Debug.LogError(gameObject.name+" did not have default avatar assigned");
 			}
+		}
+	}
+
+	/// <summary>
+	/// Sets the world rank info.
+	/// If any of params is null it will not show info
+	/// </summary>
+	/// <param name="name">Name.</param>
+	/// <param name="mile">Mile.</param>
+	public void SetWorldRankInfo(string name = null, string mile = null)
+	{
+		gameObject.SetActive (true);
+
+		if(string.IsNullOrEmpty(name) || string.IsNullOrEmpty(mile))
+		{
+			playerNameLabel.text = "";
+			
+			playerMileLabel.text = "";
+		}
+		else
+		{
+			playerNameLabel.text = name;
+			
+			playerMileLabel.text = mile+"m";
+		}
+
+
+		if(defaultAvatar != null)
+		{
+			playerAvatarTexture.mainTexture = defaultAvatar;
+		}
+		else
+		{
+			Debug.LogError(gameObject.name+" did not have default avatar assigned");
 		}
 	}
 

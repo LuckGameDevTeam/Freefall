@@ -250,6 +250,8 @@ public class GameController : MonoBehaviour
 		sisDs.Evt_OnUploadDataComplete += OnUploadDataSuccess;
 		sisDs.Evt_OnUploadDataFail += OnUploadDataFail;
 		sisDs.Evt_OnAccountLoginFromOtherDevice += OnLoginOtherDevice;
+
+		ServerSync.SharedInstance.Evt_OnOtherDeviceLogin += OnLoginFromOtherDevice;
 	}
 
 	void Start()
@@ -507,12 +509,16 @@ public class GameController : MonoBehaviour
 		{
 			PostMileToFacebook(mileController.totalMileage);
 
+			ServerSync.SharedInstance.UploadScore (mileController.totalMileage);
+
 			//show result
 			hudControl.resultControl.ShowResult (success, CalculateScoreAndSave (success), mileController.totalMileage, coinCount, starCount);
 		}
 		else
 		{
 			PostMileToFacebook(mileController.totalMileage - mileController.CurrentMile);
+
+			ServerSync.SharedInstance.UploadScore (mileController.totalMileage - mileController.CurrentMile);
 
 			//show result
 			hudControl.resultControl.ShowResult (success, CalculateScoreAndSave (success),mileController.totalMileage - mileController.CurrentMile, coinCount, starCount);
@@ -781,6 +787,13 @@ public class GameController : MonoBehaviour
 		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("LoginScene");
 	}
 	#endregion SISDataSync callback
+
+	#region ServerSync callback
+	void OnLoginFromOtherDevice(ServerSync syncControl, int errorCode)
+	{
+		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("LoginScene");
+	}
+	#endregion ServerSync callback
 
 	////////////////////////////////Event////////////////////////////////
 
