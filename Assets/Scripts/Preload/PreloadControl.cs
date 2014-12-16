@@ -114,7 +114,7 @@ public class PreloadControl : MonoBehaviour
 	/// Re-initial data.
 	/// Clean player data on device and set to default
 	/// </summary>
-	public static void  ReInitialData()
+	public static void ReInitialData()
 	{
 		DBManager.ClearAll ();
 
@@ -126,17 +126,12 @@ public class PreloadControl : MonoBehaviour
 		//give BellCat
 		DBManager.SetToPurchased("BellCat");
 
-		//select it if need
-		if(PlayerCharacter.Load().characterName == "")
-		{
-			
-			DBManager.SetToSelected("BellCat", true);
-			
-			PlayerCharacter pc = new PlayerCharacter();
-			pc.characterName = "BellCat";
-			
-			PlayerCharacter.Save(pc);
-		}
+		DBManager.SetToSelected("BellCat", true);
+		
+		PlayerCharacter pc = PlayerCharacter.Load();
+		pc.characterName = "BellCat";
+		
+		PlayerCharacter.Save(pc);
 
 		SubLevelData slData = SubLevelData.Load ();
 		slData.UnlockSubLevel (1, 1);
