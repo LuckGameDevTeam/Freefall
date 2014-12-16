@@ -29814,7 +29814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualGoodName: TwoCoinPack
-  virtualGoodId: TwoCoinPack
+  virtualGoodId: CC_TwoCoinPack
   descriptionTag: TwoCoinPackDesc
   purchaseType: 1
   price: 1.99000001
@@ -31710,7 +31710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualGoodName: CoinBox
-  virtualGoodId: CoinBox
+  virtualGoodId: CC_OneCoinBox
   descriptionTag: CoinBoxDesc
   purchaseType: 1
   price: 4.98999977
@@ -35681,7 +35681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualGoodName: OneCoinPack
-  virtualGoodId: OneCoinPack
+  virtualGoodId: CC_OneCoinPack
   descriptionTag: OneCoinPackDesc
   purchaseType: 1
   price: .99000001
@@ -37576,7 +37576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualGoodName: ThreeCoinPack
-  virtualGoodId: ThreeCoinPack
+  virtualGoodId: CC_ThreeCoinPack
   descriptionTag: ThreeCoinPackDesc
   purchaseType: 1
   price: 2.99000001
