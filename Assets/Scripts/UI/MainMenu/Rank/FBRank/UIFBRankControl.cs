@@ -59,6 +59,10 @@ public class UIFBRankControl : MonoBehaviour
 			fbController.Evt_OnFacebookLoginSuccess += OnFacebookLoginSuccess;
 			fbController.Evt_OnFacebookLoginFail += OnFacebookLoginFail;
 
+			//unregister event prevent confrontation with main menu FB login
+			fbController.Evt_OnUserDataLoaded = null;
+			fbController.Evt_OnUserDataFailToLoad = null;
+
 			fbController.Login();
 		}
 

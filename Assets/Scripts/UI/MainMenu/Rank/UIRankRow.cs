@@ -24,6 +24,11 @@ public class UIRankRow : MonoBehaviour
 
 	void OnDisable()
 	{
+		if(playerRankInfo != null)
+		{
+			playerRankInfo.Evt_OnFetchPlayerAvatarSuccess -= OnImageLoaded;
+		}
+
 		playerRankInfo = null;
 	}
 
@@ -115,7 +120,11 @@ public class UIRankRow : MonoBehaviour
 	{
 		playerRankInfo.Evt_OnFetchPlayerAvatarSuccess -= OnImageLoaded;
 
-		playerAvatarTexture.mainTexture = playerAvatar;
+		if(gameObject.activeInHierarchy)
+		{
+			playerAvatarTexture.mainTexture = playerAvatar;
+		}
+
 	}
 
 }

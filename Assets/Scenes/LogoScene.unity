@@ -362,7 +362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &848392528
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +949,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 49391968bbdfc4a42b76d1fec9c92400, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49391968bbdfc4a42b76d1fec9c92400, type: 2}
@@ -1288,7 +1288,7 @@ MonoBehaviour:
       platformFoldout: 0
   currency:
   - name: Cat coins
-    amount: 20000
+    amount: 1000
   IGCs:
   - id: 1415758249.68606947
     name: Character
@@ -1612,7 +1612,7 @@ Transform:
   - {fileID: 693938037}
   - {fileID: 1156797791}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1886519731
 Prefab:
   m_ObjectHideFlags: 0

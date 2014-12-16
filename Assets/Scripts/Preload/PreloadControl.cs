@@ -61,31 +61,6 @@ public class PreloadControl : MonoBehaviour
 		
 		if(firstTimeLaunch == 0)
 		{
-			/*
-			//give player 3 life, test
-			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(100));
-
-			//give BellCat
-			DBManager.SetToPurchased("BellCat");
-
-			//select it if need
-			if(PlayerCharacter.Load().characterName == "")
-			{
-
-				DBManager.SetToSelected("BellCat", true);
-				
-				PlayerCharacter pc = new PlayerCharacter();
-				pc.characterName = "BellCat";
-				
-				PlayerCharacter.Save(pc);
-			}
-
-			//Level 1 virtual product alreay bought
-			//We only need to unlock level 1-1
-			SubLevelData slData = SubLevelData.Load ();
-			slData.UnlockSubLevel (1, 1);
-			*/
-
 			ReInitialData();
 			
 		}
@@ -95,6 +70,7 @@ public class PreloadControl : MonoBehaviour
 
 
 		//Test
+		/*
 		DBManager.SetToPurchased ("UnlockLevel2");
 		DBManager.SetToPurchased ("UnlockLevel3");
 		//unlock level all sub levels
@@ -107,6 +83,7 @@ public class PreloadControl : MonoBehaviour
 				sllData.UnlockSubLevel(j, i);
 			}
 		}
+		*/
 
 	}
 
@@ -121,7 +98,7 @@ public class PreloadControl : MonoBehaviour
 		DBManager.GetInstance ().Init ();
 
 		//give player 3 life, test
-		DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(100));
+		DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(3));
 
 		//give BellCat
 		DBManager.SetToPurchased("BellCat");
@@ -132,6 +109,14 @@ public class PreloadControl : MonoBehaviour
 		pc.characterName = "BellCat";
 		
 		PlayerCharacter.Save(pc);
+
+		//give 3 for all items
+		DBManager.IncrementPlayerData ("CatCookieBig", 3);
+		DBManager.IncrementPlayerData ("CatCrown", 3);
+		DBManager.IncrementPlayerData ("CatMagnet", 3);
+		DBManager.IncrementPlayerData ("CatShield", 3);
+		DBManager.IncrementPlayerData ("CatSword", 3);
+		DBManager.IncrementPlayerData ("CatStick", 3);
 
 		SubLevelData slData = SubLevelData.Load ();
 		slData.UnlockSubLevel (1, 1);
