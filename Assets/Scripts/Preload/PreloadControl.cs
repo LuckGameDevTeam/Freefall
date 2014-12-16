@@ -69,7 +69,7 @@ public class PreloadControl : MonoBehaviour
 		PlayerPrefs.SetInt ("TimeOfLaunch", firstTimeLaunch + 1);
 
 
-		//Test
+		//Test unlock all level
 		/*
 		DBManager.SetToPurchased ("UnlockLevel2");
 		DBManager.SetToPurchased ("UnlockLevel3");

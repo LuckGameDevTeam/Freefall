@@ -732,6 +732,9 @@ public class GameController : MonoBehaviour
 
 		//make game time scale to 1
 		Time.timeScale = 1f;
+
+		//stop music
+		GameObject.FindObjectOfType<MusicManager> ().PlayMusic ();
 	}
 
 	/// <summary>
@@ -812,6 +815,9 @@ public class GameController : MonoBehaviour
 		//local ability panel so player can not interact with
 		hudControl.abilityControl.LockAbitliyPanel ();
 
+		//stop music
+		GameObject.FindObjectOfType<MusicManager> ().StopMusic ();
+
 	}
 
 	/// <summary>
@@ -825,6 +831,9 @@ public class GameController : MonoBehaviour
 
 		//local ability panel so player can not interact with
 		hudControl.abilityControl.LockAbitliyPanel ();
+
+		//stop music
+		GameObject.FindObjectOfType<MusicManager> ().StopMusic ();
 	}
 
 	/// <summary>

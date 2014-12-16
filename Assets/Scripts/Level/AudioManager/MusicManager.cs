@@ -116,6 +116,14 @@ public class MusicManager : MonoBehaviour
 		}
 	}
 
+	public void StopMusic()
+	{
+		if(audio.isPlaying)
+		{
+			audio.Stop();
+		}
+	}
+
 	public bool Mute
 	{
 		get
