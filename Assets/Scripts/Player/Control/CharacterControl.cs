@@ -857,6 +857,8 @@ public class CharacterControl : MonoBehaviour
 			characterEffect.CreateEffects ();
 		}
 
+		//init animation
+		chaAnim.InitAnim ();
 
 		lastPosition = transform.ConvertPositionToVector2 ();
 
