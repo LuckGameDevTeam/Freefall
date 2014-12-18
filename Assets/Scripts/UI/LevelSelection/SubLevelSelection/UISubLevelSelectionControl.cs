@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// User interface sub level selection control.
@@ -75,8 +75,9 @@ public class UISubLevelSelectionControl : MonoBehaviour
 	/// </summary>
 	public void LoadGameLevel()
 	{
-		//check if player has life left
-		if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) <= 0)
+		//check if player has life left otherwise show alert window
+		//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) <= 0)
+		if(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt <= 0)
 		{
 			alertControl.ShowAlertWindow(notEnoughLifeKey, notEnoughLifeDesc);
 
@@ -87,12 +88,21 @@ public class UISubLevelSelectionControl : MonoBehaviour
 		if(selectedSubLevel != 0)
 		{
 			string levelToLoad = "Level" + currentMainLevel + "-" + selectedSubLevel;
-			Debug.Log ("Load game level: " + levelToLoad);
+			DebugEx.Debug ("Load game level: " + levelToLoad);
 
-			StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+			//take player 1 life
+			//StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt-1));
 
 #if TestMode
-			GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("TestField");
+			if(GameObject.FindObjectOfType(typeof(LevelLoadManager)))
+			{
+				(GameObject.FindObjectOfType(typeof(LevelLoadManager)) as LevelLoadManager).LoadLevel("TestField");
+			}
+			else
+			{
+				Application.LoadLevel("TestField");
+			}
 
 #else
 			//Application.LoadLevel(levelToLoad);
@@ -101,7 +111,7 @@ public class UISubLevelSelectionControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log ("Select game level");
+			DebugEx.Debug ("Select game level");
 
 			alertControl.ShowAlertWindow(selectLevelKey, selectLevelDescKey);
 		}

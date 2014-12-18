@@ -19,7 +19,7 @@ public class BonusEvent : LevelEvent
 	/// Bunch of prefab that might be spawn
 	/// Only one will be select
 	/// </summary>
-	public GameObject[] avaliablePrefabs;
+	public GameObject[] availablePrefabs;
 
 	/// <summary>
 	/// Contain spawn points in scene
@@ -102,6 +102,15 @@ public class BonusEvent : LevelEvent
 	{
 		base.TriggerEvent ();
 
+		if(totalSpawn > 1)
+		{
+			if(delay == 0)
+			{
+				DebugEx.DebugError(gameObject.name+" have total bonus spawn: "+totalSpawn+" delay: "+delay);
+				DebugEx.DebugError(gameObject.name+" it cause logical error object will overlap each other, you need to fix this problem");
+			}
+		}
+
 		totalObjectToSpawn = totalSpawn;
 	}
 
@@ -114,7 +123,7 @@ public class BonusEvent : LevelEvent
 
 	void Spawn(bool delayEnabled)
 	{
-		if ((spawnPoints.Length <= 0) || (avaliablePrefabs.Length <= 0))
+		if ((spawnPoints.Length <= 0) || (availablePrefabs.Length <= 0))
 		{
 			return;
 		}
@@ -125,13 +134,13 @@ public class BonusEvent : LevelEvent
 		
 		
 		//pick bonus to spawn
-		selectedIndex = Random.Range(0, avaliablePrefabs.Length);
-		GameObject bonusPrefab = avaliablePrefabs[selectedIndex];
+		selectedIndex = Random.Range(0, availablePrefabs.Length);
+		GameObject bonusPrefab = availablePrefabs[selectedIndex];
 
 		//prefabe is null
 		if(bonusPrefab == null)
 		{
-			Debug.LogError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
+			DebugEx.DebugError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
 			
 			return;
 		}

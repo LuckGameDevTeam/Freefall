@@ -10,8 +10,8 @@ PlayerSettings:
   targetGlesGraphics: 1
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Freefall
+  companyName: ENL
+  productName: CleverCat
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
@@ -56,6 +56,7 @@ PlayerSettings:
   visibleInBackground: 0
   macFullscreenMode: 2
   d3d9FullscreenMode: 1
+  d3d11ForceExclusiveMode: 0
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -66,7 +67,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.enl.iaptest
+  iPhoneBundleIdentifier: com.eznewlife.clevercat
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 831844cde51fc4895ba20070485d06c5
@@ -86,13 +87,16 @@ PlayerSettings:
   iPhoneSdkVersion: 988
   iPhoneTargetOSVersion: 24
   uIPrerenderedIcon: 0
-  uIRequiresPersistentWiFi: 0
+  uIRequiresPersistentWiFi: 1
   uIStatusBarHidden: 1
-  uIExitOnSuspend: 1
+  uIExitOnSuspend: 0
   uIStatusBarStyle: 0
   iPhoneSplashScreen: {fileID: 0}
   iPhoneHighResSplashScreen: {fileID: 0}
   iPhoneTallHighResSplashScreen: {fileID: 0}
+  iPhone47inSplashScreen: {fileID: 0}
+  iPhone55inPortraitSplashScreen: {fileID: 0}
+  iPhone55inLandscapeSplashScreen: {fileID: 0}
   iPadPortraitSplashScreen: {fileID: 0}
   iPadHighResPortraitSplashScreen: {fileID: 0}
   iPadLandscapeSplashScreen: {fileID: 0}
@@ -105,8 +109,24 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: 1e84761e94da24835ba37d4ea3424360, type: 3}
       m_Size: 128
+  - m_BuildTarget: iPhone
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: a3d9b46d435104e1399e5e83fcff1c6e, type: 3}
+      m_Size: 152
+    - m_Icon: {fileID: 2800000, guid: 9428118b611b140b1aacc2a761729ddf, type: 3}
+      m_Size: 144
+    - m_Icon: {fileID: 2800000, guid: 44f99f6d4a83a442e8f4b0be95202356, type: 3}
+      m_Size: 120
+    - m_Icon: {fileID: 2800000, guid: 757e9409c3fc34e0483bf13f3dfe20c4, type: 3}
+      m_Size: 114
+    - m_Icon: {fileID: 2800000, guid: 71f5f3dfec4f443dda216b159cc80ca5, type: 3}
+      m_Size: 76
+    - m_Icon: {fileID: 2800000, guid: 008e89a6e50c64c8a81fb0392606f6b9, type: 3}
+      m_Size: 72
+    - m_Icon: {fileID: 2800000, guid: e3048f116d82c40428ac3ff69c014c2d, type: 3}
+      m_Size: 57
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
@@ -151,7 +171,7 @@ PlayerSettings:
   flashStrippingLevel: 2
   spritePackerPolicy: 
   scriptingDefineSymbols:
-    4: TestMode
+    4: 
   metroPackageName: Freefall
   metroPackageLogo: 
   metroPackageLogo140: 

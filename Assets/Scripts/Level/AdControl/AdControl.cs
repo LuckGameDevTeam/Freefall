@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
-using Soomla.Store;
+using SIS;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -82,39 +82,16 @@ public class AdControl : MonoBehaviour
 	
 	}
 
-	#if UNITY_EDITOR
-	/// <summary>
-	/// Easy way to create AdController gameobject on scene
-	/// </summary>
-	[MenuItem("GameMenu/Ad/CreateAdControl")]
-	static void CreateAdControl()
-	{
 
-
-		//check if scene has already one...if so then don't create
-		if(GameObject.FindObjectOfType(typeof(AdControl)) != null)
-		{
-			Debug.LogError("You can not create another one AdController gameobject, delete current one and try again");
-
-			return;
-		}
-
-		//load prefab
-		UnityEngine.Object adControllerObject = AssetDatabase.LoadAssetAtPath ("Assets/Prefabs/AdController/AdController.prefab", typeof(GameObject));
-
-		//create prefab on scene
-		GameObject go = Instantiate (adControllerObject, Vector3.zero, Quaternion.identity) as GameObject;
-
-		//rename
-		go.name = adControllerObject.name;
-
-
-	}
-	#endif
 
 	public void CreateAd(AdStyle adStyle)
 	{
-		if(!StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+#if TestMode
+		DebugEx.DebugError("TestMode do not create ad");
+		return;
+#endif
+		//if(!StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		if(!DBManager.isPurchased("CC_BuyFullGame"))
 		{
 			if(adStyle == AdStyle.Banner)
 			{

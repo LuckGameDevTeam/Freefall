@@ -25,7 +25,7 @@ public class UIStarControl : MonoBehaviour
 
 	public void UpdateStarsWithScroe(int score)
 	{
-		Debug.Log ("update star: " + score);
+		DebugEx.Debug ("update star: " + score);
 
 		//disable all cover stars
 		for(int i=0; i<starCovers.Length; i++)

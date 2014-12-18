@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI level item.
@@ -87,14 +87,15 @@ public class UILevelItem : MonoBehaviour
 	{
 		if(gameObject.activeInHierarchy)
 		{
-			if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+			//if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+			if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("CC_BuyFullGame"))
 			{
 				//hide locker
 				lockIndicator.SetActive(false);
 				
 				//change button to confirm
-				confirmButton.GetComponentInChildren<UILocalize>().key = confirmKey;
-				confirmButton.GetComponentInChildren<UILabel>().text = Localization.Localize(confirmKey);
+				//confirmButton.GetComponentInChildren<UILocalize>().key = confirmKey;
+				confirmButton.GetComponentInChildren<UILabel>().text = Localization.Get(confirmKey);
 
 				coinMark.SetActive(false);
 			}
@@ -104,8 +105,9 @@ public class UILevelItem : MonoBehaviour
 				lockIndicator.SetActive(true);
 
 				//show unlock price
-				confirmButton.GetComponentInChildren<UILocalize>().key = unlockPrice.ToString();
-				confirmButton.GetComponentInChildren<UILabel>().text = unlockPrice.ToString();
+				//confirmButton.GetComponentInChildren<UILocalize>().key = unlockPrice.ToString();
+				//confirmButton.GetComponentInChildren<UILabel>().text = unlockPrice.ToString();
+				confirmButton.GetComponentInChildren<UILabel>().text = IAPManager.GetIAPObject(levelItemId).virtualPrice[0].amount.ToString();
 
 				coinMark.SetActive(true);
 			}
@@ -118,7 +120,19 @@ public class UILevelItem : MonoBehaviour
 	/// </summary>
 	public void OnLevelSelect()
 	{
-		if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+#if TestMode
+		if(GameObject.FindObjectOfType(typeof(LevelLoadManager)))
+		{
+			(GameObject.FindObjectOfType(typeof(LevelLoadManager)) as LevelLoadManager).LoadLevel ("TestField");
+		}
+		else
+		{
+			Application.LoadLevel("TestField");
+		}
+		
+#else
+		//if(StoreInventory.NonConsumableItemExists(levelItemId) || StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		if(DBManager.isPurchased(levelItemId) || DBManager.isPurchased("CC_BuyFullGame"))
 		{
 			//enter sub level selection
 			levelSelectionControl.ShowSubLevelSelection (level);
@@ -128,7 +142,7 @@ public class UILevelItem : MonoBehaviour
 			//buy this level
 			levelSelectionControl.purchaseControl.ShowPurchaseWindow(levelItemId, levelTitleKey, levelDescKey) ;
 		}
-
+#endif
 	}
 
 	protected virtual void LevelPurchaseWindowClose()
@@ -147,7 +161,7 @@ public class UILevelItem : MonoBehaviour
 	protected virtual void LevelPurchaseWindowItemPurchased(UIPurchaseControl control, string itemId)
 	{
 
-		if((itemId == levelItemId) || (itemId == StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))
+		if((itemId == levelItemId) || DBManager.isPurchased("CC_BuyFullGame"))
 		{
 			/*
 			if(level > 1)
@@ -175,7 +189,7 @@ public class UILevelItem : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("You can not have level less or equal then 1");
+				DebugEx.DebugError("You can not have level less or equal then 1");
 			}
 			*/
 

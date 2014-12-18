@@ -38,9 +38,9 @@ public class SFXManager : MonoBehaviour
 
 		set
 		{
-			Debug.Log("sfx save");
+			DebugEx.Debug("sfx save");
 
-			Debug.Log(UnityEngine.StackTraceUtility.ExtractStackTrace ());
+			DebugEx.Debug(UnityEngine.StackTraceUtility.ExtractStackTrace ());
 			mute = value;
 			
 			AudioSetting audioSetting = AudioSetting.Load();

@@ -73,7 +73,8 @@ public class CharacterEffect : MonoBehaviour
 		//create hit effect
 		if((damageEffectPrefab != null) && (damageEffect == null))
 		{
-			tempEffect = Instantiate(damageEffectPrefab) as GameObject;
+			//tempEffect = Instantiate(damageEffectPrefab) as GameObject;
+			tempEffect = TrashMan.spawn(damageEffectPrefab);
 			
 			tempEffect.name = damageEffectPrefab.name;
 			
@@ -89,7 +90,9 @@ public class CharacterEffect : MonoBehaviour
 		//create coin eaten effect
 		if((coinEatenEffectPrefab != null) && (coinEffect == null))
 		{
-			tempEffect = Instantiate(coinEatenEffectPrefab) as GameObject;
+			//tempEffect = Instantiate(coinEatenEffectPrefab) as GameObject;
+
+			tempEffect = TrashMan.spawn(coinEatenEffectPrefab);
 			
 			tempEffect.name = coinEatenEffectPrefab.name;
 			
@@ -103,7 +106,8 @@ public class CharacterEffect : MonoBehaviour
 		//create fish bone eaten effect
 		if((fishBoneEatenEffectPrefab != null) && (fishBoneEffect == null))
 		{
-			tempEffect = Instantiate(fishBoneEatenEffectPrefab) as GameObject;
+			//tempEffect = Instantiate(fishBoneEatenEffectPrefab) as GameObject;
+			tempEffect = TrashMan.spawn(fishBoneEatenEffectPrefab);
 			
 			tempEffect.name = fishBoneEatenEffectPrefab.name;
 			
@@ -117,7 +121,8 @@ public class CharacterEffect : MonoBehaviour
 		//create cat cookie eaten effect
 		if((catCookieEatenEffectPrefab != null) && (catCookieEffect == null))
 		{
-			tempEffect  = Instantiate(catCookieEatenEffectPrefab) as GameObject;
+			//tempEffect  = Instantiate(catCookieEatenEffectPrefab) as GameObject;
+			tempEffect = TrashMan.spawn(catCookieEatenEffectPrefab);
 
 			tempEffect.name = catCookieEatenEffectPrefab.name;
 
@@ -162,7 +167,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's damage effect was not assign");
+			DebugEx.DebugError("Character's damage effect was not assign");
 		}
 	}
 
@@ -174,7 +179,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's coin eaten effect was not assign");
+			DebugEx.DebugError("Character's coin eaten effect was not assign");
 		}
 	}
 	
@@ -186,7 +191,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's fish bone eaten effect was not assign");
+			DebugEx.DebugError("Character's fish bone eaten effect was not assign");
 		}
 	}
 
@@ -198,7 +203,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's cat cookie eaten effect was not assign");
+			DebugEx.DebugError("Character's cat cookie eaten effect was not assign");
 		}
 	}
 }

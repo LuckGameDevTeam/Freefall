@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// Store root.
@@ -26,7 +26,7 @@ public class UIStoreRoot : UIEquipmentRoot
 	/// <summary>
 	/// Reference to StoreControl
 	/// </summary>
-	StoreControl sc;
+	//StoreControl sc;
 
 	/// <summary>
 	/// The purchase control.
@@ -37,11 +37,11 @@ public class UIStoreRoot : UIEquipmentRoot
 	{
 		//test
 		//init store
-		sc = StoreControl.SharedStoreControl;
+		//sc = StoreControl.SharedStoreControl;
 
 		if(purchaseControl == null)
 		{
-			Debug.LogError("You must assign UIPurchaseControl to "+gameObject.name);
+			DebugEx.DebugError("You must assign UIPurchaseControl to "+gameObject.name);
 		}
 
 	}
@@ -68,7 +68,8 @@ public class UIStoreRoot : UIEquipmentRoot
 	public void SelectCharacter(string itemId)
 	{
 		//equip character
-		StoreInventory.EquipVirtualGood (itemId);
+		//StoreInventory.EquipVirtualGood (itemId);
+		DBManager.SetToSelected (itemId, true);
 
 		//save character name as itemid
 		PlayerCharacter pc = new PlayerCharacter ();
@@ -91,13 +92,8 @@ public class UIStoreRoot : UIEquipmentRoot
 	public void DeselectCharacter(string itemId)
 	{
 		//unequip character
-		StoreInventory.UnEquipVirtualGood (itemId);
-
-		//remove character name from save data
-		PlayerCharacter pc = new PlayerCharacter ();
-		pc.characterName = "";
-		
-		PlayerCharacter.Save (pc);
+		//StoreInventory.UnEquipVirtualGood (itemId);
+		DBManager.SetToDeselected (itemId);
 
 		if(Evt_OnCharacterDeselected != null)
 		{

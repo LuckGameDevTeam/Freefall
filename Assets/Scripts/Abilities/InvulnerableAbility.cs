@@ -32,7 +32,7 @@ public class InvulnerableAbility : Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play invulnerable clip, invulnerable clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play invulnerable clip, invulnerable clip not assigned");
 		}
 	}
 	

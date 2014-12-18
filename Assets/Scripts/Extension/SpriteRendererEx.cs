@@ -18,7 +18,7 @@ public static class SpriteRendererEx
 		
 		bool result = GeometryUtility.TestPlanesAABB (plane, renderer.bounds);
 		
-		//Debug.Log (result);
+		//DebugEx.Debug (result);
 		
 		return result;
 	}

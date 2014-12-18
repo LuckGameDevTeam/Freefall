@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Soomla.Store;
+using SIS;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 /// <summary>
 /// Game controller.
 /// 
 /// Class is used to control game
 /// </summary>
-[RequireComponent (typeof(ObjectPool))]
+//[RequireComponent (typeof(ObjectPool))]//replace by TrashMan
 public class GameController : MonoBehaviour 
 {
 	/// <summary>
@@ -20,6 +23,7 @@ public class GameController : MonoBehaviour
 
 	public string notEnoughLifeKey = "NotEnoughLife";
 	public string notEnoughLifeDesc = "NotEnoughLifeDesc";
+	public string syncDataFailKey = "SyncDataFail";
 
 	/// <summary>
 	/// The victory clip.
@@ -72,7 +76,7 @@ public class GameController : MonoBehaviour
 	/// This will be used to calculate final score
 	/// The max start count.
 	/// </summary>
-	public int maxStartCount = 100;
+	public int maxStarCount = 100;
 
 	/// <summary>
 	/// how many fish bone character eat
@@ -127,11 +131,19 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	private GameObject[] spawners;
 
+	/*
+	/// <summary>
+	/// The object pool manager.
+	/// replace by TrashMan
+	/// </summary>
+	//[System.NonSerialized]
+	//public ObjectPool objectPool;
+	*/
+
 	/// <summary>
 	/// The object pool manager.
 	/// </summary>
-	[System.NonSerialized]
-	public ObjectPool objectPool;
+	private TrashMan trashMan;
 
 	/// <summary>
 	/// Reference to UIHUDControl
@@ -143,7 +155,11 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	private SFXPlayer soundPlayer;
 
-#if UNITY_EDITOR
+	private FBController fbController;
+
+	private SISDataSync sisDs;
+
+#if TestMode
 	//for test mode only
 	public enum CharacterName
 	{
@@ -162,7 +178,7 @@ public class GameController : MonoBehaviour
 
 	void Awake()
 	{
-#if TestMode
+#if UNITY_EDITOR
 		if(!GameObject.FindObjectOfType(typeof(SFXManager)))
 		{
 			GameObject prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/AudioManager/SFXManager.prefab", typeof(GameObject)) as GameObject;
@@ -173,33 +189,36 @@ public class GameController : MonoBehaviour
 
 		if(currentMainLevel == 0)
 		{
-			Debug.LogError("You can not assigned 0 to main level in GameController");
+			DebugEx.DebugError("You can not assigned 0 to main level in GameController");
 		}
 
 		if(currentSubLevel == 0)
 		{
-			Debug.LogError("You can not assigend 0 to sub level in GameController");
+			DebugEx.DebugError("You can not assigend 0 to sub level in GameController");
 		}
 
-		if(maxStartCount == 0)
+		if(maxStarCount == 0)
 		{
-			Debug.LogError("You can not assigend 0 to max start count, at least 1");
+			DebugEx.DebugError("You can not assigend 0 to max start count, at least 1");
 		}
 
 		if((nextMainLevelToUnlock == currentMainLevel) && (nextSubLevelToUnlock == currentSubLevel))
 		{
-			Debug.LogError("next main&sub level to unlock is as same as curren main&sub level");
+			DebugEx.DebugError("next main&sub level to unlock is as same as curren main&sub level");
 		}
 
 		if(hudControl == null)
 		{
-			Debug.LogError("You did not assign UIHUDControl");
+			DebugEx.DebugError("You did not assign UIHUDControl");
 		}
 
 		//store instance
 		sharedGameController = this;
 
 		Time.timeScale = 1f;
+
+		//find FBController
+		fbController = GameObject.FindObjectOfType (typeof(FBController)) as FBController;
 
 		//find scrollable background
 		backgrounds = GameObject.FindGameObjectsWithTag (Tags.scrollingBackground);
@@ -210,8 +229,11 @@ public class GameController : MonoBehaviour
 		//find event manager
 		eventManager = GetComponent<EventManager> ();
 
-		//find object pool
-		objectPool = GetComponent<ObjectPool> ();
+		//find object pool, replace by TrashMan
+		//objectPool = GetComponent<ObjectPool> ();
+
+		//find TrashMan
+		trashMan = GetComponent<TrashMan> ();
 
 		//find all obstacle spawners
 		spawners = GameObject.FindGameObjectsWithTag (Tags.obstacleSpawner);
@@ -224,6 +246,12 @@ public class GameController : MonoBehaviour
 			soundPlayer = gameObject.AddComponent<SFXPlayer>();
 		}
 
+		sisDs = GetComponent<SISDataSync> ();
+		sisDs.Evt_OnUploadDataComplete += OnUploadDataSuccess;
+		sisDs.Evt_OnUploadDataFail += OnUploadDataFail;
+		sisDs.Evt_OnAccountLoginFromOtherDevice += OnLoginOtherDevice;
+
+		ServerSync.SharedInstance.Evt_OnOtherDeviceLogin += OnLoginFromOtherDevice;
 	}
 
 	void Start()
@@ -381,14 +409,14 @@ public class GameController : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("No character assets in Resources folder");
+				DebugEx.DebugError("No character assets in Resources folder");
 
 				return null;
 			}
 		}
 		else
 		{
-			Debug.LogError("Can not load character no character data was saved");
+			DebugEx.DebugError("Can not load character no character data was saved");
 
 			return null;
 		}
@@ -408,9 +436,9 @@ public class GameController : MonoBehaviour
 
 		SubLevelData data = SubLevelData.Load ();
 
-		if(data.UnlockSubLevel (nextMainLevelToUnlock, nextSubLevelToUnlock))
+		if(!data.UnlockSubLevel (nextMainLevelToUnlock, nextSubLevelToUnlock))
 		{
-			Debug.LogError("Error when trying to unlock Level"+ nextMainLevelToUnlock + "-" + nextSubLevelToUnlock);
+			DebugEx.DebugError("Error when trying to unlock Level"+ nextMainLevelToUnlock + "-" + nextSubLevelToUnlock);
 		}
 	}
 
@@ -428,12 +456,18 @@ public class GameController : MonoBehaviour
 
 		int score = 0;
 
+#if TestMode
+		score += 1;
+#else
+
 		//calculate socre base on player life remain... add 1 score if player life greater or equal than
 		//3
-		if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) >= 3)
+		//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) >= 3)
+		if(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt >= 3)
 		{
 			score += 1;
 		}
+#endif
 
 		float currentHealth = character.GetComponent<CharacterHealth>().GetCurrentHealth();
 		float maxHealth = character.GetComponent<CharacterHealth>().maxHealth;
@@ -447,7 +481,7 @@ public class GameController : MonoBehaviour
 
 		//calculate score base on fish bone(star count)... add 1 score if fish bone greater or equal than
 		//max star count defined by level
-		if(starCount >= maxStartCount)
+		if(starCount >= maxStarCount)
 		{
 			score += 1;
 		}
@@ -459,7 +493,7 @@ public class GameController : MonoBehaviour
 		{
 			if(!data.SaveScoreForSubLevel(currentMainLevel, currentSubLevel, score))
 			{
-				Debug.LogError("save score fail Level"+currentMainLevel+"-"+currentSubLevel);
+				DebugEx.DebugError("save score fail Level"+currentMainLevel+"-"+currentSubLevel);
 			}
 		}
 
@@ -473,11 +507,19 @@ public class GameController : MonoBehaviour
 
 		if(success)
 		{
+			PostMileToFacebook(mileController.totalMileage);
+
+			ServerSync.SharedInstance.UploadScore (mileController.totalMileage);
+
 			//show result
 			hudControl.resultControl.ShowResult (success, CalculateScoreAndSave (success), mileController.totalMileage, coinCount, starCount);
 		}
 		else
 		{
+			PostMileToFacebook(mileController.totalMileage - mileController.CurrentMile);
+
+			ServerSync.SharedInstance.UploadScore (mileController.totalMileage - mileController.CurrentMile);
+
 			//show result
 			hudControl.resultControl.ShowResult (success, CalculateScoreAndSave (success),mileController.totalMileage - mileController.CurrentMile, coinCount, starCount);
 		}
@@ -491,8 +533,8 @@ public class GameController : MonoBehaviour
 		//pause MileageController
 		mileController.isRunning = false;
 		
-		//recycle all objects
-		objectPool.RecycleAllObjects ();
+		//recycle obstacles
+		RecycleObstacles ();
 		
 		//stop all events
 		eventManager.StopAllEvents ();
@@ -500,6 +542,58 @@ public class GameController : MonoBehaviour
 		//stop input manager
 		InputManager inputMgr = character.GetComponent<InputManager> ();
 		inputMgr.inputManagerEnabled = false;
+	}
+
+	/// <summary>
+	/// Posts the mile to facebook.
+	/// </summary>
+	/// <param name="mile">Mile.</param>
+	private void PostMileToFacebook(int mile)
+	{
+#if TestMode
+		return;
+#endif
+		//submit score only if we play fb game
+		if((GameObject.FindObjectOfType(typeof(GameType)) as GameType).currentGameType == TypeOfGame.FB)
+		{
+			//submit mile only if mile is greater than previous one
+			if(fbController.GetScoreById(fbController.PlayerInfo.id) < mile)
+			{
+				DebugEx.Debug("Submit score: "+mile);
+				fbController.Evt_OnScoreSubmitted += OnScoreSubmitted;
+
+				fbController.SubmitScore (mile);
+			}
+		}
+	}
+
+	void OnScoreSubmitted(FBController controller, FacebookUserInfo userInfo, int score)
+	{
+		fbController.Evt_OnScoreSubmitted -= OnScoreSubmitted;
+
+		DebugEx.Debug("Submit score complete: "+score);
+	}
+
+	/// <summary>
+	/// Recycles obstacles.
+	/// </summary>
+	void RecycleObstacles()
+	{
+		/*
+		Obstacle[] obstacles = GameObject.FindObjectsOfType<Obstacle> ();
+
+		for(int i=0; i<obstacles.Length; i++)
+		{
+			TrashMan.despawn(obstacles[i].gameObject);
+		}
+		*/
+
+		GameObject[] objs = GameObject.FindObjectsOfType<GameObject> ();
+
+		for(int i=0; i<objs.Length; i++)
+		{
+			objs[i].SendMessage("GameRestart", SendMessageOptions.DontRequireReceiver);
+		}
 	}
 
 	////////////////////////////////Internal////////////////////////////////
@@ -605,8 +699,8 @@ public class GameController : MonoBehaviour
 		//pause MileageController
 		mileController.isRunning = false;
 
-		//recycle all objects
-		objectPool.RecycleAllObjects ();
+		//recycle all obstacles
+		RecycleObstacles ();
 
 		//stop all events
 		eventManager.StopAllEvents ();
@@ -638,6 +732,9 @@ public class GameController : MonoBehaviour
 
 		//make game time scale to 1
 		Time.timeScale = 1f;
+
+		//stop music
+		GameObject.FindObjectOfType<MusicManager> ().PlayMusic ();
 	}
 
 	/// <summary>
@@ -677,6 +774,29 @@ public class GameController : MonoBehaviour
 	}
 
 	////////////////////////////////Public Interface////////////////////////////////
+	#region SISDataSync callback
+	void OnUploadDataSuccess()
+	{
+		DebugEx.Debug("upload client data to server");
+	}
+
+	void OnUploadDataFail()
+	{
+		DebugEx.DebugError("sync data fail");
+	}
+
+	void OnLoginOtherDevice()
+	{
+		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("LoginScene");
+	}
+	#endregion SISDataSync callback
+
+	#region ServerSync callback
+	void OnLoginFromOtherDevice(ServerSync syncControl, int errorCode)
+	{
+		GameObject.FindGameObjectWithTag (Tags.levelLoadManager).GetComponent<LevelLoadManager> ().LoadLevel ("LoginScene");
+	}
+	#endregion ServerSync callback
 
 	////////////////////////////////Event////////////////////////////////
 
@@ -694,6 +814,10 @@ public class GameController : MonoBehaviour
 
 		//local ability panel so player can not interact with
 		hudControl.abilityControl.LockAbitliyPanel ();
+
+		//stop music
+		GameObject.FindObjectOfType<MusicManager> ().StopMusic ();
+
 	}
 
 	/// <summary>
@@ -707,6 +831,9 @@ public class GameController : MonoBehaviour
 
 		//local ability panel so player can not interact with
 		hudControl.abilityControl.LockAbitliyPanel ();
+
+		//stop music
+		GameObject.FindObjectOfType<MusicManager> ().StopMusic ();
 	}
 
 	/// <summary>
@@ -715,8 +842,7 @@ public class GameController : MonoBehaviour
 	/// <param name="chaControl">Cha control.</param>
 	void EventCharacterDeadFinished(CharacterControl chaControl)
 	{
-		//show result
-		ShowFinalResult (false);
+
 
 		//play fail sound
 		if(failClip != null)
@@ -737,11 +863,23 @@ public class GameController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play fail clip, fail clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play fail clip, fail clip not assigned");
 		}
 
+#if TestMode
+
+		DebugEx.DebugError("TestMode can not increase funds for player");
+#else
 		//give player coin they eat from this level
-		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
+#endif
+
+		//upload client data
+		sisDs.UploadData ();
+		
+		//show result
+		ShowFinalResult (false);
 
 		//test
 		//RestartGame ();
@@ -753,8 +891,7 @@ public class GameController : MonoBehaviour
 	/// <param name="chaControl">Cha control.</param>
 	void EventCharacterVictoryFinished(CharacterControl chaControl)
 	{
-		//show result
-		ShowFinalResult (true);
+
 
 		//play victory sound
 		if(victoryClip != null)
@@ -775,14 +912,25 @@ public class GameController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play victory clip, victory clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play victory clip, victory clip not assigned");
 		}
 
+#if TestMode
+		DebugEx.DebugError("TestMode can not increase funds for player");
+#else
 		//give player coin they eat from this level
-		StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
+#endif
 
 		//unlock next level
 		UnlockNextLevel ();
+
+		//upload client data
+		sisDs.UploadData ();
+		
+		//show result
+		ShowFinalResult (true);
 
 		//tset
 		//RestartGame ();
@@ -807,7 +955,7 @@ public class GameController : MonoBehaviour
 	/// <param name="reachedMileage">Reached mileage.</param>
 	void EventMileReached(MileageController mc, int reachedMileage)
 	{
-		//Debug.Log ("a mile reached: "+reachedMileage);
+		//DebugEx.Debug ("a mile reached: "+reachedMileage);
 
 		//tell hud a mile reach and present mile indicator
 		hudControl.mileageLineControl.PresentMileageLine (reachedMileage);
@@ -820,7 +968,7 @@ public class GameController : MonoBehaviour
 	/// <param name="goalMileage">Goal mileage.</param>
 	void EventGoalMileReached(MileageController mc, int goalMileage)
 	{
-		//Debug.Log ("goal mile reached: " + goalMileage);
+		//DebugEx.Debug ("goal mile reached: " + goalMileage);
 
 		//stop input manager
 		InputManager inputMgr = character.GetComponent<InputManager> ();
@@ -843,7 +991,7 @@ public class GameController : MonoBehaviour
 	/// <param name="currentMileage">Current mileage.</param>
 	void EventCurrentMile(MileageController mc, int currentMileage)
 	{
-		//Debug.Log ("current mile: " + currentMileage);
+		//DebugEx.Debug ("current mile: " + currentMileage);
 
 		//update hud for current mile
 		hudControl.UpdateMileageHUD (currentMileage);
@@ -856,7 +1004,8 @@ public class GameController : MonoBehaviour
 	void OnAbilityButtonPress(string itemId)
 	{
 		//get ability from pool
-		GameObject ability = objectPool.GetObjectFromPool (itemId + "Ability", Vector3.zero, Quaternion.identity);
+		//GameObject ability = objectPool.GetObjectFromPool (itemId + "Ability", Vector3.zero, Quaternion.identity);
+		GameObject ability = TrashMan.spawn (itemId + "Ability", Vector3.zero, Quaternion.identity);
 
 		//give ability to player
 		character.GetComponent<CharacterControl> ().AddAbility (ability);
@@ -886,6 +1035,8 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnPauseMenuExitClick(UIPauseControl control)
 	{
+		sisDs.UploadData ();
+
 		Time.timeScale = 1.0f;
 
 		GameObject.FindGameObjectWithTag (Tags.levelSelection).GetComponent<LevelSelection> ().SetMainLevelSelected(currentMainLevel);
@@ -912,6 +1063,9 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnResultConfirmButtonClick(UIResultControl control)
 	{
+		//upload client data
+		sisDs.UploadData ();
+
 		control.CloseResult ();
 
 		Time.timeScale = 1.0f;
@@ -931,11 +1085,16 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnResultRestartButtonClick(UIResultControl control)
 	{
-		if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) > 0)
+#if TestMode
+		RestartGame();
+#else
+		//if(StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID) > 0)
+		if(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt > 0)
 		{
 			control.CloseResult ();
-
-			StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+			
+			//StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
+			DBManager.SetPlayerData(LifeCounter.PlayerLife, new SimpleJSON.JSONData(DBManager.GetPlayerData(LifeCounter.PlayerLife).AsInt-1));
 			
 			RestartGame ();
 		}
@@ -943,6 +1102,8 @@ public class GameController : MonoBehaviour
 		{
 			hudControl.alertControl.ShowAlertWindow(notEnoughLifeKey, notEnoughLifeDesc);
 		}
+#endif
+
 
 	}
 
@@ -985,14 +1146,15 @@ public class GameController : MonoBehaviour
 					//create ability gameobject
 					//GameObject ability = Instantiate(invulnerableAbilityPrefab) as GameObject;
 					//ability.name = invulnerableAbilityPrefab.name;
-					GameObject ability = objectPool.GetObjectFromPool(invulnerableAbilityPrefab, Vector3.zero, Quaternion.identity);
+					//GameObject ability = objectPool.GetObjectFromPool(invulnerableAbilityPrefab, Vector3.zero, Quaternion.identity);
+					GameObject ability = TrashMan.spawn(invulnerableAbilityPrefab, Vector3.zero, Quaternion.identity);
 					
 					//give to player
 					character.GetComponent<CharacterControl>().AddAbility(ability);
 				}
 				else
 				{
-					Debug.Log("You did not assign Invulnerable ability prefab to GameController");
+					DebugEx.Debug("You did not assign Invulnerable ability prefab to GameController");
 				}
 
 			}
@@ -1017,4 +1179,5 @@ public class GameController : MonoBehaviour
 		}
 	}
 	////////////////////////////////Properties////////////////////////////////
+	
 }

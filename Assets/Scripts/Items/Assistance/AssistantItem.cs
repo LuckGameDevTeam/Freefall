@@ -88,12 +88,12 @@ public class AssistantItem : MonoBehaviour
 	protected virtual void Update()
 	{
 		//if this assistant item is one of child in assistant item holder...return, this is not a magnet item
-		if(transform.parent.GetComponent<AssistantItemHolder>() != null)
+		if((transform.parent != null) && (transform.parent.GetComponent<AssistantItemHolder>() != null))
 		{
 			return;
 		}
 
-		//if this item has magnet target...move to target
+		//if this item has magnet target...move to target...if no target then recycle game object
 		if(magnetTarget != null)
 		{
 			magnetCurrentSpeed += Mathf.Pow((magnetSpeed * Time.deltaTime), 2f);
@@ -109,11 +109,12 @@ public class AssistantItem : MonoBehaviour
 		}
 		else if(isMagnet)
 		{
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 		else
 		{
-			Debug.LogError("Assistant item: "+gameObject.name+" lost it's magnet target");
+			DebugEx.DebugError("Assistant item: "+gameObject.name+" lost it's magnet target");
 		}
 	}
 
@@ -131,9 +132,28 @@ public class AssistantItem : MonoBehaviour
 
 	protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
+		if(isMagnet)
+		{
+			if(magnetTarget != null)
+			{
+				TrashMan.despawn(gameObject);
+			}
+		}
+		else
+		{
+			if(Evt_BonusEaten != null)
+			{
+				Evt_BonusEaten();
+			}
+			
+			gameObject.SetActive(false);
+		}
+
+		/*
 		if((magnetTarget != null) && isMagnet && (transform.parent.GetComponent<AssistantItemHolder>() == null))
 		{
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 		else
 		{
@@ -145,7 +165,7 @@ public class AssistantItem : MonoBehaviour
 			gameObject.SetActive(false);
 
 		}
-
+		*/
 	}
 
 	/// <summary>
@@ -169,5 +189,14 @@ public class AssistantItem : MonoBehaviour
 	{
 		magnetTarget = target;
 		isMagnet = true;
+	}
+
+	public virtual void GameRestart()
+	{
+		if(isMagnet)
+		{
+			TrashMan.despawn (gameObject);
+		}
+
 	}
 }

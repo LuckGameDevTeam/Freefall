@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI virtual item.
@@ -47,7 +47,8 @@ public class UIVirtualItem : UIVirtualGood
 		base.InitVirtualGood ();
 
 		//set price label
-		priceLabel.text =  ((int)price).ToString();
+		//priceLabel.text =  ((int)price).ToString();
+		priceLabel.text = IAPManager.GetIAPObject (virtualGoodId).virtualPrice [0].amount.ToString ();
 
 		//set image
 		portrait.spriteName = portraitImageName;
@@ -59,19 +60,20 @@ public class UIVirtualItem : UIVirtualGood
 	{
 		if(gameObject.activeInHierarchy)
 		{
-			if(StoreInventory.GetItemBalance(virtualGoodId) >= maxItems)
+			//if(StoreInventory.GetItemBalance(virtualGoodId) >= maxItems)
+			if(DBManager.GetPlayerData(virtualGoodId).AsInt >= maxItems)
 			{
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(maxReachKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(maxReachKey);
 				buyButton.GetComponentInChildren<UILocalize>().key = maxReachKey;
 				
-				buyButton.GetComponent<UIImageButton>().isEnabled = false;
+				buyButton.GetComponent<UIButton>().isEnabled = false;
 			}
 			else
 			{
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(buyKey);
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
 				
-				buyButton.GetComponent<UIImageButton>().isEnabled = true;
+				buyButton.GetComponent<UIButton>().isEnabled = true;
 			}
 		}
 
@@ -82,8 +84,8 @@ public class UIVirtualItem : UIVirtualGood
 		base.StartPurchase ();
 
 		//show purchase control window
-		uiStoreRoot.purchaseControl.ShowPurchaseWindow (this);
-
+		//uiStoreRoot.purchaseControl.ShowPurchaseWindow (this);
+		uiStoreRoot.purchaseControl.ShowPurchaseWindow(virtualGoodId, virtualGoodName, descriptionTag);
 	}
 
 	protected override void PurchaseWindowItemPurchased(UIPurchaseControl control, string itemId)
@@ -94,7 +96,6 @@ public class UIVirtualItem : UIVirtualGood
 		}
 
 
-
 		base.PurchaseWindowItemPurchased (control, itemId);
 
 		//perform extra action
@@ -102,9 +103,8 @@ public class UIVirtualItem : UIVirtualGood
 			
 		ConfigureButton ();
 			
-		Debug.Log (itemId + " " + StoreInventory.GetItemBalance (itemId));
-
-
+		//DebugEx.Debug (itemId + " " + StoreInventory.GetItemBalance (itemId));
+		DebugEx.Debug (itemId + " " + DBManager.GetPlayerData(itemId).AsInt);
 	}
 
 	/// <summary>

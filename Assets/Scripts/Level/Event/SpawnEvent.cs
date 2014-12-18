@@ -137,6 +137,9 @@ public class SpawnEvent : LevelEvent
 		{
 			if(spawnPoints.Length < totalObjectToSpawn)
 			{
+				DebugEx.DebugError(gameObject.name+" have number of spawn objects: "+totalObjectToSpawn+" and have number of spawn points: "+spawnPoints.Length+" your delay was set to 0");
+				DebugEx.DebugError(gameObject.name+" it is recommended to set delay to non 0 value, but system do it for you now, your delay will be set to 1 to prevent logical error");
+
 				delay = 1f;
 			}
 		}

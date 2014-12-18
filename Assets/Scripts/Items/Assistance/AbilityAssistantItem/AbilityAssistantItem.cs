@@ -34,7 +34,8 @@ public class AbilityAssistantItem : AssistantItem
 			//ability.name = abilityPrefab.name;
 
 			//since ability is recyclable so we get it from pool
-			GameObject ability = GameController.sharedGameController.objectPool.GetObjectFromPool(abilityPrefab, Vector3.zero, Quaternion.identity);
+			//GameObject ability = GameController.sharedGameController.objectPool.GetObjectFromPool(abilityPrefab, Vector3.zero, Quaternion.identity);
+			GameObject ability = TrashMan.spawn(abilityPrefab, Vector3.zero, Quaternion.identity);
 			
 			//give to player
 			GameController.sharedGameController.character.GetComponent<CharacterControl>().AddAbility(ability);

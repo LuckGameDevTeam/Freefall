@@ -34,7 +34,7 @@ public class UIEquipableItemControl : MonoBehaviour
 
 		if(equippedControl == null)
 		{
-			Debug.LogError("Require UIEquippedItemControl to work with ");
+			DebugEx.DebugError("Require UIEquippedItemControl to work with ");
 		}
 
 		//register event for item unequip

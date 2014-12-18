@@ -40,28 +40,232 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: f7d246201fd894461894c9143085492c, type: 2}
-  sprites:
-  - name: hud_effects_flash
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 912
-      width: 1088
-      height: 1136
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 912
-      width: 1088
-      height: 1136
-    rotated: 0
-    paddingLeft: .0220588241
-    paddingRight: .0220588241
+  mSprites:
+  - name: button_g_flash
+    x: 1204
+    y: 278
+    width: 274
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  mCoordinates: 0
+  - name: button_g_off
+    x: 1160
+    y: 151
+    width: 280
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Credit
+    x: 0
+    y: 447
+    width: 578
+    height: 757
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: enl_logo
+    x: 633
+    y: 373
+    width: 768
+    height: 252
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: hud_effects_flash
+    x: 0
+    y: 2960
+    width: 1088
+    height: 1136
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 24
+    paddingRight: 24
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_medals_01
+    x: 1303
+    y: 42
+    width: 108
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_medals_02
+    x: 1194
+    y: 42
+    width: 108
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_medals_03
+    x: 1441
+    y: 169
+    width: 108
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_medals_04
+    x: 1412
+    y: 42
+    width: 108
+    height: 108
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: logo_ch
+    x: 0
+    y: 14
+    width: 632
+    height: 432
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 0
+    paddingTop: 1
+    paddingBottom: 0
+  - name: players_account_backdrop
+    x: 0
+    y: 1935
+    width: 768
+    height: 1024
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: players_account_ui_end
+    x: 0
+    y: 1205
+    width: 640
+    height: 729
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: players_account_ui_enter
+    x: 633
+    y: 24
+    width: 560
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: players_ui_profile_modify
+    x: 633
+    y: 252
+    width: 570
+    height: 120
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ui_ranking_end
+    x: 579
+    y: 626
+    width: 578
+    height: 578
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ui_ranking_fields
+    x: 633
+    y: 125
+    width: 526
+    height: 126
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: use
+    x: 1521
+    y: 68
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

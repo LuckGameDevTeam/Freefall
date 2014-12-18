@@ -18,7 +18,7 @@ public class UIInfoPanel : MonoBehaviour
 	/// <summary>
 	/// The equipment button.
 	/// </summary>
-	public UIImageButton equipmentButton;
+	public UIButton equipmentButton;
 
 	/// <summary>
 	/// The equipment control.
@@ -43,6 +43,7 @@ public class UIInfoPanel : MonoBehaviour
 
 		//Close equipment UI 
 		equipmentControl.CloseEquipment ();
+
 	}
 	
 	// Update is called once per frame

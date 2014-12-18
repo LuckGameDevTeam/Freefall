@@ -46,7 +46,7 @@ public class UIMileageLineControl : MonoBehaviour
 		tweener.enabled = false;
 
 		//reset tweener
-		tweener.Reset ();
+		tweener.ResetToBeginning ();
 
 		//set gameobject not active
 		gameObject.SetActive (false);
@@ -65,7 +65,7 @@ public class UIMileageLineControl : MonoBehaviour
 		mileageLineLabel.text = mileage.ToString ();
 
 		//reset tweener
-		tweener.Reset ();
+		tweener.ResetToBeginning ();
 
 		//play tweener
 		tweener.Play (true);

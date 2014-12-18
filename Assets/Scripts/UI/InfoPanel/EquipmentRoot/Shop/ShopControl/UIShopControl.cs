@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+
 
 public enum ShopType
 {
@@ -127,13 +127,13 @@ public class UIShopControl : MonoBehaviour
 			case ShopType.Item:
 
 			//deal with shop button
-			itemShopBtn.GetComponent<UIImageButton>().isEnabled = false;
+			itemShopBtn.GetComponent<UIButton>().isEnabled = false;
 			itemShopBtn.GetComponent<UIShopSwitchButton>().Select();
 
-			coinPacksShopBtn.GetComponent<UIImageButton>().isEnabled = true;
+			coinPacksShopBtn.GetComponent<UIButton>().isEnabled = true;
 			coinPacksShopBtn.GetComponent<UIShopSwitchButton>().Deselect();
 
-			charactersShopBtn.GetComponent<UIImageButton>().isEnabled = true;
+			charactersShopBtn.GetComponent<UIButton>().isEnabled = true;
 			charactersShopBtn.GetComponent<UIShopSwitchButton>().Deselect();
 
 			itemShop.SetActive(true);
@@ -146,13 +146,13 @@ public class UIShopControl : MonoBehaviour
 			case ShopType.CoinPacks:
 
 			//deal with shop button
-			itemShopBtn.GetComponent<UIImageButton>().isEnabled = true;
+			itemShopBtn.GetComponent<UIButton>().isEnabled = true;
 			itemShopBtn.GetComponent<UIShopSwitchButton>().Deselect();
 
-			coinPacksShopBtn.GetComponent<UIImageButton>().isEnabled = false;
+			coinPacksShopBtn.GetComponent<UIButton>().isEnabled = false;
 			coinPacksShopBtn.GetComponent<UIShopSwitchButton>().Select();
 
-			charactersShopBtn.GetComponent<UIImageButton>().isEnabled = true;
+			charactersShopBtn.GetComponent<UIButton>().isEnabled = true;
 			charactersShopBtn.GetComponent<UIShopSwitchButton>().Deselect();
 			
 			itemShop.SetActive(false);
@@ -165,13 +165,13 @@ public class UIShopControl : MonoBehaviour
 			case ShopType.Characters:
 
 			//deal with shop button
-			itemShopBtn.GetComponent<UIImageButton>().isEnabled = true;
+			itemShopBtn.GetComponent<UIButton>().isEnabled = true;
 			itemShopBtn.GetComponent<UIShopSwitchButton>().Deselect();
 
-			coinPacksShopBtn.GetComponent<UIImageButton>().isEnabled = true;
+			coinPacksShopBtn.GetComponent<UIButton>().isEnabled = true;
 			coinPacksShopBtn.GetComponent<UIShopSwitchButton>().Deselect();
 
-			charactersShopBtn.GetComponent<UIImageButton>().isEnabled = false;
+			charactersShopBtn.GetComponent<UIButton>().isEnabled = false;
 			charactersShopBtn.GetComponent<UIShopSwitchButton>().Select();
 			
 			itemShop.SetActive(false);

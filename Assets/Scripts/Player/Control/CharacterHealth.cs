@@ -99,7 +99,7 @@ public class CharacterHealth : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("Character HP is 0 can not add hp");
+			DebugEx.DebugWarning("Character HP is 0 can not add hp");
 		}
 	}
 
@@ -158,6 +158,6 @@ public class CharacterHealth : MonoBehaviour
 
 		}
 
-		Debug.Log ("Health:" + health);
+		//DebugEx.Debug ("Health:" + health);
 	}
 }

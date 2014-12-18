@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI purchase control.
@@ -14,6 +14,8 @@ public class UIPurchaseControl : MonoBehaviour
 
 	public string noFundsKey = "NotEnoughFunds";
 	public string errorKey = "BuyError";
+	public string syncDataFailKey = "SyncDataFail";
+	public string noInternetKey = "NoInternet";
 
 	public delegate void EventItemPurchaseStarted(UIPurchaseControl control, string itemId);
 	/// <summary>
@@ -70,15 +72,19 @@ public class UIPurchaseControl : MonoBehaviour
 	/// </summary>
 	public UILocalize itemDescLocalize;
 
+	public UILabel itemTitle;
+
+	public UILabel itemDesc;
+
 	/// <summary>
 	/// The buy button.
 	/// </summary>
-	public UIImageButton buyButton;
+	public UIButton buyButton;
 
 	/// <summary>
 	/// The close button.
 	/// </summary>
-	public UIImageButton closeButton;
+	public UIButton closeButton;
 
 	/// <summary>
 	/// The alert control.
@@ -97,33 +103,50 @@ public class UIPurchaseControl : MonoBehaviour
 	/// </summary>
 	private string currentNonGoodItemId;
 
+	private SISDataSync sisDs;
+
 	void Awake()
 	{
 		if(alertControl == null)
 		{
-			Debug.LogError("Purchase Window require alert control to be assigned");
+			DebugEx.DebugError("Purchase Window require alert control to be assigned");
 		}
+
+		sisDs = GetComponent<SISDataSync> ();
+
+		sisDs.Evt_OnUploadDataComplete += OnUploadDataSuccess;
+		sisDs.Evt_OnUploadDataFail += OnUploadDataFail;
+		sisDs.Evt_OnAccountLoginFromOtherDevice += OnUploadDataFail;
 	}
 
 	void OnEnable()
 	{
+		/*
 		StoreEvents.OnMarketPurchase += onMarketPurchase;
 		StoreEvents.OnItemPurchased += onItemPurchased;
 		StoreEvents.OnMarketPurchaseStarted += onMarketPurchaseStarted;
 		StoreEvents.OnItemPurchaseStarted += onItemPurchaseStarted;
 		StoreEvents.OnUnexpectedErrorInStore += onUnexpectedErrorInStore;
 		StoreEvents.OnMarketPurchaseCancelled += onMarketPurchaseCancelled;
+		*/
 
+		IAPManager.purchaseSucceededEvent += OnPurchaseSucceed;
+		IAPManager.purchaseFailedEvent += OnPurchaseFail;
 	}
 
 	void OnDisable()
 	{
+		/*
 		StoreEvents.OnMarketPurchase -= onMarketPurchase;
 		StoreEvents.OnItemPurchased -= onItemPurchased;
 		StoreEvents.OnMarketPurchaseStarted -= onMarketPurchaseStarted;
 		StoreEvents.OnItemPurchaseStarted -= onItemPurchaseStarted;
 		StoreEvents.OnUnexpectedErrorInStore -= onUnexpectedErrorInStore;
 		StoreEvents.OnMarketPurchaseCancelled -= onMarketPurchaseCancelled;
+		*/
+
+		IAPManager.purchaseSucceededEvent -= OnPurchaseSucceed;
+		IAPManager.purchaseFailedEvent -= OnPurchaseFail;
 	}
 
 	/// <summary>
@@ -138,8 +161,40 @@ public class UIPurchaseControl : MonoBehaviour
 		//title
 		itemTitleLocalize.key = good.virtualGoodName;
 
-		itemDescLocalize.key = Localization.Localize(good.descriptionTag);
+		itemDescLocalize.key = Localization.Get(good.descriptionTag);
 
+		gameObject.SetActive (true);
+	}
+
+	/// <summary>
+	/// Shows the purchase window with localized on or off.
+	/// localize true then itemTitleKey, itemDescKey is the key in localize file
+	/// localize false then you should do localization for itemTitleKey, itemDescKey
+	/// </summary>
+	/// <param name="itemId">Item identifier.</param>
+	/// <param name="itemTitleKey">Item title key.</param>
+	/// <param name="itemDescKey">Item desc key.</param>
+	public void ShowPurchaseWindow(string itemId, string itemTitleKey, string itemDescKey, bool localize = true)
+	{
+		currentNonGoodItemId = itemId;
+		currentGood = null;
+
+
+		if(localize)
+		{
+			//title
+			itemTitle.text = Localization.Get (itemTitleKey);
+			
+			itemDesc.text = Localization.Get (itemDescKey);
+		}
+		else
+		{
+			itemTitle.text= itemTitleKey;
+
+			itemDesc.text = itemDescKey;
+		}
+
+		
 		gameObject.SetActive (true);
 	}
 
@@ -149,6 +204,7 @@ public class UIPurchaseControl : MonoBehaviour
 	/// <param name="itemId">Item identifier.</param>
 	/// <param name="itemTitleKey">Item title key.</param>
 	/// <param name="itemDescKey">Item desc key.</param>
+	/*
 	public void ShowPurchaseWindow(string itemId, string itemTitleKey, string itemDescKey)
 	{
 		currentNonGoodItemId = itemId;
@@ -157,10 +213,11 @@ public class UIPurchaseControl : MonoBehaviour
 		//title
 		itemTitleLocalize.key = itemTitleKey;
 		
-		itemDescLocalize.key = Localization.Localize(itemDescKey);
+		itemDescLocalize.key = Localization.Get(itemDescKey);
 		
 		gameObject.SetActive (true);
 	}
+	*/
 
 	/// <summary>
 	/// Closes the purchase window.
@@ -181,44 +238,84 @@ public class UIPurchaseControl : MonoBehaviour
 	/// <summary>
 	/// Purchases the item.
 	/// </summary>
-	void PurchaseItem()
+	public void PurchaseItem()
 	{
+		if(Application.internetReachability == NetworkReachability.NotReachable)
+		{
+			alertControl.ShowAlertWindow(errorKey, noInternetKey);
+			return;
+		}
+
 		LockButton ();
 
 		try 
 		{
+			string pId;
+
 			if(currentGood != null)
 			{
-				StoreInventory.BuyItem (currentGood.virtualGoodId);
+				//StoreInventory.BuyItem (currentGood.virtualGoodId);
+
+				pId = currentGood.virtualGoodId;
 			}
 			else
 			{
-				StoreInventory.BuyItem (currentNonGoodItemId);
+				//StoreInventory.BuyItem (currentNonGoodItemId);
+
+				pId = currentNonGoodItemId;
 			}
 
-		}
-		catch(InsufficientFundsException e)
-		{
-			//show alert window
-			alertControl.ShowAlertWindow(null, noFundsKey);
+			//get iap object 
+			IAPObject iapObj = IAPManager.GetIAPObject(pId);
 
-			if(Evt_InsufficientFunds != null)
+			//determine which type of product and do the correspond purchase method
+			switch(iapObj.type)
 			{
-				if(currentGood != null)
-				{
-					Evt_InsufficientFunds(this, currentGood.virtualGoodId);
-				}
-				else
-				{
-					Evt_InsufficientFunds(this, currentNonGoodItemId);
-				}
+			case IAPType.consumable:
 
+#if UNITY_EDITOR
+				//Dot allow to make market purchase in editor
+				//show alert window
+				alertControl.ShowAlertWindow (null, "Can't purchase market product in editor");
+
+				UnlockButton();
+				ClosePurchaseWindow();
+
+#else
+				IAPManager.PurchaseConsumableProduct(pId);
+#endif
+				break;
+
+			case IAPType.nonConsumable:
+
+#if UNITY_EDITOR 
+				//Dot allow to make market purchase in editor
+				//show alert window
+				alertControl.ShowAlertWindow (null, "Can't purchase market product in editor");
+
+				UnlockButton();
+				ClosePurchaseWindow();
+#else
+				IAPManager.PurchaseNonconsumableProduct(pId);
+#endif
+				break;
+
+			case IAPType.consumableVirtual:
+
+				IAPManager.PurchaseConsumableVirtualProduct(pId);
+				break;
+
+			case IAPType.nonConsumableVirtual:
+
+				IAPManager.PurchaseNonconsumableVirtualProduct(pId);
+				break;
 			}
 
-			UnlockButton ();
 		}
 		catch(UnityException e)
 		{
+			UnlockButton();
+			DebugEx.DebugError("Purchase product throw an exception");
 		}
 
 	}
@@ -241,6 +338,117 @@ public class UIPurchaseControl : MonoBehaviour
 		closeButton.isEnabled = true;
 	}
 
+	void FinalizePurchase()
+	{
+		UnlockButton ();
+		
+		ClosePurchaseWindow ();
+	}
+
+	#region SISDataSync callback
+	void OnUploadDataSuccess()
+	{
+		DebugEx.Debug("Upload client data to server");
+
+		FinalizePurchase ();
+	}
+	
+	void OnUploadDataFail()
+	{
+		alertControl.ShowAlertWindow (null, syncDataFailKey);
+
+		FinalizePurchase ();
+	}
+	#endregion SISDataSync callback
+
+	#region SIS callback
+	void OnPurchaseSucceed(string pId)
+	{
+		//increase item amount by 1
+		DBManager.IncrementPlayerData(pId, 1);
+
+		//fire purchase event
+		if(Evt_ItemPurchased != null)
+		{
+			Evt_ItemPurchased(this, pId);
+		}
+
+		sisDs.UploadData ();
+	}
+
+	void OnPurchaseFail(string errorMsg)
+	{
+		DebugEx.DebugWarning ("Error in store: " + errorMsg);
+
+		UnlockButton ();
+
+		//we splite errorMsg
+		//-1 transaction cancel
+		string errorStr = errorMsg.Split ("," [0]) [1];
+
+		errorStr = errorStr.Trim(". ".ToCharArray());
+
+		DebugEx.DebugWarning ("Error in store: " + errorStr);
+
+		if(errorStr != "Transaction cancelled")
+		{
+
+			if(errorStr == "Insufficient funds")
+			{
+				//show alert window
+				alertControl.ShowAlertWindow (null, noFundsKey);
+				
+				if(currentGood != null)
+				{
+					Evt_InsufficientFunds(this, currentGood.virtualGoodId);
+				}
+				else
+				{
+					Evt_InsufficientFunds(this, currentNonGoodItemId);
+				}
+			}
+			else
+			{
+				//show alert window
+				alertControl.ShowAlertWindow (null, errorKey);
+				
+				if(Evt_ErrorOccur != null)
+				{
+					if(currentGood != null)
+					{
+						Evt_ErrorOccur(this, currentGood.virtualGoodId, errorMsg);
+					}
+					else
+					{
+						Evt_ErrorOccur(this, currentNonGoodItemId, errorMsg);
+					}
+				}
+			}
+
+		}
+		else
+		{
+			if(Evt_ItemPurchaseCancelled != null)
+			{
+				if(currentGood != null)
+				{
+					Evt_ErrorOccur(this, currentGood.virtualGoodId, errorMsg);
+				}
+				else
+				{
+					Evt_ErrorOccur(this, currentNonGoodItemId, errorMsg);
+				}
+			}
+
+		}
+
+
+
+	}
+	#endregion SIS callback
+
+	#region Soomla callback
+	/*
 	/// <summary>
 	/// Handles a market purchase event.
 	/// </summary>
@@ -311,7 +519,7 @@ public class UIPurchaseControl : MonoBehaviour
 	/// <param name="message">Error message.</param>
 	public void onUnexpectedErrorInStore(string errorMessage) 
 	{
-		Debug.LogWarning ("Error in store: " + errorMessage);
+		DebugEx.DebugWarning ("Error in store: " + errorMessage);
 
 		//show alert window
 		alertControl.ShowAlertWindow (null, errorKey);
@@ -333,4 +541,6 @@ public class UIPurchaseControl : MonoBehaviour
 
 
 	}
+	*/
+	#endregion Soomla callback
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI equipable item.
@@ -33,6 +33,7 @@ public class UIEquipableItem : MonoBehaviour
 
 	/// <summary>
 	/// The item price.
+	/// No longer use in new IAP system
 	/// </summary>
 	public int itemPrice = 0;
 
@@ -81,12 +82,12 @@ public class UIEquipableItem : MonoBehaviour
 		equipRoot.purchaseControl.Evt_ItemPurchased += OnItemPurchased;
 
 		//register event for item balance change
-		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
 	void OnDisable()
 	{
-		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
 	}
 
 	// Use this for initialization
@@ -114,13 +115,14 @@ public class UIEquipableItem : MonoBehaviour
 		if(gameObject.activeInHierarchy)
 		{
 			//get item balance
-			int itemBalance = StoreInventory.GetItemBalance (equipableItemId);
+			//int itemBalance = StoreInventory.GetItemBalance (equipableItemId);
+			int itemBalance = DBManager.GetPlayerData(equipableItemId).AsInt;
 
 			//item balance > 0
 			if(itemBalance > 0)
 			{
 				//chnage price label to purchased
-				priceLabel.text = Localization.Localize(purchasedKey);
+				priceLabel.text = Localization.Get(purchasedKey);
 
 				//don't show coin mark
 				CoinMark.SetActive(false);
@@ -132,37 +134,47 @@ public class UIEquipableItem : MonoBehaviour
 				if(equipControl.IsItemEquiped(equipableItemId))
 				{
 					//set buy button fucntion name to none
-					buyButton.GetComponent<UIButtonMessage>().functionName = "";
+					//NGUI 2.7
+					//buyButton.GetComponent<UIButtonMessage>().functionName = "";
+
+					//NGUI 3.x.x
+					EventDelegate.Remove(buyButton.GetComponent<UIButton>().onClick, EquipItem);
+					EventDelegate.Remove(buyButton.GetComponent<UIButton>().onClick, Purchase);
 
 					//change buy button localized key
 					buyButton.GetComponentInChildren<UILocalize>().key = itemEquippedKey;
 
 					//change buy button label
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquippedKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(itemEquippedKey);
 
 					//set buy button to not enable 
-					buyButton.GetComponent<UIImageButton>().isEnabled = false;
+					buyButton.GetComponent<UIButton>().isEnabled = false;
 				}
 				else
 				{
 					//set buy button function name to EquipItem
-					buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+					//NGUI 2.7
+					//buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+
+					//NGUI 3.x.x
+					EventDelegate.Set(buyButton.GetComponent<UIButton>().onClick, EquipItem);
 
 					//change buy button localized key
 					buyButton.GetComponentInChildren<UILocalize>().key = itemEquipableKey;
 
 					//change buy button label
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquipableKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(itemEquipableKey);
 
 					//set buy button to enable
-					buyButton.GetComponent<UIImageButton>().isEnabled = true;
+					buyButton.GetComponent<UIButton>().isEnabled = true;
 				}
 				
 			}
 			else//item balance <= 0
 			{
 				//set price label to item price
-				priceLabel.text = itemPrice.ToString();
+				//priceLabel.text = itemPrice.ToString();
+				priceLabel.text = IAPManager.GetIAPObject(equipableItemId).virtualPrice[0].amount.ToString();
 
 				//set coin mark active
 				CoinMark.SetActive(true);
@@ -171,16 +183,20 @@ public class UIEquipableItem : MonoBehaviour
 				quantityLabel.text = itemBalance.ToString();
 
 				//set buy button function name to Purchase
-				buyButton.GetComponent<UIButtonMessage>().functionName = "Purchase";
+				//NGUI 2.7
+				//buyButton.GetComponent<UIButtonMessage>().functionName = "Purchase";
+
+				//NGUI 3.x.x
+				EventDelegate.Set(buyButton.GetComponent<UIButton>().onClick, Purchase);
 
 				//change buy button localize key
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
 
 				//change buy button label
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(buyKey);
 
 				//set buy button to enable
-				buyButton.GetComponent<UIImageButton>().isEnabled = true;
+				buyButton.GetComponent<UIButton>().isEnabled = true;
 			}
 		}
 	}
@@ -203,7 +219,8 @@ public class UIEquipableItem : MonoBehaviour
 	public virtual void Purchase()
 	{
 		//check if this item's balance if it is 0
-		if(StoreInventory.GetItemBalance(equipableItemId) == 0)
+		//if(StoreInventory.GetItemBalance(equipableItemId) == 0)
+		if(DBManager.GetPlayerData(equipableItemId).AsInt == 0)
 		{
 			//show purchase window
 			equipRoot.purchaseControl.ShowPurchaseWindow(equipableItemId, equipableItemNameKey, equipableItemDescKey);
@@ -224,16 +241,20 @@ public class UIEquipableItem : MonoBehaviour
 		if(gameObject.activeInHierarchy)
 		{
 			//change buy button function name to EquipItem
-			buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+			//NGUI 2.7
+			//buyButton.GetComponent<UIButtonMessage>().functionName = "EquipItem";
+
+			//NGUI 3.x.x
+			EventDelegate.Set(buyButton.GetComponent<UIButton>().onClick, EquipItem);
 
 			//change buy button localize key
 			buyButton.GetComponentInChildren<UILocalize>().key = itemEquipableKey;
 
 			//change buy button label
-			buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(itemEquipableKey);
+			buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(itemEquipableKey);
 
 			//change buy button to enable
-			buyButton.GetComponent<UIImageButton>().isEnabled = true;
+			buyButton.GetComponent<UIButton>().isEnabled = true;
 		}
 
 	}
@@ -254,6 +275,7 @@ public class UIEquipableItem : MonoBehaviour
 
 	}
 
+	/*
 	/// <summary>
 	/// Handle the item balance change event.
 	/// </summary>
@@ -268,5 +290,5 @@ public class UIEquipableItem : MonoBehaviour
 			quantityLabel.text = balance.ToString();
 		}
 	}
-
+	*/
 }

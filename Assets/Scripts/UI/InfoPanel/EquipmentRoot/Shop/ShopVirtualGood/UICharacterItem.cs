@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI character item.
@@ -50,6 +50,11 @@ public class UICharacterItem : UIVirtualGood
 	{
 		base.Start ();
 	}
+
+	void OnEnable()
+	{
+		ConfigurePriceLabel ();
+	}
 	
 	protected override void InitVirtualGood()
 	{
@@ -62,7 +67,8 @@ public class UICharacterItem : UIVirtualGood
 		portrait.spriteName = portraitImageName;
 
 		//check if character is equipped
-		if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+		//if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+		if(DBManager.GetAllSelected().ContainsKey(virtualGoodId))
 		{
 			//turn on protrait border
 			protraitBorder.alpha = 1f;
@@ -82,11 +88,13 @@ public class UICharacterItem : UIVirtualGood
 	{
 		base.StartPurchase ();
 
+		//if character not purchased
 		//if(!StoreInventory.NonConsumableItemExists(virtualGoodId))
-		if(StoreInventory.GetItemBalance(virtualGoodId) <= 0)
+		//if(StoreInventory.GetItemBalance(virtualGoodId) <= 0)
+		if(!DBManager.isPurchased(virtualGoodId))
 		{
 			//show purchase control window
-			uiStoreRoot.purchaseControl.ShowPurchaseWindow (this);
+			uiStoreRoot.purchaseControl.ShowPurchaseWindow (virtualGoodId, virtualGoodName, descriptionTag);
 		}
 
 		
@@ -113,39 +121,59 @@ public class UICharacterItem : UIVirtualGood
 		if(gameObject.activeInHierarchy)
 		{
 			//if character has been bought
-			if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			//if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			if(DBManager.isPurchased(virtualGoodId))
 			{
+
+				if(DBManager.GetAllSelected().Count <= 0)
+				{
+					DebugEx.DebugError(gameObject.name+" No character was selected");
+					return;
+				}
 				
 				//if character is selected
-				if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+				//if(StoreInventory.IsVirtualGoodEquipped(virtualGoodId))
+				if((DBManager.GetAllSelected().ContainsKey(IAPManager.GetIAPObjectGroupName(virtualGoodId))) && 
+				   (DBManager.GetAllSelected()[IAPManager.GetIAPObjectGroupName(virtualGoodId)].Contains(virtualGoodId)))
 				{
 					//disable button
-					buyButton.GetComponent<UIImageButton>().isEnabled = false;
+					buyButton.GetComponent<UIButton>().isEnabled = false;
 					
 					//change button function name to non
-					UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
-					btnMsg.functionName = "";
+					//NGUI 2.7
+					//UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
+					//btnMsg.functionName = "";
+
+					//NGUI 3.x.x
+					UIButton btn = buyButton.GetComponent<UIButton>();
+					EventDelegate.Remove(btn.onClick, Select);
+					EventDelegate.Remove(btn.onClick, StartPurchase);
 					
 					//change localize key to selected
 					buyButton.GetComponentInChildren<UILocalize>().key = selectedKey;
 					
 					//change label to selected
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(selectedKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(selectedKey);
 				}
 				else
 				{
 					//enable button
-					buyButton.GetComponent<UIImageButton>().isEnabled = true;
+					buyButton.GetComponent<UIButton>().isEnabled = true;
 					
 					//change button function name to Select
-					UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
-					btnMsg.functionName = "Select";
+					//NGUI 2.7
+					//UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
+					//btnMsg.functionName = "Select";
+
+					//NGUI 3.x.x
+					UIButton btn = buyButton.GetComponent<UIButton>();
+					EventDelegate.Set(btn.onClick, Select);
 					
 					//change localize key to select
 					buyButton.GetComponentInChildren<UILocalize>().key = selectKey;
 					
 					//change label to select
-					buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(selectKey);
+					buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(selectKey);
 				}
 				
 				
@@ -153,14 +181,19 @@ public class UICharacterItem : UIVirtualGood
 			else
 			{
 				//change button function name to StartPurchase
-				UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
-				btnMsg.functionName = "StartPurchase";
+				//NGUI 2.7
+				//UIButtonMessage btnMsg = buyButton.GetComponent<UIButtonMessage>();
+				//btnMsg.functionName = "StartPurchase";
+
+				//NGUI 3.x.x
+				UIButton btn = buyButton.GetComponent<UIButton>();
+				EventDelegate.Set (btn.onClick, StartPurchase);
 				
 				//change localize key to select
 				buyButton.GetComponentInChildren<UILocalize>().key = buyKey;
 				
 				//change label to select
-				buyButton.GetComponentInChildren<UILabel>().text = Localization.Localize(buyKey);
+				buyButton.GetComponentInChildren<UILabel>().text = Localization.Get(buyKey);
 			}
 		}
 
@@ -171,9 +204,10 @@ public class UICharacterItem : UIVirtualGood
 		if(gameObject.activeInHierarchy)
 		{
 			//if character has been bought...change price label to purchased
-			if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			//if(StoreInventory.GetItemBalance(virtualGoodId) > 0)
+			if(DBManager.isPurchased(virtualGoodId))
 			{
-				priceLabel.text = Localization.Localize(purchasedKey);
+				priceLabel.text = Localization.Get(purchasedKey);
 			}
 			else
 			{
@@ -191,16 +225,6 @@ public class UICharacterItem : UIVirtualGood
 	{
 		List<UICharacterItem> items = GetItems<UICharacterItem> ();
 
-		//Deselect all characters
-		for(int i=0; i<items.Count; i++)
-		{
-			if(items[i].virtualGoodId != virtualGoodId)
-			{
-				items[i].Deselect();
-			}
-
-		}
-
 		//select character
 		uiStoreRoot.SelectCharacter (virtualGoodId);
 
@@ -209,6 +233,16 @@ public class UICharacterItem : UIVirtualGood
 		protraitBorder.alpha = 1f;
 
 		ConfigureButton ();
+
+		//Deselect all characters
+		for(int i=0; i<items.Count; i++)
+		{
+			if(items[i].virtualGoodId != virtualGoodId)
+			{
+				items[i].Deselect();
+			}
+			
+		}
 	}
 
 	/// <summary>

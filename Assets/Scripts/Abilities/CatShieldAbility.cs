@@ -108,7 +108,7 @@ public class CatShieldAbility :  Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" can not find character's renderer");
+			DebugEx.DebugError(gameObject.name+" can not find character's renderer");
 		}
 
 		//play cat shield clip
@@ -123,7 +123,7 @@ public class CatShieldAbility :  Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play cat shield clip, cat shield clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play cat shield clip, cat shield clip not assigned");
 		}
 	}
 	

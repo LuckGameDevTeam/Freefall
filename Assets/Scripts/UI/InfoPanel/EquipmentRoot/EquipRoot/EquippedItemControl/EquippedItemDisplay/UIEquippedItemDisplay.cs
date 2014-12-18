@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI equipped item display.
@@ -29,12 +29,12 @@ public class UIEquippedItemDisplay : MonoBehaviour
 	void Awake()
 	{
 		//register event for item balance changed
-		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
 	void OnDisable()
 	{
-		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
 	}
 
 	// Use this for initialization
@@ -61,6 +61,7 @@ public class UIEquippedItemDisplay : MonoBehaviour
 		control.UnequipItem (itemId, gameObject);
 	}
 
+	/*
 	/// <summary>
 	/// Handle the item balance change event.
 	/// </summary>
@@ -75,6 +76,7 @@ public class UIEquippedItemDisplay : MonoBehaviour
 			quantityLabel.text = balance.ToString();
 		}
 	}
+	*/
 
 	public string ItemId
 	{
@@ -87,11 +89,11 @@ public class UIEquippedItemDisplay : MonoBehaviour
 		{
 			itemId = value;
 
-			Debug.Log ("itemId assigned");
+			DebugEx.Debug ("itemId assigned");
 
 			if(gameObject.activeInHierarchy)
 			{
-				Debug.Log("Configure button");
+				DebugEx.Debug("Configure button");
 
 				string iconName = itemId+"_Icon";
 
@@ -99,7 +101,7 @@ public class UIEquippedItemDisplay : MonoBehaviour
 				button.GetComponentInChildren<UISprite>().spriteName = iconName;
 
 				//change image of button for each state
-				UIImageButton btn = button.GetComponent<UIImageButton>();
+				UIButton btn = button.GetComponent<UIButton>();
 				btn.normalSprite = iconName;
 				btn.hoverSprite = iconName;
 				btn.pressedSprite = iconName;
@@ -109,7 +111,8 @@ public class UIEquippedItemDisplay : MonoBehaviour
 				btn.isEnabled = true;
 
 				//set quantity label to item balance
-				quantityLabel.text = StoreInventory.GetItemBalance(itemId).ToString();
+				//quantityLabel.text = StoreInventory.GetItemBalance(itemId).ToString();
+				quantityLabel.text = DBManager.GetPlayerData(itemId).AsInt.ToString();
 			}
 
 		}

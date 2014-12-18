@@ -32,7 +32,7 @@ GADUTypeBannerRef GADUCreateBannerView(GADUTypeBannerClientRef *bannerClient, co
   return banner;
 }
 
-/// Creates a full-width GADBannerView in the current orientation. Returns a reference to the
+/// Creates a full-width GADBannerView in the current orientation and returns a reference to the
 /// GADUBannerView.
 GADUTypeBannerRef GADUCreateSmartBannerView(GADUTypeBannerClientRef *bannerClient,
                                             const char *adUnitID, GADAdPosition adPosition) {

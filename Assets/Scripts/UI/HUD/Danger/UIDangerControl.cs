@@ -42,6 +42,11 @@ public class UIDangerControl : MonoBehaviour
 
 		//find sound player
 		soundPlayer = GetComponent<SFXPlayer> ();
+
+		if(soundPlayer == null)
+		{
+			soundPlayer = gameObject.AddComponent<SFXPlayer>();
+		}
 	}
 
 	// Use this for initialization
@@ -66,7 +71,7 @@ public class UIDangerControl : MonoBehaviour
 		tweener.enabled = false;
 
 		//reset tweener
-		tweener.Reset ();
+		tweener.ResetToBeginning ();
 
 		//set gameobject not active
 		gameObject.SetActive (false);
@@ -95,7 +100,7 @@ public class UIDangerControl : MonoBehaviour
 		tweenPos.to = animEndPosition;
 
 		//reset tweener
-		tweener.Reset ();
+		tweener.ResetToBeginning ();
 
 		//play tweener
 		tweener.Play (true);

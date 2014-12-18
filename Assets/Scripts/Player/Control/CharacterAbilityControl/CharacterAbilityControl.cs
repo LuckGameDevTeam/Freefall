@@ -59,7 +59,8 @@ public abstract class CharacterAbilityControl : MonoBehaviour
 		if(abilityPrefab != null)
 		{
 			//retrieve ability from object pool
-			GameObject abilityObject = GameController.sharedGameController.objectPool.GetObjectFromPool(abilityPrefab, transform.position, Quaternion.identity);
+			//GameObject abilityObject = GameController.sharedGameController.objectPool.GetObjectFromPool(abilityPrefab, transform.position, Quaternion.identity);
+			GameObject abilityObject = TrashMan.spawn(abilityPrefab, transform.position, Quaternion.identity);
 
 			Ability ability = abilityObject.GetComponent<Ability>();
 
@@ -72,7 +73,7 @@ public abstract class CharacterAbilityControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("No ability prefab was assigned, character won't have ability");
+			DebugEx.DebugWarning("No ability prefab was assigned, character won't have ability");
 		}
 	}
 

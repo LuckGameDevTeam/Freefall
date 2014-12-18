@@ -55,7 +55,7 @@ public class UIEquippedItemControl : MonoBehaviour
 		equippedItemIds.Clear ();
 
 		//remove from display
-		RemoveAllEquippedItemDisplay ();
+		//RemoveAllEquippedItemDisplay ();
 	}
 
 	void Awake()
@@ -79,14 +79,29 @@ public class UIEquippedItemControl : MonoBehaviour
 	/// </summary>
 	void RemoveAllEquippedItemDisplay()
 	{
+		GameObject[] childs = new GameObject[grid.transform.childCount];
+
+		for(int j=0; j<grid.transform.childCount; j++)
+		{
+			childs[j] = grid.transform.GetChild(j).gameObject;
+		}
+
+		for(int i=0; i<childs.Length; i++)
+		{
+			childs[i].transform.parent = null;
+			NGUITools.Destroy(childs[i]);
+		}
+
+		/*
 		for(int i=0; i<grid.transform.childCount; i++)
 		{
 			GameObject child = grid.transform.GetChild(i).gameObject;
 
 			child.transform.parent = null;
 
-			NGUITools.DestroyImmediate(child);
+			NGUITools.Destroy(child);
 		}
+		*/
 
 		grid.Reposition ();
 	}
@@ -129,9 +144,11 @@ public class UIEquippedItemControl : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("Can not load item because prefab assigned can not create equipped item display");
+				DebugEx.DebugError("Can not load item because prefab assigned can not create equipped item display");
 			}
 		}
+
+
 	}
 
 	/// <summary>
@@ -167,12 +184,12 @@ public class UIEquippedItemControl : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("Can't destroy item display it was not in the set: "+itemId);
+				DebugEx.DebugError("Can't destroy item display it was not in the set: "+itemId);
 			}
 		}
 		else
 		{
-			Debug.LogError("There is an error while unequip an item: "+itemId);
+			DebugEx.DebugError("There is an error while unequip an item: "+itemId);
 		}
 	}
 
@@ -215,23 +232,23 @@ public class UIEquippedItemControl : MonoBehaviour
 						Evt_OnItemEquipped(itemId);
 					}
 
-					Debug.Log("Equipped item: "+itemId);
+					DebugEx.Debug("Equipped item: "+itemId);
 
 					return true;
 				}
 				else
 				{
-					Debug.LogError("No prefab assigned can not create equipped item display");
+					DebugEx.DebugError("No prefab assigned can not create equipped item display");
 				}
 			}
 			else
 			{
-				Debug.LogError("Item display is already in the set: "+itemId);
+				DebugEx.DebugError("Item display is already in the set: "+itemId);
 			}
 		}
 		else
 		{
-			Debug.LogError("There is an error while equip an item: "+itemId);
+			DebugEx.DebugError("There is an error while equip an item: "+itemId);
 		}
 
 		return false;

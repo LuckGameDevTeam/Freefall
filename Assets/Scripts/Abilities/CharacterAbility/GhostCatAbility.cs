@@ -236,7 +236,8 @@ public class GhostCatAbility : Ability
 		}
 		
 		//GameObject.Destroy (gameObject);
-		GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		//GameController.sharedGameController.objectPool.RecycleObject (gameObject);
+		TrashMan.despawn (gameObject);
 		//////////copy from parent//////////////
 
 

@@ -38,7 +38,26 @@ public class CandyCatAbility : Ability
 					Vector3 oPos = obstacles[i].transform.position;
 
 					//get CatCookieMovable gameobject
-					GameObject cookie = GameController.sharedGameController.objectPool.GetObjectFromPool(cookiePrefab, oPos, Quaternion.identity);
+					//GameObject cookie = GameController.sharedGameController.objectPool.GetObjectFromPool(cookiePrefab, oPos, Quaternion.identity);
+					//GameObject cookie = TrashMan.spawn(cookiePrefab, oPos, Quaternion.identity);
+
+					//check if prefab is in the TrashMan's bin
+					GameObject cookie = TrashMan.spawn(cookiePrefab.name, oPos, Quaternion.identity);
+
+					//add bin to TrashMan and spawn object
+					if(cookie == null)
+					{
+						TrashManRecycleBin newBin = new TrashManRecycleBin();
+						newBin.prefab = cookiePrefab;
+						newBin.instancesToAllocateIfEmpty = 2;
+						newBin.instancesToPreallocate = 2;
+						newBin.cullExcessPrefabs = false;
+						newBin.imposeHardLimit = false;
+
+						TrashMan.manageRecycleBin(newBin);
+
+						cookie = TrashMan.spawn(cookiePrefab, oPos, Quaternion.identity);
+					}
 
 					CatCookieMovable cc = cookie.GetComponent<CatCookieMovable>();
 
@@ -49,7 +68,8 @@ public class CandyCatAbility : Ability
 					cc.moveSpeed = o.speed;
 
 					//recycle obstacle
-					GameController.sharedGameController.objectPool.RecycleObject(obstacles[i]);
+					//GameController.sharedGameController.objectPool.RecycleObject(obstacles[i]);
+					TrashMan.despawn(obstacles[i]);
 				}
 			}
 			

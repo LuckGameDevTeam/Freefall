@@ -16,11 +16,20 @@ public class UIPopupListTextScale : MonoBehaviour
 		//find UIPopupList
 		UIPopupList pop = GetComponent<UIPopupList> ();
 
+
 		//calcualte text scale
-		float textScale = ((float)Screen.height * pop.textScale) / (float)designHeight;
+		//NGUI 2.7
+		//float textScale = ((float)Screen.height * pop.textScale) / (float)designHeight;
+
+		//NGUI 3.x.x
+		float textScale = ((float)Screen.height * pop.fontSize) / (float)designHeight;
 
 		//set text scale
-		pop.textScale = textScale;
+		//NGUI 2.7
+		//pop.textScale = textScale;
+
+		//NGUI 3.x.x
+		pop.fontSize = (int)textScale;
 	}
 
 	// Use this for initialization

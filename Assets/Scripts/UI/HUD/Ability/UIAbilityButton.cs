@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soomla.Store;
+using SIS;
 
 /// <summary>
 /// UI ability button.
@@ -25,23 +25,25 @@ public class UIAbilityButton : MonoBehaviour
 	/// <summary>
 	/// The button.
 	/// </summary>
-	public UIImageButton button;
+	public UIButton button;
 
 	/// <summary>
 	/// The quantity label.
 	/// </summary>
 	public UILabel quantityLabel;
 
+	private int amount = 0;
+
 	void Awake()
 	{
 		gameObject.SetActive (false);
 
-		StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged += OnItemBalanceChange;
 	}
 
 	void OnDisable()
 	{
-		StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
+		//StoreEvents.OnGoodBalanceChanged -= OnItemBalanceChange;
 	}
 
 	// Use this for initialization
@@ -61,10 +63,21 @@ public class UIAbilityButton : MonoBehaviour
 	/// </summary>
 	public void OnButtonPress()
 	{
+		if(amount == 0)
+		{
+			return;
+		}
+
+		amount -= 1;
+
+		ConfigureButton (amount);
+
 		if(Evt_OnButtonPress != null)
 		{
 			Evt_OnButtonPress(this, itemId);
 		}
+
+
 	}
 
 	/// <summary>
@@ -89,6 +102,7 @@ public class UIAbilityButton : MonoBehaviour
 	/// <param name="good">Good.</param>
 	/// <param name="balance">Balance.</param>
 	/// <param name="amountAdded">Amount added.</param>
+	/*
 	void OnItemBalanceChange(VirtualGood good, int balance, int amountAdded)
 	{
 		if(good.ItemId != itemId)
@@ -98,6 +112,7 @@ public class UIAbilityButton : MonoBehaviour
 
 		ConfigureButton (balance);
 	}
+	*/
 
 	/// <summary>
 	/// Configures the button.
@@ -167,7 +182,10 @@ public class UIAbilityButton : MonoBehaviour
 				itemId = value;
 
 				//get item balance
-				int balance = StoreInventory.GetItemBalance(itemId);
+				//int balance = StoreInventory.GetItemBalance(itemId);
+				int balance = DBManager.GetPlayerData(itemId).AsInt;
+
+				amount = balance;
 
 				//set button active
 				gameObject.SetActive(true);

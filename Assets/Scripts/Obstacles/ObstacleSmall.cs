@@ -18,7 +18,7 @@ public class ObstacleSmall : Obstacle
 
 		if(other.tag == Tags.player)
 		{
-			Debug.Log("hit player");
+			//DebugEx.Debug("hit player");
 
 			other.gameObject.SendMessageUpwards("TakeDamage", damage);
 

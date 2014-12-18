@@ -60,6 +60,19 @@ public class AssistantItemHolder : MonoBehaviour
 	{
 		//find GameController
 		//gameController = GameObject.FindGameObjectWithTag (Tags.gameController).GetComponent<GameController> ();
+
+		childItems = new GameObject[transform.childCount];
+
+		//reference to all child and register event
+		for(int i=0; i<transform.childCount; i++)
+		{
+			childItems[i] = transform.GetChild(i).gameObject;
+
+			AssistantItem bChild = childItems[i].GetComponent<AssistantItem>();
+			
+			//register event
+			bChild.Evt_BonusEaten += EventBonusEaten;
+		}
 	}
 
 	void Start()
@@ -99,15 +112,20 @@ public class AssistantItemHolder : MonoBehaviour
 				}
 			}
 		}
+
+
 	}
 
 	void OnEnable()
 	{
+		/*
 		childItems = new GameObject[transform.childCount];
 
 		for(int i=0; i<transform.childCount; i++)
 		{
 			GameObject child = transform.GetChild(i).gameObject;
+
+			child.SetActive(true);
 
 			childItems[i] = child;
 
@@ -119,6 +137,22 @@ public class AssistantItemHolder : MonoBehaviour
 			//increase child bonus count
 			childItemCount++;
 		}
+		*/
+
+		/*
+		for(int i=0; i<childItems.Length; i++)
+		{
+			childItems[i].SetActive(true);
+
+			AssistantItem bChild = childItems[i].GetComponent<AssistantItem>();
+
+			//register event
+			bChild.Evt_BonusEaten += EventBonusEaten;
+			
+			//increase child bonus count
+			childItemCount++;
+		}
+		*/
 	}
 
 	void OnDisable()
@@ -127,6 +161,9 @@ public class AssistantItemHolder : MonoBehaviour
 		{
 			for(int i=0; i<childItems.Length; i++)
 			{
+				//enable child that was eaten and disabled
+				childItems[i].SetActive(true);
+				/*
 				if(childItems[i] != null)
 				{
 					AssistantItem bChild = childItems[i].GetComponent<AssistantItem>();
@@ -134,12 +171,15 @@ public class AssistantItemHolder : MonoBehaviour
 					//unregister event
 					bChild.Evt_BonusEaten -= EventBonusEaten;
 				}
+				*/
 
 			}
 		}
 
 		//set child bonus count to 0
-		childItemCount = 0;
+		//childItemCount = 0;
+
+		childItemCount = childItems.Length;
 
 		isMagnet = false;
 	}
@@ -171,7 +211,8 @@ public class AssistantItemHolder : MonoBehaviour
 		if((childItemCount <= 0) || 
 		   ((lastItem.transform.position.y - lastItem.renderer.bounds.extents.y) > Camera.main.GetTopBorderWorldSpace(transform.position.z)))
 		{
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 		}
 
 		else
@@ -204,6 +245,11 @@ public class AssistantItemHolder : MonoBehaviour
 		{
 			return 0f;
 		}
+	}
+
+	public void GameRestart()
+	{
+		TrashMan.despawn (gameObject);
 	}
 
 	void EventBonusEaten()

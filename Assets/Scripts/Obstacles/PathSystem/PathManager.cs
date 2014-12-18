@@ -25,7 +25,7 @@ public class PathManager : MonoBehaviour
 	{
 		if(transform.childCount <= 0)
 		{
-			Debug.LogError("You must attached at least one child PathPoint to PathManager");
+			DebugEx.DebugError("You must attached at least one child PathPoint to PathManager");
 			
 			return;
 		}
@@ -38,7 +38,7 @@ public class PathManager : MonoBehaviour
 		//Check if paths has any error
 		if(AnalyzePaths() == false)
 		{
-			Debug.LogError("There is an error in path");
+			DebugEx.DebugError("There is an error in path");
 		}
 		
 		//find out first PathPoint in each path
@@ -97,7 +97,7 @@ public class PathManager : MonoBehaviour
 
 				if(pathPointCount < 2)
 				{
-					Debug.LogError("Path with prefix: " + cPathPrefix + " has PathPoint less then 2, it must be at least 2 PathPoint");
+					DebugEx.DebugError("Path with prefix: " + cPathPrefix + " has PathPoint less then 2, it must be at least 2 PathPoint");
 
 					return false;
 				}
@@ -105,7 +105,7 @@ public class PathManager : MonoBehaviour
 				//if PathPoint in path is odd number 
 				if((pathPointCount % 2) != 0)
 				{
-					Debug.LogError("Path with prefix: " + cPathPrefix + " has odd number of PathPoint, it must be event number");
+					DebugEx.DebugError("Path with prefix: " + cPathPrefix + " has odd number of PathPoint, it must be event number");
 
 					return false;
 				}
@@ -141,7 +141,7 @@ public class PathManager : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("There is child without PathPoint component in PathManager");
+				DebugEx.DebugError("There is child without PathPoint component in PathManager");
 			}
 		}
 

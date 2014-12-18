@@ -38,7 +38,7 @@ public class LevelLoadManager : MonoBehaviour
 	{
 		if(levelName == "")
 		{
-			Debug.LogError("Give level name to load");
+			DebugEx.DebugError("Give level name to load");
 
 			return;
 		}

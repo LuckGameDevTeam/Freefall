@@ -111,7 +111,7 @@ public class SFXPlayer : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Unable to play sound, no sound audio clip assigned");
+			DebugEx.DebugError("Unable to play sound, no sound audio clip assigned");
 		}
 	}
 

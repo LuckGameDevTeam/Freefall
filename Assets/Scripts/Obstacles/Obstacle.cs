@@ -220,7 +220,9 @@ public class Obstacle : MonoBehaviour
 			//play dead effect
 			if(deadEffectPrefab != null)
 			{
-				GameObject effect = GameController.sharedGameController.objectPool.GetObjectFromPool(deadEffectPrefab, transform.position, Quaternion.identity);
+				//GameObject effect = GameController.sharedGameController.objectPool.GetObjectFromPool(deadEffectPrefab, transform.position, Quaternion.identity);
+				GameObject effect = TrashMan.spawn(deadEffectPrefab, transform.position, Quaternion.identity);
+
 				effect.GetComponent<EffectAnimation>().PlayAnimation();
 			}
 
@@ -231,12 +233,13 @@ public class Obstacle : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError(gameObject.name+" unable to play dead clip, dead clip not assigned");
+				DebugEx.DebugError(gameObject.name+" unable to play dead clip, dead clip not assigned");
 			}
 
 
 			//recycle obstacle
-			GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+			TrashMan.despawn(gameObject);
 
 			return;
 		}
@@ -248,7 +251,8 @@ public class Obstacle : MonoBehaviour
 			if(renderer.IsVisibleFromCamera(Camera.main) == false)
 			{
 				//recycle obstacle immediately
-				GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+				//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
+				TrashMan.despawn(gameObject);
 				
 				return;
 			}
@@ -304,6 +308,11 @@ public class Obstacle : MonoBehaviour
 	public virtual void BecomeSmallObstacle()
 	{
 
+	}
+
+	public virtual void GameRestart()
+	{
+		TrashMan.despawn (gameObject);
 	}
 
 	////////////////////////////////Public interface////////////////////////////////
@@ -418,7 +427,7 @@ public class Obstacle : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("Unable to play sound effect "+gameObject.name+" audio bounce clip not assigned");
+				DebugEx.DebugError("Unable to play sound effect "+gameObject.name+" audio bounce clip not assigned");
 			}
 		}
 	}

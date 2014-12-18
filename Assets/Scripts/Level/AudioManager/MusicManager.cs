@@ -30,6 +30,13 @@ public class MusicManager : MonoBehaviour
 	public bool playOnStart = true;
 
 	/// <summary>
+	/// The ignore time scale.
+	/// 
+	/// true audio playback will not depend on time scale, otherwise false
+	/// </summary>
+	public bool ignoreTimeScale = false;
+
+	/// <summary>
 	/// The mute.
 	/// </summary>
 	private bool mute = false;
@@ -70,7 +77,15 @@ public class MusicManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		audio.pitch = Time.timeScale;
+		if(ignoreTimeScale)
+		{
+			audio.pitch = 1.0f;
+		}
+		else
+		{
+			audio.pitch = Time.timeScale;
+		}
+
 	}
 
 	public void PlayMusic()
@@ -97,7 +112,15 @@ public class MusicManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Unable to play music, no audio clip assigned");
+			DebugEx.DebugError("Unable to play music, no audio clip assigned");
+		}
+	}
+
+	public void StopMusic()
+	{
+		if(audio.isPlaying)
+		{
+			audio.Stop();
 		}
 	}
 
