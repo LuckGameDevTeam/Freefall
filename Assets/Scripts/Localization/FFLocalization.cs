@@ -24,26 +24,26 @@ public class FFLocalization : MonoBehaviour
 		{
 			if(Localization.LoadCSV (localizationFile))
 			{
-				Debug.Log("Load CSV localization file success");
+				DebugEx.Debug("Load CSV localization file success");
 
 				if(debugEnabled)
 				{
-					Debug.Log("Number of know languages: "+Localization.knownLanguages.Length);
+					DebugEx.Debug("Number of know languages: "+Localization.knownLanguages.Length);
 
 					foreach(string lang in Localization.knownLanguages)
 					{
-						Debug.Log(lang);
+						DebugEx.Debug(lang);
 					}
 				}
 			}
 			else
 			{
-				Debug.LogError("Load CSV localization file fail");
+				DebugEx.DebugError("Load CSV localization file fail");
 			}
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" localization file not assigned");
+			DebugEx.DebugError(gameObject.name+" localization file not assigned");
 		}
 
 	}

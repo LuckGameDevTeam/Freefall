@@ -229,7 +229,7 @@ public class FBController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("Facebook module has been initialized");
+			DebugEx.DebugWarning("Facebook module has been initialized");
 		}
 	}
 
@@ -250,7 +250,7 @@ public class FBController : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogWarning("You have already loggin to facebook");
+				DebugEx.DebugWarning("You have already loggin to facebook");
 
 				OnAuthnicationSuccess();
 			}
@@ -280,7 +280,7 @@ public class FBController : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogWarning("You did not login");
+				DebugEx.DebugWarning("You did not login");
 			}
 		}
 	}
@@ -456,7 +456,7 @@ public class FBController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("You need to initialize facebook module first");
+			DebugEx.DebugWarning("You need to initialize facebook module first");
 
 			return false;
 		}
@@ -474,7 +474,7 @@ public class FBController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("You are not loggin facebook");
+			DebugEx.DebugWarning("You are not loggin facebook");
 
 			return false;
 		}
@@ -518,7 +518,7 @@ public class FBController : MonoBehaviour
 		}
 		else if(isLogin)//already login
 		{
-			Debug.LogWarning("You have already loggin to facebook");
+			DebugEx.DebugWarning("You have already loggin to facebook");
 
 			OnAuthnicationSuccess();
 		}
@@ -633,7 +633,7 @@ public class FBController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Unable to submit score error: "+result.responce);
+			DebugEx.DebugError("Unable to submit score error: "+result.responce);
 
 			if(Evt_OnScoreSubmitFail != null)
 			{
@@ -656,7 +656,7 @@ public class FBController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Unable to load app score error: "+result.responce);
+			DebugEx.DebugError("Unable to load app score error: "+result.responce);
 		}
 
 	}
@@ -677,7 +677,7 @@ public class FBController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Unable to load player score error: "+result.responce);
+			DebugEx.DebugError("Unable to load player score error: "+result.responce);
 		}
 	}
 

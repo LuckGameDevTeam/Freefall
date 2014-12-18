@@ -57,7 +57,7 @@ public class StoreControl
 //		}
 //		else
 //		{
-//			Debug.LogWarning("Store been initialized");
+//			DebugEx.DebugWarning("Store been initialized");
 //		}
 //	}
 //

@@ -183,7 +183,7 @@ public class UIVirtualGood : MonoBehaviour
 			return retItems;
 		}
 
-		Debug.LogError("You request same level of item but you are not under gameobject with UIGride");
+		DebugEx.DebugError("You request same level of item but you are not under gameobject with UIGride");
 
 		return null;
 	}

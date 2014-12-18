@@ -21,7 +21,7 @@ public class UnityCustomMenu : MonoBehaviour
 		//check if scene has already one...if so then don't create
 		if(GameObject.FindObjectOfType(typeof(UIRoot)) != null)
 		{
-			Debug.LogError("You can not create another one InGameUI gameobject, delete current one and try again");
+			DebugEx.DebugError("You can not create another one InGameUI gameobject, delete current one and try again");
 			
 			return;
 		}
@@ -39,7 +39,7 @@ public class UnityCustomMenu : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Fail to create InGameUI to scene, can not find prefabs at "+ path); 
+			DebugEx.DebugError("Fail to create InGameUI to scene, can not find prefabs at "+ path); 
 		}
 		
 
@@ -59,7 +59,7 @@ public class UnityCustomMenu : MonoBehaviour
 		//check if scene has already one...if so then don't create
 		if(GameObject.FindObjectOfType(typeof(AdControl)) != null)
 		{
-			Debug.LogError("You can not create another one AdController gameobject, delete current one and try again");
+			DebugEx.DebugError("You can not create another one AdController gameobject, delete current one and try again");
 			
 			return;
 		}
@@ -77,7 +77,7 @@ public class UnityCustomMenu : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Fail to create AdControl to scene, can not find prefabs at "+ path); 
+			DebugEx.DebugError("Fail to create AdControl to scene, can not find prefabs at "+ path); 
 		}
 
 	}

@@ -189,27 +189,27 @@ public class GameController : MonoBehaviour
 
 		if(currentMainLevel == 0)
 		{
-			Debug.LogError("You can not assigned 0 to main level in GameController");
+			DebugEx.DebugError("You can not assigned 0 to main level in GameController");
 		}
 
 		if(currentSubLevel == 0)
 		{
-			Debug.LogError("You can not assigend 0 to sub level in GameController");
+			DebugEx.DebugError("You can not assigend 0 to sub level in GameController");
 		}
 
 		if(maxStarCount == 0)
 		{
-			Debug.LogError("You can not assigend 0 to max start count, at least 1");
+			DebugEx.DebugError("You can not assigend 0 to max start count, at least 1");
 		}
 
 		if((nextMainLevelToUnlock == currentMainLevel) && (nextSubLevelToUnlock == currentSubLevel))
 		{
-			Debug.LogError("next main&sub level to unlock is as same as curren main&sub level");
+			DebugEx.DebugError("next main&sub level to unlock is as same as curren main&sub level");
 		}
 
 		if(hudControl == null)
 		{
-			Debug.LogError("You did not assign UIHUDControl");
+			DebugEx.DebugError("You did not assign UIHUDControl");
 		}
 
 		//store instance
@@ -409,14 +409,14 @@ public class GameController : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("No character assets in Resources folder");
+				DebugEx.DebugError("No character assets in Resources folder");
 
 				return null;
 			}
 		}
 		else
 		{
-			Debug.LogError("Can not load character no character data was saved");
+			DebugEx.DebugError("Can not load character no character data was saved");
 
 			return null;
 		}
@@ -438,7 +438,7 @@ public class GameController : MonoBehaviour
 
 		if(!data.UnlockSubLevel (nextMainLevelToUnlock, nextSubLevelToUnlock))
 		{
-			Debug.LogError("Error when trying to unlock Level"+ nextMainLevelToUnlock + "-" + nextSubLevelToUnlock);
+			DebugEx.DebugError("Error when trying to unlock Level"+ nextMainLevelToUnlock + "-" + nextSubLevelToUnlock);
 		}
 	}
 
@@ -493,7 +493,7 @@ public class GameController : MonoBehaviour
 		{
 			if(!data.SaveScoreForSubLevel(currentMainLevel, currentSubLevel, score))
 			{
-				Debug.LogError("save score fail Level"+currentMainLevel+"-"+currentSubLevel);
+				DebugEx.DebugError("save score fail Level"+currentMainLevel+"-"+currentSubLevel);
 			}
 		}
 
@@ -559,7 +559,7 @@ public class GameController : MonoBehaviour
 			//submit mile only if mile is greater than previous one
 			if(fbController.GetScoreById(fbController.PlayerInfo.id) < mile)
 			{
-				Debug.Log("Submit score: "+mile);
+				DebugEx.Debug("Submit score: "+mile);
 				fbController.Evt_OnScoreSubmitted += OnScoreSubmitted;
 
 				fbController.SubmitScore (mile);
@@ -571,7 +571,7 @@ public class GameController : MonoBehaviour
 	{
 		fbController.Evt_OnScoreSubmitted -= OnScoreSubmitted;
 
-		Debug.Log("Submit score complete: "+score);
+		DebugEx.Debug("Submit score complete: "+score);
 	}
 
 	/// <summary>
@@ -777,12 +777,12 @@ public class GameController : MonoBehaviour
 	#region SISDataSync callback
 	void OnUploadDataSuccess()
 	{
-		Debug.Log("upload client data to server");
+		DebugEx.Debug("upload client data to server");
 	}
 
 	void OnUploadDataFail()
 	{
-		Debug.LogError("sync data fail");
+		DebugEx.DebugError("sync data fail");
 	}
 
 	void OnLoginOtherDevice()
@@ -863,12 +863,12 @@ public class GameController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play fail clip, fail clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play fail clip, fail clip not assigned");
 		}
 
 #if TestMode
 
-		Debug.LogError("TestMode can not increase funds for player");
+		DebugEx.DebugError("TestMode can not increase funds for player");
 #else
 		//give player coin they eat from this level
 		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
@@ -912,11 +912,11 @@ public class GameController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play victory clip, victory clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play victory clip, victory clip not assigned");
 		}
 
 #if TestMode
-		Debug.LogError("TestMode can not increase funds for player");
+		DebugEx.DebugError("TestMode can not increase funds for player");
 #else
 		//give player coin they eat from this level
 		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
@@ -955,7 +955,7 @@ public class GameController : MonoBehaviour
 	/// <param name="reachedMileage">Reached mileage.</param>
 	void EventMileReached(MileageController mc, int reachedMileage)
 	{
-		//Debug.Log ("a mile reached: "+reachedMileage);
+		//DebugEx.Debug ("a mile reached: "+reachedMileage);
 
 		//tell hud a mile reach and present mile indicator
 		hudControl.mileageLineControl.PresentMileageLine (reachedMileage);
@@ -968,7 +968,7 @@ public class GameController : MonoBehaviour
 	/// <param name="goalMileage">Goal mileage.</param>
 	void EventGoalMileReached(MileageController mc, int goalMileage)
 	{
-		//Debug.Log ("goal mile reached: " + goalMileage);
+		//DebugEx.Debug ("goal mile reached: " + goalMileage);
 
 		//stop input manager
 		InputManager inputMgr = character.GetComponent<InputManager> ();
@@ -991,7 +991,7 @@ public class GameController : MonoBehaviour
 	/// <param name="currentMileage">Current mileage.</param>
 	void EventCurrentMile(MileageController mc, int currentMileage)
 	{
-		//Debug.Log ("current mile: " + currentMileage);
+		//DebugEx.Debug ("current mile: " + currentMileage);
 
 		//update hud for current mile
 		hudControl.UpdateMileageHUD (currentMileage);
@@ -1154,7 +1154,7 @@ public class GameController : MonoBehaviour
 				}
 				else
 				{
-					Debug.Log("You did not assign Invulnerable ability prefab to GameController");
+					DebugEx.Debug("You did not assign Invulnerable ability prefab to GameController");
 				}
 
 			}

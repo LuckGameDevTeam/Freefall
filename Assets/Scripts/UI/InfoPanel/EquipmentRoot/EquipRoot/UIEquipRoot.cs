@@ -22,12 +22,12 @@ public class UIEquipRoot : UIEquipmentRoot
 	{
 		if(purchaseControl == null)
 		{
-			Debug.LogError("You must assigned UIPurchaseControl to "+gameObject.name);
+			DebugEx.DebugError("You must assigned UIPurchaseControl to "+gameObject.name);
 		}
 
 		if(alertControl == null)
 		{
-			Debug.LogError("You must assigned UIAlertControl to "+gameObject.name);
+			DebugEx.DebugError("You must assigned UIAlertControl to "+gameObject.name);
 		}
 	}
 

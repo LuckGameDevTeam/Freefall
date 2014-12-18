@@ -32,7 +32,7 @@ public class CatCookieBigAbility : Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+"unable to play cat cookie clip, cat cookie clip not assigned");
+			DebugEx.DebugError(gameObject.name+"unable to play cat cookie clip, cat cookie clip not assigned");
 		}
 
 	}

@@ -30,7 +30,7 @@ public class NinjaCatAbility : Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play ninaj cat clip, ninja cat clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play ninaj cat clip, ninja cat clip not assigned");
 		}
 		*/
 		if(ninjaCatClip != null)
@@ -39,7 +39,7 @@ public class NinjaCatAbility : Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play ninaj cat clip, ninja cat clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play ninaj cat clip, ninja cat clip not assigned");
 		}
 	}
 

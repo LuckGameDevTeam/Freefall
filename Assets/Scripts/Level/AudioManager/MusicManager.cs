@@ -112,7 +112,7 @@ public class MusicManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Unable to play music, no audio clip assigned");
+			DebugEx.DebugError("Unable to play music, no audio clip assigned");
 		}
 	}
 

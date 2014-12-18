@@ -32,7 +32,7 @@ public class CoinBonusSmall : Bonus
 			}
 			else
 			{
-				Debug.LogError(gameObject.name+" unable to play eat coin clip, eat coin clip not assign");
+				DebugEx.DebugError(gameObject.name+" unable to play eat coin clip, eat coin clip not assign");
 			}
 			
 			base.OnTriggerEnter2D(other);

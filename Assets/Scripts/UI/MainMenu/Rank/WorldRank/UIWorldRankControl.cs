@@ -36,7 +36,7 @@ public class UIWorldRankControl : MonoBehaviour
 	{
 		if((rows == null) || (rows.Length <= 0))
 		{
-			Debug.LogError(gameObject.name+" "+"rows not assigned");
+			DebugEx.DebugError(gameObject.name+" "+"rows not assigned");
 
 			return;
 		}

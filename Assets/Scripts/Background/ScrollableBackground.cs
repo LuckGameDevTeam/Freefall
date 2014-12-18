@@ -58,7 +58,7 @@ public class ScrollableBackground : MonoBehaviour
 		//Check if we have child
 		if (transform.childCount == 0) 
 		{
-			Debug.LogError("Scroll background has no child attached");
+			DebugEx.DebugError("Scroll background has no child attached");
 		}
 
 		//Create list if needed
@@ -237,7 +237,7 @@ public class ScrollableBackground : MonoBehaviour
 
 		bool result = GeometryUtility.TestPlanesAABB (plane, renderer.bounds);
 
-		//Debug.Log (result);
+		//DebugEx.Debug (result);
 
 		return result;
 	}

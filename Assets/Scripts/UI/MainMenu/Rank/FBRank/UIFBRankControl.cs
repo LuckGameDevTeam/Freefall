@@ -37,7 +37,7 @@ public class UIFBRankControl : MonoBehaviour
 #endif
 		if(rows.Length <= 0)
 		{
-			Debug.LogError(gameObject.name+"Unable to show rank in row, there is no row assigned");
+			DebugEx.DebugError(gameObject.name+"Unable to show rank in row, there is no row assigned");
 
 			return;
 		}
@@ -109,7 +109,7 @@ public class UIFBRankControl : MonoBehaviour
 		//player is in top 3 get 4 ranks, otherwise get 3 ranks and add player to last
 		if(playerInTop3)
 		{
-			Debug.Log("Player is in top 3");
+			DebugEx.Debug("Player is in top 3");
 
 			//max of info is 4
 			if(rankInfoList.Count > 4)
@@ -120,7 +120,7 @@ public class UIFBRankControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Player is not in top 3");
+			DebugEx.Debug("Player is not in top 3");
 
 			//max of info is 3
 			if(rankInfoList.Count > 3)
@@ -185,7 +185,7 @@ public class UIFBRankControl : MonoBehaviour
 		fbController.Evt_OnFacebookLoginSuccess -= OnFacebookLoginSuccess;
 		fbController.Evt_OnFacebookLoginFail -= OnFacebookLoginFail;
 
-		Debug.Log(gameObject.name+" unable to login to facebook");
+		DebugEx.Debug(gameObject.name+" unable to login to facebook");
 	}
 
 	void OnNumberOfFriendReceived(FBController controller, int number)
@@ -216,7 +216,7 @@ public class UIFBRankControl : MonoBehaviour
 		fbController.Evt_OnFriendDataLoaded -= OnFriendDataLoaded;
 		fbController.Evt_OnFriendDataFailToLoad -= OnFriendDataFailToLoad;
 
-		Debug.Log ("can't show rank unable to load friend data");
+		DebugEx.Debug ("can't show rank unable to load friend data");
 
 		//load user data
 		fbController.Evt_OnUserDataLoaded += OnUserDataLoaded;
@@ -241,7 +241,7 @@ public class UIFBRankControl : MonoBehaviour
 		fbController.Evt_OnUserDataLoaded -= OnUserDataLoaded;
 		fbController.Evt_OnUserDataFailToLoad -= OnLoadUserDataFail;
 
-		Debug.LogError(gameObject.name+" load user info fail unable to show rank");
+		DebugEx.DebugError(gameObject.name+" load user info fail unable to show rank");
 	}
 
 	void OnLoadPlayerAndFriendScoreSuccess(FBController controller)

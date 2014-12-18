@@ -33,7 +33,7 @@ public class UIUpdatePlayerLife : MonoBehaviour
 	void ConfigurePlayerLife()
 	{
 #if TestMode
-		Debug.LogError("TestMode do not configure player life");
+		DebugEx.DebugError("TestMode do not configure player life");
 		return;
 #endif
 		if(gameObject.activeInHierarchy)

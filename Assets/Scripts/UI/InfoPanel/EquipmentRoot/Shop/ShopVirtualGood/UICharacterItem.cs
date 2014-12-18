@@ -127,7 +127,7 @@ public class UICharacterItem : UIVirtualGood
 
 				if(DBManager.GetAllSelected().Count <= 0)
 				{
-					Debug.LogError(gameObject.name+" No character was selected");
+					DebugEx.DebugError(gameObject.name+" No character was selected");
 					return;
 				}
 				

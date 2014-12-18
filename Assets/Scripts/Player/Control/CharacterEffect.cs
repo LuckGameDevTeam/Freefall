@@ -167,7 +167,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's damage effect was not assign");
+			DebugEx.DebugError("Character's damage effect was not assign");
 		}
 	}
 
@@ -179,7 +179,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's coin eaten effect was not assign");
+			DebugEx.DebugError("Character's coin eaten effect was not assign");
 		}
 	}
 	
@@ -191,7 +191,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's fish bone eaten effect was not assign");
+			DebugEx.DebugError("Character's fish bone eaten effect was not assign");
 		}
 	}
 
@@ -203,7 +203,7 @@ public class CharacterEffect : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Character's cat cookie eaten effect was not assign");
+			DebugEx.DebugError("Character's cat cookie eaten effect was not assign");
 		}
 	}
 }

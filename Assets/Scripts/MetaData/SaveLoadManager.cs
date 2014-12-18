@@ -49,7 +49,7 @@ public class SaveLoadManager
 			//create one if it is not exist
 			Directory.CreateDirectory(fileDirectory);
 
-			Debug.Log("Create directory SaveData at: "+fileDirectory);
+			DebugEx.Debug("Create directory SaveData at: "+fileDirectory);
 		}
 
 	}
@@ -95,7 +95,7 @@ public class SaveLoadManager
 		//check if save data class is derive from PersistantMetaData... no return
 		if(!(dataToSave is PersistantMetaData))
 		{
-			Debug.LogError("Save data fail, class:"+dataToSave.GetType().ToString()+". The class of data you pass in is not derived from PersistantMetaData class");
+			DebugEx.DebugError("Save data fail, class:"+dataToSave.GetType().ToString()+". The class of data you pass in is not derived from PersistantMetaData class");
 
 			return false;
 		}
@@ -103,7 +103,7 @@ public class SaveLoadManager
 		//check if class is serializable or not
 		if((dataToSave.GetType().Attributes & TypeAttributes.Serializable) == 0)
 		{
-			Debug.LogError("Save data fail, class:"+dataToSave.GetType().ToString()+". You must put [Serializable] before class declaration");
+			DebugEx.DebugError("Save data fail, class:"+dataToSave.GetType().ToString()+". You must put [Serializable] before class declaration");
 
 			return false;
 		}
@@ -153,7 +153,7 @@ public class SaveLoadManager
 		//if file does not exists return null
 		if(!File.Exists(fileDirectory + "/" + fileName + "." + fileExtension))
 		{
-			Debug.LogWarning(fileName+"."+fileExtension+" can not be loaded, file does not exists");
+			DebugEx.DebugWarning(fileName+"."+fileExtension+" can not be loaded, file does not exists");
 			return default(T);
 		}
 
@@ -217,12 +217,12 @@ public class SaveLoadManager
 
 					File.Delete(fileDirectory+"/"+fileInfo.Name);
 
-					Debug.Log("Saved file: "+fileInfo.Name+" has been deleted");
+					DebugEx.Debug("Saved file: "+fileInfo.Name+" has been deleted");
 				}
 			}
 			else
 			{
-				Debug.LogWarning("Directory is empty");
+				DebugEx.DebugWarning("Directory is empty");
 			}
 		}
 	}
@@ -238,13 +238,13 @@ public class SaveLoadManager
 		//if file does not exists return null
 		if(!File.Exists(fileDirectory + "/" + fileName + "." + fileExtension))
 		{
-			Debug.LogWarning(fileName+"."+fileExtension+" can not be deleted, file does not exists");
+			DebugEx.DebugWarning(fileName+"."+fileExtension+" can not be deleted, file does not exists");
 			return;
 		}
 
 		File.Delete (fileDirectory + "/" + fileName + "." + fileExtension);
 
-		Debug.Log("Saved file: "+fileName+"."+fileExtension+" has been deleted");
+		DebugEx.Debug("Saved file: "+fileName+"."+fileExtension+" has been deleted");
 	}
 
 	/// <summary>

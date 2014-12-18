@@ -89,11 +89,11 @@ public class UIEquippedItemDisplay : MonoBehaviour
 		{
 			itemId = value;
 
-			Debug.Log ("itemId assigned");
+			DebugEx.Debug ("itemId assigned");
 
 			if(gameObject.activeInHierarchy)
 			{
-				Debug.Log("Configure button");
+				DebugEx.Debug("Configure button");
 
 				string iconName = itemId+"_Icon";
 

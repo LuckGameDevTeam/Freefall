@@ -143,7 +143,7 @@ public class LifeCounter : MonoBehaviour
 				//give 1 life count
 				GiveLife(lifeGiveCount);
 
-				Debug.Log("give "+lifeGiveCount+" life to player");
+				DebugEx.Debug("give "+lifeGiveCount+" life to player");
 
 			}
 			else
@@ -179,7 +179,7 @@ public class LifeCounter : MonoBehaviour
 
 		AnalyzeLifeCountOffGame ();
 
-		Debug.Log("Life counter is running...");
+		DebugEx.Debug("Life counter is running...");
 	}
 
 	/// <summary>
@@ -210,7 +210,7 @@ public class LifeCounter : MonoBehaviour
 	{
 		if(pauseStatus)
 		{
-			Debug.Log("app enter background");
+			DebugEx.Debug("app enter background");
 
 			//int currentLifeCount = StoreInventory.GetItemBalance(StoreAssets.PLAYER_LIFE_ITEM_ID);
 			int currentLifeCount = DBManager.GetPlayerData(PlayerLife).AsInt;
@@ -293,7 +293,7 @@ public class LifeCounter : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("app enter foreground");
+			DebugEx.Debug("app enter foreground");
 
 			CancelAllNotifications ();
 
@@ -588,7 +588,7 @@ public class LifeCounter : MonoBehaviour
 			
 			//give life to player
 			GiveLife(giveAmount);
-			Debug.Log("give "+giveAmount+" life to player");
+			DebugEx.Debug("give "+giveAmount+" life to player");
 		}
 		else
 		{

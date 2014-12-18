@@ -70,6 +70,6 @@ public class UILanguageSwitcher : MonoBehaviour
 		
 		Localization.language = UIPopupList.current.value;
 
-		Debug.Log ("current language selection is " + UIPopupList.current.value);
+		DebugEx.Debug ("current language selection is " + UIPopupList.current.value);
 	}
 }

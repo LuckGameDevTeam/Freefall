@@ -41,7 +41,7 @@ public class UIStoreRoot : UIEquipmentRoot
 
 		if(purchaseControl == null)
 		{
-			Debug.LogError("You must assign UIPurchaseControl to "+gameObject.name);
+			DebugEx.DebugError("You must assign UIPurchaseControl to "+gameObject.name);
 		}
 
 	}

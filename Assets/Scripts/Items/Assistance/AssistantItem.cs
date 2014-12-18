@@ -114,7 +114,7 @@ public class AssistantItem : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Assistant item: "+gameObject.name+" lost it's magnet target");
+			DebugEx.DebugError("Assistant item: "+gameObject.name+" lost it's magnet target");
 		}
 	}
 

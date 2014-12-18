@@ -136,7 +136,7 @@ public class ObjectPool : MonoBehaviour
 			return go;
 		}
 
-		Debug.LogError ("Pool does not contain this object: " + name);
+		DebugEx.DebugError ("Pool does not contain this object: " + name);
 		return null;
 	}
 
@@ -177,7 +177,7 @@ public class ObjectPool : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("pool can not recycle this object: "+theObject.name+" this object was not in pool");
+			DebugEx.DebugError("pool can not recycle this object: "+theObject.name+" this object was not in pool");
 		}
 
 	}
@@ -231,7 +231,7 @@ public class ObjectPool : MonoBehaviour
 					}
 					else
 					{
-						Debug.LogError("Auto load prefab enabled but no prefab under folder: "+resourceFolders[i]);
+						DebugEx.DebugError("Auto load prefab enabled but no prefab under folder: "+resourceFolders[i]);
 						
 						return;
 					}
@@ -240,7 +240,7 @@ public class ObjectPool : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("Auto load prefab enabled but no folder name was specified");
+				DebugEx.DebugError("Auto load prefab enabled but no folder name was specified");
 
 				return;
 			}
@@ -259,7 +259,7 @@ public class ObjectPool : MonoBehaviour
 				//if prefab had been instantiated...user has given same prefab more than once...continue
 				if(pool.ContainsKey(prefab.name))
 				{
-					Debug.LogError("You have given same prefab more than once");
+					DebugEx.DebugError("You have given same prefab more than once");
 					
 					continue;
 				}

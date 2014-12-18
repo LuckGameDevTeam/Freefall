@@ -109,7 +109,7 @@ public class UIPurchaseControl : MonoBehaviour
 	{
 		if(alertControl == null)
 		{
-			Debug.LogError("Purchase Window require alert control to be assigned");
+			DebugEx.DebugError("Purchase Window require alert control to be assigned");
 		}
 
 		sisDs = GetComponent<SISDataSync> ();
@@ -315,7 +315,7 @@ public class UIPurchaseControl : MonoBehaviour
 		catch(UnityException e)
 		{
 			UnlockButton();
-			Debug.LogError("Purchase product throw an exception");
+			DebugEx.DebugError("Purchase product throw an exception");
 		}
 
 	}
@@ -348,7 +348,7 @@ public class UIPurchaseControl : MonoBehaviour
 	#region SISDataSync callback
 	void OnUploadDataSuccess()
 	{
-		Debug.Log("Upload client data to server");
+		DebugEx.Debug("Upload client data to server");
 
 		FinalizePurchase ();
 	}
@@ -378,7 +378,7 @@ public class UIPurchaseControl : MonoBehaviour
 
 	void OnPurchaseFail(string errorMsg)
 	{
-		Debug.LogWarning ("Error in store: " + errorMsg);
+		DebugEx.DebugWarning ("Error in store: " + errorMsg);
 
 		UnlockButton ();
 
@@ -388,7 +388,7 @@ public class UIPurchaseControl : MonoBehaviour
 
 		errorStr = errorStr.Trim(". ".ToCharArray());
 
-		Debug.LogWarning ("Error in store: " + errorStr);
+		DebugEx.DebugWarning ("Error in store: " + errorStr);
 
 		if(errorStr != "Transaction cancelled")
 		{
@@ -519,7 +519,7 @@ public class UIPurchaseControl : MonoBehaviour
 	/// <param name="message">Error message.</param>
 	public void onUnexpectedErrorInStore(string errorMessage) 
 	{
-		Debug.LogWarning ("Error in store: " + errorMessage);
+		DebugEx.DebugWarning ("Error in store: " + errorMessage);
 
 		//show alert window
 		alertControl.ShowAlertWindow (null, errorKey);

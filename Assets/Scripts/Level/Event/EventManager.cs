@@ -87,7 +87,7 @@ public class EventManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("EventManager can not find EventGroup gameobject");
+			DebugEx.DebugError("EventManager can not find EventGroup gameobject");
 		}
 	}
 

@@ -127,7 +127,7 @@ public class ObstacleBig : Obstacle
 		}
 		else
 		{
-			Debug.LogError(gameObject.name + " no path point");
+			DebugEx.DebugError(gameObject.name + " no path point");
 
 			//recycle obstacle
 			//GameController.sharedGameController.objectPool.RecycleObject(gameObject);
@@ -140,7 +140,7 @@ public class ObstacleBig : Obstacle
 	{
 		if(other.tag == Tags.player)
 		{
-			//Debug.Log("hit player");
+			//DebugEx.Debug("hit player");
 
 			other.gameObject.SendMessageUpwards("TakeDamage", damage);
 		}
@@ -187,7 +187,7 @@ public class ObstacleBig : Obstacle
 		{
 			if(currentPathPoint.nextPoint == null)
 			{
-				Debug.LogError(gameObject.name + "there is no next path point");
+				DebugEx.DebugError(gameObject.name + "there is no next path point");
 
 				currentPathPoint = null;
 

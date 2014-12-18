@@ -178,7 +178,7 @@ public class UIResultControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" mileResultLabel not assigned");
+			DebugEx.DebugError(gameObject.name+" mileResultLabel not assigned");
 		}
 
 
@@ -207,7 +207,7 @@ public class UIResultControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play tween, UITween component not found");
+			DebugEx.DebugError(gameObject.name+" unable to play tween, UITween component not found");
 		}
 		
 		//over the duration defined, lerp value from start to target value
@@ -236,7 +236,7 @@ public class UIResultControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" coinEarnLabel not assigned");
+			DebugEx.DebugError(gameObject.name+" coinEarnLabel not assigned");
 		}
 	}
 
@@ -261,7 +261,7 @@ public class UIResultControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play tween, UITween component not found");
+			DebugEx.DebugError(gameObject.name+" unable to play tween, UITween component not found");
 		}
 		
 		//over the duration defined, lerp value from start to target value
@@ -291,7 +291,7 @@ public class UIResultControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" fishBoneEarnLabel not assigned");
+			DebugEx.DebugError(gameObject.name+" fishBoneEarnLabel not assigned");
 		}
 	}
 
@@ -316,7 +316,7 @@ public class UIResultControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play tween, UITween component not found");
+			DebugEx.DebugError(gameObject.name+" unable to play tween, UITween component not found");
 		}
 		
 		//over the duration defined, lerp value from start to target value
@@ -348,7 +348,7 @@ public class UIResultControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" number of star is greater than score");
+			DebugEx.DebugError(gameObject.name+" number of star is greater than score");
 		}
 	}
 
@@ -359,7 +359,7 @@ public class UIResultControl : MonoBehaviour
 	/// <param name="score">Score.</param>
 	IEnumerator StarCountTo(int score)
 	{
-		Debug.Log ("Player score: " + score);
+		DebugEx.Debug ("Player score: " + score);
 
 		//set stars active depend on score
 		for(int i=0; i<score; i++)
@@ -380,7 +380,7 @@ public class UIResultControl : MonoBehaviour
 				}
 				else
 				{
-					Debug.LogError(gameObject.name+" unable to play tweener, can not get UITweener component");
+					DebugEx.DebugError(gameObject.name+" unable to play tweener, can not get UITweener component");
 				}
 
 
@@ -455,7 +455,7 @@ public class UIResultControl : MonoBehaviour
 		fbController.Evt_OnFacebookPostSuccess -= OnFacebookPostSuccess;
 		fbController.Evt_OnFacebookPostFail -= OnFacebookPostFail;
 
-		Debug.Log("Unable to post to facebook");
+		DebugEx.Debug("Unable to post to facebook");
 	}
 
 	void OnFacebookLoginSuccess(FBController controller)
@@ -471,7 +471,7 @@ public class UIResultControl : MonoBehaviour
 		fbController.Evt_OnFacebookLoginSuccess -= OnFacebookLoginSuccess;
 		fbController.Evt_OnFacebookLoginFail -= OnFacebookLoginFail;
 
-		Debug.Log("Unable to login to facebook");
+		DebugEx.Debug("Unable to login to facebook");
 	}
 	#endregion FB controller event
 }

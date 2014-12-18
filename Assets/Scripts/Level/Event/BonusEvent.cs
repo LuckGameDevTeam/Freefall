@@ -106,8 +106,8 @@ public class BonusEvent : LevelEvent
 		{
 			if(delay == 0)
 			{
-				Debug.LogError(gameObject.name+" have total bonus spawn: "+totalSpawn+" delay: "+delay);
-				Debug.LogError(gameObject.name+" it cause logical error object will overlap each other, you need to fix this problem");
+				DebugEx.DebugError(gameObject.name+" have total bonus spawn: "+totalSpawn+" delay: "+delay);
+				DebugEx.DebugError(gameObject.name+" it cause logical error object will overlap each other, you need to fix this problem");
 			}
 		}
 
@@ -140,7 +140,7 @@ public class BonusEvent : LevelEvent
 		//prefabe is null
 		if(bonusPrefab == null)
 		{
-			Debug.LogError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
+			DebugEx.DebugError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
 			
 			return;
 		}

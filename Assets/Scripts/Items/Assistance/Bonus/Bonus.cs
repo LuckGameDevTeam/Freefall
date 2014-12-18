@@ -44,7 +44,7 @@ public class Bonus : AssistantItem
 
 		if(magnetObject == null)
 		{
-			Debug.LogError(gameObject.name+" was not in TrashMan's bin, it is recommend to assign it it TrashMan's bin");
+			DebugEx.DebugError(gameObject.name+" was not in TrashMan's bin, it is recommend to assign it it TrashMan's bin");
 
 			TrashManRecycleBin newBin = new TrashManRecycleBin();
 			

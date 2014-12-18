@@ -18,7 +18,7 @@ public class UILinkToWeb : MonoBehaviour
 	/// </summary>
 	public void OpenWeb()
 	{
-		Debug.Log("open web");
+		DebugEx.Debug("open web");
 		Application.OpenURL ("http://"+url);
 	}
 }

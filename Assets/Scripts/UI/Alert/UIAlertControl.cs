@@ -73,7 +73,7 @@ public class UIAlertControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play error clip, error clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play error clip, error clip not assigned");
 		}
 	}
 

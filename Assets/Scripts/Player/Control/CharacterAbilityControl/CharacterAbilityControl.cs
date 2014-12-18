@@ -73,7 +73,7 @@ public abstract class CharacterAbilityControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("No ability prefab was assigned, character won't have ability");
+			DebugEx.DebugWarning("No ability prefab was assigned, character won't have ability");
 		}
 	}
 

@@ -161,7 +161,7 @@ public class SISDataSync : MonoBehaviour
 		//if server has no data we upload client data to server
 		if(string.IsNullOrEmpty(data))
 		{
-			Debug.Log("Server has no data, upload client to server");
+			DebugEx.Debug("Server has no data, upload client to server");
 
 			//set synce time
 			DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
@@ -178,7 +178,7 @@ public class SISDataSync : MonoBehaviour
 		//client has data which not sync before, update from server
 		if( string.IsNullOrEmpty(DBManager.GetPlayerData(syncDateTimeKeyToVal)))
 		{
-			Debug.Log("Client not sync before, update from server");
+			DebugEx.Debug("Client not sync before, update from server");
 
 			PlayerPrefs.SetString("data", data);
 
@@ -197,7 +197,7 @@ public class SISDataSync : MonoBehaviour
 			//force pulling data from server
 			if(pull)
 			{
-				Debug.Log("Force pulling data from server");
+				DebugEx.Debug("Force pulling data from server");
 
 				PlayerPrefs.SetString("data", data);
 
@@ -227,7 +227,7 @@ public class SISDataSync : MonoBehaviour
 
 			if(result < 0)//client is earlier than server(server win)
 			{
-				Debug.Log("Server win, update from server");
+				DebugEx.Debug("Server win, update from server");
 
 				PlayerPrefs.SetString("data", data);
 
@@ -245,7 +245,7 @@ public class SISDataSync : MonoBehaviour
 			}
 			else if(result > 0)//client is later than server(client win)
 			{
-				Debug.Log("Client win, upload client to server");
+				DebugEx.Debug("Client win, upload client to server");
 
 				//set sync time
 				DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
@@ -264,7 +264,7 @@ public class SISDataSync : MonoBehaviour
 
 				isSyncingData = false;
 				*/
-				Debug.Log("Server client is same, upload client to server");
+				DebugEx.Debug("Server client is same, upload client to server");
 
 				//set synce time
 				DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));

@@ -77,7 +77,7 @@ public class UIRankRow : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError(gameObject.name+" did not have default avatar assigned");
+				DebugEx.DebugError(gameObject.name+" did not have default avatar assigned");
 			}
 		}
 	}
@@ -112,7 +112,7 @@ public class UIRankRow : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" did not have default avatar assigned");
+			DebugEx.DebugError(gameObject.name+" did not have default avatar assigned");
 		}
 	}
 

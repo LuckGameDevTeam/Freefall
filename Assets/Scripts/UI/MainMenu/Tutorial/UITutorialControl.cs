@@ -46,7 +46,7 @@ public class UITutorialControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("No tutorial slide was assigned");
+			DebugEx.DebugError("No tutorial slide was assigned");
 		}
 	}
 	

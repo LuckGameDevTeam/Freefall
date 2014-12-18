@@ -375,7 +375,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 			
 			if(Evt_OnAuthrizeFail != null)
 			{
@@ -419,7 +419,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnAuthrizeFail != null)
 						{
 							Evt_OnAuthrizeFail(this, error);
@@ -487,7 +487,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 
 			if(Evt_OnCreateAccountFail != null)
 			{
@@ -530,7 +530,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnCreateAccountFail != null)
 						{
 							Evt_OnCreateAccountFail(this, error);
@@ -542,7 +542,7 @@ public class ServerSync :MonoBehaviour
 						username = data["name"].Value;
 						password = data["password"].Value;
 						
-						Debug.Log("Server return username:"+username+" password:"+password);
+						DebugEx.Debug("Server return username:"+username+" password:"+password);
 						
 						if(Evt_OnCreateAccountSuccess != null)
 						{
@@ -606,7 +606,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 			
 			if(Evt_OnLoginFail != null)
 			{
@@ -647,7 +647,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnLoginFail != null)
 						{
 							Evt_OnLoginFail(this, error);
@@ -724,7 +724,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 			
 			if(Evt_OnChangePasswordFail != null)
 			{
@@ -765,7 +765,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnChangePasswordFail != null)
 						{
 							Evt_OnChangePasswordFail(this, error);
@@ -821,7 +821,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 			
 			if(Evt_OnGetDataFail != null)
 			{
@@ -862,7 +862,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnGetDataFail != null)
 						{
 							Evt_OnGetDataFail(this, error);
@@ -920,7 +920,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 			
 			if(Evt_OnUploadDataFail != null)
 			{
@@ -961,7 +961,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnUploadDataFail != null)
 						{
 							Evt_OnUploadDataFail(this, error);
@@ -1018,7 +1018,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 			
 			if(Evt_OnUploadScoreFail != null)
 			{
@@ -1059,7 +1059,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnUploadDataFail != null)
 						{
 							Evt_OnUploadDataFail(this, error);
@@ -1112,7 +1112,7 @@ public class ServerSync :MonoBehaviour
 		//if there is an error while download data
 		if(!string.IsNullOrEmpty(wGo.error))
 		{
-			Debug.LogError(gameObject.name+" "+wGo.error);
+			DebugEx.DebugError(gameObject.name+" "+wGo.error);
 			
 			if(Evt_OnGetScoreFail != null)
 			{
@@ -1153,7 +1153,7 @@ public class ServerSync :MonoBehaviour
 					}
 					else if(error != 0)//if data has an error
 					{
-						Debug.LogError(gameObject.name+" return data has error:"+error);
+						DebugEx.DebugError(gameObject.name+" return data has error:"+error);
 						if(Evt_OnGetScoreFail != null)
 						{
 							Evt_OnGetScoreFail(this, error);

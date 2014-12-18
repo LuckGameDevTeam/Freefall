@@ -24,7 +24,7 @@ public class ObstacleMid : Obstacle
 
 		if(other.tag == Tags.player)
 		{
-			//Debug.Log("hit player");
+			//DebugEx.Debug("hit player");
 
 			other.gameObject.SendMessageUpwards("TakeDamage", damage);
 
@@ -43,7 +43,7 @@ public class ObstacleMid : Obstacle
 
 		if(smallObstacle == null)
 		{
-			Debug.LogError(gameObject.name+" unable to become small object, small object prefabe not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to become small object, small object prefabe not assigned");
 
 			return;
 		}

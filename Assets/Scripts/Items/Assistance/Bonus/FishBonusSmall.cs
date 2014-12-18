@@ -31,7 +31,7 @@ public class FishBonusSmall : Bonus
 			}
 			else
 			{
-				Debug.LogError(gameObject.name+" unable to play eat fish bone clip, eat fish bone clip not assign");
+				DebugEx.DebugError(gameObject.name+" unable to play eat fish bone clip, eat fish bone clip not assign");
 			}
 
 			base.OnTriggerEnter2D(other);

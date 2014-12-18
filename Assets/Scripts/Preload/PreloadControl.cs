@@ -53,7 +53,7 @@ public class PreloadControl : MonoBehaviour
 		*/
 
 		//log player prefabs data that was stored by DBManager
-		Debug.Log(PlayerPrefs.GetString("data"));
+		DebugEx.Debug(PlayerPrefs.GetString("data"));
 
 		int firstTimeLaunch = 0;
 		

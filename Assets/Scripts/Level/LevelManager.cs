@@ -19,7 +19,7 @@ public class LevelManager
 	{
 		if(mainLevel <= 0)
 		{
-			Debug.LogError("Can't sync level, level must above equal than 1");
+			DebugEx.DebugError("Can't sync level, level must above equal than 1");
 			return;
 		}
 

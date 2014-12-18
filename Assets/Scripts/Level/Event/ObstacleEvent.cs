@@ -112,9 +112,9 @@ public class ObstacleEvent : SpawnEvent
 				//spawn obstacle but there is no more spawn point can be used
 				if(spawnedPoints.Count == spawnPoints.Length)
 				{
-					Debug.LogError(gameObject.name+" has no delay and have duplicate spawn point: "+selectSpawnPoint.name);
-					Debug.LogError(gameObject.name+" make sure you have no duplicate spawn point or change delay to non 0");
-					Debug.LogError(gameObject.name+" event now interrupt and stop");
+					DebugEx.DebugError(gameObject.name+" has no delay and have duplicate spawn point: "+selectSpawnPoint.name);
+					DebugEx.DebugError(gameObject.name+" make sure you have no duplicate spawn point or change delay to non 0");
+					DebugEx.DebugError(gameObject.name+" event now interrupt and stop");
 
 					//end this spawn 
 					spawnSuccessful = true;
@@ -132,9 +132,9 @@ public class ObstacleEvent : SpawnEvent
 				//make sure spawn point not used more than once
 				if(spawnedPoints.Contains(selectSpawnPoint))
 				{
-					Debug.LogError(gameObject.name+" has no delay and have duplicate spawn point: "+selectSpawnPoint.name);
-					Debug.LogError(gameObject.name+" make sure you have no duplicate spawn point or change delay to non 0");
-					Debug.LogError(gameObject.name+" event now interrupt and stop");
+					DebugEx.DebugError(gameObject.name+" has no delay and have duplicate spawn point: "+selectSpawnPoint.name);
+					DebugEx.DebugError(gameObject.name+" make sure you have no duplicate spawn point or change delay to non 0");
+					DebugEx.DebugError(gameObject.name+" event now interrupt and stop");
 
 					//end loop
 					spawnSuccessful = true;
@@ -161,7 +161,7 @@ public class ObstacleEvent : SpawnEvent
 			//prefabe is null
 			if(obstaclePrefab == null)
 			{
-				Debug.LogError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
+				DebugEx.DebugError(gameObject.name+" can not spawn object, prefab missing at element: "+selectedIndex);
 
 				return;
 			}

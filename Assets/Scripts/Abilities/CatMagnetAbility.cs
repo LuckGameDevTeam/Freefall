@@ -30,7 +30,7 @@ public class CatMagnetAbility : Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play cat magnet clip, cat magnet clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play cat magnet clip, cat magnet clip not assigned");
 		}
 	}
 	

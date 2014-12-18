@@ -67,7 +67,7 @@ public class MainMenuController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("No character assets in Resources folder");
+			DebugEx.DebugError("No character assets in Resources folder");
 			
 			return null;
 		

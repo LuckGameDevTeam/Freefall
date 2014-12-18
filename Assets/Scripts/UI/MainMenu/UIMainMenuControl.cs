@@ -200,7 +200,7 @@ public class UIMainMenuControl : MonoBehaviour
 		fbController.Evt_OnUserDataLoaded -= OnUserDataLoaded;
 		fbController.Evt_OnUserDataFailToLoad -= OnUserDataFailToLoad;
 		
-		Debug.Log("FB login fail can not go to level selection");
+		DebugEx.Debug("FB login fail can not go to level selection");
 		
 		alertControl.ShowAlertWindow (null, canNotLoginKey);
 	}

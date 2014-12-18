@@ -99,7 +99,7 @@ public partial class TrashMan : MonoBehaviour
 			sw.Start();
 			recycleBin.initialize();
 			sw.Stop();
-			Debug.Log(recycleBin.prefab.name+" spend "+sw.Elapsed+" to initialize");
+			DebugEx.Debug(recycleBin.prefab.name+" spend "+sw.Elapsed+" to initialize");
 			_instanceIdToRecycleBin.Add( recycleBin.prefab.GetInstanceID(), recycleBin );
 
 			_poolNameToInstanceId.Add( recycleBin.prefab.name, recycleBin.prefab.GetInstanceID() );
@@ -156,7 +156,7 @@ public partial class TrashMan : MonoBehaviour
 		// make sure we can safely add the bin!
 		if( instance._poolNameToInstanceId.ContainsKey( recycleBin.prefab.name ) )
 		{
-			Debug.LogError( "Cannot manage the recycle bin because there is already a GameObject with the name (" + recycleBin.prefab.name + ") being managed" );
+			DebugEx.DebugError( "Cannot manage the recycle bin because there is already a GameObject with the name (" + recycleBin.prefab.name + ") being managed" );
 			return;
 		}
 
@@ -179,7 +179,7 @@ public partial class TrashMan : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError( "attempted to spawn go (" + go.name + ") but there is no recycle bin setup for it. Falling back to Instantiate" );
+			DebugEx.DebugError( "attempted to spawn go (" + go.name + ") but there is no recycle bin setup for it. Falling back to Instantiate" );
 			var newGo = GameObject.Instantiate( go, position, rotation ) as GameObject;
 			newGo.transform.parent = null;
 
@@ -200,7 +200,7 @@ public partial class TrashMan : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError( "attempted to spawn a GameObject from recycle bin (" + gameObjectName + ") but there is no recycle bin setup for it" );
+			DebugEx.DebugError( "attempted to spawn a GameObject from recycle bin (" + gameObjectName + ") but there is no recycle bin setup for it" );
 			return null;
 		}
 	}

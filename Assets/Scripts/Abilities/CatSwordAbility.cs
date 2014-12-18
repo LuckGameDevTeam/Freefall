@@ -42,7 +42,7 @@ public class CatSwordAbility : Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+"unable to play cat sword clip, cat sword clip not assigned");
+			DebugEx.DebugError(gameObject.name+"unable to play cat sword clip, cat sword clip not assigned");
 		}
 	}
 	

@@ -189,7 +189,7 @@ public class UILevelItem : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("You can not have level less or equal then 1");
+				DebugEx.DebugError("You can not have level less or equal then 1");
 			}
 			*/
 

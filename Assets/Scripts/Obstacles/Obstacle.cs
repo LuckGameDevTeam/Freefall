@@ -233,7 +233,7 @@ public class Obstacle : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError(gameObject.name+" unable to play dead clip, dead clip not assigned");
+				DebugEx.DebugError(gameObject.name+" unable to play dead clip, dead clip not assigned");
 			}
 
 
@@ -427,7 +427,7 @@ public class Obstacle : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("Unable to play sound effect "+gameObject.name+" audio bounce clip not assigned");
+				DebugEx.DebugError("Unable to play sound effect "+gameObject.name+" audio bounce clip not assigned");
 			}
 		}
 	}

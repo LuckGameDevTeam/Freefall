@@ -40,7 +40,7 @@ public class CatCrownAbility : Ability
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play cat crown clip, cat crown clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play cat crown clip, cat crown clip not assigned");
 		}
 	}
 

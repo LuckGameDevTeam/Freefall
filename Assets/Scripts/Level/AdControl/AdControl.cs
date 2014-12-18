@@ -87,7 +87,7 @@ public class AdControl : MonoBehaviour
 	public void CreateAd(AdStyle adStyle)
 	{
 #if TestMode
-		Debug.LogError("TestMode do not create ad");
+		DebugEx.DebugError("TestMode do not create ad");
 		return;
 #endif
 		//if(!StoreInventory.NonConsumableItemExists(StoreAssets.UNLOCK_ALL_LEVEL_NO_AD_ITEM_ID))

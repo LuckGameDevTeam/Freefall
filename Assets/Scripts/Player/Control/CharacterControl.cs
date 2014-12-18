@@ -491,7 +491,7 @@ public class CharacterControl : MonoBehaviour
 		if (actionMode)
 			return;
 
-		//Debug.Log ("Touch move:"+moveAmount);
+		//DebugEx.Debug ("Touch move:"+moveAmount);
 
 		//change spped
 		characterSpeed = moveSpeed;
@@ -629,7 +629,7 @@ public class CharacterControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" can not play under attack sound, under attack clip not assigned");
+			DebugEx.DebugError(gameObject.name+" can not play under attack sound, under attack clip not assigned");
 		}
 	}
 
@@ -676,7 +676,7 @@ public class CharacterControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gameObject.name+" unable to play victory clip, victory clip not assigned");
+			DebugEx.DebugError(gameObject.name+" unable to play victory clip, victory clip not assigned");
 		}
 		
 		//start victory action
@@ -766,7 +766,7 @@ public class CharacterControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("You give character an non ability gameobject");
+			DebugEx.DebugError("You give character an non ability gameobject");
 		}
 	}
 

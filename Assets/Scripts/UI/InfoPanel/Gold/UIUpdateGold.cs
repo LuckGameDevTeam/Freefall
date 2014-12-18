@@ -75,7 +75,7 @@ public class UIUpdateGold : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError(gameObject.name+" can not play tween");
+				DebugEx.DebugError(gameObject.name+" can not play tween");
 			}
 		}
 

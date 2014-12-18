@@ -31,7 +31,7 @@ public class UILifeCounterTime : MonoBehaviour
 
 		if(o == null)
 		{
-			Debug.LogError("Can't find LifeCounter from scene time will not display");
+			DebugEx.DebugError("Can't find LifeCounter from scene time will not display");
 		}
 		else
 		{

@@ -88,7 +88,7 @@ public class UISubLevelSelectionControl : MonoBehaviour
 		if(selectedSubLevel != 0)
 		{
 			string levelToLoad = "Level" + currentMainLevel + "-" + selectedSubLevel;
-			Debug.Log ("Load game level: " + levelToLoad);
+			DebugEx.Debug ("Load game level: " + levelToLoad);
 
 			//take player 1 life
 			//StoreInventory.TakeItem(StoreAssets.PLAYER_LIFE_ITEM_ID, 1);
@@ -111,7 +111,7 @@ public class UISubLevelSelectionControl : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log ("Select game level");
+			DebugEx.Debug ("Select game level");
 
 			alertControl.ShowAlertWindow(selectLevelKey, selectLevelDescKey);
 		}

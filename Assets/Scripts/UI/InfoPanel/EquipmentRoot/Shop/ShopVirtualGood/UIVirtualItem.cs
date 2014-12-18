@@ -103,8 +103,8 @@ public class UIVirtualItem : UIVirtualGood
 			
 		ConfigureButton ();
 			
-		//Debug.Log (itemId + " " + StoreInventory.GetItemBalance (itemId));
-		Debug.Log (itemId + " " + DBManager.GetPlayerData(itemId).AsInt);
+		//DebugEx.Debug (itemId + " " + StoreInventory.GetItemBalance (itemId));
+		DebugEx.Debug (itemId + " " + DBManager.GetPlayerData(itemId).AsInt);
 	}
 
 	/// <summary>
