@@ -22,9 +22,17 @@ public class CharacterAnimation : MonoBehaviour
 	
 	protected virtual void Awake()
 	{
+
+	}
+
+	/// <summary>
+	/// Init the animation.
+	/// </summary>
+	public void InitAnim()
+	{
 		//find animator component
 		anim = GetComponent<Animator> ();
-
+		
 		//init animation
 		InitAnimation (anim);
 	}
