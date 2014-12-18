@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: f7d246201fd894461894c9143085492c, type: 2}
   mSprites:
   - name: button_g_flash
-    x: 579
-    y: 1907
+    x: 1204
+    y: 278
     width: 274
     height: 94
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_g_off
-    x: 579
-    y: 2002
+    x: 1160
+    y: 151
     width: 280
     height: 100
     borderLeft: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Credit
     x: 0
-    y: 1472
+    y: 447
     width: 578
     height: 757
     borderLeft: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: enl_logo
-    x: 1220
-    y: 2274
+    x: 633
+    y: 373
     width: 768
     height: 252
     borderLeft: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_medals_01
-    x: 1858
-    y: 3770
+    x: 1303
+    y: 42
     width: 108
     height: 108
     borderLeft: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_medals_02
-    x: 1858
-    y: 3879
+    x: 1194
+    y: 42
     width: 108
     height: 108
     borderLeft: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_medals_03
-    x: 1858
-    y: 3988
+    x: 1441
+    y: 169
     width: 108
     height: 108
     borderLeft: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_medals_04
-    x: 1650
-    y: 2963
+    x: 1412
+    y: 42
     width: 108
     height: 108
     borderLeft: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: logo_ch
-    x: 1220
-    y: 2527
+    x: 0
+    y: 14
     width: 632
     height: 432
     borderLeft: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: players_account_backdrop
-    x: 1089
-    y: 3072
+    x: 0
+    y: 1935
     width: 768
     height: 1024
     borderLeft: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: players_account_ui_end
     x: 0
-    y: 2230
+    y: 1205
     width: 640
     height: 729
     borderLeft: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: players_account_ui_enter
-    x: 1089
-    y: 2971
+    x: 633
+    y: 24
     width: 560
     height: 100
     borderLeft: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: players_ui_profile_modify
-    x: 641
-    y: 2260
+    x: 633
+    y: 252
     width: 570
     height: 120
     borderLeft: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_ranking_end
-    x: 641
-    y: 2381
+    x: 579
+    y: 626
     width: 578
     height: 578
     borderLeft: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_ranking_fields
-    x: 579
-    y: 2103
+    x: 633
+    y: 125
     width: 526
     height: 126
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: use
-    x: 1858
-    y: 3669
+    x: 1521
+    y: 68
     width: 100
     height: 100
     borderLeft: 0
