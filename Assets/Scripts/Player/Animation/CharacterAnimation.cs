@@ -93,7 +93,7 @@ public class CharacterAnimation : MonoBehaviour
 	/// <summary>
 	/// Reset animation.
 	/// </summary>
-	public virtual void Reset()
+	public virtual void ResetAnim()
 	{
 
 	}

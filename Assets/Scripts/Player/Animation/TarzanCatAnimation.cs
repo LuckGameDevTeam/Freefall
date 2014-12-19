@@ -98,7 +98,7 @@ public class TarzanCatAnimation : CharacterAnimation
 		
 	}
 	
-	public override void Reset()
+	public override void ResetAnim()
 	{
 		anim.StopPlayback ();
 		anim.Play (normal_bool);
