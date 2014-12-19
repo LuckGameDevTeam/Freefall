@@ -714,7 +714,7 @@ public class CharacterControl : MonoBehaviour
 		state = CharacterState.Unknow;
 
 		//reset animation
-		chaAnim.Reset ();
+		chaAnim.ResetAnim ();
 
 		//reset health
 		CharacterHealth health = GetComponent<CharacterHealth> ();
