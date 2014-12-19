@@ -170,6 +170,10 @@ public class UIResultControl : MonoBehaviour
 		{
 			resultStartFills[i].SetActive(false);
 		}
+
+		mileResultLabel.text = "0";
+		coinEarnLabel.text = "0";
+		fishBoneEarnLabel.text = "0";
 		
 		//set disatance label with animation
 		if(mileResultLabel)
@@ -193,6 +197,7 @@ public class UIResultControl : MonoBehaviour
 	/// <param name="target">Target.</param>
 	IEnumerator MileCountTo(int target)
 	{
+
 		//remember current value as starting position
 		int start = 0;
 		int curVal = 0;
@@ -247,6 +252,7 @@ public class UIResultControl : MonoBehaviour
 	/// <param name="target">Target.</param>
 	IEnumerator CoinCountTo(int target)
 	{
+
 		//remember current value as starting position
 		int start = 0;
 		int curVal = 0;
@@ -302,6 +308,7 @@ public class UIResultControl : MonoBehaviour
 	/// <param name="target">Target.</param>
 	IEnumerator FishBoneCountTo(int target)
 	{
+
 		//remember current value as starting position
 		int start = 0;
 		int curVal = 0;
