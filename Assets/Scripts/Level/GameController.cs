@@ -866,14 +866,6 @@ public class GameController : MonoBehaviour
 			DebugEx.DebugError(gameObject.name+" unable to play fail clip, fail clip not assigned");
 		}
 
-#if TestMode
-
-		DebugEx.DebugError("TestMode can not increase funds for player");
-#else
-		//give player coin they eat from this level
-		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
-		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
-#endif
 
 		//upload client data
 		sisDs.UploadData ();
@@ -915,13 +907,6 @@ public class GameController : MonoBehaviour
 			DebugEx.DebugError(gameObject.name+" unable to play victory clip, victory clip not assigned");
 		}
 
-#if TestMode
-		DebugEx.DebugError("TestMode can not increase funds for player");
-#else
-		//give player coin they eat from this level
-		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
-		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
-#endif
 
 		//unlock next level
 		UnlockNextLevel ();
@@ -1063,6 +1048,15 @@ public class GameController : MonoBehaviour
 	/// <param name="control">Control.</param>
 	void OnResultConfirmButtonClick(UIResultControl control)
 	{
+		#if TestMode
+		
+		DebugEx.DebugError("TestMode can not increase funds for player");
+		#else
+		//give player coin they eat from this level
+		//StoreInventory.GiveItem (StoreAssets.CAT_COIN_CURRENCY_ITEM_ID, coinCount);
+		DBManager.IncreaseFunds ((IAPManager.GetCurrency () [0]).name, coinCount);
+		#endif
+
 		//upload client data
 		sisDs.UploadData ();
 

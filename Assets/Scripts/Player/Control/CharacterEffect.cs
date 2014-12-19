@@ -73,6 +73,19 @@ public class CharacterEffect : MonoBehaviour
 		//create hit effect
 		if((damageEffectPrefab != null) && (damageEffect == null))
 		{
+			if(TrashMan.recycleBinForGameObject(damageEffectPrefab) == null)
+			{
+				TrashManRecycleBin newBin = new TrashManRecycleBin();
+				newBin.prefab = damageEffectPrefab;
+				newBin.instancesToAllocateIfEmpty = 2;
+				newBin.instancesToPreallocate = 2;
+				newBin.cullExcessPrefabs = false;
+				newBin.imposeHardLimit = false;
+				
+				TrashMan.manageRecycleBin(newBin);
+			}
+
+
 			//tempEffect = Instantiate(damageEffectPrefab) as GameObject;
 			tempEffect = TrashMan.spawn(damageEffectPrefab);
 			
@@ -90,6 +103,18 @@ public class CharacterEffect : MonoBehaviour
 		//create coin eaten effect
 		if((coinEatenEffectPrefab != null) && (coinEffect == null))
 		{
+			if(TrashMan.recycleBinForGameObject(coinEatenEffectPrefab) == null)
+			{
+				TrashManRecycleBin newBin = new TrashManRecycleBin();
+				newBin.prefab = coinEatenEffectPrefab;
+				newBin.instancesToAllocateIfEmpty = 2;
+				newBin.instancesToPreallocate = 2;
+				newBin.cullExcessPrefabs = false;
+				newBin.imposeHardLimit = false;
+				
+				TrashMan.manageRecycleBin(newBin);
+			}
+
 			//tempEffect = Instantiate(coinEatenEffectPrefab) as GameObject;
 
 			tempEffect = TrashMan.spawn(coinEatenEffectPrefab);
@@ -106,6 +131,18 @@ public class CharacterEffect : MonoBehaviour
 		//create fish bone eaten effect
 		if((fishBoneEatenEffectPrefab != null) && (fishBoneEffect == null))
 		{
+			if(TrashMan.recycleBinForGameObject(fishBoneEatenEffectPrefab) == null)
+			{
+				TrashManRecycleBin newBin = new TrashManRecycleBin();
+				newBin.prefab = fishBoneEatenEffectPrefab;
+				newBin.instancesToAllocateIfEmpty = 2;
+				newBin.instancesToPreallocate = 2;
+				newBin.cullExcessPrefabs = false;
+				newBin.imposeHardLimit = false;
+				
+				TrashMan.manageRecycleBin(newBin);
+			}
+
 			//tempEffect = Instantiate(fishBoneEatenEffectPrefab) as GameObject;
 			tempEffect = TrashMan.spawn(fishBoneEatenEffectPrefab);
 			
@@ -121,6 +158,17 @@ public class CharacterEffect : MonoBehaviour
 		//create cat cookie eaten effect
 		if((catCookieEatenEffectPrefab != null) && (catCookieEffect == null))
 		{
+			if(TrashMan.recycleBinForGameObject(catCookieEatenEffectPrefab) == null)
+			{
+				TrashManRecycleBin newBin = new TrashManRecycleBin();
+				newBin.prefab = catCookieEatenEffectPrefab;
+				newBin.instancesToAllocateIfEmpty = 2;
+				newBin.instancesToPreallocate = 2;
+				newBin.cullExcessPrefabs = false;
+				newBin.imposeHardLimit = false;
+				
+				TrashMan.manageRecycleBin(newBin);
+			}
 			//tempEffect  = Instantiate(catCookieEatenEffectPrefab) as GameObject;
 			tempEffect = TrashMan.spawn(catCookieEatenEffectPrefab);
 
