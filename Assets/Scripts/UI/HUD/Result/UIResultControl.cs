@@ -193,6 +193,8 @@ public class UIResultControl : MonoBehaviour
 	/// <param name="target">Target.</param>
 	IEnumerator MileCountTo(int target)
 	{
+		mileResultLabel.text = "";
+
 		//remember current value as starting position
 		int start = 0;
 		int curVal = 0;
@@ -247,6 +249,8 @@ public class UIResultControl : MonoBehaviour
 	/// <param name="target">Target.</param>
 	IEnumerator CoinCountTo(int target)
 	{
+		coinEarnLabel.text = "";
+
 		//remember current value as starting position
 		int start = 0;
 		int curVal = 0;
@@ -302,6 +306,8 @@ public class UIResultControl : MonoBehaviour
 	/// <param name="target">Target.</param>
 	IEnumerator FishBoneCountTo(int target)
 	{
+		fishBoneEarnLabel.text = "";
+
 		//remember current value as starting position
 		int start = 0;
 		int curVal = 0;
