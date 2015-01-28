@@ -1187,4 +1187,5 @@ public class ServerSync :MonoBehaviour
 		}
 	}
 	#endregion get score
+	
 }

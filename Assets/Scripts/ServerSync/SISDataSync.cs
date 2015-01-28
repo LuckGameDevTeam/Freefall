@@ -39,6 +39,18 @@ public class SISDataSync : MonoBehaviour
 	/// </summary>
 	public OnAccountLoginFromOtherDevice Evt_OnAccountLoginFromOtherDevice;
 
+	public delegate void OnRestorePurchaseComplete();
+	/// <summary>
+	///  Event when restore purchase complete.
+	/// </summary>
+	public OnRestorePurchaseComplete Evt_OnRestorePurchaseComplete;
+
+	public delegate void OnRestorePurchaseFail();
+	/// <summary>
+	/// Event when restore purchase fail.
+	/// </summary>
+	public OnRestorePurchaseFail Evt_OnRestorePurchaseFail;
+
 	//last sync date time
 	private static string lastSyncDateTime;
 
@@ -51,6 +63,11 @@ public class SISDataSync : MonoBehaviour
 	/// Is uploading data.
 	/// </summary>
 	private bool isUploadingData = false;
+
+	/// <summary>
+	/// Is restoring data.
+	/// </summary>
+	private bool isRestoringData = false;
 
 	/// <summary>
 	/// force pulling data from server.
@@ -153,6 +170,19 @@ public class SISDataSync : MonoBehaviour
 		ServerSync.SharedInstance.GetServerData ();
 
 	}
+
+	public void RestorePurchase()
+	{
+		if(isRestoringData)
+		{
+			return;
+		}
+
+		isRestoringData = true;
+
+		ServerSync.SharedInstance.GetServerData ();
+
+	}
 	#endregion Sync data from server
 
 	#region ServerSync callback
@@ -174,6 +204,26 @@ public class SISDataSync : MonoBehaviour
 
 		//server has data and client has synced before
 		JSONNode jsonData = SimpleJSON.JSON.Parse (data);
+
+		//Restore purchase
+		if(isRestoringData)
+		{
+			PlayerPrefs.SetString("data", data);
+
+			DBManager.GetInstance().Init();
+
+			//set sync time
+			DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(DateTime.Now.ToString()));
+
+			if(Evt_OnRestorePurchaseComplete != null)
+			{
+				TriggerDelegateDelay(Evt_OnRestorePurchaseComplete, 1f);
+			}
+
+			isRestoringData = false;
+
+			return;
+		}
 
 		//client has data which not sync before, update from server
 		if( string.IsNullOrEmpty(DBManager.GetPlayerData(syncDateTimeKeyToVal)))
@@ -278,6 +328,18 @@ public class SISDataSync : MonoBehaviour
 
 	void OnGetDataFail(ServerSync syncControl, int errorCode)
 	{
+		if(isRestoringData)
+		{
+			if(Evt_OnRestorePurchaseFail != null)
+			{
+				TriggerDelegateDelay(Evt_OnRestorePurchaseFail, 1f);
+			}
+
+			isRestoringData = false;
+
+			return;
+		}
+
 		if(!string.IsNullOrEmpty(DBManager.GetPlayerData(syncDateTimeKeyToVal)))
 		{
 			//reverse sync time
@@ -352,6 +414,16 @@ public class SISDataSync : MonoBehaviour
 			DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(lastSyncDateTime));
 		}
 
+		if(isRestoringData)
+		{
+			isRestoringData = false;
+
+			if(Evt_OnRestorePurchaseFail != null)
+			{
+				TriggerDelegateDelay(Evt_OnRestorePurchaseFail, 1f);
+			}
+		}
+
 		if(isSyncingData)
 		{
 			isSyncingData = false;
@@ -381,6 +453,7 @@ public class SISDataSync : MonoBehaviour
 			DBManager.SetPlayerData(syncDateTimeKeyToVal, new SimpleJSON.JSONData(lastSyncDateTime));
 		}
 
+		isRestoringData = false;
 		isSyncingData = false;
 		isUploadingData = false;
 

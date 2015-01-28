@@ -21,6 +21,8 @@ public class UIMenuControl : MonoBehaviour
 	public delegate void EventOnCreditClick(UIMenuControl control);
 	public EventOnCreditClick Evt_OnCreditClick;
 
+	public delegate void EventOnRestoreClick(UIMenuControl control);
+	public EventOnRestoreClick Evt_OnRestoreClick;
 
 
 	// Use this for initialization
@@ -90,6 +92,14 @@ public class UIMenuControl : MonoBehaviour
 		if(Evt_OnCreditClick != null)
 		{
 			Evt_OnCreditClick(this);
+		}
+	}
+
+	public void RestoreClick()
+	{
+		if(Evt_OnRestoreClick != null)
+		{
+			Evt_OnRestoreClick(this);
 		}
 	}
 }

@@ -9,6 +9,10 @@ using System.Collections;
 public class UIMainMenuControl : MonoBehaviour 
 {
 	public string canNotLoginKey = "CanNotLoginFB";
+	public string restorePurchaseTitle = "RestorePurchaseTitle";
+	public string restoringPurchase = "RestoringPurchase";
+	public string restorePurchaseSuccess = "RestorePurchaseSuccess";
+	public string restorePurchaseFail = "RestorePurchaseFail";
 	
 	/// <summary>
 	/// Reference to setting menu.
@@ -36,6 +40,8 @@ public class UIMainMenuControl : MonoBehaviour
 	public UITutorialControl tutorialControl;
 	
 	public UIAlertControl alertControl;
+
+	public UIRestoreAlert restoreAlert;
 	
 	private FBController fbController;
 
@@ -58,6 +64,10 @@ public class UIMainMenuControl : MonoBehaviour
 		menuControl.Evt_OnTutorialClick += OnTutorialClick;
 		menuControl.Evt_OnSettingClick += OnSettingClick;
 		menuControl.Evt_OnCreditClick += OnCreditClick;
+		menuControl.Evt_OnRestoreClick += OnRestoreClick;
+
+		GetComponent<SISDataSync> ().Evt_OnRestorePurchaseComplete += OnRstorePurchase;
+		GetComponent<SISDataSync> ().Evt_OnRestorePurchaseFail += OnRestorePurchaseFail;
 	}
 	
 	// Use this for initialization
@@ -145,7 +155,28 @@ public class UIMainMenuControl : MonoBehaviour
 
 		menuControl.CloseMenu ();
 	}
+
+	void OnRestoreClick(UIMenuControl control)
+	{
+		GetComponent<SISDataSync> ().RestorePurchase ();
+
+		restoreAlert.ShowAlertWindow (restorePurchaseTitle, restoringPurchase, false);
+	}
 	#endregion #region UIMenuControl callback
+
+	#region SISDataSync callback
+
+	void OnRstorePurchase()
+	{
+		restoreAlert.ShowAlertWindow(restorePurchaseTitle, restorePurchaseSuccess);
+	}
+
+	void OnRestorePurchaseFail()
+	{
+		restoreAlert.ShowAlertWindow(restorePurchaseTitle, restorePurchaseFail);
+	}
+
+	#endregion SISDataSync callback
 	
 	#region Internal
 	/// <summary>
