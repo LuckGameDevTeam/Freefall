@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 1666e560348b647d8bedcff2daac0afd, type: 2}
   mSprites:
   - name: BellCat_Head
-    x: 1374
-    y: 68
+    x: 782
+    y: 118
     width: 110
     height: 110
     borderLeft: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_a_off
-    x: 854
-    y: 427
+    x: 1561
+    y: 894
     width: 300
     height: 100
     borderLeft: 0
@@ -68,8 +68,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_a_on
-    x: 854
-    y: 326
+    x: 1703
+    y: 1262
     width: 300
     height: 100
     borderLeft: 0
@@ -81,8 +81,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_d_off
-    x: 1605
-    y: 634
+    x: 119
+    y: 28
     width: 110
     height: 70
     borderLeft: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_d_on
-    x: 370
-    y: 5
+    x: 386
+    y: 442
     width: 110
     height: 70
     borderLeft: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_e_off
-    x: 1844
-    y: 1606
+    x: 0
+    y: 130
     width: 190
     height: 100
     borderLeft: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: button_e_on
     x: 1774
-    y: 1173
+    y: 1664
     width: 190
     height: 100
     borderLeft: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_f_off
-    x: 562
-    y: 64
+    x: 547
+    y: 424
     width: 280
     height: 200
     borderLeft: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_f_on
-    x: 562
-    y: 265
+    x: 1116
+    y: 533
     width: 280
     height: 200
     borderLeft: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CandyCat_Head
-    x: 1374
-    y: 179
+    x: 1486
+    y: 264
     width: 110
     height: 110
     borderLeft: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatCookieBig_Icon
-    x: 1808
-    y: 199
+    x: 1340
+    y: 113
     width: 100
     height: 100
     borderLeft: 0
@@ -185,8 +185,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatCookieBig_Icon_Pressed
-    x: 1707
-    y: 300
+    x: 327
+    y: 12
     width: 100
     height: 100
     borderLeft: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatCrown_Icon
-    x: 1808
-    y: 300
+    x: 529
+    y: 12
     width: 100
     height: 100
     borderLeft: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatCrown_Icon_Pressed
-    x: 1941
-    y: 802
+    x: 1441
+    y: 163
     width: 100
     height: 100
     borderLeft: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatDoll_Icon
-    x: 1808
-    y: 98
+    x: 761
+    y: 17
     width: 100
     height: 100
     borderLeft: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatMagnet_Icon
-    x: 1909
-    y: 199
+    x: 1239
+    y: 261
     width: 100
     height: 100
     borderLeft: 0
@@ -250,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatMagnet_Icon_Pressed
-    x: 1596
-    y: 189
+    x: 893
+    y: 77
     width: 100
     height: 100
     borderLeft: 0
@@ -263,8 +263,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatShield_Icon
-    x: 1707
-    y: 199
+    x: 1019
+    y: 150
     width: 100
     height: 100
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatShield_Icon_Pressed
-    x: 1155
-    y: 326
+    x: 1239
+    y: 160
     width: 100
     height: 100
     borderLeft: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatStick_Icon
-    x: 1707
-    y: 98
+    x: 428
+    y: 12
     width: 100
     height: 100
     borderLeft: 0
@@ -302,8 +302,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatStick_Icon_Pressed
-    x: 1596
-    y: 88
+    x: 660
+    y: 17
     width: 100
     height: 100
     borderLeft: 0
@@ -315,8 +315,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatSword_Icon
-    x: 1909
-    y: 300
+    x: 1340
+    y: 214
     width: 100
     height: 100
     borderLeft: 0
@@ -328,8 +328,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: CatSword_Icon_Pressed
-    x: 1155
-    y: 427
+    x: 1130
+    y: 152
     width: 100
     height: 100
     borderLeft: 0
@@ -341,8 +341,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: danger1
-    x: 562
-    y: 466
+    x: 1703
+    y: 1363
     width: 259
     height: 283
     borderLeft: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: danger2
     x: 1774
-    y: 1274
+    y: 1765
     width: 259
     height: 283
     borderLeft: 0
@@ -367,8 +367,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fields_00
-    x: 562
-    y: 1558
+    x: 0
+    y: 966
     width: 640
     height: 490
     borderLeft: 0
@@ -380,8 +380,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fields_01
-    x: 854
-    y: 750
+    x: 1481
+    y: 597
     width: 408
     height: 152
     borderLeft: 0
@@ -393,8 +393,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fields_02
-    x: 1775
-    y: 931
+    x: 828
+    y: 400
     width: 204
     height: 224
     borderLeft: 0
@@ -406,8 +406,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: GhostCat_Head
-    x: 1374
-    y: 401
+    x: 549
+    y: 113
     width: 110
     height: 110
     borderLeft: 0
@@ -419,8 +419,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_bone
-    x: 500
-    y: 1283
+    x: 1862
+    y: 937
     width: 56
     height: 57
     borderLeft: 0
@@ -432,8 +432,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_gold
-    x: 500
-    y: 1399
+    x: 1708
+    y: 317
     width: 57
     height: 57
     borderLeft: 0
@@ -445,8 +445,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_hp_back
-    x: 1605
-    y: 705
+    x: 342
+    y: 224
     width: 328
     height: 88
     borderLeft: 0
@@ -458,8 +458,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_hp_empty
-    x: 500
-    y: 1183
+    x: 562
+    y: 1464
     width: 55
     height: 49
     borderLeft: 0
@@ -471,8 +471,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_hp_fill
-    x: 500
-    y: 1233
+    x: 1486
+    y: 376
     width: 55
     height: 49
     borderLeft: 0
@@ -484,8 +484,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_pause
-    x: 1133
-    y: 1218
+    x: 933
+    y: 734
     width: 547
     height: 154
     borderLeft: 0
@@ -497,8 +497,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_pause_off
-    x: 1263
-    y: 68
+    x: 438
+    y: 113
     width: 110
     height: 110
     borderLeft: 0
@@ -510,8 +510,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_pause_on
-    x: 1263
-    y: 401
+    x: 1930
+    y: 195
     width: 110
     height: 110
     borderLeft: 0
@@ -523,8 +523,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_bar
-    x: 1263
-    y: 794
+    x: 547
+    y: 625
     width: 568
     height: 108
     borderLeft: 0
@@ -536,8 +536,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_bone
-    x: 249
-    y: 9
+    x: 933
+    y: 921
     width: 120
     height: 66
     borderLeft: 0
@@ -549,8 +549,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_crown
-    x: 854
-    y: 903
+    x: 1561
+    y: 995
     width: 361
     height: 252
     borderLeft: 0
@@ -562,8 +562,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_gold
-    x: 485
-    y: 546
+    x: 562
+    y: 1514
     width: 75
     height: 75
     borderLeft: 0
@@ -575,8 +575,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_quotes
-    x: 500
-    y: 1062
+    x: 862
+    y: 87
     width: 15
     height: 30
     borderLeft: 0
@@ -588,8 +588,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_star
-    x: 854
-    y: 23
+    x: 191
+    y: 99
     width: 135
     height: 131
     borderLeft: 0
@@ -601,8 +601,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: hud_results_star_hollow
-    x: 1025
-    y: 43
+    x: 1076
+    y: 1359
     width: 114
     height: 111
     borderLeft: 0
@@ -614,8 +614,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: HulkCat_Head
-    x: 1263
-    y: 179
+    x: 1019
+    y: 251
     width: 110
     height: 110
     borderLeft: 0
@@ -627,8 +627,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_close_off
-    x: 1681
-    y: 1292
+    x: 230
+    y: 18
     width: 80
     height: 80
     borderLeft: 0
@@ -640,8 +640,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_close_on
-    x: 1681
-    y: 1211
+    x: 1033
+    y: 544
     width: 80
     height: 80
     borderLeft: 0
@@ -653,8 +653,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_language
-    x: 1485
-    y: 179
+    x: 1819
+    y: 195
     width: 110
     height: 110
     borderLeft: 0
@@ -666,8 +666,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_lock
-    x: 562
-    y: 750
+    x: 641
+    y: 748
     width: 291
     height: 405
     borderLeft: 0
@@ -679,8 +679,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_lock_sub
-    x: 435
-    y: 892
+    x: 933
+    y: 988
     width: 120
     height: 165
     borderLeft: 0
@@ -692,8 +692,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_music
-    x: 1485
-    y: 290
+    x: 671
+    y: 118
     width: 110
     height: 110
     borderLeft: 0
@@ -705,8 +705,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_pb1
-    x: 0
-    y: 263
+    x: 1076
+    y: 889
     width: 484
     height: 358
     borderLeft: 0
@@ -718,8 +718,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_pb2
-    x: 0
-    y: 1058
+    x: 1203
+    y: 1248
     width: 499
     height: 398
     borderLeft: 0
@@ -731,8 +731,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_pb3
-    x: 0
-    y: 622
+    x: 641
+    y: 1154
     width: 434
     height: 435
     borderLeft: 0
@@ -744,8 +744,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_props_off
-    x: 1596
-    y: 290
+    x: 327
+    y: 113
     width: 110
     height: 110
     borderLeft: 0
@@ -757,8 +757,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_props_on
-    x: 1934
-    y: 683
+    x: 1708
+    y: 195
     width: 110
     height: 110
     borderLeft: 0
@@ -770,8 +770,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_ranking_off
-    x: 1596
-    y: 401
+    x: 908
+    y: 289
     width: 110
     height: 110
     borderLeft: 0
@@ -783,8 +783,34 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_ranking_on
-    x: 1374
-    y: 512
+    x: 1923
+    y: 929
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_restore_purchase_normal
+    x: 1375
+    y: 315
+    width: 110
+    height: 110
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_restore_purchase_press
+    x: 1923
+    y: 1151
     width: 110
     height: 110
     borderLeft: 0
@@ -796,8 +822,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_sound
-    x: 1707
-    y: 512
+    x: 1890
+    y: 639
     width: 110
     height: 110
     borderLeft: 0
@@ -809,8 +835,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_staff_off
-    x: 1818
-    y: 401
+    x: 1568
+    y: 486
     width: 110
     height: 110
     borderLeft: 0
@@ -822,8 +848,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_staff_on
-    x: 1485
-    y: 68
+    x: 1890
+    y: 528
     width: 110
     height: 110
     borderLeft: 0
@@ -835,8 +861,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_stars_0
-    x: 500
-    y: 1138
+    x: 547
+    y: 736
     width: 46
     height: 44
     borderLeft: 0
@@ -848,8 +874,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_stars_1
-    x: 500
-    y: 1093
+    x: 1862
+    y: 892
     width: 46
     height: 44
     borderLeft: 0
@@ -861,8 +887,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_system_off
-    x: 1707
-    y: 401
+    x: 1076
+    y: 1248
     width: 110
     height: 110
     borderLeft: 0
@@ -874,8 +900,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_system_on
-    x: 1374
-    y: 290
+    x: 1679
+    y: 486
     width: 110
     height: 110
     borderLeft: 0
@@ -887,8 +913,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_teaching_off
-    x: 1140
-    y: 44
+    x: 1901
+    y: 306
     width: 110
     height: 110
     borderLeft: 0
@@ -900,8 +926,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_teaching_on
-    x: 1929
-    y: 401
+    x: 1790
+    y: 306
     width: 110
     height: 110
     borderLeft: 0
@@ -913,8 +939,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: IronCat_Head
-    x: 1263
-    y: 290
+    x: 1597
+    y: 264
     width: 110
     height: 110
     borderLeft: 0
@@ -926,8 +952,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: language_fields
-    x: 0
-    y: 37
+    x: 994
+    y: 111
     width: 248
     height: 38
     borderLeft: 0
@@ -939,8 +965,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: language_fields_1
-    x: 1832
-    y: 794
+    x: 1130
+    y: 253
     width: 108
     height: 108
     borderLeft: 0
@@ -952,8 +978,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: language_fields_2
-    x: 0
-    y: 4
+    x: 862
+    y: 44
     width: 240
     height: 32
     borderLeft: 0
@@ -965,8 +991,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 3
   - name: Level1-sub-select
-    x: 1434
-    y: 623
+    x: 1033
+    y: 362
     width: 170
     height: 170
     borderLeft: 0
@@ -978,8 +1004,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Level1-sub-unselect
-    x: 854
-    y: 155
+    x: 1204
+    y: 362
     width: 170
     height: 170
     borderLeft: 0
@@ -991,8 +1017,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Level2-sub-select
-    x: 1263
-    y: 623
+    x: 737
+    y: 229
     width: 170
     height: 170
     borderLeft: 0
@@ -1004,8 +1030,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Level2-sub-unselect
-    x: 1844
-    y: 1707
+    x: 0
+    y: 231
     width: 170
     height: 170
     borderLeft: 0
@@ -1017,8 +1043,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Level3-sub-select
-    x: 1025
-    y: 155
+    x: 171
+    y: 231
     width: 170
     height: 170
     borderLeft: 0
@@ -1030,8 +1056,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Level3-sub-unselect
-    x: 1844
-    y: 1878
+    x: 1397
+    y: 426
     width: 170
     height: 170
     borderLeft: 0
@@ -1043,8 +1069,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mileage_effect
-    x: 516
-    y: 1078
+    x: 1340
+    y: 347
     width: 32
     height: 14
     borderLeft: 0
@@ -1056,8 +1082,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: more_game
-    x: 1929
-    y: 512
+    x: 1679
+    y: 375
     width: 110
     height: 110
     borderLeft: 0
@@ -1069,8 +1095,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: NinjaCat_Head
-    x: 1263
-    y: 512
+    x: 1790
+    y: 417
     width: 110
     height: 110
     borderLeft: 0
@@ -1082,8 +1108,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: PumpkinCat_Head
-    x: 1596
-    y: 512
+    x: 1901
+    y: 417
     width: 110
     height: 110
     borderLeft: 0
@@ -1095,8 +1121,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pw_ui_00
-    x: 562
-    y: 1156
+    x: 1203
+    y: 1647
     width: 570
     height: 401
     borderLeft: 0
@@ -1108,8 +1134,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: pw_ui_01
-    x: 1216
-    y: 936
+    x: 0
+    y: 513
     width: 540
     height: 80
     borderLeft: 0
@@ -1122,7 +1148,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: pw_ui_02
     x: 0
-    y: 76
+    y: 594
     width: 546
     height: 186
     borderLeft: 0
@@ -1134,8 +1160,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: rating
-    x: 1818
-    y: 512
+    x: 1568
+    y: 375
     width: 110
     height: 110
     borderLeft: 0
@@ -1147,8 +1173,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: TarzanCat_Head
-    x: 1485
-    y: 512
+    x: 1923
+    y: 1040
     width: 110
     height: 110
     borderLeft: 0
@@ -1173,8 +1199,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_confirm
-    x: 1485
-    y: 401
+    x: 908
+    y: 178
     width: 110
     height: 110
     borderLeft: 0
@@ -1186,8 +1212,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_gold
-    x: 500
-    y: 1341
+    x: 671
+    y: 255
     width: 57
     height: 57
     borderLeft: 0
@@ -1199,8 +1225,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_heading
-    x: 854
-    y: 639
+    x: 0
+    y: 402
     width: 385
     height: 110
     borderLeft: 0
@@ -1212,8 +1238,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_item
-    x: 1216
-    y: 1017
+    x: 1481
+    y: 750
     width: 558
     height: 138
     borderLeft: 0
@@ -1225,8 +1251,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_name field
-    x: 1133
-    y: 1373
+    x: 0
+    y: 781
     width: 640
     height: 184
     borderLeft: 0
@@ -1238,8 +1264,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_off
-    x: 435
-    y: 654
+    x: 1076
+    y: 1471
     width: 118
     height: 118
     borderLeft: 0
@@ -1251,8 +1277,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_on
-    x: 435
-    y: 773
+    x: 0
+    y: 11
     width: 118
     height: 118
     borderLeft: 0
@@ -1264,8 +1290,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_player_state
-    x: 854
-    y: 528
+    x: 386
+    y: 313
     width: 350
     height: 110
     borderLeft: 0
@@ -1277,7 +1303,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ui_select
-    x: 1203
+    x: 562
     y: 1590
     width: 640
     height: 458

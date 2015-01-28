@@ -46773,9 +46773,9 @@ MonoBehaviour:
   disabledColor: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
   dragHighlight: 0
-  hoverSprite: icon_ranking_off
-  pressedSprite: icon_ranking_off
-  disabledSprite: icon_ranking_off
+  hoverSprite: icon_restore_purchase_press
+  pressedSprite: icon_restore_purchase_press
+  disabledSprite: icon_restore_purchase_press
   hoverSprite2D: {fileID: 0}
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
@@ -46860,7 +46860,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 7a4265fa0a7fa4f9ea19b83186ca4618, type: 2}
-  mSpriteName: icon_ranking_on
+  mSpriteName: icon_restore_purchase_normal
   mFillCenter: 1
 --- !u!1 &1796812718
 GameObject:
