@@ -1,7 +1,7 @@
 
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
+// Copyright © 2011-2015 Tasharen Entertainment
 //----------------------------------------------
 
 //#define SHOW_HIDDEN_OBJECTS
@@ -302,6 +302,9 @@ public class UIDrawCall : MonoBehaviour
 			}
 		}
 		else shader = Shader.Find(shaderName);
+
+		// Always fallback to the default shader
+		if (shader == null) shader = Shader.Find("Unlit/Transparent Colored");
 
 		if (mMaterial != null)
 		{

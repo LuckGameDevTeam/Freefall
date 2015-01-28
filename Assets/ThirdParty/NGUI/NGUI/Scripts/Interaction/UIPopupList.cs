@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
+// Copyright © 2011-2015 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -247,7 +247,7 @@ public class UIPopupList : UIWidgetContainer
 		get
 		{
 			int index = items.IndexOf(mSelectedItem);
-			return index < itemData.Count ? itemData[index] : null;
+			return index > -1 && index < itemData.Count ? itemData[index] : null;
 		}
 	}
 
@@ -782,7 +782,9 @@ public class UIPopupList : UIWidgetContainer
 
 			// Calculate the dimensions of the object triggering the popup list so we can position it below it
 			Transform myTrans = transform;
-			Bounds bounds = NGUIMath.CalculateRelativeWidgetBounds(myTrans.parent, myTrans);
+
+			Vector3 min;
+			Vector3 max;
 
 			// Create the root object for the list
 			mChild = new GameObject("Drop-down List");
@@ -790,12 +792,10 @@ public class UIPopupList : UIWidgetContainer
 
 			Transform t = mChild.transform;
 			t.parent = myTrans.parent;
-			Vector3 min;
-			Vector3 max;
 			Vector3 pos;
 
 			// Manually triggered popup list on some other game object
-			if (openOn == OpenOn.Manual && UICamera.selectedObject != gameObject && bounds.size == Vector3.zero)
+			if (openOn == OpenOn.Manual && UICamera.selectedObject != gameObject)
 			{
 				StopCoroutine("CloseIfUnselected");
 				min = t.parent.InverseTransformPoint(mPanel.anchorCamera.ScreenToWorldPoint(UICamera.lastTouchPosition));
@@ -806,6 +806,7 @@ public class UIPopupList : UIWidgetContainer
 			}
 			else
 			{
+				Bounds bounds = NGUIMath.CalculateRelativeWidgetBounds(myTrans.parent, myTrans, false, false);
 				min = bounds.min;
 				max = bounds.max;
 				t.localPosition = min;
@@ -884,7 +885,7 @@ public class UIPopupList : UIWidgetContainer
 			}
 
 			// The triggering widget's width should be the minimum allowed width
-			x = Mathf.Max(x, bounds.size.x * dynScale - (bgPadding.x + padding.x) * 2f);
+			x = Mathf.Max(x, (max.x - min.x) * dynScale - (bgPadding.x + padding.x) * 2f);
 
 			float cx = x;
 			Vector3 bcCenter = new Vector3(cx * 0.5f, -labelHeight * 0.5f, 0f);
@@ -907,7 +908,11 @@ public class UIPopupList : UIWidgetContainer
 				else
 				{
 					BoxCollider2D b2d = lbl.GetComponent<BoxCollider2D>();
+#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6
 					b2d.center = bcCenter;
+#else
+					b2d.offset = bcCenter;
+#endif
 					b2d.size = bcSize;
 				}
 			}
@@ -966,7 +971,7 @@ public class UIPopupList : UIWidgetContainer
 
 			min = t.localPosition;
 			max.x = min.x + mBackground.width;
-			max.y = min.y + mBackground.height;
+			max.y = min.y - mBackground.height;
 			max.z = min.z;
 			Vector3 offset = mPanel.CalculateConstrainOffset(min, max);
 			t.localPosition += offset;
