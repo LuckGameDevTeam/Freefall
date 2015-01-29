@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Reflection;
+using SIS;
 
 public class LoginControl : MonoBehaviour 
 {
@@ -348,6 +349,22 @@ public class LoginControl : MonoBehaviour
 	void OnSyncDataComplete()
 	{
 		statusLabel.text = Localization.Get (syncDataSuccessKey);
+
+		PlayerCharacter pcs = PlayerCharacter.Load();
+		
+		//if character is not purchased reverse back to default character
+		if(!DBManager.isPurchased(pcs.characterName))
+		{
+			DBManager.SetToSelected("BellCat", true);
+			
+			pcs.characterName = "BellCat";
+			
+			PlayerCharacter.Save(pcs);
+		}
+		else
+		{
+			DBManager.SetToSelected(pcs.characterName, true);
+		}
 
 		UnlockUI ();
 
